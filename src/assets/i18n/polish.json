@@ -238,5 +238,15 @@
 		"save": "Zapisz",
 		"ui-language": "Język programu",
 		"zoom": "Powiększenie"
+	},
+	"trade": {
+		"name": "Trade Chat",
+		"chat-reply-message": "Treść wiadomości, którą będziesz wysyłał",
+		"chat-reply-message-keybinding": "Klawisz, którym chcesz odpowiedzieć",
+		"chat-read-client-file": "Odczytuj plik Client.txt z folderu z grą PoE (może wpływać na wydajność w przypadku dysków HDD)",
+		"chat-client-file-path": "Scieżka do pliku Client.txt w Twoim folderze z grą",
+		"chat-settings": "Ustawienia dotyczące czatu marketowego",
+		"chat-invite-last-keybinding": "Klawisz, by zaprosić autora ostatniej wiadomości do party",
+		"chat-settings-keybinds": "Przypisania klawiszy w czacie marketowym"
 	}
 }

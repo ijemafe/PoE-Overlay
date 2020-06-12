@@ -235,8 +235,19 @@
 		"league": "League",
 		"open-settings": "Open Settings",
 		"relaunch-app": "Relaunch App",
+		"read-client-file": "Read Client.txt file",
 		"save": "Save",
 		"ui-language": "UI Language",
 		"zoom": "Zoom"
+	},
+	"trade": {
+		"name": "Trade Chat",
+		"chat-reply-message": "Text that you want to reply with",
+		"chat-reply-message-keybinding": "Keybind you want to use the reply",
+		"chat-read-client-file": "Read Client.txt from your PoE directory (may affect performance on HDD drives)",
+		"chat-client-file-path": "Path to Client.txt in your PoE directory",
+		"chat-settings": "Chat related trading settings",
+		"chat-invite-last-keybinding": "Key to invite last messenger to party",
+		"chat-settings-keybinds": "Settings for trading related chat keybinds"
 	}
 }

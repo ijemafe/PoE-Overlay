@@ -5,6 +5,7 @@ import { CommandModule } from '@modules/command/command.module';
 import { EvaluateModule } from '@modules/evaluate/evaluate.module';
 import { MapModule } from '@modules/map/map.module';
 import { MiscModule } from '@modules/misc/misc.module';
+import { TradeModule } from '@modules/trade/trade.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { AppTranslationsLoader } from './app-translations.loader';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
     CommandModule,
     MapModule,
     MiscModule,
+    TradeModule,
     BookmarkModule
   ],
   bootstrap: [AppComponent]

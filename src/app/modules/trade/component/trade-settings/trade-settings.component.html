@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <app-card [title]="'trade.chat-settings' | translate">
+            <div class="row">
+                <div class="col">
+                    <mat-slide-toggle [checked]="settings.tradeChatReadClientFile"
+                        (change)="settings.tradeChatReadClientFile = $event.checked">
+                        {{'trade.chat-read-client-file' | translate}}
+                    </mat-slide-toggle>
+                    <mat-form-field>
+                        <mat-label>{{'trade.chat-client-file-path' | translate}}</mat-label>
+                        <input type="text" matInput [(ngModel)]="settings.tradeChatClientFilePath">
+                    </mat-form-field>
+                </div>
+            </div>
+        </app-card>
+    </div>
+</div>
+<app-card [title]="'trade.chat-settings-keybinds' | translate">
+    <div class="row">
+        <div class="col-md-6 col-lg-4">
+
+            <div class="row">
+                <div class="col">
+                    <app-accelerator [label]="'trade.chat-invite-last-keybinding' | translate"
+                        [(value)]="settings.chatInviteLastKeybinding">
+                    </app-accelerator>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-4">
+            <app-accelerator [label]="'trade.chat-reply-message-keybinding' | translate"
+                [(value)]="settings.chatReplyMessageKeybinding">
+            </app-accelerator>
+        </div>
+        <div class="col-md-6 col-lg-4 f-grow">
+            <mat-form-field>
+                <mat-label>{{'trade.chat-reply-message' | translate}}</mat-label>
+                <input type="text" matInput [(ngModel)]="settings.chatReplyMessage">
+            </mat-form-field>
+        </div>
+    </div>
+</app-card>
