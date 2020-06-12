@@ -1,7 +1,19 @@
 <mat-form-field>
-  <mat-label>{{label}}</mat-label>
-  <input matInput [value]="(value || 'material.accelerator.unbound') | translate" [disabled]="!recording" (keydown)="onKeydown($event)" #input>
-  <button matSuffix mat-button (click)="onKeyboardClick(input)" title="Set Shortcut" *ngIf="!recording; else cancel">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [value]="value || 'material.accelerator.unbound' | translate"
+    [disabled]="!recording"
+    (keydown)="onKeydown($event)"
+    #input
+  />
+  <button
+    matSuffix
+    mat-button
+    (click)="onKeyboardClick(input)"
+    title="Set Shortcut"
+    *ngIf="!recording; else cancel"
+  >
     <mat-icon> keyboard </mat-icon>
   </button>
   <ng-template #cancel>

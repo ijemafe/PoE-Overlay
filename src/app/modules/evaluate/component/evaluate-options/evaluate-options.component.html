@@ -20,8 +20,13 @@
     </ng-container>
 
     <!-- online -->
-    <mat-slide-toggle [(ngModel)]="options.online" (ngModelChange)="onToggleOnlineClick()" labelPosition="before">
-      {{ 'evaluate.search.online-only' | translate }}</mat-slide-toggle>
+    <mat-slide-toggle
+      [(ngModel)]="options.online"
+      (ngModelChange)="onToggleOnlineClick()"
+      labelPosition="before"
+    >
+      {{ 'evaluate.search.online-only' | translate }}</mat-slide-toggle
+    >
     <!-- indexed -->
     <ng-container *ngIf="options.indexed">
       <div class="row">

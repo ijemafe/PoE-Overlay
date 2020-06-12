@@ -13,8 +13,9 @@
         </div>
         <div class="col-4 text-center">
           <mat-slide-toggle
-                            [checked]="bookmark.external"
-                            (change)="bookmark.external = $event.checked">
+            [checked]="bookmark.external"
+            (change)="bookmark.external = $event.checked"
+          >
             {{ 'bookmark.external' | translate }}
           </mat-slide-toggle>
         </div>
@@ -28,6 +29,8 @@
     </mat-card>
   </div>
   <div class="col-md-6">
-    <button mat-raised-button (click)="onAddClick()" class="card-button">{{'bookmark.add' | translate}}</button>
+    <button mat-raised-button (click)="onAddClick()" class="card-button">
+      {{ 'bookmark.add' | translate }}
+    </button>
   </div>
 </div>
