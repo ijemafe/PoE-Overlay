@@ -81,6 +81,7 @@
     "@ngx-translate/core": "^12.1.2",
     "@swimlane/ngx-charts": "^14.0.0",
     "@types/resize-observer-browser": "^0.1.3",
+    "active-win": "^6.1.0",
     "auto-launch": "^5.0.5",
     "bootstrap": "^4.5.0",
     "custom-electron-titlebar": "git+https://github.com/PoE-Overlay-Community/custom-electron-titlebar.git#9863e12aa39bb077f8b49f7569169f03e14b2995",
