@@ -1,1 +1,1 @@
-export * from './command-settings/command-settings.component';
+export * from './command-settings/command-settings.component'

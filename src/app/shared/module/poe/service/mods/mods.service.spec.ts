@@ -1,6 +1,6 @@
-import { async, TestBed } from '@angular/core/testing';
-import { SharedModule } from '@shared/shared.module';
-import { ModsService } from './mods.service';
+import { async, TestBed } from '@angular/core/testing'
+import { SharedModule } from '@shared/shared.module'
+import { ModsService } from './mods.service'
 
 // describe('ModsService', () => {
 //     let sut: ModsService;

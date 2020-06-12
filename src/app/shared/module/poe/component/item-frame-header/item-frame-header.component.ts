@@ -1,22 +1,22 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Item, Language } from '../../type';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { Item, Language } from '../../type'
 
 @Component({
   selector: 'app-item-frame-header',
   templateUrl: './item-frame-header.component.html',
   styleUrls: ['./item-frame-header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ItemFrameHeaderComponent {
   @Input()
-  public item: Item;
+  public item: Item
 
   @Input()
-  public queryItem: Item;
+  public queryItem: Item
 
   @Input()
-  public queryable: boolean;
+  public queryable: boolean
 
   @Input()
-  public language: Language;
+  public language: Language
 }

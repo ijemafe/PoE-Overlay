@@ -1,8 +1,8 @@
-import { ResizeDirective } from './resize.directive';
+import { ResizeDirective } from './resize.directive'
 
 describe('ResizeDirective', () => {
   it('should create an instance', () => {
-    const directive = new ResizeDirective(null, null, null);
-    expect(directive).toBeTruthy();
-  });
-});
+    const directive = new ResizeDirective(null, null, null)
+    expect(directive).toBeTruthy()
+  })
+})

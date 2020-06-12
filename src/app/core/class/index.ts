@@ -1,1 +1,1 @@
-export * from './values.class';
+export * from './values.class'

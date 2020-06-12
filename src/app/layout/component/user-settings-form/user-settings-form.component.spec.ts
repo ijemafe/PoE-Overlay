@@ -1,27 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ElectronProvider } from '@app/provider';
-import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from '@shared/shared.module';
-import { UserSettingsFormComponent } from './user-settings-form.component';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { ElectronProvider } from '@app/provider'
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core'
+import { SharedModule } from '@shared/shared.module'
+import { UserSettingsFormComponent } from './user-settings-form.component'
 
 class ElectronProviderFake {
   public provideRemote(): Electron.Remote {
-    return {
+    return ({
       getCurrentWindow: () => null,
-    } as any as Electron.Remote;
+    } as any) as Electron.Remote
   }
 
   public provideIpcRenderer(): Electron.IpcRenderer {
-    return {
+    return ({
       once: () => null,
-      send: () => null
-    } as any as Electron.IpcRenderer;
+      send: () => null,
+    } as any) as Electron.IpcRenderer
   }
 }
 
 describe('UserSettingsFormComponent', () => {
-  let component: UserSettingsFormComponent;
-  let fixture: ComponentFixture<UserSettingsFormComponent>;
+  let component: UserSettingsFormComponent
+  let fixture: ComponentFixture<UserSettingsFormComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -30,26 +30,23 @@ describe('UserSettingsFormComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: () => new TranslateFakeLoader()
-          }
-        })
+            useFactory: () => new TranslateFakeLoader(),
+          },
+        }),
       ],
       declarations: [UserSettingsFormComponent],
-      providers: [
-        { provide: ElectronProvider, useClass: ElectronProviderFake },
-      ]
-    })
-      .compileComponents();
-  }));
+      providers: [{ provide: ElectronProvider, useClass: ElectronProviderFake }],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserSettingsFormComponent);
-    component = fixture.componentInstance;
-    component.settings = {};
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(UserSettingsFormComponent)
+    component = fixture.componentInstance
+    component.settings = {}
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

@@ -1,30 +1,28 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SharedModule } from '@shared/shared.module';
-import { EvaluateSearchChartComponent } from './evaluate-search-chart.component';
-
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { SharedModule } from '@shared/shared.module'
+import { EvaluateSearchChartComponent } from './evaluate-search-chart.component'
 
 describe('EvaluateSearchChartComponent', () => {
-  let component: EvaluateSearchChartComponent;
-  let fixture: ComponentFixture<EvaluateSearchChartComponent>;
+  let component: EvaluateSearchChartComponent
+  let fixture: ComponentFixture<EvaluateSearchChartComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
-      declarations: [EvaluateSearchChartComponent]
-    })
-      .compileComponents();
-  }));
+      declarations: [EvaluateSearchChartComponent],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EvaluateSearchChartComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(EvaluateSearchChartComponent)
+    component = fixture.componentInstance
     component.result = {
       entries: [],
-    };
-    fixture.detectChanges();
-  });
+    }
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

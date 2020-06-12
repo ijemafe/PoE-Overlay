@@ -1,7 +1,6 @@
 <div class="options">
   <mat-icon class="clickable" (click)="toggle$.next(!toggle$.value)">filter_list</mat-icon>
   <div class="popover" *ngIf="toggle$ | async">
-
     <!-- league -->
     <ng-container *ngIf="options.leagueId">
       <ng-container *ngIf="leagues$ | async as leagues">
@@ -20,9 +19,9 @@
       <span class="divider"></span>
     </ng-container>
 
-
     <!-- online -->
-    <mat-slide-toggle [(ngModel)]="options.online" (ngModelChange)="onToggleOnlineClick()" labelPosition="before">{{'evaluate.search.online-only' | translate}}</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="options.online" (ngModelChange)="onToggleOnlineClick()" labelPosition="before">
+      {{ 'evaluate.search.online-only' | translate }}</mat-slide-toggle>
     <!-- indexed -->
     <ng-container *ngIf="options.indexed">
       <div class="row">
@@ -30,7 +29,7 @@
           <mat-icon>keyboard_arrow_left</mat-icon>
         </button>
         <span class="option" (wheel)="onIndexedWheel($event)">
-           {{ 'evaluate.search.max-age.' + getIndexedText() | translate}}
+          {{ 'evaluate.search.max-age.' + getIndexedText() | translate }}
         </span>
         <button mat-icon-button (click)="changeIndex(1)">
           <mat-icon>keyboard_arrow_right</mat-icon>
@@ -39,21 +38,12 @@
       <span class="divider"></span>
     </ng-container>
 
-
     <!-- fetch-count -->
     <ng-container *ngIf="options.fetchCount">
-      <div class="row">
-        <button mat-icon-button (click)="changeCount(-1)">
-          <mat-icon>keyboard_arrow_left</mat-icon>
-        </button>
-        <span class="option" (wheel)="onFetchCountWheel($event)">
-          {{ options.fetchCount }}
-          <span>{{'evaluate.count' | translate}}</span>
-        </span>
-        <button mat-icon-button (click)="changeCount(1)">
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </button>
-      </div>
+      <span class="option" (wheel)="onFetchCountWheel($event)">
+        {{ options.fetchCount }}
+        <span>{{ 'evaluate.count' | translate }}</span>
+      </span>
       <span class="divider"></span>
     </ng-container>
 

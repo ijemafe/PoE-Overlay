@@ -1,19 +1,19 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Item, Language } from '../../type';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { Item, Language } from '../../type'
 
 @Component({
   selector: 'app-item-frame-state',
   templateUrl: './item-frame-state.component.html',
   styleUrls: ['./item-frame-state.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ItemFrameStateComponent {
   @Input()
-  public item: Item;
+  public item: Item
 
   @Input()
-  public queryItem: Item;
+  public queryItem: Item
 
   @Input()
-  public language: Language;
+  public language: Language
 }

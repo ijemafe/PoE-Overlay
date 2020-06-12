@@ -1,11 +1,11 @@
 export type Point = {
-    x: number;
-    y: number;
+  x: number
+  y: number
 }
 
 export type Rectangle = {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
+  x: number
+  y: number
+  width: number
+  height: number
 }

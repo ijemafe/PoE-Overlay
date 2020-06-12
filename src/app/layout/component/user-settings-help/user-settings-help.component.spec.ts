@@ -1,12 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from '@shared/shared.module';
-import { UserSettingsHelpComponent } from './user-settings-help.component';
-
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core'
+import { SharedModule } from '@shared/shared.module'
+import { UserSettingsHelpComponent } from './user-settings-help.component'
 
 describe('UserSettingsHelpComponent', () => {
-  let component: UserSettingsHelpComponent;
-  let fixture: ComponentFixture<UserSettingsHelpComponent>;
+  let component: UserSettingsHelpComponent
+  let fixture: ComponentFixture<UserSettingsHelpComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,22 +14,21 @@ describe('UserSettingsHelpComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: () => new TranslateFakeLoader()
-          }
-        })
+            useFactory: () => new TranslateFakeLoader(),
+          },
+        }),
       ],
-      declarations: [UserSettingsHelpComponent]
-    })
-      .compileComponents();
-  }));
+      declarations: [UserSettingsHelpComponent],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserSettingsHelpComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(UserSettingsHelpComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

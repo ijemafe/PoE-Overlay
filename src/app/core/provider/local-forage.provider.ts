@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import * as localForage from 'localforage';
+import { Injectable } from '@angular/core'
+import * as localForage from 'localforage'
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalForageProvider {
-    public provide(): LocalForage {
-        return localForage;
-    }
+  public provide(): LocalForage {
+    return localForage
+  }
 }

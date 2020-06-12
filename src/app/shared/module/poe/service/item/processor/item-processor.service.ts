@@ -1,25 +1,26 @@
-import { Injectable } from '@angular/core';
-import { Item } from '@shared/module/poe/type';
-import { ItemDamageProcessorService } from './item-damage-processor.service';
-import { ItemPseudoProcessorService } from './item-pseudo-processor.service';
-import { ItemQualityProcessorService } from './item-quality-processor.service';
+import { Injectable } from '@angular/core'
+import { Item } from '@shared/module/poe/type'
+import { ItemDamageProcessorService } from './item-damage-processor.service'
+import { ItemPseudoProcessorService } from './item-pseudo-processor.service'
+import { ItemQualityProcessorService } from './item-quality-processor.service'
 
 export interface ItemProcessorOptions {
-    normalizeQuality: boolean;
+  normalizeQuality: boolean
 }
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class ItemProcessorService {
-    constructor(
-        private readonly itemQualityProcessorService: ItemQualityProcessorService,
-        private readonly itemDamageProcessorService: ItemDamageProcessorService,
-        private readonly itemPseudoProcessorService: ItemPseudoProcessorService) { }
+  constructor(
+    private readonly itemQualityProcessorService: ItemQualityProcessorService,
+    private readonly itemDamageProcessorService: ItemDamageProcessorService,
+    private readonly itemPseudoProcessorService: ItemPseudoProcessorService
+  ) {}
 
-    public process(item: Item, options: ItemProcessorOptions): void {
-        this.itemQualityProcessorService.process(item, options.normalizeQuality);
-        this.itemDamageProcessorService.process(item);
-        this.itemPseudoProcessorService.process(item);
-    }
+  public process(item: Item, options: ItemProcessorOptions): void {
+    this.itemQualityProcessorService.process(item, options.normalizeQuality)
+    this.itemDamageProcessorService.process(item)
+    this.itemPseudoProcessorService.process(item)
+  }
 }
