@@ -59,7 +59,7 @@ export class EvaluateOptionsComponent implements OnInit {
     this.changeLeague(factor, leagues);
   }
 
-  public changeLeague(factor, leagues) {
+  public changeLeague(factor: number, leagues: LeagueMap): void {
     const keys = Object.getOwnPropertyNames(leagues);
 
     let index = keys.findIndex(id => id === this.options.leagueId);
@@ -123,7 +123,7 @@ export class EvaluateOptionsComponent implements OnInit {
     this.resetTrigger.next();
   }
 
-  public getIndexedText() {
+  public getIndexedText(): string {
     return this.options.indexed.replace(/\d/, '');
   }
 }

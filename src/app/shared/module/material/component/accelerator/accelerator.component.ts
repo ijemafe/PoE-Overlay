@@ -26,7 +26,7 @@ export class AcceleratorComponent {
   public valueChange = new EventEmitter<string>();
 
   public recording = false;
-  valueBackup: string;
+  public valueBackup: string;
 
   public onKeyboardClick(el: HTMLElement): void {
     this.recording = true;
@@ -35,7 +35,7 @@ export class AcceleratorComponent {
     this.value = 'material.accelerator.any';
   }
 
-  public cancelSetShortcut() {
+  public cancelSetShortcut(): void {
     this.recording = false;
     this.value = this.valueBackup;
   }
