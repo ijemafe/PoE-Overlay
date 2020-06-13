@@ -1,5 +1,0 @@
-name: 'Run linux test Dockerfile'
-description: 'Run tests with linux Dockerfile.test'
-runs:
-  using: 'docker'
-  image: '../../../Dockerfile.test'
