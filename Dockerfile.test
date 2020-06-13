@@ -37,7 +37,6 @@ COPY karma*.conf.js $codedir
 # Install NodeJS dependencies/modules.
 RUN npm install
 
-# Build the app.
+# Run tests
 # If you get an out of memory error, increase Docker's resources.
-RUN mkdir -p $codedir/release
 RUN npm run ng:test:ci
