@@ -44,8 +44,6 @@ features, bugs, and development. All are welcome to join.
   - Highlighting items with Alt + F
   - An in game menu to change all settings <details><summary>Click to see image</summary>![menu](img/menu_0.5.2.jpg)</details>
 
-See the [Wiki](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/wiki) for further details.
-
 ## Getting Started
 
 ### Supported Platforms
