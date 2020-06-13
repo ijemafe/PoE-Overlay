@@ -1,21 +1,21 @@
-import { Language } from "./language.type"
+import { Language } from './language.type'
 
 export type Currency = {
-    id: string;
-    nameType: string;
-    image: string;
+  id: string
+  nameType: string
+  image: string
 }
 
 export type CurrencyTrade = {
-    tradeId: string;
-    nameType: string;
+  tradeId: string
+  nameType: string
 }
 
 export type CurrencyChaosEquivalents = {
-    [nameType: string]: number;
+  [nameType: string]: number
 }
 
 export type CurrencyRange = {
-  min: number;
-  max: number;
+  min: number
+  max: number
 }

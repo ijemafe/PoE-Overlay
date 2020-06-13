@@ -1,29 +1,32 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, from, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import { ContextFactory } from '../factory';
-import { Context } from '../type';
+import { Injectable } from '@angular/core'
+import { BehaviorSubject, from, Observable } from 'rxjs'
+import { map, tap } from 'rxjs/operators'
+import { ContextFactory } from '../factory'
+import { Context } from '../type'
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class ContextService {
-    private readonly contextSubject = new BehaviorSubject<Context>(undefined);
+  private readonly contextSubject = new BehaviorSubject<Context>(undefined)
 
-    constructor(private readonly contextFactory: ContextFactory) { }
+  constructor(private readonly contextFactory: ContextFactory) {}
 
-    public init(defaultContext: Context): Observable<Context> {
-        return from(this.contextFactory.create(defaultContext).pipe(
-            tap(createdContext => this.contextSubject.next(createdContext))
-        ).toPromise());
-    }
+  public init(defaultContext: Context): Observable<Context> {
+    return from(
+      this.contextFactory
+        .create(defaultContext)
+        .pipe(tap((createdContext) => this.contextSubject.next(createdContext)))
+        .toPromise()
+    )
+  }
 
-    public get(): Context {
-        // return copy
-        return { ...this.contextSubject.getValue() };
-    }
+  public get(): Context {
+    // return copy
+    return { ...this.contextSubject.getValue() }
+  }
 
-    public update(context: Context): void {
-        this.contextSubject.next(context);
-    }
+  public update(context: Context): void {
+    this.contextSubject.next(context)
+  }
 }

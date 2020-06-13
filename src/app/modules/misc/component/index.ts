@@ -1,1 +1,1 @@
-export * from './misc-settings/misc-settings.component';
+export * from './misc-settings/misc-settings.component'

@@ -1,5 +1,5 @@
-import { StashPriceTag } from '@shared/module/poe/service';
+import { StashPriceTag } from '@shared/module/poe/service'
 
 export interface EvaluateResult extends StashPriceTag {
-    tmp?: any;
+  tmp?: any
 }

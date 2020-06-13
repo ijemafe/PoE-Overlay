@@ -26,10 +26,7 @@
         </mat-card>
     </div>
     <div class="col-md-6">
-        <mat-card>
-            <div align="center">
-                <button mat-button (click)="onAddClick()">{{'bookmark.add' | translate}}</button>
-            </div>
-        </mat-card>
+        <button mat-raised-button (click)="onAddClick()"
+            class="card-button">{{'bookmark.add' | translate}}</button>
     </div>
 </div>

@@ -1,46 +1,45 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { UserSettings, UserSettingsComponent } from 'src/app/layout/type';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
 
 export interface CommandUserSettings extends UserSettings {
-  commands: CommandUserCommand[];
+  commands: CommandUserCommand[]
 }
 
 export interface CommandUserCommand {
-  text: string;
-  shortcut: string;
+  text: string
+  shortcut: string
 }
 
 @Component({
   selector: 'app-command-settings',
   templateUrl: './command-settings.component.html',
   styleUrls: ['./command-settings.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommandSettingsComponent implements UserSettingsComponent {
-
   @Input()
-  public settings: CommandUserSettings;
+  public settings: CommandUserSettings
 
   public load(): void {
     // stub
   }
 
   public onAddCommandClick(): void {
-    this.addCommand();
+    this.addCommand()
   }
 
   public onRemoveClick(index: number): void {
-    this.removeCommand(index);
+    this.removeCommand(index)
   }
 
   private addCommand(): void {
     this.settings.commands.push({
       text: '/',
-      shortcut: undefined
-    });
+      shortcut: undefined,
+    })
   }
 
   private removeCommand(index: number): void {
-    this.settings.commands.splice(index, 1);
+    this.settings.commands.splice(index, 1)
   }
 }

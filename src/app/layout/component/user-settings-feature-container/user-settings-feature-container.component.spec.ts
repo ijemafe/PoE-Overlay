@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { UserSettingsFeatureContainerComponent } from './user-settings-feature-container.component';
+import { UserSettingsFeatureContainerComponent } from './user-settings-feature-container.component'
 
 describe('UserSettingsFeatureContainerComponent', () => {
-  let component: UserSettingsFeatureContainerComponent;
-  let fixture: ComponentFixture<UserSettingsFeatureContainerComponent>;
+  let component: UserSettingsFeatureContainerComponent
+  let fixture: ComponentFixture<UserSettingsFeatureContainerComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserSettingsFeatureContainerComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [UserSettingsFeatureContainerComponent],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserSettingsFeatureContainerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(UserSettingsFeatureContainerComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

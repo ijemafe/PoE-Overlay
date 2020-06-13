@@ -1,7 +1,6 @@
 <div class="options">
   <mat-icon class="clickable" (click)="toggle$.next(!toggle$.value)">filter_list</mat-icon>
   <div class="popover" *ngIf="toggle$ | async">
-
     <!-- league -->
     <ng-container *ngIf="options.leagueId">
       <ng-container *ngIf="leagues$ | async as leagues">
@@ -9,13 +8,12 @@
           {{ leagues[options.leagueId] }}
         </span>
       </ng-container>
-    <span class="divider"></span>
+      <span class="divider"></span>
     </ng-container>
-
 
     <!-- online -->
     <span class="clickable" title="online" (click)="onToggleOnlineClick()">
-      <mat-icon>{{options.online ? 'wifi' : 'wifi_off'}}</mat-icon>
+      <mat-icon>{{ options.online ? 'wifi' : 'wifi_off' }}</mat-icon>
     </span>
     <!-- indexed -->
     <ng-container *ngIf="options.indexed">
@@ -25,14 +23,13 @@
       <span class="divider"></span>
     </ng-container>
 
-
     <!-- fetch-count -->
     <ng-container *ngIf="options.fetchCount">
       <span class="option" (wheel)="onFetchCountWheel($event)">
         {{ options.fetchCount }}
-        <span>{{'evaluate.count' | translate}}</span>
-      </span>    
-      <span class="divider"></span>  
+        <span>{{ 'evaluate.count' | translate }}</span>
+      </span>
+      <span class="divider"></span>
     </ng-container>
 
     <!-- reset -->

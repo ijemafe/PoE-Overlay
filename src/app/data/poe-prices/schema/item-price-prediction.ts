@@ -1,8 +1,8 @@
 export interface ItemPricePredictionResponse {
-    min: number;
-    max: number;
-    currency: 'chaos' | 'exalt';
-    warning_msg: string;
-    error_msg: string;
-    pred_confidence_score: number
+  min: number
+  max: number
+  currency: 'chaos' | 'exalt'
+  warning_msg: string
+  error_msg: string
+  pred_confidence_score: number
 }

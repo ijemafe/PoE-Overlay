@@ -1,4 +1,4 @@
-@import "./../../../../../../styles/variables";
+@import './../../../../../../styles/variables';
 
 .header {
   font-size: 19px;
@@ -46,7 +46,8 @@
       url(../../../../../../assets/poe/item/header-rare-middle.png) top center repeat-x;
 
     &.double {
-      background: url(../../../../../../assets/poe/item/header-double-rare-left.png) top left no-repeat,
+      background: url(../../../../../../assets/poe/item/header-double-rare-left.png) top left
+          no-repeat,
         url(../../../../../../assets/poe/item/header-double-rare-right.png) top right no-repeat,
         url(../../../../../../assets/poe/item/header-double-rare-middle.png) top center repeat-x;
     }
@@ -62,7 +63,8 @@
       url(../../../../../../assets/poe/item/header-unique-middle.png) top center repeat-x;
 
     &.double {
-      background: url(../../../../../../assets/poe/item/header-double-unique-left.png) top left no-repeat,
+      background: url(../../../../../../assets/poe/item/header-double-unique-left.png) top left
+          no-repeat,
         url(../../../../../../assets/poe/item/header-double-unique-right.png) top right no-repeat,
         url(../../../../../../assets/poe/item/header-double-unique-middle.png) top center repeat-x;
     }

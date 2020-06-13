@@ -30,7 +30,7 @@
         ]
     },
     "linux": {
-        "icon": "dist/favicon.png",
+        "icon": "dist/favicon@4x.png",
         "target": [
             "deb",
             "AppImage"

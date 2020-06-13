@@ -1,1 +1,1 @@
-export * from './service/item-price-prediction-http.service';
+export * from './service/item-price-prediction-http.service'

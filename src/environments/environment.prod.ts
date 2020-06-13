@@ -5,7 +5,7 @@ export const environment = {
     countryUrl: 'https://{country}.pathofexile.com/api',
     koreanUrl: 'https://poe.game.daum.net/api',
     simplifiedChineseUrl: 'https://poe.game.qq.com/api',
-    traditionalChineseUrl: 'https://web.poe.garena.tw/api'
+    traditionalChineseUrl: 'https://web.poe.garena.tw/api',
   },
   wiki: {
     baseUrl: 'https://pathofexile.gamepedia.com',
@@ -14,9 +14,9 @@ export const environment = {
     baseUrl: 'https://poedb.tw/{country}',
   },
   poeNinja: {
-    baseUrl: 'https://poe.ninja'
+    baseUrl: 'https://poe.ninja',
   },
   poePrices: {
-    baseUrl: 'https://www.poeprices.info'
-  }
-};
+    baseUrl: 'https://www.poeprices.info',
+  },
+}

@@ -1,5 +1,5 @@
 {
-  "extends": "tslint:recommended",
+  "extends": ["tslint:recommended", "tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
     "array-type": false,
     "arrow-parens": false,
@@ -9,26 +9,10 @@
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
-    "directive-selector": [
-      true,
-      "attribute",
-      "app",
-      "camelCase"
-    ],
-    "variable-name": [
-      true,
-      "allow-leading-underscore"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "app",
-      "kebab-case"
-    ],
-    "import-blacklist": [
-      true,
-      "rxjs/Rx"
-    ],
+    "directive-selector": [true, "attribute", "app", "camelCase"],
+    "variable-name": [true, "allow-leading-underscore"],
+    "component-selector": [true, "element", "app", "kebab-case"],
+    "import-blacklist": [true, "rxjs/Rx"],
     "interface-name": false,
     "max-classes-per-file": false,
     "max-line-length": [
@@ -42,63 +26,37 @@
     "member-ordering": [
       true,
       {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
+        "order": ["static-field", "instance-field", "static-method", "instance-method"]
       }
     ],
-    "no-consecutive-blank-lines": false,
-    "no-console": [
-      true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
-    "no-empty": false,
     "no-bitwise": false,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
-    "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
-    "no-switch-case-fall-through": true,
-    "no-var-requires": false,
-    "object-literal-key-quotes": [
-      true,
-      "as-needed"
-    ],
-    "object-literal-sort-keys": false,
-    "ordered-imports": false,
-    "quotemark": [
-      true,
-      "single"
-    ],
-    "trailing-comma": false,
-    "typedef": [
-      true,
-      "call-signature",
-      "property-declaration"
-    ],
     "no-conflicting-lifecycle": true,
+    "no-consecutive-blank-lines": false,
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+    "no-empty": false,
     "no-host-metadata-property": true,
+    "no-inferrable-types": [true, "ignore-params"],
     "no-input-rename": true,
     "no-inputs-metadata-property": true,
+    "no-non-null-assertion": true,
     "no-output-native": true,
     "no-output-on-prefix": true,
     "no-output-rename": true,
     "no-outputs-metadata-property": true,
+    "no-redundant-jsdoc": true,
+    "no-switch-case-fall-through": true,
+    "no-var-requires": false,
+    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "prettier": true,
+    "quotemark": [true, "single"],
     "template-banana-in-box": true,
     "template-no-negated-async": true,
+    "trailing-comma": false,
+    "typedef": [true, "call-signature", "property-declaration"],
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true
   },
-  "rulesDirectory": [
-    "codelyzer"
-  ]
+  "rulesDirectory": ["codelyzer"]
 }

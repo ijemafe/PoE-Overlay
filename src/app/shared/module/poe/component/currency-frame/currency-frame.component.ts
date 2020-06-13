@@ -1,25 +1,25 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Currency, CurrencyRange } from '../../type';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { Currency, CurrencyRange } from '../../type'
 
 @Component({
   selector: 'app-currency-frame',
   templateUrl: './currency-frame.component.html',
   styleUrls: ['./currency-frame.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrencyFrameComponent {
   @Input()
-  public currency: Currency;
+  public currency: Currency
 
   @Input()
-  public amount: number;
+  public amount: number
 
   @Input()
-  public label: string;
+  public label: string
 
   @Input()
-  public range: CurrencyRange;
+  public range: CurrencyRange
 
   @Input()
-  public count: number;
+  public count: number
 }

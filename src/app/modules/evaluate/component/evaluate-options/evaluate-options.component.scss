@@ -1,4 +1,4 @@
-@import "./../../../../../styles/variables";
+@import './../../../../../styles/variables';
 
 .options {
   position: absolute;
@@ -24,7 +24,7 @@
       }
     }
 
-    .divider{
+    .divider {
       border-bottom: 1px solid $light-grey;
       width: 50%;
       padding-top: 5px;

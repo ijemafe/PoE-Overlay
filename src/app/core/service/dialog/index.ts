@@ -1,3 +1,2 @@
-export * from './dialog-ref.service';
-export * from './dialog.service';
-
+export * from './dialog-ref.service'
+export * from './dialog.service'
