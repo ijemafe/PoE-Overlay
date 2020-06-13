@@ -6,7 +6,11 @@ on:
   pull_request:
     branches: [ master ]
 
+runs-on: ubuntu-latest
+
 jobs:
   build:
     steps:
-      - uses: ./.github/actions/run-linux-ci
+      - name: Run linux CI in dockerfile
+      id: linux_ci
+      uses: ./.github/actions/run-linux-ci
