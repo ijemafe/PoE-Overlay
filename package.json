@@ -9,6 +9,7 @@
     "ng:cc": "ngcc --properties esm5 browser module main --first-only --create-ivy-entry-points",
     "ng:serve": "ng serve",
     "ng:test": "ng test",
+    "ng:test:ci": "ng test --karma-config=karma-ci.conf.js",
     "ng:lint": "ng lint --fix",
     "start": "npm-run-all -p ng:serve electron:serve",
     "build": "npm run electron:serve-tsc && ng build",
