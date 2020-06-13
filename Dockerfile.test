@@ -32,7 +32,7 @@ COPY overlay.babel $codedir
 COPY electron $codedir/electron
 COPY img $codedir/img
 COPY src $codedir/src
-COPY karma*.conf.js $codedir
+COPY karma*.conf.js $codedir/
 
 # Install NodeJS dependencies/modules.
 RUN npm install
