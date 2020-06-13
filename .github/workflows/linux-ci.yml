@@ -13,5 +13,5 @@ jobs:
 
     steps:
       - name: Run linux CI in dockerfile
-      id: linux_ci
-      uses: ./.github/actions/run-linux-ci
+        id: linux_ci
+        uses: ./.github/actions/run-linux-ci
