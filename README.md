@@ -6,9 +6,9 @@ PoE Overlay is a tool for Path of Exile. The **_core aspect_** is to blend in wi
 
 - [Community Development](#community-development)
 - [Features](#features)
+- [Getting Started](#getting-started)
 - [Roadmap](#roadmap)
-- [Enduser](#enduser)
-- [Developer](#developer)
+- [Developer Docs](#developer-docs)
 - [Authors](#authors)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -19,47 +19,34 @@ PoE Overlay is a tool for Path of Exile. The **_core aspect_** is to blend in wi
 This version of PoE Overlay was forked on 2020-06-10 to snapshot the app before it was
 converted to closed source.
 
-We have a Discord server [here](https://discord.gg/jqupUW) where we discuss
+We have a Discord server [here](https://discord.gg/7wE9j5q) where we discuss
 features, bugs, and development. All are welcome to join.
 
 ## Features
 
 [![Feature Overview As Video](img/video.jpg)](https://www.youtube.com/watch?v=_cJmW8QkQnM)
 
-- Evaluation of items:
+### Evaluation of items
 
-  - select your preferred currencies and language
-  - uses the official pathofexile.com/trade website
-  - a graphical display of the price distribution<br><details>![item](img/item_0.5.8.jpg)</details>
-  - filter your search on all supported properties on click<br> <details>![item_filter](img/item_filter_0.5.8.jpg)</details>
-  - an in game browser to display the created search<br> <details>![browser](img/item_browser_0.5.8.jpg)</details>
-  - lets you price tag the item by clicking the desired bar/value
+  - Select your preferred currencies and language
+  - Uses the official pathofexile.com/trade website
+  - A graphical display of the price distribution <details><summary>Click to see image</summary>![item](img/item_0.5.8.jpg)</details>
+  - Filter your search on all supported properties on click <details><summary>Click to see image</summary>![item_filter](img/item_filter_0.5.8.jpg)</details>
+  - An in game browser to display the created search <details><summary>Click to see image</summary>![browser](img/item_browser_0.5.8.jpg)</details>
+  - Lets you price tag the item by clicking the desired bar/value
 
-- Customisable keybindings:
-  - bind in game commands to a custom hotkey
-  - premade /hideout on `F5` and /dnd on `F6`
-- Bookmark
+### Other Features
 
-  - bind websites on hotkeys
-
-- Misc:
-
-  - Navigating storage by CTRL + WHEEL
-  - Highlighting items by ALT + F
-
-- Menu:
-  - an in game menu to change all settings<br> <details>![menu](img/menu_0.5.2.jpg)</details>
+  - Bind in game commands to a custom hotkey
+  - Premade /hideout on `F5` and /dnd on `F6`
+  - Bind websites to hotkeys
+  - Navigating storage with Ctrl + MWheel
+  - Highlighting items with Alt + F
+  - An in game menu to change all settings <details><summary>Click to see image</summary>![menu](img/menu_0.5.2.jpg)</details>
 
 See the [Wiki](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/wiki) for further details.
 
-## Roadmap
-
-| Module | Status | Notes                                   |
-| ------ | -----: | --------------------------------------- |
-| Linux  |    50% | - Allow running this app on Linux       |
-| Trade  |     0% | - Send messages<br>- Trade UI<br>- etc. |
-
-## Instructions
+## Getting Started
 
 ### Supported Platforms
 
@@ -75,53 +62,62 @@ See the [Wiki](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fo
 
 ### Installation
 
-1. Head over to [Releases](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/releases) and download one of the following files
-   1. `poe-overlay-Setup-0.6.28.exe` to install locally. This supports auto update/ auto launch.
-   1. `poe-overlay-0.6.28.exe` portable version. This does not support auto update/ auto launch.
+Head over to [Releases](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/releases) and download one of the following files:
+
+Use `poe-overlay-Setup-<version>.exe` to install locally. This supports auto update / auto launch.
+
+Use `poe-overlay-<version>.exe` for the portable version. This does not support auto update / auto launch.
 
 ### Usage
 
-1. Run either of your downloaded file
+1. Run PoE Overlay
 1. Start Path of Exile
-1. Wait until you can see `PoE Overlay 0.6.28` in the bottom left corner
-1. Hit `f7` and set `Language` and `League` to meet your game settings
+1. Wait until you can see `PoE Overlay` in the bottom left corner
+1. Hit `F7` and set `Language` and `League` to meet your game settings
 
 ### Shortcuts
 
 You can change these shortcuts in the user settings menu.
 
-| Shortcut | Description                                                                                                              |
-| -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `ctrl+d` | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value |
-| `f7`     | Opens the user settings menu                                                                                             |
+|Shortcut  |Description
+|---       |---
+| `Ctrl+D` | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
+| `F7`     | Opens the user settings menu
 
-Full list below. Click on `Details`.
+<details><summary>Click to see full list</summary>
 
-<details>
-  
 |Shortcut        |Description
 |---             |---	    
-| `ctrl+d`       | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
-| `alt+t`        | As above - displays the item translated
-| `alt+w`        | Opens item in wiki
-| `ctrl+alt+w`   | As above - but in external browser
-| `alt+g`        | Opens item in poedb
-| `ctrl+alt+g`   | As above - but in external browser
-| `alt+q`        | Shows map info (layout, bosses)
-| `alt+f`        | Highlights item in stash
-| `ctrl+wheel`   | Navigates through stash tabs
-| `f5`           | Go to Hideout
-| `f6`           | Toggle DND
-| `f7`           | Opens the user settings menu
-| `f8`           | Exits overlay
-| `alt + num1`   | Open `https://www.poelab.com/`
-| `alt + num2`   | Open `https://wraeclast.com/`
-| `esc`          | Close latest dialog
-| `space`        | Close all dialogs
+| `Ctrl+D`       | Displays the item in a frame and evaluates the price. You can open the offical trade site on click of the currency value
+| `Alt+T`        | As above - displays the item translated
+| `Alt+W`        | Opens item in wiki
+| `Ctrl+Alt+W`   | As above - but in external browser
+| `Alt+G`        | Opens item in poedb
+| `Ctrl+Alt+G`   | As above - but in external browser
+| `Alt+Q`        | Shows map info (layout, bosses)
+| `Alt+F`        | Highlights item in stash
+| `Ctrl+MWheel`  | Navigates through stash tabs
+| `F5`           | Go to Hideout
+| `F6`           | Toggle DND
+| `F7`           | Opens the user settings menu
+| `F8`           | Exits overlay
+| `Alt + Num1`   | Open `https://www.poelab.com/`
+| `Alt + Num2`   | Open `https://wraeclast.com/`
+| `Esc`          | Close latest dialog
+| `Space`        | Close all dialogs
 
 </details>
 
-## Developer Documentation
+## Roadmap
+
+| Module  | Status      | Notes                                   |
+| ------  | ----------- | --------------------------------------- |
+| Linux   | In Progress | - Allow running this app on Linux       |
+| Harvest | In Progress | - Data for Harvest League 2020/06/19    |
+| Vulkan  | In Progress | - Support for Vulkan video modes        |
+| Trade   | In Progress | - Send messages<br>- Trade UI<br>- etc. |
+
+## Developer Docs
 
 See [here](DEVELOPERS.md).
 
