@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
-import { Language } from '../../type'
+import { ItemCategory, Language } from '../../type'
 import { ItemFramePropertiesComponent } from './item-frame-properties.component'
 
 describe('ItemFramePropertiesComponent', () => {
@@ -23,6 +23,7 @@ describe('ItemFramePropertiesComponent', () => {
       properties: {},
       requirements: {},
       sockets: [],
+      category: ItemCategory.Map,
     }
     component.queryItem = component.item
     component.language = Language.English
