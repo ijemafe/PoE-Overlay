@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
       - name: Run linux CI in dockerfile
         id: linux_ci
         uses: ./.github/actions/run-linux-ci
