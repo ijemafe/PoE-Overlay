@@ -1,14 +1,16 @@
 {
-  "explicit": {
-    "stat_3885634897": "stat_795138349",
-    "stat_795138349": "stat_3885634897"
-  },
-  "implicit": { },
-  "crafted": {},
-  "fractured": {},
-  "enchant": {},
-  "pseudo": {},
-  "veiled": {},
-  "monster": {},
-  "delve": {}
+  "indistinguishableStats": {
+    "explicit": {
+      "stat_3885634897": "stat_795138349",
+      "stat_795138349": "stat_3885634897"
+    },
+    "implicit": {},
+    "crafted": {},
+    "fractured": {},
+    "enchant": {},
+    "pseudo": {},
+    "veiled": {},
+    "monster": {},
+    "delve": {}
+  }
 }
