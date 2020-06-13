@@ -28,7 +28,6 @@ export class KeyboardService {
   }
 
   public keyTap(code: KeyCode, modifiers: string[] = []): void {
-    console.log(code, modifiers)
     this.ipcRenderer.sendSync('key-tap', code, modifiers)
   }
 

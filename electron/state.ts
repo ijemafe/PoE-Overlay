@@ -34,6 +34,7 @@ export class State {
     if (versionExists) {
       const version = fs.readFileSync(this.versionPath, 'utf-8').trim()
       versionUpdated = version !== appVersion
+      // tslint:disable-next-line:no-console
       console.info(`App checking version: ${version} -> ${appVersion}, ${versionUpdated}`)
     }
     if (versionUpdated) {

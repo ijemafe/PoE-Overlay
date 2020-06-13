@@ -81,6 +81,7 @@ export function register(
           })
           .then(
             (success) =>
+              // tslint:disable-next-line:no-console
               success ? console.debug('Started listening for Mousewheel-Events.') : null,
             (error) => onError(error)
           )
@@ -96,6 +97,7 @@ export function register(
       case 'CmdOrCtrl + MouseWheelUp':
       case 'CmdOrCtrl + MouseWheelDown':
         hook.disable().then(
+          // tslint:disable-next-line:no-console
           (success) => (success ? console.debug('Stopped listening for Mousewheel-Events.') : null),
           (error) => onError(error)
         )
