@@ -1,10 +1,12 @@
-# Dockerfile for Linux build automation. Run with 'docker build -o release .'
-# Demonstrates developing PoE-Overlay on Linux and produces testable Linux builds.
-# Build and run with 'docker build .' from repo root. Each step will be cached
-# independently, so subsequent builds will be faster.
+# Dockerfile for Linux build automation.
+# 
+# Run with 'docker build -o release .' from the repo root.
+# 
+# Demonstrates developing PoE-Overlay on Linux and produces testable Linux
+# builds. Each step will be cached independently, so subsequent builds will be
+# faster. First build will take up to 10 minutes.
 # IMPORTANT: Set DOCKER_BUILDKIT=1 in your environment variables or you will not
 # get any build artifacts in your release folder.
-# First build will take up to 10 minutes.
 ARG codedir=/opt/PoE-Overlay-Community-Fork
 
 # Since the Electron builder targets Debian packaging, start with an Ubuntu LTS image.
