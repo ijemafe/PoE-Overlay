@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Query, StatsFilter } from '@data/poe'
-import { Item, ItemSearchFiltersService, Language } from '@shared/module/poe/type'
+import { Item, ItemStat, ItemSearchFiltersService, Language } from '@shared/module/poe/type'
 
 @Injectable({
   providedIn: 'root',
@@ -12,69 +12,87 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
       return
     }
 
-    query.stats.push({
-      type: 'and',
-      filters: stats.map((stat) => {
-        const id = `${stat.type}.${stat.tradeId}`
-        const filter: StatsFilter = {
-          disabled: false,
-          id,
-        }
+    const mainStats = stats.filter((stat) => !stat.indistinguishable)
+    if (mainStats.length > 0) {
+      query.stats.push({
+        type: 'and',
+        filters: mainStats.map((stat) => this.mapStat(stat, stat.tradeId))
+      })
+    }
 
-        if (stat.option) {
-          filter.value = {
-            option: isNaN(+stat.predicate) ? stat.predicate : +stat.predicate,
-          }
-        } else {
-          const mins = stat.values.filter((x) => x.min !== undefined)
-          const maxs = stat.values.filter((x) => x.max !== undefined)
+    const indistinguishableStats = stats.filter((stat) => stat.indistinguishable);
+    for (const indistinguishableStat of indistinguishableStats) {
+      query.stats.push({
+        type: 'count',
+        min: 1,
+        max: 1,
+        filters: [
+          this.mapStat(indistinguishableStat, indistinguishableStat.tradeId),
+          this.mapStat(indistinguishableStat, indistinguishableStat.indistinguishable)
+        ]
+      })
+    }
+  }
 
-          if (mins.length === 0 && maxs.length === 0) {
-            return filter
-          }
+  private mapStat(stat: ItemStat, tradeId: string): StatsFilter {
+    const id = `${stat.type}.${tradeId}`
+    const filter: StatsFilter = {
+      disabled: false,
+      id,
+    }
 
-          const negate = !stat.negated && stat.predicate[0] === 'N' ? -1 : 1
+    if (stat.option) {
+      filter.value = {
+        option: isNaN(+stat.predicate) ? stat.predicate : +stat.predicate,
+      }
+    } else {
+      const mins = stat.values.filter((x) => x.min !== undefined)
+      const maxs = stat.values.filter((x) => x.max !== undefined)
 
-          let min: number
-          if (mins.length > 0) {
-            min = mins.reduce((a, b) => a + b.min, 0) / mins.length
-            min = Math.round(min * 10) / 10
-            min *= negate
-          }
-
-          let max: number
-          if (maxs.length > 0) {
-            max = maxs.reduce((a, b) => a + b.max, 0) / maxs.length
-            max = Math.round(max * 10) / 10
-            max *= negate
-          }
-
-          if (min !== undefined && max !== undefined) {
-            if (min > max) {
-              const tmp = min
-              min = max
-              max = tmp
-            }
-          } else if (min !== undefined) {
-            if (min >= 0 || !stat.negated) {
-              max = 99999
-            } else {
-              max = min
-              min = -99999
-            }
-          } else if (max !== undefined) {
-            if (max >= 0) {
-              min = 0
-            } else {
-              min = max
-              max = -1
-            }
-          }
-          filter.value = { min, max }
-        }
-
+      if (mins.length === 0 && maxs.length === 0) {
         return filter
-      }),
-    })
+      }
+
+      const negate = !stat.negated && stat.predicate[0] === 'N' ? -1 : 1
+
+      let min: number
+      if (mins.length > 0) {
+        min = mins.reduce((a, b) => a + b.min, 0) / mins.length
+        min = Math.round(min * 10) / 10
+        min *= negate
+      }
+
+      let max: number
+      if (maxs.length > 0) {
+        max = maxs.reduce((a, b) => a + b.max, 0) / maxs.length
+        max = Math.round(max * 10) / 10
+        max *= negate
+      }
+
+      if (min !== undefined && max !== undefined) {
+        if (min > max) {
+          const tmp = min
+          min = max
+          max = tmp
+        }
+      } else if (min !== undefined) {
+        if (min >= 0 || !stat.negated) {
+          max = 99999
+        } else {
+          max = min
+          min = -99999
+        }
+      } else if (max !== undefined) {
+        if (max >= 0) {
+          min = 0
+        } else {
+          min = max
+          max = -1
+        }
+      }
+      filter.value = { min, max }
+    }
+
+    return filter
   }
 }
