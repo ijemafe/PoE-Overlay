@@ -35,7 +35,6 @@ export class Game {
     if (window) {
       const windowPath = (window.path || '').toLowerCase()
       const name = path.basename(windowPath)
-      console.log(name)
       if (POE_NAMES.includes(name)) {
         const title = window.title()
         if (POE_TITLES.includes(title) || POE_ALTERNATIVE_TITLES.some((x) => title.startsWith(x))) {
@@ -55,7 +54,9 @@ export class Game {
   }
 
   public focus(): void {
-    this.window?.bringToTop()
+    if (this.window?.bringToTop) {
+      this.window.bringToTop()
+    }
   }
 
   private toString(): string {

@@ -82,9 +82,9 @@ function getDisplay(): Display {
   return screen.getPrimaryDisplay()
 }
 
-function send(channel: string, ...remainingArgs: any[]): void {
+function send(channel: string, ...additionalArgs: any[]): void {
   try {
-    win.webContents.send(channel, ...remainingArgs)
+    win.webContents.send(channel, ...additionalArgs)
   } catch (error) {
     console.error(`could not send to '${channel}' with args '${JSON.stringify(args)}`)
   }
@@ -132,8 +132,13 @@ game.register(ipcMain, (poe) => {
 
   if (win) {
     if (poe.active) {
-      win.setAlwaysOnTop(true, 'pop-up-menu', 1)
-      win.setVisibleOnAllWorkspaces(true)
+      if (process.platform !== 'linux') {
+        win.setAlwaysOnTop(true, 'pop-up-menu', 1)
+        win.setVisibleOnAllWorkspaces(true)
+      } else {
+        win.setAlwaysOnTop(true)
+        win.maximize()
+      }
 
       if (poe.bounds) {
         win.setBounds(poe.bounds)
@@ -180,8 +185,6 @@ function showChangelog(): void {
 function createWindow(): BrowserWindow {
   const { bounds } = getDisplay()
 
-  console.log(bounds)
-
   // Create the browser window.
   win = new BrowserWindow({
     width: bounds.width,
@@ -206,6 +209,8 @@ function createWindow(): BrowserWindow {
 
   if (process.platform !== 'linux') {
     win.setAlwaysOnTop(true, 'pop-up-menu', 1)
+  } else {
+    win.setAlwaysOnTop(true)
   }
 
   win.setVisibleOnAllWorkspaces(true)
