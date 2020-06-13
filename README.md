@@ -46,15 +46,6 @@ features, bugs, and development. All are welcome to join.
 
 See the [Wiki](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/wiki) for further details.
 
-## Roadmap
-
-| Module  | Status      | Notes                                   |
-| ------  | ----------- | --------------------------------------- |
-| Linux   | In Progress | - Allow running this app on Linux       |
-| Harvest | In Progress | - Data for Harvest League 2020/06/19    |
-| Vulkan  | In Progress | - Support for Vulkan video modes        |
-| Trade   | In Progress | - Send messages<br>- Trade UI<br>- etc. |
-
 ## Getting Started
 
 ### Supported Platforms
@@ -116,6 +107,15 @@ You can change these shortcuts in the user settings menu.
 | `Space`        | Close all dialogs
 
 </details>
+
+## Roadmap
+
+| Module  | Status      | Notes                                   |
+| ------  | ----------- | --------------------------------------- |
+| Linux   | In Progress | - Allow running this app on Linux       |
+| Harvest | In Progress | - Data for Harvest League 2020/06/19    |
+| Vulkan  | In Progress | - Support for Vulkan video modes        |
+| Trade   | In Progress | - Send messages<br>- Trade UI<br>- etc. |
 
 ## Developer Docs
 
