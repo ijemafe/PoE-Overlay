@@ -131,6 +131,8 @@ export interface StatsFilter {
 
 export interface StatsGroup {
   type?: string
+  min?: number
+  max?: number
   filters?: StatsFilter[]
 }
 

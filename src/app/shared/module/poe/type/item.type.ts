@@ -172,6 +172,7 @@ export interface ItemStat {
   type: StatType
   values: ItemValue[]
   option: boolean
+  indistinguishable: string
 }
 
 export interface ItemRequirements {

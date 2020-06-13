@@ -4,22 +4,42 @@
     <!-- league -->
     <ng-container *ngIf="options.leagueId">
       <ng-container *ngIf="leagues$ | async as leagues">
-        <span class="option" (wheel)="onLeaguesWheel($event, leagues)">
-          {{ leagues[options.leagueId] }}
-        </span>
+        <div class="row">
+          <button mat-icon-button (click)="changeLeague(-1, leagues)">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+          <span class="option" (wheel)="onLeaguesWheel($event, leagues)">
+            {{ leagues[options.leagueId] }}
+          </span>
+          <button mat-icon-button (click)="changeLeague(1, leagues)">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
       </ng-container>
       <span class="divider"></span>
     </ng-container>
 
     <!-- online -->
-    <span class="clickable" title="online" (click)="onToggleOnlineClick()">
-      <mat-icon>{{ options.online ? 'wifi' : 'wifi_off' }}</mat-icon>
-    </span>
+    <mat-slide-toggle
+      [(ngModel)]="options.online"
+      (ngModelChange)="onToggleOnlineClick()"
+      labelPosition="before"
+    >
+      {{ 'evaluate.search.online-only' | translate }}</mat-slide-toggle
+    >
     <!-- indexed -->
     <ng-container *ngIf="options.indexed">
-      <span class="option" (wheel)="onIndexedWheel($event)">
-        {{ options.indexed }}
-      </span>
+      <div class="row">
+        <button mat-icon-button (click)="changeIndex(-1)">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <span class="option" (wheel)="onIndexedWheel($event)">
+          {{ 'evaluate.search.max-age.' + getIndexedText() | translate }}
+        </span>
+        <button mat-icon-button (click)="changeIndex(1)">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
       <span class="divider"></span>
     </ng-container>
 
@@ -33,8 +53,8 @@
     </ng-container>
 
     <!-- reset -->
-    <span class="clickable" title="reset" (click)="onResetClick()">
-      <mat-icon>restore</mat-icon>
-    </span>
+    <button mat-stroked-button (click)="onResetClick()" class="button-text">
+      Reset
+    </button>
   </div>
 </div>
