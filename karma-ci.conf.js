@@ -1,7 +1,7 @@
-var baseConfig = require('./karma-base.conf');
+var generateBaseConfig = require('./karma-base.conf');
 
 module.exports = function(config) {
-  config.set(Object.assign({}, baseConfig, {
+  config.set(Object.assign({}, generateBaseConfig(config), {
     autoWatch: false,
     singleRun: true
   }));
