@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { StatsLocalProvider } from '../../provider/stats-local.provider'
+import { StatsIndistinguishableProvider } from '../../provider/stats-indistinguishable.provider'
 import { StatsProvider } from '../../provider/stats.provider'
 import { ItemStat, Language, Stat, StatType } from '../../type'
 import { ContextService } from '../context.service'
@@ -50,7 +51,8 @@ export class StatsService {
   constructor(
     private readonly context: ContextService,
     private readonly statsProvider: StatsProvider,
-    private readonly statsLocalProvider: StatsLocalProvider
+    private readonly statsLocalProvider: StatsLocalProvider,
+    private readonly statsIndistinguishableProvider: StatsIndistinguishableProvider
   ) {}
 
   public translate(stat: Stat, predicate: string, language?: Language): string {
@@ -134,6 +136,7 @@ export class StatsService {
     for (const type of search.types) {
       const stats = this.statsProvider.provide(type)
       const locals = this.statsLocalProvider.provide(type)
+      const indistinguishables = this.statsIndistinguishableProvider.provide(type)
       for (const tradeId in stats) {
         if (!stats.hasOwnProperty(tradeId)) {
           continue
@@ -166,8 +169,10 @@ export class StatsService {
               return id.split(' ').join('').split('%').join('_').split('+').join('_')
             }
 
+            const indistinguishable = indistinguishables[tradeId]
+
             const localKey = getKey(stat.id || '')
-            if (locals[localKey]) {
+            if (locals[localKey] && !indistinguishable) {
               let optId = locals[localKey]
               if (stat.mod === 'local') {
                 // global to local optId
@@ -193,6 +198,7 @@ export class StatsService {
               type,
               tradeId,
               values: test.slice(1).map((x) => ({ text: x })),
+              indistinguishable
             }
             results.push({
               stat: itemStat,
