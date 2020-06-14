@@ -57,12 +57,16 @@ export class EvaluateOptionsComponent implements OnInit {
   }
 
   public onToggleOnlineClick(): void {
-    this.options.online = !this.options.online
     this.optionsChange.emit(this.options)
   }
 
   public onLeaguesWheel(event: WheelEvent, leagues: LeagueMap): void {
     const factor = event.deltaY > 0 ? -1 : 1
+
+    this.changeLeague(factor, leagues)
+  }
+
+  public changeLeague(factor: number, leagues: LeagueMap): void {
     const keys = Object.getOwnPropertyNames(leagues)
 
     let index = keys.findIndex((id) => id === this.options.leagueId)
@@ -81,6 +85,11 @@ export class EvaluateOptionsComponent implements OnInit {
 
   public onIndexedWheel(event: WheelEvent): void {
     const factor = event.deltaY > 0 ? -1 : 1
+
+    this.changeIndex(factor)
+  }
+
+  public changeIndex(factor: number): void {
     const keys = Object.getOwnPropertyNames(ItemSearchIndexed)
 
     let index = keys.findIndex((x) => ItemSearchIndexed[x] === this.options.indexed)
@@ -100,6 +109,10 @@ export class EvaluateOptionsComponent implements OnInit {
   public onFetchCountWheel(event: WheelEvent): void {
     const factor = event.deltaY > 0 ? -1 : 1
 
+    this.changeCount(factor)
+  }
+
+  public changeCount(factor: number): void {
     let fetchCount = this.options.fetchCount + factor * 10
     if (fetchCount > 100) {
       fetchCount = 10
@@ -115,5 +128,9 @@ export class EvaluateOptionsComponent implements OnInit {
 
   public onResetClick(): void {
     this.resetTrigger.next()
+  }
+
+  public getIndexedText(): string {
+    return this.options.indexed.replace(/\d/, '')
   }
 }
