@@ -102,10 +102,12 @@ export class ItemSearchService {
       return of([])
     }
 
+    // check cache for values of items about to be searched
     const retrievedHits$ = maxHits.map((hit) => {
       const key = `item_listing_${language}_${hit}`
       return this.cache.retrieve<TradeFetchResult>(key).pipe(
         map((value) => {
+          // value will be null or undefined if not in cache
           return { id: hit, value }
         })
       )

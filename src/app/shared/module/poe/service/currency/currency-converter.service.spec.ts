@@ -1,10 +1,11 @@
-import { async, TestBed } from '@angular/core/testing'
-import { SharedModule } from '@shared/shared.module'
-import { forkJoin } from 'rxjs'
-import { Language } from '../../type'
-import { ContextService } from '../context.service'
-import { CurrencyConverterService } from './currency-converter.service'
-import { CurrencyService } from './currency.service'
+import {async, TestBed} from '@angular/core/testing'
+import {SharedModule} from '@shared/shared.module'
+import {forkJoin, of} from 'rxjs'
+import {Language} from '../../type'
+import {ContextService} from '../context.service'
+import {CurrencyConverterService} from './currency-converter.service'
+import {CurrencyService} from './currency.service'
+import {CurrencyOverviewHttpService} from '@data/poe-ninja/service/currency-overview-http.service'
 
 describe('CurrencyConverterService', () => {
   let sut: CurrencyConverterService
@@ -12,11 +13,16 @@ describe('CurrencyConverterService', () => {
   let currencyService: CurrencyService
 
   beforeEach((done) => {
+    const currencyOverviewServiceSpyObj = jasmine.createSpyObj('CurrencyOverviewHttpService', ['get'])
+
     TestBed.configureTestingModule({
       imports: [SharedModule],
+      providers: [
+        {provide: CurrencyOverviewHttpService, useValue: currencyOverviewServiceSpyObj},
+      ],
     }).compileComponents()
-    sut = TestBed.inject<CurrencyConverterService>(CurrencyConverterService)
 
+    sut = TestBed.inject<CurrencyConverterService>(CurrencyConverterService)
     contextService = TestBed.inject<ContextService>(ContextService)
     contextService
       .init({

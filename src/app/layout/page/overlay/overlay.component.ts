@@ -16,7 +16,7 @@ import { ContextService } from '@shared/module/poe/service'
 import { Context } from '@shared/module/poe/type'
 import { BehaviorSubject, EMPTY, Observable, timer } from 'rxjs'
 import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
-import { UserSettingsService } from '../../service/user-settings.service'
+import { UserSettingsService } from '../../service'
 import { UserSettings } from '../../type'
 
 @Component({
@@ -185,10 +185,9 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private getContext(settings: UserSettings): Context {
-    const context: Context = {
+    return {
       language: settings.language,
       leagueId: settings.leagueId,
     }
-    return context
   }
 }

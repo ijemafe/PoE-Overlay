@@ -8,7 +8,7 @@
     },
     "files": [
         "main.js",
-        "electron/*.js",        
+        "electron/*.js",
         "dist/**/*",
         "!node_modules/@angular/**/*",
         "!node_modules/@swimlane/**/*",
@@ -30,7 +30,7 @@
         ]
     },
     "linux": {
-        "icon": "dist/favicon@4x.png",
+        "icon": "dist/favicon256x256.png",
         "target": [
             "deb",
             "AppImage"

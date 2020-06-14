@@ -1,22 +1,42 @@
-import { TestBed } from '@angular/core/testing'
-import { SharedModule } from '@shared/shared.module'
-import { forkJoin } from 'rxjs'
-import { Item, Language } from '../../type'
-import { ContextService } from '../context.service'
-import { CurrencyService } from '../currency/currency.service'
-import { ItemPricePredictionService } from './item-price-prediction.service'
+import {TestBed} from '@angular/core/testing'
+import {SharedModule} from '@shared/shared.module'
+import {forkJoin, from} from 'rxjs'
+import {Item, Language} from '../../type'
+import {ContextService} from '../context.service'
+import {CurrencyService} from '../currency/currency.service'
+import {ItemPricePredictionService} from './item-price-prediction.service'
+import {ItemPricePrediction, ItemPricePredictionProvider} from '@shared/module/poe/provider';
 
 describe('ItemPricePredictionService', () => {
   let sut: ItemPricePredictionService
   let contextService: ContextService
   let currencyService: CurrencyService
+  let itemPricePredictionProvider: ItemPricePredictionProvider
+  let mock
 
   beforeEach((done) => {
+    const result: ItemPricePrediction = {
+      min: 1,
+      max: 2,
+      currency: 'exalt',
+      currencyId: 'exa',
+      score: 1,
+    }
+    const mockObservable = from(Promise.resolve(result))
+
     TestBed.configureTestingModule({
       imports: [SharedModule],
     }).compileComponents()
+    mock = TestBed.inject<ItemPricePredictionProvider>(
+      ItemPricePredictionProvider
+    ) as jasmine.SpyObj<ItemPricePredictionProvider>
     sut = TestBed.inject<ItemPricePredictionService>(ItemPricePredictionService)
 
+    itemPricePredictionProvider = TestBed.inject<ItemPricePredictionProvider>(
+      ItemPricePredictionProvider
+    )
+
+    spyOn(itemPricePredictionProvider, 'provide').and.returnValue(mockObservable)
     contextService = TestBed.inject<ContextService>(ContextService)
     contextService
       .init({
