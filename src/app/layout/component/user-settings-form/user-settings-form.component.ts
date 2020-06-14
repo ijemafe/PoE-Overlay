@@ -25,7 +25,7 @@ export class UserSettingsFormComponent implements OnInit {
   @Input()
   public settings: UserSettings
 
-  public displayWithOpacity = (value: number) => `${Math.round((value / 1) * 100)}%`
+  public displayWithOpacity = (value: number) => `${Math.round(value * 100)}%`
 
   constructor(
     private readonly leagues: LeaguesService,

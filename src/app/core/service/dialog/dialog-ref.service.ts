@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { VisibleFlag } from '@app/type/app.type'
 import { BehaviorSubject, Observable, Subscription } from 'rxjs'
-import { ShortcutService } from '../input/shortcut.service'
+import { ShortcutService } from '@app/service/input'
 
 export type DialogCloseFn = () => void
 

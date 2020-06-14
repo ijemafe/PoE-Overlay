@@ -25,6 +25,10 @@ export interface StatLocalMap {
   [id: string]: string
 }
 
+export interface StatIndistinguishableMap {
+  [id: string]: string
+}
+
 export interface ModValue {
   min: number
   max: number
