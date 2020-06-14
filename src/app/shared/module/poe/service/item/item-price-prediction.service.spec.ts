@@ -24,13 +24,8 @@ describe('ItemPricePredictionService', () => {
     }
     const mockObservable = from(Promise.resolve(result))
 
-    // const spy = jasmine.createSpyObj('ItemPricePredictionProvider', ['provide'])
-
     TestBed.configureTestingModule({
       imports: [SharedModule],
-      // providers: [
-      //   { provide: ItemPricePredictionProvider, useValue: spy },
-      // ],
     }).compileComponents()
     mock = TestBed.inject<ItemPricePredictionProvider>(
       ItemPricePredictionProvider

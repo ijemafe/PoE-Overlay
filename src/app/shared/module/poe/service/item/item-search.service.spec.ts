@@ -22,7 +22,6 @@ describe('ItemSearchService', () => {
       '71c98661168b99693db42191c4788f8216a335f095e49fa3d35c49fb200c0f5d',
     ],
     total: 15785,
-    // language: Language.English
     url: 'https://www.pathofexile.com/trade/search/Delirum/y35jtR',
   }
   const mockFetchResult = {
