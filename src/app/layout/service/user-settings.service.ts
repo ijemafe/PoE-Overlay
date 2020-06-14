@@ -17,8 +17,7 @@ export class UserSettingsService {
   ) {}
 
   public get(): Observable<UserSettings> {
-    const settings = this.userSettingsStorageService.get()
-    return settings
+    return this.userSettingsStorageService.get()
   }
 
   public save(settings: UserSettings): Observable<UserSettings> {
@@ -26,8 +25,7 @@ export class UserSettingsService {
   }
 
   public features(): UserSettingsFeature[] {
-    const features = this.userSettingsFeatureService.get()
-    return features
+    return this.userSettingsFeatureService.get()
   }
 
   public init(modules: FeatureModule[]): Observable<UserSettings> {
