@@ -174,7 +174,9 @@
   "material": {
     "accelerator": {
       "any": "Press any key... ESC will set it to unbound.",
-      "unbound": "Unbound"
+      "unbound": "Unbound",
+      "set-shortcut": "Set Shortcut",
+      "cancel-set": "Cancel Setting Shortcut"
     },
     "select-list": {
       "add": "add to selected",

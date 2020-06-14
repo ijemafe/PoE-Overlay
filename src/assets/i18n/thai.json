@@ -174,7 +174,9 @@
   "material": {
     "accelerator": {
       "any": "กดปุ่มใด ๆ ... ESC จะตั้งค่าเป็นไม่ได้ผูกไว้",
-      "unbound": "หลุด"
+      "unbound": "หลุด",
+      "set-shortcut": "ตั้งทางลัด",
+      "cancel-set": "ยกเลิกการตั้งค่าทางลัด"
     },
     "select-list": {
       "add": "เพิ่มไปยังที่เลือก",

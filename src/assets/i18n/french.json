@@ -174,7 +174,9 @@
   "material": {
     "accelerator": {
       "any": "Appuyez sur n'importe quelle touche ... ESC le définira comme non lié.",
-      "unbound": "Non lié"
+      "unbound": "Non lié",
+      "set-shortcut": "Définir le raccourci",
+      "cancel-set": "Annuler le raccourci de réglage"
     },
     "select-list": {
       "add": "Ajouter à la sélection",

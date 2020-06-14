@@ -174,7 +174,9 @@
   "material": {
     "accelerator": {
       "any": "按任意鍵... ESC將其設置為未綁定。",
-      "unbound": "未綁定"
+      "unbound": "未綁定",
+      "set-shortcut": "設定捷徑",
+      "cancel-set": "取消設置快捷方式"
     },
     "select-list": {
       "add": "添加到選中",

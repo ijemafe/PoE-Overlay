@@ -174,7 +174,9 @@
   "material": {
     "accelerator": {
       "any": "아무 키나 누르면 ... ESC가 언 바운드로 설정합니다.",
-      "unbound": "매여 있지 않은"
+      "unbound": "매여 있지 않은",
+      "set-shortcut": "바로 가기 설정",
+      "cancel-set": "설정 바로 가기 취소"
     },
     "select-list": {
       "add": "선택한 항목에 추가",

@@ -174,7 +174,9 @@
   "material": {
     "accelerator": {
       "any": "Pressione qualquer tecla ... ESC irá configurá-lo como ilimitado.",
-      "unbound": "Não consolidado"
+      "unbound": "Não consolidado",
+      "set-shortcut": "Definir atalho",
+      "cancel-set": "Cancelar configuração de atalho"
     },
     "select-list": {
       "add": "adicionar aos selecionados",

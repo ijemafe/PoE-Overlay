@@ -174,7 +174,9 @@
   "material": {
     "accelerator": {
       "any": "Presione cualquier tecla ... ESC lo establecerá como independiente.",
-      "unbound": "Sin consolidar"
+      "unbound": "Sin consolidar",
+      "set-shortcut": "Establecer acceso directo",
+      "cancel-set": "Cancelar acceso directo de configuración"
     },
     "select-list": {
       "add": "agregar a seleccionado",
