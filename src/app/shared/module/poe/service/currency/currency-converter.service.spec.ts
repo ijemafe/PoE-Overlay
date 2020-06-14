@@ -5,20 +5,12 @@ import {Language} from '../../type'
 import {ContextService} from '../context.service'
 import {CurrencyConverterService} from './currency-converter.service'
 import {CurrencyService} from './currency.service'
-import {CacheService} from '@app/service/cache.service'
-import {flatMap, map} from 'rxjs/operators';
-import {TradeHttpService} from '@data/poe';
 import {CurrencyOverviewHttpService} from '@data/poe-ninja/service/currency-overview-http.service'
 
 describe('CurrencyConverterService', () => {
   let sut: CurrencyConverterService
   let contextService: ContextService
   let currencyService: CurrencyService
-  let cache: CacheService
-  let currencyOverviewServiceSpy: jasmine.SpyObj<CurrencyOverviewHttpService>
-
-  const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
-  const mockCurrencyOverviewRaw: any = require('doc/poe-ninja/currencyoverview.json')
 
   beforeEach((done) => {
     const currencyOverviewServiceSpyObj = jasmine.createSpyObj('CurrencyOverviewHttpService', ['get'])
@@ -29,21 +21,6 @@ describe('CurrencyConverterService', () => {
         {provide: CurrencyOverviewHttpService, useValue: currencyOverviewServiceSpyObj},
       ],
     }).compileComponents()
-
-    // populating cache prevents http request from being initiated for unit test
-    cache = TestBed.inject<CacheService>(CacheService)
-    cache.clear('currency_chaos_equivalents_Delirium')
-    cache.store(`leagues_1`, mockLeagues.result, 99999, false)
-
-
-    currencyOverviewServiceSpy = TestBed.inject(CurrencyOverviewHttpService) as jasmine.SpyObj<
-      CurrencyOverviewHttpService
-    >
-    currencyOverviewServiceSpy.get.and.returnValue(
-      of({ lines: mockCurrencyOverviewRaw.lines, url: '' })
-    )
-
-
 
     sut = TestBed.inject<CurrencyConverterService>(CurrencyConverterService)
     contextService = TestBed.inject<ContextService>(ContextService)
