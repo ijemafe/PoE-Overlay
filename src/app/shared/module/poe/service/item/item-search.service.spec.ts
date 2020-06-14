@@ -1,25 +1,30 @@
-import {async, TestBed} from '@angular/core/testing'
+import {TestBed} from '@angular/core/testing'
 import {Item, Language} from '@shared/module/poe/type'
 import {SharedModule} from '@shared/shared.module'
 import {BaseItemTypesService} from '../base-item-types/base-item-types.service'
 import {ContextService} from '../context.service'
 import {ItemSearchService} from './item-search.service'
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {environment} from '@env/environment'
-import {HttpRequest} from '@angular/common/http';
+import {TradeHttpService, TradeSearchResponse} from '@data/poe';
+import { of } from 'rxjs'
 
 describe('ItemSearchService', () => {
   let sut: ItemSearchService
   let contextService: ContextService
   let baseItemTypesService: BaseItemTypesService
-  let mockHttp: HttpTestingController
-  const mockHttpResult = {
-    'id': 'y35jtR',
-    'complexity': 4,
-    'result': ['72fad07c5684c05f543504bf40c1739081e34a3c63f101b1c4477d8547763563', '71c98661168b99693db42191c4788f8216a335f095e49fa3d35c49fb200c0f5d'],
-    'total': 15785
-  }
+  let tradeServiceSpy: jasmine.SpyObj<TradeHttpService>
 
+  const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
+  const mockStatic: any = require('doc/poe/api_trade_data_static.json')
+  const mockSearchResult: TradeSearchResponse = {
+    id: 'y35jtR',
+    result: [
+      '72fad07c5684c05f543504bf40c1739081e34a3c63f101b1c4477d8547763563',
+      '71c98661168b99693db42191c4788f8216a335f095e49fa3d35c49fb200c0f5d',
+    ],
+    total: 15785,
+    // language: Language.English
+    url: 'https://www.pathofexile.com/trade/search/Delirum/y35jtR',
+  }
   const mockFetchResult = {
     'result': [
       {
@@ -180,17 +185,33 @@ describe('ItemSearchService', () => {
   }
 
   beforeEach((done) => {
+    const tradeServiceSpyObj = jasmine.createSpyObj('TradeHttpService', [
+      'search',
+      'fetch',
+      'getStats',
+      'getStatic',
+      'getLeagues',
+      'getItems',
+    ])
+
     TestBed.configureTestingModule({
-      imports: [SharedModule, HttpClientTestingModule],
+      imports: [
+        SharedModule,
+      ],
+      providers: [
+        { provide: TradeHttpService, useValue: tradeServiceSpyObj },
+      ]
     }).compileComponents()
 
-    mockHttp = TestBed.inject<HttpTestingController>(HttpTestingController)
+    tradeServiceSpy = TestBed.inject(TradeHttpService) as jasmine.SpyObj<TradeHttpService>
+    tradeServiceSpy.getLeagues.and.returnValue(of(mockLeagues))
     sut = TestBed.inject<ItemSearchService>(ItemSearchService)
 
     contextService = TestBed.inject<ContextService>(ContextService)
     contextService
       .init({
         language: Language.English,
+        leagueId: 'Delirium',
       })
       .subscribe(() => done())
     baseItemTypesService = TestBed.inject<BaseItemTypesService>(BaseItemTypesService)
@@ -198,10 +219,11 @@ describe('ItemSearchService', () => {
 
   it('should return items', (done) => {
     const requestedItem: Item = {
-      typeId: baseItemTypesService.search('Topaz Ring'),
+      typeId: baseItemTypesService.search('Topaz Ring', 1),
     }
+    tradeServiceSpy.search.and.returnValue(of(mockSearchResult))
 
-    sut.search(requestedItem).subscribe(
+    sut.search(requestedItem, { language: Language.English}).subscribe(
       (result) => {
         expect(result.hits.length).toBeGreaterThan(0)
         done()
@@ -210,19 +232,17 @@ describe('ItemSearchService', () => {
         done.fail(error)
       }
     )
-
-    const req = mockHttp.expectOne(
-      environment.poe.baseUrl + '/trade/search/' + contextService.get().leagueId
-    )
-    req.flush(mockHttpResult)
   })
 
   it('should list items from search', (done) => {
     const requestedItem: Item = {
-      typeId: baseItemTypesService.search('Topaz Ring'),
+      typeId: baseItemTypesService.search('Topaz Ring', 1),
     }
+    tradeServiceSpy.search.and.returnValue(of(mockSearchResult))
+    tradeServiceSpy.fetch.and.returnValue(of(mockFetchResult))
+    tradeServiceSpy.getStatic.and.returnValue(of(mockStatic))
 
-    sut.search(requestedItem).subscribe(
+    sut.search(requestedItem, { language: Language.English, leagueId: 'Delirium' }).subscribe(
       (result) => {
         expect(result.hits.length).toBeGreaterThan(0)
 
@@ -234,25 +254,8 @@ describe('ItemSearchService', () => {
           },
           (error) => done.fail(error)
         )
-
-        const reqFetch = mockHttp.expectOne({
-            method: 'GET',
-            url: environment.poe.baseUrl +
-              '/trade/fetch/' +
-              mockHttpResult.result.toString() +
-              '?query=' +
-              mockHttpResult.id,
-          }
-        )
-        reqFetch.flush(mockFetchResult)
       },
       (error) => done.fail(error)
     )
-
-    const reqSearch = mockHttp.expectOne(
-      environment.poe.baseUrl + '/trade/search/' + contextService.get().leagueId
-    )
-    reqSearch.flush(mockHttpResult)
-
   })
 })
