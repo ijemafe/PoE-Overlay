@@ -219,7 +219,7 @@
     "display-version": "Version anzeigen",
     "exit-app": "App beenden",
     "focusable": "Fokussierbar (Tastaturunterstützung)",
-    "focusable-description": "Ermöglicht die Tastaturnavigation des Overlays (TAB / ARROW KEYS [←→↑↓])",
+    "focusable-description": "Ermöglicht die Tastaturnavigation des Overlays (TAB / PFEILTASTEN [←→↑↓])",
     "game-settings": "Spieleinstellungen",
     "general": "Allgemeines",
     "languages": {
