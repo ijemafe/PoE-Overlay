@@ -81,7 +81,7 @@
     "profiles": "Vorausgewählte Profile",
     "property": {
       "range": "Min-Max-Bereich",
-      "range-description": "Prozentuale Zunahme/Abnahme der aktuellen Werte des Suchelements"
+      "range-description": "Prozentuale Zunahme/Abnahme der Werte des aktuellen Gegenstands"
     },
     "query": "Abfrage",
     "range": "Bereich",
