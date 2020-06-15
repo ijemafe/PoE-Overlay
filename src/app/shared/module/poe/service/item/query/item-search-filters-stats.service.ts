@@ -16,11 +16,11 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
     if (mainStats.length > 0) {
       query.stats.push({
         type: 'and',
-        filters: mainStats.map((stat) => this.mapStat(stat, stat.tradeId))
+        filters: mainStats.map((stat) => this.mapStat(stat, stat.tradeId)),
       })
     }
 
-    const indistinguishableStats = stats.filter((stat) => stat.indistinguishable);
+    const indistinguishableStats = stats.filter((stat) => stat.indistinguishable)
     for (const indistinguishableStat of indistinguishableStats) {
       query.stats.push({
         type: 'count',
@@ -28,8 +28,8 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
         max: 1,
         filters: [
           this.mapStat(indistinguishableStat, indistinguishableStat.tradeId),
-          this.mapStat(indistinguishableStat, indistinguishableStat.indistinguishable)
-        ]
+          this.mapStat(indistinguishableStat, indistinguishableStat.indistinguishable),
+        ],
       })
     }
   }
@@ -76,7 +76,7 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
           max = tmp
         }
       } else if (min !== undefined) {
-        if (min >= 0 || !stat.negated) {
+        if (min > 0 || (min === 0 && negate === 1)) {
           max = 99999
         } else {
           max = min
