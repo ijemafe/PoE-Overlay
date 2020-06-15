@@ -35,6 +35,7 @@
     "currency-listing": "Show Listing Currency",
     "days": "Last 7 days",
     "debounce-time": "Debounce Time",
+    "debounce-description": "Auto-search Delay",
     "empty": "No results. Open in browser?",
     "error": "An error occured.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "Preselected Profiles",
     "property": {
-      "range": "Min-Max Range"
+      "range": "Min-Max Range",
+      "range-description": "Percentage Increase/Decrease for Search Item's Current Values"
     },
     "query": "Query",
     "range": "Range",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "Normalize Quality",
       "online-only": "Online Only",
-      "properties": "Properties"
+      "properties": "Base Item Properties"
     },
     "searching": "Searching...",
     "seller": "Seller",
@@ -217,6 +219,7 @@
     "display-version": "Display Version",
     "exit-app": "Exit App",
     "focusable": "Focusable (Keyboard Support)",
+    "focusable-description": "Allows keyboard navigation of the overlay (Tab/Arrow Keys)",
     "game-settings": "Game Settings",
     "general": "General",
     "languages": {
