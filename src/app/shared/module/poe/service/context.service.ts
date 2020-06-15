@@ -13,12 +13,9 @@ export class ContextService {
   constructor(private readonly contextFactory: ContextFactory) {}
 
   public init(defaultContext: Context): Observable<Context> {
-    return from(
-      this.contextFactory
-        .create(defaultContext)
-        .pipe(tap((createdContext) => this.contextSubject.next(createdContext)))
-        .toPromise()
-    )
+    return this.contextFactory
+      .create(defaultContext)
+      .pipe(tap((createdContext) => this.contextSubject.next(createdContext)))
   }
 
   public get(): Context {
