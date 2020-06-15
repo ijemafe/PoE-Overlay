@@ -50,7 +50,7 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "prettier": true,
-    "quotemark": [true, "single"],
+    "quotemark": [true, "single", "avoid-escape"],
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "trailing-comma": false,
