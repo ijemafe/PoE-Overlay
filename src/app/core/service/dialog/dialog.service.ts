@@ -4,8 +4,8 @@ import { MatDialog } from '@angular/material/dialog'
 import { Point } from '@app/type'
 import { Observable } from 'rxjs'
 import { tap } from 'rxjs/operators'
-import { GameService } from '../game.service'
-import { WindowService } from '../window.service'
+import { GameService } from '@app/service'
+import { WindowService } from '@app/service'
 import { Dialog, DialogRefService, DialogType } from './dialog-ref.service'
 
 export interface DialogSettings {
