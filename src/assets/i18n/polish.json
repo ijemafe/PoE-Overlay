@@ -35,6 +35,7 @@
     "currency-listing": "Pokaż walutę oferty",
     "days": "ostatnie 7 dni",
     "debounce-time": "Czas oczekiwania na ponowną wycenę przedmiotu.",
+    "debounce-description": "Opóźnienie automatycznego wyszukiwania",
     "empty": "Brak wyników. Otworzyć w przeglądarce?",
     "error": "Wystąpił błąd.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "Wstępnie wybrane profile",
     "property": {
-      "range": "Zakres od minimum do maksimum"
+      "range": "Zakres od minimum do maksimum",
+      "range-description": "Procentowy wzrost/spadek bieżących wartości elementu wyszukiwania"
     },
     "query": "pytanie",
     "range": "Zakres",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "Normalizuj jakość",
       "online-only": "Tylko Online",
-      "properties": "Nieruchomości"
+      "properties": "Właściwości elementu podstawowego"
     },
     "searching": "Szukam...",
     "seller": "Sprzedawca",
@@ -217,6 +219,7 @@
     "display-version": "Wyświetl wersję",
     "exit-app": "Wyjdź z programu",
     "focusable": "Aktywowalny (obsługa klawiatury)",
+    "focusable-description": "Umożliwia nawigację nakładki za pomocą klawiatury (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "Ustawienia gry",
     "general": "Ogólne",
     "languages": {

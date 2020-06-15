@@ -219,7 +219,7 @@
     "display-version": "Display Version",
     "exit-app": "Exit App",
     "focusable": "Focusable (Keyboard Support)",
-    "focusable-description": "Allows keyboard navigation of the overlay (Tab/Arrow Keys)",
+    "focusable-description": "Allows keyboard navigation of the overlay (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "Game Settings",
     "general": "General",
     "languages": {
