@@ -87,6 +87,7 @@
     </div>
     <div class="col-md-6">
       <mat-slide-toggle
+        [title]="'settings.focusable-description' | translate"
         [checked]="settings.focusable"
         (change)="settings.focusable = $event.checked"
       >

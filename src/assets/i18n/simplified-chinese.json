@@ -29,12 +29,13 @@
     "analyzing": "正在分析数据...",
     "cancel": "取消？",
     "canceled": "搜索已取消。在浏览器中打开？",
-    "count": "计数",
+    "count": "结果",
     "currencies": "货币",
     "currency": "显示货币",
     "currency-listing": "显示清单货币",
     "days": "过去7天",
     "debounce-time": "去抖时间",
+    "debounce-description": "自动搜寻延迟",
     "empty": "没有结果。在浏览器中打开？",
     "error": "发生错误。",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "预选个人资料",
     "property": {
-      "range": "最小最大范围"
+      "range": "最小最大范围",
+      "range-description": "搜索项目当前值的百分比增加/减少"
     },
     "query": "询问",
     "range": "范围",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "标准化质量",
       "online-only": "仅在线",
-      "properties": "属性"
+      "properties": "基本项目属性"
     },
     "searching": "搜索...",
     "seller": "卖家",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "按任意键... ESC将其设置为未绑定。",
-      "unbound": "未绑定"
+      "unbound": "未绑定",
+      "set-shortcut": "设定捷径",
+      "cancel-set": "取消设置快捷方式"
     },
     "select-list": {
       "add": "添加到选中",
@@ -217,6 +221,7 @@
     "display-version": "显示版本",
     "exit-app": "退出应用",
     "focusable": "重点突出（键盘支持）",
+    "focusable-description": "允许键盘导航叠加层 (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "游戏设置",
     "general": "一般",
     "languages": {

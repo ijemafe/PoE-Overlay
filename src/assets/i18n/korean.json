@@ -29,12 +29,13 @@
     "analyzing": "데이터 분석 중 ...",
     "cancel": "취소?",
     "canceled": "검색이 취소되었습니다. 브라우저에서 열려?",
-    "count": "카운트",
+    "count": "결과",
     "currencies": "통화",
     "currency": "표시중인 화폐",
     "currency-listing": "리스팅 통화 표시",
     "days": "최근 7 일",
     "debounce-time": "디 바운스 시간",
+    "debounce-description": "자동 검색 지연",
     "empty": "결과가 없습니다. 브라우저에서 열려?",
     "error": "오류가 발생했습니다.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "미리 선택된 프로파일",
     "property": {
-      "range": "최소 최대 범위"
+      "range": "최소 최대 범위",
+      "range-description": "검색 항목의 현재 값에 대한 백분율 증가/감소"
     },
     "query": "질문",
     "range": "Range",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "품질 표준화",
       "online-only": "온라인만",
-      "properties": "속성"
+      "properties": "기본 항목 속성"
     },
     "searching": "수색...",
     "seller": "파는 사람",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "아무 키나 누르면 ... ESC가 언 바운드로 설정합니다.",
-      "unbound": "매여 있지 않은"
+      "unbound": "매여 있지 않은",
+      "set-shortcut": "바로 가기 설정",
+      "cancel-set": "설정 바로 가기 취소"
     },
     "select-list": {
       "add": "선택한 항목에 추가",
@@ -217,6 +221,7 @@
     "display-version": "디스플레이 버전",
     "exit-app": "앱 종료",
     "focusable": "집중 가능 (키보드 지원)",
+    "focusable-description": "오버레이의 키보드 탐색을 허용합니다 (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "게임 설정",
     "general": "일반",
     "languages": {

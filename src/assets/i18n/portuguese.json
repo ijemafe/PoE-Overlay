@@ -29,12 +29,13 @@
     "analyzing": "Analisando dados ...",
     "cancel": "Cancelar?",
     "canceled": "Pesquisa cancelada. Abra no navegador?",
-    "count": "Contagem",
+    "count": "Resultados",
     "currencies": "Moeda",
     "currency": "Moeda exibida",
     "currency-listing": "Mostrar moeda da listagem",
     "days": "Últimos 7 dias",
     "debounce-time": "Tempo de Debounce",
+    "debounce-description": "Atraso na pesquisa automática",
     "empty": "Sem resultados. Abra no navegador?",
     "error": "Um erro ocorreu.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "Perfis pré-selecionados",
     "property": {
-      "range": "Min-Max Range"
+      "range": "Min-Max Range",
+      "range-description": "Aumento/redução percentual dos valores atuais do item de pesquisa"
     },
     "query": "Inquerir",
     "range": "Range",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "Normalizar qualidade",
       "online-only": "Online somente",
-      "properties": "Propriedades"
+      "properties": "Propriedades do item base"
     },
     "searching": "Procurando...",
     "seller": "Vendedor",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "Pressione qualquer tecla ... ESC irá configurá-lo como ilimitado.",
-      "unbound": "Não consolidado"
+      "unbound": "Não consolidado",
+      "set-shortcut": "Definir atalho",
+      "cancel-set": "Cancelar configuração de atalho"
     },
     "select-list": {
       "add": "adicionar aos selecionados",
@@ -217,6 +221,7 @@
     "display-version": "Versão de exibição",
     "exit-app": "Sair do aplicativo",
     "focusable": "Focável (suporte para teclado)",
+    "focusable-description": "Permite a navegação do teclado pela sobreposição (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "Configurações do jogo",
     "general": "Geral",
     "languages": {

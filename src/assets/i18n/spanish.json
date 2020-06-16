@@ -29,12 +29,13 @@
     "analyzing": "Analizando datos ...",
     "cancel": "¿Cancelar?",
     "canceled": "Búsqueda cancelada ¿Abierta en el navegador?",
-    "count": "Contar",
+    "count": "Resultados",
     "currencies": "moneda",
     "currency": "Moneda mostrada",
     "currency-listing": "Mostrar moneda de listado",
     "days": "Los últimos 7 días",
     "debounce-time": "Tiempo de rebote",
+    "debounce-description": "Retardo de búsqueda automática",
     "empty": "No hay resultados. ¿Abierta en el navegador?",
     "error": "Ocurrió un error.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "Perfiles preseleccionados",
     "property": {
-      "range": "Rango Min-Max"
+      "range": "Rango Min-Max",
+      "range-description": "Porcentaje de aumento/disminución de los valores actuales del elemento de búsqueda"
     },
     "query": "consulta",
     "range": "Range",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "Normalizar calidad",
       "online-only": "Solo online",
-      "properties": "Propiedades"
+      "properties": "Propiedades del artículo base"
     },
     "searching": "Buscando...",
     "seller": "Vendedor",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "Presione cualquier tecla ... ESC lo establecerá como independiente.",
-      "unbound": "Sin consolidar"
+      "unbound": "Sin consolidar",
+      "set-shortcut": "Establecer acceso directo",
+      "cancel-set": "Cancelar acceso directo de configuración"
     },
     "select-list": {
       "add": "agregar a seleccionado",
@@ -217,6 +221,7 @@
     "display-version": "Versión de pantalla",
     "exit-app": "Salir de la aplicacion",
     "focusable": "Enfocable (soporte de teclado)",
+    "focusable-description": "Permite la navegación del teclado de la superposición (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "Configuraciones de juego",
     "general": "general",
     "languages": {
