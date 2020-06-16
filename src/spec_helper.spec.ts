@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing'
-import {CacheService} from '@app/service/cache.service'
+import { CacheService } from '@app/service/cache.service'
 
 let cache: CacheService
 
