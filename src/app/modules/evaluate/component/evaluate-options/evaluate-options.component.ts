@@ -40,7 +40,7 @@ export class EvaluateOptionsComponent implements OnInit {
   public resetTrigger = new EventEmitter<void>()
 
   @Output()
-  public toggleOpen = new EventEmitter<void>()
+  public toggleOpen = new EventEmitter<boolean>()
 
   public leagues$: Observable<LeagueMap>
   public isOpen = false
