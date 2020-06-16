@@ -4,7 +4,7 @@ import { CacheService } from '@app/service/cache.service'
 let cache: CacheService
 
 const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
-const mockStaticData: any = require('doc/poe/mockCurrenciesCache.json').entries
+const mockStaticData: any = require('doc/poe/mockCurrenciesCache.json')
 const mockExchangeRates: any = require('doc/poe-ninja/currencyoverviewcache.json')
 
 beforeAll(() => {
