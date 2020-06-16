@@ -11,13 +11,13 @@
     matSuffix
     mat-button
     (click)="onKeyboardClick(input)"
-    title="Set Shortcut"
+    [title]="'material.accelerator.set-shortcut' | translate"
     *ngIf="!recording; else cancel"
   >
     <mat-icon> keyboard </mat-icon>
   </button>
   <ng-template #cancel>
-    <button matSuffix mat-button (click)="cancelSetShortcut()" title="Cancel Setting Shortcut">
+    <button matSuffix mat-button (click)="cancelSetShortcut()" [title]="'cancel-set' | translate">
       <mat-icon> clear </mat-icon>
     </button>
   </ng-template>

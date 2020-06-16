@@ -29,12 +29,13 @@
     "analyzing": "Analiza danych ...",
     "cancel": "Anuluj?",
     "canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",
-    "count": "Liczba Aukcji",
+    "count": "Wyniki",
     "currencies": "Waluta",
     "currency": "Wyświetlana waluta",
     "currency-listing": "Pokaż walutę oferty",
     "days": "ostatnie 7 dni",
     "debounce-time": "Czas oczekiwania na ponowną wycenę przedmiotu.",
+    "debounce-description": "Opóźnienie automatycznego wyszukiwania",
     "empty": "Brak wyników. Otworzyć w przeglądarce?",
     "error": "Wystąpił błąd.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "Wstępnie wybrane profile",
     "property": {
-      "range": "Zakres od minimum do maksimum"
+      "range": "Zakres od minimum do maksimum",
+      "range-description": "Procentowy wzrost/spadek bieżących wartości elementu wyszukiwania"
     },
     "query": "pytanie",
     "range": "Zakres",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "Normalizuj jakość",
       "online-only": "Tylko Online",
-      "properties": "Nieruchomości"
+      "properties": "Właściwości elementu podstawowego"
     },
     "searching": "Szukam...",
     "seller": "Sprzedawca",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "Naciśnij dowolny klawisz ... ESC ustawi to na niezwiązane.",
-      "unbound": "Nie przypisany"
+      "unbound": "Nie przypisany",
+      "set-shortcut": "Ustaw skrót",
+      "cancel-set": "Anuluj ustawienie skrótu"
     },
     "select-list": {
       "add": "Dodaj do wybranych",
@@ -217,6 +221,7 @@
     "display-version": "Wyświetl wersję",
     "exit-app": "Wyjdź z programu",
     "focusable": "Aktywowalny (obsługa klawiatury)",
+    "focusable-description": "Umożliwia nawigację nakładki za pomocą klawiatury (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "Ustawienia gry",
     "general": "Ogólne",
     "languages": {

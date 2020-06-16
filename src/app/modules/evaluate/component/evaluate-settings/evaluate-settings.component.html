@@ -95,7 +95,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="value-range">
-        <label class="label">
+        <label class="label" [title]="'evaluate.debounce-description' | translate">
           {{ 'evaluate.debounce-time' | translate }}:
           {{ displayWithTime(settings.evaluateQueryDebounceTime) }}
         </label>
@@ -179,13 +179,15 @@
         <mat-card>
           <mat-label> {{ 'evaluate.search.properties' | translate }} </mat-label>
 
-          <label class="label">
+          <label class="label" [title]="'evaluate.property.range-description' | translate">
             {{ 'evaluate.property.range' | translate }}
-            {{ displayWithStat(settings.evaluatePropertyMinRange) }}~{{
-              displayWithStat(settings.evaluatePropertyMaxRange)
-            }}%
           </label>
           <div class="range">
+            <span class="preview">
+              - {{ displayWithStat(settings.evaluatePropertyMinRange) }}%
+              <span class="spacer">~</span>
+              + {{ displayWithStat(settings.evaluatePropertyMaxRange) }}%
+            </span>
             <span>#</span>
             <mat-slider
               min="0"
@@ -197,22 +199,6 @@
               [(value)]="settings.evaluatePropertyMinRange"
             >
             </mat-slider>
-            <div
-              class="value"
-              *ngIf="
-                settings.evaluatePropertyMinRange !== 0 || settings.evaluatePropertyMaxRange !== 0;
-                else single
-              "
-            >
-              <span *ngIf="settings.evaluatePropertyMinRange !== 50; else any">{{
-                50 * (1 - settings.evaluatePropertyMinRange / 100) | number: '1.0-1'
-              }}</span>
-              <span>~</span>
-              <span *ngIf="settings.evaluatePropertyMaxRange !== 50; else any">{{
-                50 * (1 + settings.evaluatePropertyMaxRange / 100) | number: '1.0-1'
-              }}</span>
-              <ng-template #any>#</ng-template>
-            </div>
             <mat-slider
               min="0"
               max="50"
@@ -290,13 +276,15 @@
         <mat-card>
           <mat-label> {{ 'evaluate.stats' | translate }} </mat-label>
 
-          <label class="label">
+          <label class="label" [title]="'evaluate.property.range-description' | translate">
             {{ 'evaluate.stats-range' | translate }}
-            {{ displayWithStat(settings.evaluateModifierMinRange) }}~{{
-              displayWithStat(settings.evaluateModifierMaxRange)
-            }}%
           </label>
           <div class="range">
+            <span class="preview">
+              - {{ displayWithStat(settings.evaluateModifierMinRange) }}%
+              <span class="spacer">~</span>
+              + {{ displayWithStat(settings.evaluateModifierMaxRange) }}%
+            </span>
             <span>#</span>
             <mat-slider
               min="0"
@@ -308,22 +296,6 @@
               [(value)]="settings.evaluateModifierMinRange"
             >
             </mat-slider>
-            <div
-              class="value"
-              *ngIf="
-                settings.evaluateModifierMinRange !== 0 || settings.evaluateModifierMaxRange !== 0;
-                else single
-              "
-            >
-              <span *ngIf="settings.evaluateModifierMinRange !== 50; else any">{{
-                50 * (1 - settings.evaluateModifierMinRange / 100) | number: '1.0-1'
-              }}</span>
-              <span>~</span>
-              <span *ngIf="settings.evaluateModifierMaxRange !== 50; else any">{{
-                50 * (1 + settings.evaluateModifierMaxRange / 100) | number: '1.0-1'
-              }}</span>
-              <ng-template #any>#</ng-template>
-            </div>
             <mat-slider
               min="0"
               max="50"

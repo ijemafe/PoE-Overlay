@@ -29,12 +29,13 @@
     "analyzing": "Analyse des données ...",
     "cancel": "Annuler?",
     "canceled": "Recherche annulée. Ouvrir dans le navigateur?",
-    "count": "Compter",
+    "count": "Résultats",
     "currencies": "Devise",
     "currency": "Monnaie affichée",
     "currency-listing": "Afficher la devise de l'annonce",
     "days": "Les 7 derniers jours",
     "debounce-time": "Temps de rebond",
+    "debounce-description": "Délai de recherche automatique",
     "empty": "Aucun résultat. Ouvrir dans le navigateur?",
     "error": "Une erreur s'est produite.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "Profils présélectionnés",
     "property": {
-      "range": "Gamme Min-Max"
+      "range": "Gamme Min-Max",
+      "range-description": "Augmentation/diminution en pourcentage des valeurs actuelles de l'élément de recherche"
     },
     "query": "Question",
     "range": "Range",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "Normaliser la qualité",
       "online-only": "En ligne seulement",
-      "properties": "Propriétés"
+      "properties": "Propriétés de l'élément de base"
     },
     "searching": "Recherche...",
     "seller": "vendeur",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "Appuyez sur n'importe quelle touche ... ESC le définira comme non lié.",
-      "unbound": "Non lié"
+      "unbound": "Non lié",
+      "set-shortcut": "Définir le raccourci",
+      "cancel-set": "Annuler le raccourci de réglage"
     },
     "select-list": {
       "add": "Ajouter à la sélection",
@@ -217,6 +221,7 @@
     "display-version": "Afficher la version",
     "exit-app": "Quitter l'application",
     "focusable": "Focusable (prise en charge du clavier)",
+    "focusable-description": "Permet la navigation au clavier de la superposition (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "Paramètres de jeu",
     "general": "Général",
     "languages": {

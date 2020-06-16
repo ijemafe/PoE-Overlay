@@ -93,9 +93,21 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: wrap;
+
+  .preview {
+    flex: 1 1 100%;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+
+    .spacer {
+      margin: 0 20px;
+    }
+  }
 
   .mat-slider {
-    width: 50%;
+    flex: 1;
   }
 
   .value {

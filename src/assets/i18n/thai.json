@@ -29,12 +29,13 @@
     "analyzing": "กำลังวิเคราะห์ข้อมูล ...",
     "cancel": "ยกเลิก?",
     "canceled": "ยกเลิกการค้นหา เปิดในเบราว์เซอร์?",
-    "count": "นับ",
+    "count": "ผล",
     "currencies": "เงินตรา",
     "currency": "สกุลเงินที่แสดง",
     "currency-listing": "แสดงรายการสกุลเงิน",
     "days": "7 วันล่าสุด",
     "debounce-time": "เวลาดีบั๊ก",
+    "debounce-description": "ค้นหาล่าช้าอัตโนมัติ",
     "empty": "ไม่มีผลลัพธ์. เปิดในเบราว์เซอร์?",
     "error": "เกิดข้อผิดพลาด.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "โปรไฟล์ที่เลือกไว้ล่วงหน้า",
     "property": {
-      "range": "ช่วง Min-Max"
+      "range": "ช่วง Min-Max",
+      "range-description": "เปอร์เซ็นต์การเพิ่ม/ลดสำหรับค่าปัจจุบันของรายการการค้นหา"
     },
     "query": "สอบถาม",
     "range": "Range",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "ทำให้คุณภาพเป็นปกติ",
       "online-only": "ออนไลน์เท่านั้น",
-      "properties": "คุณสมบัติ"
+      "properties": "คุณสมบัติรายการฐาน"
     },
     "searching": "ค้นหา ...",
     "seller": "ผู้ขาย",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "กดปุ่มใด ๆ ... ESC จะตั้งค่าเป็นไม่ได้ผูกไว้",
-      "unbound": "หลุด"
+      "unbound": "หลุด",
+      "set-shortcut": "ตั้งทางลัด",
+      "cancel-set": "ยกเลิกการตั้งค่าทางลัด"
     },
     "select-list": {
       "add": "เพิ่มไปยังที่เลือก",
@@ -217,6 +221,7 @@
     "display-version": "แสดงเวอร์ชั่น",
     "exit-app": "ออกจากแอป",
     "focusable": "สามารถโฟกัสได้ (รองรับคีย์บอร์ด)",
+    "focusable-description": "อนุญาตการนำทางด้วยคีย์บอร์ดของภาพซ้อนทับ (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "ตั้งค่าเกม",
     "general": "ทั่วไป",
     "languages": {

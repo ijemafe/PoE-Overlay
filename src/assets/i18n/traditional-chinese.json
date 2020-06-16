@@ -29,12 +29,13 @@
     "analyzing": "正在分析數據...",
     "cancel": "取消？",
     "canceled": "搜索已取消。在瀏覽器中打開？",
-    "count": "計數",
+    "count": "結果",
     "currencies": "貨幣",
     "currency": "顯示貨幣",
     "currency-listing": "顯示清單貨幣",
     "days": "過去7天",
     "debounce-time": "去抖時間",
+    "debounce-description": "自動搜尋延遲",
     "empty": "沒有結果。在瀏覽器中打開？",
     "error": "發生錯誤。",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "預選個人資料",
     "property": {
-      "range": "最小最大範圍"
+      "range": "最小最大範圍",
+      "range-description": "搜索項目當前值的百分比增加/減少"
     },
     "query": "詢問",
     "range": "範圍",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "標準化質量",
       "online-only": "僅在線",
-      "properties": "屬性"
+      "properties": "基本項目屬性"
     },
     "searching": "搜索...",
     "seller": "賣家",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "按任意鍵... ESC將其設置為未綁定。",
-      "unbound": "未綁定"
+      "unbound": "未綁定",
+      "set-shortcut": "設定捷徑",
+      "cancel-set": "取消設置快捷方式"
     },
     "select-list": {
       "add": "添加到選中",
@@ -217,6 +221,7 @@
     "display-version": "顯示版本",
     "exit-app": "退出應用",
     "focusable": "重點突出（鍵盤支持）",
+    "focusable-description": "允許鍵盤導航疊加層 (TAB / ARROW KEYS [←→↑↓])",
     "game-settings": "遊戲設置",
     "general": "一般",
     "languages": {
