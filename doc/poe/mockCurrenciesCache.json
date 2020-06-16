@@ -1,0 +1,317 @@
+[
+  {
+    "id": "alt",
+    "nameType": "Orb of Alteration",
+    "image": "/image/Art/2DItems/Currency/CurrencyRerollMagic.png?v=6d9520174f6643e502da336e76b730d3"
+  },
+  {
+    "id": "fuse",
+    "nameType": "Orb of Fusing",
+    "image": "/image/Art/2DItems/Currency/CurrencyRerollSocketLinks.png?v=0ad7134a62e5c45e4f8bc8a44b95540f"
+  },
+  {
+    "id": "alch",
+    "nameType": "Orb of Alchemy",
+    "image": "/image/Art/2DItems/Currency/CurrencyUpgradeToRare.png?v=89c110be97333995522c7b2c29cae728"
+  },
+  {
+    "id": "chaos",
+    "nameType": "Chaos Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyRerollRare.png?v=c60aa876dd6bab31174df91b1da1b4f9"
+  },
+  {
+    "id": "gcp",
+    "nameType": "Gemcutter's Prism",
+    "image": "/image/Art/2DItems/Currency/CurrencyGemQuality.png?v=f11792b6dbd2f5f869351151bc3a4539"
+  },
+  {
+    "id": "exa",
+    "nameType": "Exalted Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyAddModToRare.png?v=1745ebafbd533b6f91bccf588ab5efc5"
+  },
+  {
+    "id": "chrom",
+    "nameType": "Chromatic Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyRerollSocketColours.png?v=9d377f2cf04a16a39aac7b14abc9d7c3"
+  },
+  {
+    "id": "jew",
+    "nameType": "Jeweller's Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyRerollSocketNumbers.png?v=2946b0825af70f796b8f15051d75164d"
+  },
+  {
+    "id": "engineers-orb",
+    "nameType": "Engineer's Orb",
+    "image": "/image/Art/2DItems/Currency/EngineersOrb.png?v=4b291fd7d6b9022a2d35b34c43c08e87"
+  },
+  {
+    "id": "chance",
+    "nameType": "Orb of Chance",
+    "image": "/image/Art/2DItems/Currency/CurrencyUpgradeRandomly.png?v=e4049939b9cd61291562f94364ee0f00"
+  },
+  {
+    "id": "chisel",
+    "nameType": "Cartographer's Chisel",
+    "image": "/image/Art/2DItems/Currency/CurrencyMapQuality.png?v=f46e0a1af7223e2d4cae52bc3f9f7a1f"
+  },
+  {
+    "id": "scour",
+    "nameType": "Orb of Scouring",
+    "image": "/image/Art/2DItems/Currency/CurrencyConvertToNormal.png?v=15e3ef97f04a39ae284359309697ef7d"
+  },
+  {
+    "id": "blessed",
+    "nameType": "Blessed Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyImplicitMod.png?v=472eeef04846d8a25d65b3d4f9ceecc8"
+  },
+  {
+    "id": "regret",
+    "nameType": "Orb of Regret",
+    "image": "/image/Art/2DItems/Currency/CurrencyPassiveSkillRefund.png?v=1de687952ce56385b74ac450f97fcc33"
+  },
+  {
+    "id": "regal",
+    "nameType": "Regal Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyUpgradeMagicToRare.png?v=1187a8511b47b35815bd75698de1fa2a"
+  },
+  {
+    "id": "divine",
+    "nameType": "Divine Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyModValues.png?v=0ad99d4a2b0356a60fa8194910d80f6b"
+  },
+  {
+    "id": "vaal",
+    "nameType": "Vaal Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyVaal.png?v=64114709d67069cd665f8f1a918cd12a"
+  },
+  {
+    "id": "orb-of-annulment",
+    "nameType": "Orb of Annulment",
+    "image": "/image/Art/2DItems/Currency/AnnullOrb.png?v=f9a0f8b21515c8abf517e9648cfc7455"
+  },
+  {
+    "id": "orb-of-binding",
+    "nameType": "Orb of Binding",
+    "image": "/image/Art/2DItems/Currency/BindingOrb.png?v=6ee0528156592a01c2931262d024f842"
+  },
+  {
+    "id": "ancient-orb",
+    "nameType": "Ancient Orb",
+    "image": "/image/Art/2DItems/Currency/AncientOrb.png?v=3edb14b53b9b05e176124814aba86f94"
+  },
+  {
+    "id": "orb-of-horizons",
+    "nameType": "Orb of Horizons",
+    "image": "/image/Art/2DItems/Currency/HorizonOrb.png?v=f3b3343dc61c60e667003bbdbbdb2374"
+  },
+  {
+    "id": "harbingers-orb",
+    "nameType": "Harbinger's Orb",
+    "image": "/image/Art/2DItems/Currency/HarbingerOrb.png?v=a61bf3add692a2fe74bb5f39213f4d93"
+  },
+  {
+    "id": "wis",
+    "nameType": "Scroll of Wisdom",
+    "image": "/image/Art/2DItems/Currency/CurrencyIdentification.png?v=1b9b38c45be95c59d8900f91b2afd58b"
+  },
+  {
+    "id": "port",
+    "nameType": "Portal Scroll",
+    "image": "/image/Art/2DItems/Currency/CurrencyPortal.png?v=728696ea10d4fb1e789039debc5d8c3c"
+  },
+  {
+    "id": "scr",
+    "nameType": "Armourer's Scrap",
+    "image": "/image/Art/2DItems/Currency/CurrencyArmourQuality.png?v=251e204e4ec325f75ce8ef75b2dfbeb8"
+  },
+  {
+    "id": "whe",
+    "nameType": "Blacksmith's Whetstone",
+    "image": "/image/Art/2DItems/Currency/CurrencyWeaponQuality.png?v=d2ce9167e23a74cef5d8465433e86482"
+  },
+  {
+    "id": "ba",
+    "nameType": "Glassblower's Bauble",
+    "image": "/image/Art/2DItems/Currency/CurrencyFlaskQuality.png?v=ca8bd0dd43d2adf8b021578a398eb9de"
+  },
+  {
+    "id": "tra",
+    "nameType": "Orb of Transmutation",
+    "image": "/image/Art/2DItems/Currency/CurrencyUpgradeToMagic.png?v=333b8b5e28b73c62972fc66e7634c5c8"
+  },
+  {
+    "id": "aug",
+    "nameType": "Orb of Augmentation",
+    "image": "/image/Art/2DItems/Currency/CurrencyAddModToMagic.png?v=97e63b85807f2419f4208482fd0b4859"
+  },
+  {
+    "id": "mir",
+    "nameType": "Mirror of Kalandra",
+    "image": "/image/Art/2DItems/Currency/CurrencyDuplicate.png?v=6fd68c1a5c4292c05b97770e83aa22bc"
+  },
+  {
+    "id": "ete",
+    "nameType": "Eternal Orb",
+    "image": "/image/Art/2DItems/Currency/CurrencyImprintOrb.png?v=0483ded9ac1f08c320fc21d5ddc208c0"
+  },
+  {
+    "id": "p",
+    "nameType": "Perandus Coin",
+    "image": "/image/Art/2DItems/Currency/CurrencyCoin.png?v=b971d7d9ea1ad32f16cce8ee99c897cf"
+  },
+  {
+    "id": "silver",
+    "nameType": "Silver Coin",
+    "image": "/image/Art/2DItems/Currency/SilverObol.png?v=93c1b204ec2736a2fe5aabbb99510bcf"
+  },
+  {
+    "id": "annulment-shard",
+    "nameType": "Annulment Shard",
+    "image": "/image/Art/2DItems/Currency/AnnullShard.png?v=502496c41d3da750bcecbb194d0aa3f4"
+  },
+  {
+    "id": "mirror-shard",
+    "nameType": "Mirror Shard",
+    "image": "/image/Art/2DItems/Currency/MirrorShard.png?v=b5b677eece4ae7e8450452e3944f121d"
+  },
+  {
+    "id": "exalted-shard",
+    "nameType": "Exalted Shard",
+    "image": "/image/Art/2DItems/Currency/ExaltedShard.png?v=4945fe24b79868be79870f8ad01f20b0"
+  },
+  {
+    "id": "binding-shard",
+    "nameType": "Binding Shard",
+    "image": "/image/Art/2DItems/Currency/BindingShard.png?v=b00f27dee8ad94d7f187133a09b872f9"
+  },
+  {
+    "id": "horizon-shard",
+    "nameType": "Horizon Shard",
+    "image": "/image/Art/2DItems/Currency/HorizonShard.png?v=6d0e5b4c1bbaeb06c8cd10c269ad8121"
+  },
+  {
+    "id": "harbingers-shard",
+    "nameType": "Harbinger's Shard",
+    "image": "/image/Art/2DItems/Currency/HarbingerShard.png?v=2274561da4960ca41bb6742952edc74d"
+  },
+  {
+    "id": "engineers-shard",
+    "nameType": "Engineer's Shard",
+    "image": "/image/Art/2DItems/Currency/EngineersShard.png?v=8b69b76b1f42120f72cf7febb76b6a7a"
+  },
+  {
+    "id": "ancient-shard",
+    "nameType": "Ancient Shard",
+    "image": "/image/Art/2DItems/Currency/AncientShard.png?v=e1eb08f64822576bd6d47029cd72d1a9"
+  },
+  {
+    "id": "chaos-shard",
+    "nameType": "Chaos Shard",
+    "image": "/image/Art/2DItems/Currency/ChaosShard.png?v=c206269aeda3a6a7b5a8ac110045afca"
+  },
+  {
+    "id": "regal-shard",
+    "nameType": "Regal Shard",
+    "image": "/image/Art/2DItems/Currency/RegalShard.png?v=e10a1590d421e4305d8a19ff8c4d9948"
+  },
+  {
+    "id": "apprentice-sextant",
+    "nameType": "Simple Sextant",
+    "image": "/image/Art/2DItems/Currency/AtlasRadiusTier1.png?v=7c21fc06120d910018893083227406df"
+  },
+  {
+    "id": "journeyman-sextant",
+    "nameType": "Prime Sextant",
+    "image": "/image/Art/2DItems/Currency/AtlasRadiusTier2.png?v=043e5f4d8c52af6b302e30afaffa5eba"
+  },
+  {
+    "id": "master-sextant",
+    "nameType": "Awakened Sextant",
+    "image": "/image/Art/2DItems/Currency/AtlasRadiusTier3.png?v=d69377f526ff51c408461b0cee4d4ade"
+  },
+  {
+    "id": "blessing-xoph",
+    "nameType": "Blessing of Xoph",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderFire.png?v=6c7efd3a8fc9150d4b293d5a5917fd04"
+  },
+  {
+    "id": "blessing-tul",
+    "nameType": "Blessing of Tul",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderCold.png?v=c25b6df9be1fd051d99616e4bb78066e"
+  },
+  {
+    "id": "blessing-esh",
+    "nameType": "Blessing of Esh",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderLightning.png?v=ed7bb0e73f5ca907ef62592e48d442dc"
+  },
+  {
+    "id": "blessing-uul-netol",
+    "nameType": "Blessing of Uul-Netol",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderPhysical.png?v=cf3d245db6b6bb796112a952d74543e0"
+  },
+  {
+    "id": "blessing-chayula",
+    "nameType": "Blessing of Chayula",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachUpgraderChaos.png?v=841360bbd5f81619761a0d16f8c36793"
+  },
+  {
+    "id": "splinter-xoph",
+    "nameType": "Splinter of Xoph",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachShardFire.png?v=4635e0847323cf1d62c8b4e8101351bf"
+  },
+  {
+    "id": "splinter-tul",
+    "nameType": "Splinter of Tul",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachShardCold.png?v=4a7652d6ff5de2493d37768e993c9411"
+  },
+  {
+    "id": "splinter-esh",
+    "nameType": "Splinter of Esh",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachShardLightning.png?v=11cd23560f7aa0dda27cc323fa97cb96"
+  },
+  {
+    "id": "splinter-uul",
+    "nameType": "Splinter of Uul-Netol",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachShardPhysical.png?v=25f31f4a5e1ba4540cb7bfa03b82c1e8"
+  },
+  {
+    "id": "splinter-chayula",
+    "nameType": "Splinter of Chayula",
+    "image": "/image/Art/2DItems/Currency/Breach/BreachShardChaos.png?v=2c18cbe5384375bbe4643cd8b83ea32d"
+  },
+  {
+    "id": "timeless-karui-splinter",
+    "nameType": "Timeless Karui Splinter",
+    "image": "/image/Art/2DItems/Maps/KaruiShard.png?v=e3ab494b7e170292856cd88874110b61"
+  },
+  {
+    "id": "timeless-maraketh-splinter",
+    "nameType": "Timeless Maraketh Splinter",
+    "image": "/image/Art/2DItems/Maps/MarakethShard.png?v=e0b5a2a9dd104c9884025da7191cdb9e"
+  },
+  {
+    "id": "timeless-eternal-empire-splinter",
+    "nameType": "Timeless Eternal Empire Splinter",
+    "image": "/image/Art/2DItems/Maps/EternalEmpireShard.png?v=c39753adba56300b8c08f3066a79429c"
+  },
+  {
+    "id": "timeless-templar-splinter",
+    "nameType": "Timeless Templar Splinter",
+    "image": "/image/Art/2DItems/Maps/TemplarShard.png?v=82d3d517ed1caa15a3dfad5f3a0a8fff"
+  },
+  {
+    "id": "timeless-vaal-splinter",
+    "nameType": "Timeless Vaal Splinter",
+    "image": "/image/Art/2DItems/Maps/VaalShard.png?v=0a4bddb57e7c348f72bfffd3434f0e6b"
+  },
+  {
+    "id": "simulacrum-splinter",
+    "nameType": "Simulacrum Splinter",
+    "image": "/image/Art/2DItems/Maps/DeliriumSplinter.png?v=63d53dfdcf5b047248b781187d66624b"
+  },
+  {
+    "id": "stacked-deck",
+    "nameType": "Stacked Deck",
+    "image": "/image/Art/2DItems/Divination/Deck.png?v=0e5e6da39f79fc57f3d38d463126617a"
+  }
+]
