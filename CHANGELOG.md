@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.1 (2020-06-16) 
+- Added support for linux users
+- Updated Settings for better User experience
+- rare search screen now show rare name along with base type
+- removed Pricing Method Tagging
+- misc documentation changes
+- misc bug fixes
+
+
 ## 0.6.28 (2020-05-09)
 
 - added fetch count at the option menu (#692)
