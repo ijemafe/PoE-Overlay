@@ -1,11 +1,11 @@
-import {TestBed} from '@angular/core/testing'
-import {SharedModule} from '@shared/shared.module'
-import {forkJoin, from} from 'rxjs'
-import {Item, Language} from '../../type'
-import {ContextService} from '../context.service'
-import {CurrencyService} from '../currency/currency.service'
-import {ItemPricePredictionService} from './item-price-prediction.service'
-import {ItemPricePrediction, ItemPricePredictionProvider} from '@shared/module/poe/provider';
+import { TestBed } from '@angular/core/testing'
+import { SharedModule } from '@shared/shared.module'
+import { forkJoin, from } from 'rxjs'
+import { Item, Language } from '../../type'
+import { ContextService } from '../context.service'
+import { CurrencyService } from '../currency/currency.service'
+import { ItemPricePredictionService } from './item-price-prediction.service'
+import { ItemPricePrediction, ItemPricePredictionProvider } from '@shared/module/poe/provider'
 
 describe('ItemPricePredictionService', () => {
   let sut: ItemPricePredictionService
