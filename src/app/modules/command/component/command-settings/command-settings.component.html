@@ -19,10 +19,8 @@
     </mat-card>
   </div>
   <div class="col-md-6 col-lg-4">
-    <mat-card>
-      <div align="center">
-        <button mat-button (click)="onAddCommandClick()">{{ 'command.add' | translate }}</button>
-      </div>
-    </mat-card>
+    <button mat-raised-button (click)="onAddCommandClick()" class="card-button">
+      {{ 'command.add' | translate }}
+    </button>
   </div>
 </div>

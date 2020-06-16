@@ -29,12 +29,13 @@
     "analyzing": "Daten analysieren...",
     "cancel": "Abbrechen?",
     "canceled": "Suche abgebrochen. Im Browser öffnen?",
-    "count": "Anzahl",
+    "count": "Ergebnisse",
     "currencies": "Währung",
     "currency": "Angezeigte Währung",
     "currency-listing": "Währung des Angebotes anzeigen",
     "days": "Letzte 7 Tage",
     "debounce-time": "Entprellzeit",
+    "debounce-description": "Verzögerung der automatischen Suche",
     "empty": "Keine Ergebnisse. Im Browser öffnen?",
     "error": "Es ist ein Fehler aufgetreten.",
     "errors": {
@@ -79,7 +80,8 @@
     },
     "profiles": "Vorausgewählte Profile",
     "property": {
-      "range": "Min-Max-Bereich"
+      "range": "Min-Max-Bereich",
+      "range-description": "Prozentuale Zunahme/Abnahme der Werte des aktuellen Gegenstands"
     },
     "query": "Abfrage",
     "range": "Bereich",
@@ -114,7 +116,7 @@
       },
       "normalize-quality": "Qualität normalisieren",
       "online-only": "Nur online",
-      "properties": "Eigenschaften"
+      "properties": "Eigenschaften des Basisgegenstands"
     },
     "searching": "Suchen...",
     "seller": "Verkäufer",
@@ -174,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "Drücken Sie eine beliebige Taste ... ESC setzt sie auf ungebunden.",
-      "unbound": "Ungebunden"
+      "unbound": "Ungebunden",
+      "set-shortcut": "Verknüpfung festlegen",
+      "cancel-set": "Einstellungsverknüpfung abbrechen"
     },
     "select-list": {
       "add": "Zur Auswahl hinzufügen",
@@ -217,6 +221,7 @@
     "display-version": "Version anzeigen",
     "exit-app": "App beenden",
     "focusable": "Fokussierbar (Tastaturunterstützung)",
+    "focusable-description": "Ermöglicht die Tastaturnavigation des Overlays (TAB / PFEILTASTEN [←→↑↓])",
     "game-settings": "Spieleinstellungen",
     "general": "Allgemeines",
     "languages": {

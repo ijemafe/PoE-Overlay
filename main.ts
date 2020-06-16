@@ -69,7 +69,7 @@ const childs: {
 /* session */
 
 function setUserAgent(): void {
-  const generatedUserAgent = `PoEOverlay/${app.getVersion()}`
+  const generatedUserAgent = `PoEOverlayCommunityFork/${app.getVersion()}`
   session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
     details.requestHeaders['User-Agent'] = generatedUserAgent
     callback({ cancel: false, requestHeaders: details.requestHeaders })

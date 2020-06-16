@@ -9,10 +9,7 @@ import {
 import { Language } from '@shared/module/poe/type'
 import { Observable, of, throwError } from 'rxjs'
 import { catchError, flatMap, tap } from 'rxjs/operators'
-import {
-  EvaluatePricing,
-  EvaluateUserSettings,
-} from '../component/evaluate-settings/evaluate-settings.component'
+import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component'
 import { EvaluateDialogService } from './evaluate-dialog.service'
 
 @Injectable({
@@ -43,21 +40,8 @@ export class EvaluateService {
                   return of(null)
                 }
 
-                if (settings.evaluatePricing === EvaluatePricing.Clipboard) {
-                  this.stash.copyPrice(result)
-                  return this.snackbar.info('evaluate.tag.clipboard')
-                } else {
-                  if (!this.stash.hovering(point)) {
-                    this.stash.copyPrice(result)
-                    return this.snackbar.info('evaluate.tag.outside-stash')
-                  }
-
-                  if ((item.note || '').length > 0) {
-                    this.stash.copyPrice(result)
-                    return this.snackbar.info('evaluate.tag.note')
-                  }
-                  return this.stash.tagPrice(result, point)
-                }
+                this.stash.copyPrice(result)
+                return this.snackbar.info('evaluate.tag.clipboard')
               })
             )
           case ItemClipboardResultCode.Empty:
