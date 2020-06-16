@@ -84,25 +84,4 @@ export class StashService {
       `${tag.type} ${tag.count ? `${tag.amount}/${tag.count}` : tag.amount} ${tag.currency.id}`
     )
   }
-
-  public tagPrice(tag: StashPriceTag, point: Point): Observable<void> {
-    const text = this.clipboard.readText()
-    this.copyPrice(tag)
-    return of(null).pipe(
-      tap(() => this.game.focus()),
-      tap(() => this.mouse.click('right', point)),
-      delay(100),
-      tap(() => {
-        this.keyboard.setKeyboardDelay(5)
-        this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control'])
-      }),
-      delay(50),
-      tap(() => {
-        this.keyboard.setKeyboardDelay(5)
-        this.keyboard.keyTap(KeyCode.VK_RETURN)
-      }),
-      delay(75),
-      tap(() => this.clipboard.writeText(text))
-    )
-  }
 }

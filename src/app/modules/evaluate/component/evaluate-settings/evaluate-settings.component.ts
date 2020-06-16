@@ -19,7 +19,6 @@ export enum EvaluateResultView {
 
 export enum EvaluatePricing {
   Clipboard = 1,
-  Tagging = 2,
 }
 
 export interface EvaluateUserSettings extends UserSettings {
