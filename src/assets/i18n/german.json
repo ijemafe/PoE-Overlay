@@ -29,7 +29,7 @@
     "analyzing": "Daten analysieren...",
     "cancel": "Abbrechen?",
     "canceled": "Suche abgebrochen. Im Browser öffnen?",
-    "count": "Anzahl",
+    "count": "Ergebnisse",
     "currencies": "Währung",
     "currency": "Angezeigte Währung",
     "currency-listing": "Währung des Angebotes anzeigen",
@@ -176,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "Drücken Sie eine beliebige Taste ... ESC setzt sie auf ungebunden.",
-      "unbound": "Ungebunden"
+      "unbound": "Ungebunden",
+      "set-shortcut": "Verknüpfung festlegen",
+      "cancel-set": "Einstellungsverknüpfung abbrechen"
     },
     "select-list": {
       "add": "Zur Auswahl hinzufügen",

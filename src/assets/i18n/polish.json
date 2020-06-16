@@ -29,7 +29,7 @@
     "analyzing": "Analiza danych ...",
     "cancel": "Anuluj?",
     "canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",
-    "count": "Liczba Aukcji",
+    "count": "Wyniki",
     "currencies": "Waluta",
     "currency": "Wyświetlana waluta",
     "currency-listing": "Pokaż walutę oferty",
@@ -176,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "Naciśnij dowolny klawisz ... ESC ustawi to na niezwiązane.",
-      "unbound": "Nie przypisany"
+      "unbound": "Nie przypisany",
+      "set-shortcut": "Ustaw skrót",
+      "cancel-set": "Anuluj ustawienie skrótu"
     },
     "select-list": {
       "add": "Dodaj do wybranych",

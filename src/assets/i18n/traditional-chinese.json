@@ -29,7 +29,7 @@
     "analyzing": "正在分析數據...",
     "cancel": "取消？",
     "canceled": "搜索已取消。在瀏覽器中打開？",
-    "count": "計數",
+    "count": "結果",
     "currencies": "貨幣",
     "currency": "顯示貨幣",
     "currency-listing": "顯示清單貨幣",
@@ -176,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "按任意鍵... ESC將其設置為未綁定。",
-      "unbound": "未綁定"
+      "unbound": "未綁定",
+      "set-shortcut": "設定捷徑",
+      "cancel-set": "取消設置快捷方式"
     },
     "select-list": {
       "add": "添加到選中",

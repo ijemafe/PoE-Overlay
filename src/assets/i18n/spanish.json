@@ -29,7 +29,7 @@
     "analyzing": "Analizando datos ...",
     "cancel": "¿Cancelar?",
     "canceled": "Búsqueda cancelada ¿Abierta en el navegador?",
-    "count": "Contar",
+    "count": "Resultados",
     "currencies": "moneda",
     "currency": "Moneda mostrada",
     "currency-listing": "Mostrar moneda de listado",
@@ -176,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "Presione cualquier tecla ... ESC lo establecerá como independiente.",
-      "unbound": "Sin consolidar"
+      "unbound": "Sin consolidar",
+      "set-shortcut": "Establecer acceso directo",
+      "cancel-set": "Cancelar acceso directo de configuración"
     },
     "select-list": {
       "add": "agregar a seleccionado",

@@ -29,7 +29,7 @@
     "analyzing": "데이터 분석 중 ...",
     "cancel": "취소?",
     "canceled": "검색이 취소되었습니다. 브라우저에서 열려?",
-    "count": "카운트",
+    "count": "결과",
     "currencies": "통화",
     "currency": "표시중인 화폐",
     "currency-listing": "리스팅 통화 표시",
@@ -176,7 +176,9 @@
   "material": {
     "accelerator": {
       "any": "아무 키나 누르면 ... ESC가 언 바운드로 설정합니다.",
-      "unbound": "매여 있지 않은"
+      "unbound": "매여 있지 않은",
+      "set-shortcut": "바로 가기 설정",
+      "cancel-set": "설정 바로 가기 취소"
     },
     "select-list": {
       "add": "선택한 항목에 추가",
