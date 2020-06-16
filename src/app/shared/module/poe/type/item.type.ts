@@ -217,6 +217,7 @@ export enum ItemSection {
   Sockets,
   Stats,
   Veiled,
+  Flask,
 }
 
 export interface ItemSectionParserService {
