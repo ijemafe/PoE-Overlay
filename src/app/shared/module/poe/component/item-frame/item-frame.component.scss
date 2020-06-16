@@ -15,7 +15,11 @@
     position: relative;
     padding: 2px;
     min-width: 396px;
-    min-height: 205px;
+    min-height: 115px;
     white-space: pre;
+
+    &.popover-open {
+      min-height: 200px;
+    }
   }
 }

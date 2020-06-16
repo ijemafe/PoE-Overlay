@@ -45,6 +45,8 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
   public init$ = new BehaviorSubject<boolean>(false)
   public rate$ = new BehaviorSubject<boolean>(true)
 
+  public filterOptionsOpen = false
+
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: EvaluateDialogData,
@@ -95,6 +97,10 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
   public onReset(): void {
     const queryItem = JSON.parse(JSON.stringify(this.defaultItem))
     this.onQueryItemChange(queryItem)
+  }
+
+  public onToggleOpen(openState: boolean): void {
+    this.filterOptionsOpen = openState
   }
 
   public onEvaluateResult(result: EvaluateResult): void {

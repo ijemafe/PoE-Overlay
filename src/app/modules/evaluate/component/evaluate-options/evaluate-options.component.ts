@@ -39,8 +39,11 @@ export class EvaluateOptionsComponent implements OnInit {
   @Output()
   public resetTrigger = new EventEmitter<void>()
 
-  public toggle$ = new BehaviorSubject<boolean>(false)
+  @Output()
+  public toggleOpen = new EventEmitter<void>()
+
   public leagues$: Observable<LeagueMap>
+  public isOpen = false
 
   constructor(private readonly leagues: LeaguesService) {}
 
@@ -132,5 +135,10 @@ export class EvaluateOptionsComponent implements OnInit {
 
   public getIndexedText(): string {
     return this.options.indexed.replace(/\d/, '')
+  }
+
+  public openClose(): void {
+    this.isOpen = !this.isOpen
+    this.toggleOpen.emit(this.isOpen)
   }
 }

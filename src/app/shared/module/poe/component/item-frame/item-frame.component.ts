@@ -50,6 +50,9 @@ export class ItemFrameComponent implements OnInit {
   @Input()
   public properties: []
 
+  @Input()
+  public filterOptionsOpen = false
+
   public req: boolean
   public sockets: boolean
   public stats: boolean

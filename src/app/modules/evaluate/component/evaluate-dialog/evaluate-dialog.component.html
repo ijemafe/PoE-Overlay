@@ -10,12 +10,14 @@
     [propertyMinRange]="data.settings.evaluatePropertyMinRange / 100"
     [propertyMaxRange]="data.settings.evaluatePropertyMaxRange / 100"
     [opacity]="data.settings.dialogOpacity"
+    [filterOptionsOpen]="filterOptionsOpen"
   >
     <ng-container *ngIf="currencies$ | async as currencies; else loading">
       <app-evaluate-options
         [options]="options"
         (optionsChange)="onOptionsChange($event)"
         (resetTrigger)="onReset()"
+        (toggleOpen)="onToggleOpen($event)"
       >
       </app-evaluate-options>
       <ng-container *ngIf="rate$ | async; else prediction">

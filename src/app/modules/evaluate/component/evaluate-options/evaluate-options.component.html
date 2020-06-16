@@ -1,6 +1,6 @@
 <div class="options">
-  <mat-icon class="clickable" (click)="toggle$.next(!toggle$.value)">filter_list</mat-icon>
-  <div class="popover" *ngIf="toggle$ | async">
+  <mat-icon class="clickable" (click)="openClose()">filter_list</mat-icon>
+  <div class="popover" *ngIf="isOpen">
     <!-- league -->
     <ng-container *ngIf="options.leagueId">
       <ng-container *ngIf="leagues$ | async as leagues">
