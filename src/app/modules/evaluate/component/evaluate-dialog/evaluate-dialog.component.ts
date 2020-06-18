@@ -128,6 +128,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
       switch (this.data.item.category) {
         case ItemCategory.Jewel:
         case ItemCategory.JewelAbyss:
+        case ItemCategory.JewelCluster:
         case ItemCategory.Flask:
         case ItemCategory.Weapon:
         case ItemCategory.WeaponOne:

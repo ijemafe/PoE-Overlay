@@ -101,6 +101,7 @@ export class ItemCategoryValuesProvider {
       }
       case ItemCategory.Jewel:
       case ItemCategory.JewelAbyss:
+      case ItemCategory.JewelCluster:
         if (rarity === ItemRarity.Unique) {
           const key = `${leagueId}_${ItemCategory.Jewel}`
           return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueJewel))
