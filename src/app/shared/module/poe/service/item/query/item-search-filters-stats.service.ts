@@ -77,10 +77,10 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
         }
       } else if (min !== undefined) {
         if (min > 0 || (min === 0 && negate === 1)) {
-          max = 99999
+          max = 999999
         } else {
           max = min
-          min = -99999
+          min = -999999
         }
       } else if (max !== undefined) {
         if (max >= 0) {
