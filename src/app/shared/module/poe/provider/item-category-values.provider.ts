@@ -67,10 +67,12 @@ export class ItemCategoryValuesProvider {
           this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Currency)),
           this.fetch(`${key}_essence`, () => this.fetchItem(leagueId, ItemOverviewType.Essence)),
           this.fetch(`${key}_oil`, () => this.fetchItem(leagueId, ItemOverviewType.Oil)),
+          this.fetch(`${key}_vial`, () => this.fetchItem(leagueId, ItemOverviewType.Vial)),
+          this.fetch(`${key}_deliriumOrb`, () => this.fetchItem(leagueId, ItemOverviewType.DeliriumOrb)),
         ]).pipe(
-          map(([currencies, essences, oil]) => {
+          map(([currencies, essences, oil, vial, deliriumOrb]) => {
             return {
-              values: currencies.values.concat(essences.values.concat(oil.values)),
+              values: currencies.values.concat(essences.values.concat(oil.values.concat(vial.values.concat(deliriumOrb.values)))),
             }
           })
         )
@@ -98,6 +100,10 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.MonsterBeast: {
         const key = `${leagueId}_${ItemCategory.MonsterBeast}`
         return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Beast))
+      }
+      case ItemCategory.MapScarab: {
+        const key = `${leagueId}_${ItemCategory.MapScarab}`
+        return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Scarab))
       }
       case ItemCategory.Jewel:
       case ItemCategory.JewelAbyss:
@@ -162,7 +168,6 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.GemActivegem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
-      case ItemCategory.MapScarab:
       case ItemCategory.Leaguestone:
       case ItemCategory.MonsterSample:
       case ItemCategory.CurrencyPiece:
