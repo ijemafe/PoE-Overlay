@@ -11,6 +11,7 @@ export interface StatsSearchResult {
 }
 
 export interface StatsSearchOptions {
+  monsterSample?: boolean
   base_chance_to_poison_on_hit__?: boolean
   local_minimum_added_physical_damagelocal_maximum_added_physical_damage?: boolean
   local_minimum_added_fire_damagelocal_maximum_added_fire_damage?: boolean
@@ -113,7 +114,7 @@ export class StatsService {
     language = language || this.context.get().language
     options = options || {}
 
-    const { implicitsSearch, explicitsSearch } = this.buildSearch(texts)
+    const { implicitsSearch, explicitsSearch } = this.buildSearch(texts, options)
 
     const results: StatsSearchResult[] = []
     if (implicitsSearch.sections.length > 0) {
@@ -161,6 +162,7 @@ export class StatsService {
             const section = search.sections[index]
 
             const test = expr.exec(section.text)
+
             if (!test) {
               continue
             }
@@ -226,7 +228,8 @@ export class StatsService {
   }
 
   private buildSearch(
-    texts: string[]
+    texts: string[],
+    options?: StatsSearchOptions
   ): {
     implicitsSearch: StatsSectionsSearch
     explicitsSearch: StatsSectionsSearch
@@ -242,6 +245,9 @@ export class StatsService {
     const explicitsSearch: StatsSectionsSearch = {
       types: [StatType.Explicit],
       sections: [],
+    }
+    if (options.monsterSample) {
+      explicitsSearch.types.push(StatType.Monster)
     }
     texts.forEach((text, index) => {
       const section: StatsSectionText = {
