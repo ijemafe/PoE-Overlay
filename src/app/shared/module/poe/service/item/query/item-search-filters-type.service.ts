@@ -85,6 +85,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       // jewel
       case ItemCategory.Jewel:
       case ItemCategory.JewelAbyss:
+      case ItemCategory.JewelCluster:
       // flasks
       case ItemCategory.Flask:
       // map

@@ -84,6 +84,7 @@ export enum ItemCategory {
   GemSupportGemplus = 'gem.supportgemplus',
   Jewel = 'jewel',
   JewelAbyss = 'jewel.abyss',
+  JewelCluster = 'jewel.cluster',
   Flask = 'flask',
   Map = 'map',
   MapFragment = 'map.fragment',

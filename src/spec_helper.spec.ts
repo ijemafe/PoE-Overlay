@@ -7,6 +7,7 @@ let cache: CacheService
 const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
 const mockStaticData: any = require('doc/poe/mockCurrenciesCache.json')
 const mockExchangeRates: any = require('doc/poe-ninja/currencyoverviewcache.json')
+const mockItemCategoryProphecy: any = require('doc/poe-ninja/itemcategory_prophecy_cache.json')
 
 beforeAll((done) => {
   cache = TestBed.inject<CacheService>(CacheService)
@@ -14,5 +15,6 @@ beforeAll((done) => {
     cache.store(`leagues_1`, mockLeagues.result, 99999, true),
     cache.store('currency_chaos_equivalents_Delirium', mockExchangeRates, 99999, true),
     cache.store('currencies_1', mockStaticData, 99999, true),
+    cache.store('item_category_Delirium_prophecy', mockItemCategoryProphecy, 99999, true),
   ]).subscribe(() => done())
 })
