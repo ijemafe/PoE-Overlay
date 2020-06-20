@@ -8,6 +8,9 @@ export interface ItemOverviewLine {
   baseType: string
   mapTier: number
   links: number
+  gemLevel: number
+  gemQuality: number
+  corrupted: boolean
   itemClass: number
   chaosValue: number
   sparkline: SparkLine
