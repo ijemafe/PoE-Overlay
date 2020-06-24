@@ -6,6 +6,7 @@ import {
   ItemSection,
   ItemSectionParserService,
   Section,
+  ItemCategory,
 } from '@shared/module/poe/type'
 import { StatsSearchOptions, StatsService } from '../../stats/stats.service'
 
@@ -40,7 +41,9 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
   }
 
   private createOptions(item: Item): StatsSearchOptions {
-    const options: StatsSearchOptions = {}
+    const options: StatsSearchOptions = {
+      monsterSample: item.category === ItemCategory.MonsterSample
+    }
     if (!item.properties) {
       return options
     }

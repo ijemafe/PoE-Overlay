@@ -74,6 +74,10 @@ label {
     &.fractured {
       background-color: $fractured;
     }
+
+    &.monster {
+      background-color: $monster;
+    }
   }
 }
 
