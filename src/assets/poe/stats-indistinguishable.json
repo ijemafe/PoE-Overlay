@@ -2,7 +2,9 @@
   "indistinguishableStats": {
     "explicit": {
       "stat_3885634897": "stat_795138349",
-      "stat_795138349": "stat_3885634897"
+      "stat_795138349": "stat_3885634897",
+	  "stat_4262448838": "stat_1694106311",
+	  "stat_1694106311": "stat_4262448838"
     },
     "implicit": {},
     "crafted": {},
