@@ -7,7 +7,10 @@
     "implicit": {},
     "crafted": {},
     "fractured": {},
-    "enchant": {},
+    "enchant": {
+	  "stat_2954116742": "stat_3459808765",
+	  "stat_3459808765": "stat_2954116742"
+	},
     "pseudo": {},
     "veiled": {},
     "monster": {},
