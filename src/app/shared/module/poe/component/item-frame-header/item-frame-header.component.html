@@ -1,4 +1,4 @@
-<div [class]="'header ' + (item.rarity || '')" [class.double]="item.name && item.typeId">
+<div [class]="getHeaderClass(item)">
   <div class="name" *ngIf="item.name">
     <app-item-frame-query [(property)]="queryItem.name" [value]="item.name" [disabled]="!queryable">
       <span> {{ item.name }}</span>
