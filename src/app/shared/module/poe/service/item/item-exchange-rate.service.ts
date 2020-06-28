@@ -157,16 +157,40 @@ export class ItemExchangeRateService {
       return x.corrupted === corrupted
     }
 
+    const prophecyText = item.properties?.prophecyText
+    const filterProphecyText = (x: ItemCategoryValue) => {
+      if (prophecyText == undefined || x.prophecyText === undefined) {
+        switch (item.category) {
+          case ItemCategory.Prophecy:
+            return false;
+        }
+        return true;
+      }
+      return x.prophecyText === prophecyText
+    }
+
+    const filterName = (x: ItemCategoryValue, name: string) => {
+      switch (item.category) {
+        case ItemCategory.Prophecy:
+          // Remove the discriminator from the item name.
+          if (name.endsWith(')')) {
+            name = name.substr(0, name.lastIndexOf('(')).trim()
+          }
+          break
+      }
+      return x.name === name
+    }
+
     return this.valuesProvider.provide(leagueId, item.rarity, item.category).pipe(
       map((response) => {
         const type = this.baseItemTypesService.translate(item.typeId, Language.English)
         const name = this.wordService.translate(item.nameId, Language.English)
         if (item.typeId && !item.nameId) {
-          return response.values.find((x) => x.name === type && filterLinks(x) && filterMapTier(x) && filterGemLevel(x) && filterGemQuality(x) && filterCorruption(x))
+          return response.values.find((x) => filterName(x, type) && filterLinks(x) && filterMapTier(x) && filterGemLevel(x) && filterGemQuality(x) && filterProphecyText(x) && filterCorruption(x))
         }
         return response.values.find(
           (x) =>
-            x.name === name && x.type === type && !x.relic && filterLinks(x) && filterMapTier(x) && filterGemLevel(x) && filterGemQuality(x) && filterCorruption(x)
+            filterName(x, name) && x.type === type && !x.relic && filterLinks(x) && filterMapTier(x) && filterGemLevel(x) && filterGemQuality(x) && filterProphecyText(x) && filterCorruption(x)
         )
       })
     )

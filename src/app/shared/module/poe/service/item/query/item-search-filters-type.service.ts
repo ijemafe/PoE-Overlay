@@ -139,6 +139,17 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
         query.filters.type_filters.filters.category = {
           option: item.category,
         }
+        if (query.type.option.endsWith(')')) {
+          const discrimininatorStartIdx = query.type.option.lastIndexOf('(')
+          query.name = {
+            option: query.type.option.substr(0, discrimininatorStartIdx).trim(),
+            discriminator: query.type.option.substr(discrimininatorStartIdx + 1, query.type.option.length - discrimininatorStartIdx - 2)
+          }
+        } else {
+          query.name = {
+            option: query.type.option
+          }
+        }
         query.type = undefined
         break
       default:

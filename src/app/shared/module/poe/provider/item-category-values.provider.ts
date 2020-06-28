@@ -19,6 +19,7 @@ export interface ItemCategoryValue {
   gemQuality: number
   corrupted: boolean
   relic: boolean
+  prophecyText: string
   chaosAmount: number
   change: number
   history: number[]
@@ -206,6 +207,7 @@ export class ItemCategoryValuesProvider {
               mapTier: undefined,
               gemLevel: undefined,
               gemQuality: undefined,
+              prophecyText: undefined,
               corrupted: undefined,
               relic: undefined,
               change: sparkLine.totalChange,
@@ -237,6 +239,7 @@ export class ItemCategoryValuesProvider {
               mapTier: line.mapTier,
               gemLevel: line.gemLevel,
               gemQuality: line.gemQuality,
+              prophecyText: line.prophecyText,
               corrupted: line.corrupted,
               relic: line.itemClass === 9,
               change: sparkLine.totalChange,

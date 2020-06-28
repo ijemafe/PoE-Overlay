@@ -10,6 +10,7 @@ export interface ItemOverviewLine {
   links: number
   gemLevel: number
   gemQuality: number
+  prophecyText: string
   corrupted: boolean
   itemClass: number
   chaosValue: number
