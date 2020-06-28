@@ -122,6 +122,9 @@
       >
       </ng-container>
     </ng-container>
+    <ng-container *ngSwitchCase="'prophecyText'">
+      <div class="white firstLine">{{ prop }}</div>
+    </ng-container>
     <ng-container *ngSwitchCase="'gemLevel'">
       <ng-container
         *ngTemplateOutlet="
