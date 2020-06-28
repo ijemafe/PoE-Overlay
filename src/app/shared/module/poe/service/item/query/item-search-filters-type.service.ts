@@ -22,12 +22,16 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
 
     const name = this.itemNameService.getName(item.nameId, language)
     if (name) {
-      query.name = name
+      query.name = {
+        option: name
+      }
     }
 
     const type = this.itemNameService.getType(item.typeId, language)
     if (type) {
-      query.type = type
+      query.type = {
+        option: type
+      }
     }
 
     switch (item.category) {
@@ -74,7 +78,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
           }
 
           if (query.name) {
-            query.term = `${query.name || ''} ${query.type || ''}`.trim()
+            query.term = `${query.name.option || ''} ${query.type.option || ''}`.trim()
             query.name = query.type = undefined
           }
         }
@@ -135,7 +139,6 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
         query.filters.type_filters.filters.category = {
           option: item.category,
         }
-        query.term = query.type
         query.type = undefined
         break
       default:
