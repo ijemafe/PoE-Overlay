@@ -121,8 +121,15 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
           option: item.category,
         }
         break
-      // don't work yet
+      // metamorph samples
       case ItemCategory.MonsterSample:
+        query.filters.type_filters.filters.category = {
+          option: item.category,
+        }
+        if (item.rarity === ItemRarity.Unique) {
+          query.name = undefined
+        }
+        break
       // prophecy
       case ItemCategory.Prophecy:
         query.filters.type_filters.filters.category = {
