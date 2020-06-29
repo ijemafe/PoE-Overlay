@@ -26,10 +26,33 @@ describe('ItemExchangeRateService', () => {
     currencyService = TestBed.inject<CurrencyService>(CurrencyService)
   })
 
-  it('should get rate for item', (done) => {
+  it('should get rate for prophecy item', (done) => {
     const item: Item = {
       category: ItemCategory.Prophecy,
       typeId: 'KillingRareStealsMods',
+      properties: {
+        prophecyText: 'You will slay a powerful foe and gain its powers.',
+      }
+    }
+
+    currencyService
+      .searchById('chaos')
+      .pipe(flatMap((chaos) => sut.get(item, [chaos])))
+      .subscribe(
+        (result) => {
+          expect(result).toBeTruthy()
+          done()
+        },
+        (error) => {
+          done.fail(error)
+        }
+      )
+  })
+
+  it('should get rate for currency item', (done) => {
+    const item: Item = {
+      category: ItemCategory.Currency,
+      typeId: 'CurrencyDuplicate',
     }
 
     currencyService
