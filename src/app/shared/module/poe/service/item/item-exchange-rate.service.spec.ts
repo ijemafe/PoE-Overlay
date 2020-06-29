@@ -49,24 +49,4 @@ describe('ItemExchangeRateService', () => {
         }
       )
   })
-
-  it('should get rate for currency item', (done) => {
-    const item: Item = {
-      category: ItemCategory.Currency,
-      typeId: 'CurrencyDuplicate',
-    }
-
-    currencyService
-      .searchById('chaos')
-      .pipe(flatMap((chaos) => sut.get(item, [chaos])))
-      .subscribe(
-        (result) => {
-          expect(result).toBeTruthy()
-          done()
-        },
-        (error) => {
-          done.fail(error)
-        }
-      )
-  })
 })
