@@ -137,7 +137,7 @@ export class ItemExchangeRateService {
         return true
       }
       console.log(`here gemQuality=${x.gemQuality == gemQuality}`)
-      return x.gemQuality == gemQuality
+      return x.gemQuality === gemQuality
     }
 
     const corrupted = item.corrupted === true
