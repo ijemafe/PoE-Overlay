@@ -159,7 +159,7 @@ export class ItemExchangeRateService {
 
     const prophecyText = item.properties?.prophecyText
     const filterProphecyText = (x: ItemCategoryValue) => {
-      if (prophecyText == undefined || x.prophecyText === undefined) {
+      if (prophecyText === undefined || x.prophecyText === undefined) {
         switch (item.category) {
           case ItemCategory.Prophecy:
             return false;
