@@ -66,7 +66,29 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       return null
     }
 
-    target.category = this.baseItemCategoriesService.get(target.typeId)
+    const metamorphSamplePhrase = this.clientString.translate('MetamorphosisItemisedMapBoss')
+
+    const metamorphSample = item.sections.find((x) => x.content.indexOf(metamorphSamplePhrase) === 0)
+    if (!metamorphSample) {
+      target.category = this.baseItemCategoriesService.get(target.typeId)
+    } else {
+      target.category = ItemCategory.MonsterSample
+
+      // Determine the body part and update the item base type (typeId) accordingly.
+      const metamorphItemNameDisplay = this.clientString.translate('MetamorphosisItemisedBossDisplayText').replace('%1%', this.baseItemTypesService.translate(target.typeId))
+      const metamorphBodyParts = this.getMetamorphBodyParts();
+      for (let i = 0; i < metamorphBodyParts.length; i++) {
+        const metamorphBodyPart = metamorphBodyParts[i]
+        if (metamorphItemNameDisplay.replace('%2%', metamorphBodyPart.key) === target.type) {
+          target.name = target.type
+          target.typeId = metamorphBodyPart.value
+          break
+        }
+      }
+    }
+
+    console.log(`target.typeId=${target.typeId}`)
+
     if (!target.category) {
       return null
     }
@@ -131,6 +153,34 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       {
         key: this.clientString.translate('ItemDisplayStringDivinationCard'),
         value: ItemRarity.DivinationCard,
+      },
+    ]
+  }
+
+  private getMetamorphBodyParts(): {
+    key: string
+    value: string
+  }[] {
+    return [
+      {
+        key: this.clientString.translate('MetamorphBodyPart1'),
+        value: 'MetamorphosisBrain'
+      },
+      {
+        key: this.clientString.translate('MetamorphBodyPart2'),
+        value: 'MetamorphosisEye'
+      },
+      {
+        key: this.clientString.translate('MetamorphBodyPart3'),
+        value: 'MetamorphosisLung'
+      },
+      {
+        key: this.clientString.translate('MetamorphBodyPart4'),
+        value: 'MetamorphosisHeart'
+      },
+      {
+        key: this.clientString.translate('MetamorphBodyPart5'),
+        value: 'MetamorphosisLiver'
       },
     ]
   }

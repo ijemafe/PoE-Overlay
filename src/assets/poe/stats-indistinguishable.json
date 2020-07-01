@@ -2,12 +2,17 @@
   "indistinguishableStats": {
     "explicit": {
       "stat_3885634897": "stat_795138349",
-      "stat_795138349": "stat_3885634897"
+      "stat_795138349": "stat_3885634897",
+	  "stat_4262448838": "stat_1694106311",
+	  "stat_1694106311": "stat_4262448838"
     },
     "implicit": {},
     "crafted": {},
     "fractured": {},
-    "enchant": {},
+    "enchant": {
+	  "stat_2954116742": "stat_3459808765",
+	  "stat_3459808765": "stat_2954116742"
+	},
     "pseudo": {},
     "veiled": {},
     "monster": {},

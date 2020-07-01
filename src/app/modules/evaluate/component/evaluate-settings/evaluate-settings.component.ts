@@ -171,6 +171,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
       StatType.Crafted,
       StatType.Enchant,
       StatType.Fractured,
+      StatType.Monster,
     ]
     types.forEach((type) => {
       const stats = this.statsProvider.provide(type)
