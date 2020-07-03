@@ -13953,6 +13953,12 @@
 					"max": 50
 				}
 			],
+			"LocalIncreasedPhysicalDamagePercentUnique__38": [
+				{
+					"min": 265,
+					"max": 330
+				}
+			],
 			"V2LocalIncreasedPhysicalDamageBowCorrupted1": [
 				{
 					"min": 10,
