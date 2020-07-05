@@ -26,8 +26,9 @@
             "portable"
         ],
         "publisherName": [
-            "Poe Overlay Community"
-        ]
+            "Allan Smith"
+        ],
+        "signAndEditExecutable": true
     },
     "linux": {
         "icon": "dist/favicon256x256.png",

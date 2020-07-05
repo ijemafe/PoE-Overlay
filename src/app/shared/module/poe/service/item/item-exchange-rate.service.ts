@@ -102,7 +102,6 @@ export class ItemExchangeRateService {
     }
 
     const gemLevel = +item.properties?.gemLevel?.value?.value
-    console.log(`gemLevel=${gemLevel}`)
     const filterGemLevel = (x: ItemCategoryValue) => {
       if (isNaN(gemLevel) || x.gemLevel === undefined) {
         switch (item.category) {
@@ -114,17 +113,10 @@ export class ItemExchangeRateService {
         }
         return true
       }
-      console.log(`here gemLevel=${x.gemLevel == gemLevel}`)
       return x.gemLevel === gemLevel
     }
 
     const gemQuality = +item.properties?.quality?.value?.value
-    console.log(`gemQuality=${gemQuality}`)
-    console.log(`t=${item.properties?.quality?.value?.text}`)
-    console.log(`t2=${item.properties?.quality?.value?.value}`)
-    console.log(`t2=${item.properties?.quality?.value?.min}`)
-    console.log(`t2=${item.properties ?.quality ?.value ?.max}`)
-    console.log(`t2=${item.properties?.qualityType}`)
     const filterGemQuality = (x: ItemCategoryValue) => {
       if (isNaN(gemQuality) || x.gemQuality === undefined) {
         switch (item.category) {
@@ -136,12 +128,10 @@ export class ItemExchangeRateService {
         }
         return true
       }
-      console.log(`here gemQuality=${x.gemQuality == gemQuality}`)
       return x.gemQuality == gemQuality
     }
 
     const corrupted = item.corrupted === true
-    console.log(`corrupted=${corrupted}`)
     const filterCorruption = (x: ItemCategoryValue) => {
       if (corrupted === undefined || x.corrupted === undefined) {
         switch (item.category) {
@@ -153,7 +143,6 @@ export class ItemExchangeRateService {
         }
         return true;
       }
-      console.log(`here corrupted=${x.corrupted === corrupted}`)
       return x.corrupted === corrupted
     }
 
@@ -180,7 +169,7 @@ export class ItemExchangeRateService {
       }
       return x.name === name
     }
-
+    
     return this.valuesProvider.provide(leagueId, item.rarity, item.category).pipe(
       map((response) => {
         const type = this.baseItemTypesService.translate(item.typeId, Language.English)
