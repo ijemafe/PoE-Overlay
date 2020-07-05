@@ -7,3 +7,12 @@
 .purpel {
   color: $purple;
 }
+
+.firstLine {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 400px;
+  white-space: pre-wrap;
+}

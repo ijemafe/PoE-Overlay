@@ -5,7 +5,7 @@ import {
   ItemCategoryValue,
   ItemCategoryValuesProvider,
 } from '../../provider/item-category-values.provider'
-import { Currency, Item, Language } from '../../type'
+import { Currency, Item, Language, ItemCategory } from '../../type'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { CurrencyConverterService } from '../currency/currency-converter.service'
@@ -95,22 +95,91 @@ export class ItemExchangeRateService {
 
     const tier = +item.properties?.mapTier?.value
     const filterMapTier = (x: ItemCategoryValue) => {
-      if (isNaN(tier) || x.links === undefined) {
+      if (isNaN(tier) || x.mapTier === undefined) {
         return true
       }
       return x.mapTier === tier
     }
 
+    const gemLevel = +item.properties?.gemLevel?.value?.value
+    const filterGemLevel = (x: ItemCategoryValue) => {
+      if (isNaN(gemLevel) || x.gemLevel === undefined) {
+        switch (item.category) {
+          case ItemCategory.Gem:
+          case ItemCategory.GemActivegem:
+          case ItemCategory.GemSupportGem:
+          case ItemCategory.GemSupportGemplus:
+            return false
+        }
+        return true
+      }
+      return x.gemLevel === gemLevel
+    }
+
+    const gemQuality = +item.properties?.quality?.value?.value
+    const filterGemQuality = (x: ItemCategoryValue) => {
+      if (isNaN(gemQuality) || x.gemQuality === undefined) {
+        switch (item.category) {
+          case ItemCategory.Gem:
+          case ItemCategory.GemActivegem:
+          case ItemCategory.GemSupportGem:
+          case ItemCategory.GemSupportGemplus:
+            return false
+        }
+        return true
+      }
+      return x.gemQuality == gemQuality
+    }
+
+    const corrupted = item.corrupted === true
+    const filterCorruption = (x: ItemCategoryValue) => {
+      if (corrupted === undefined || x.corrupted === undefined) {
+        switch (item.category) {
+          case ItemCategory.Gem:
+          case ItemCategory.GemActivegem:
+          case ItemCategory.GemSupportGem:
+          case ItemCategory.GemSupportGemplus:
+            return false
+        }
+        return true;
+      }
+      return x.corrupted === corrupted
+    }
+
+    const prophecyText = item.properties?.prophecyText
+    const filterProphecyText = (x: ItemCategoryValue) => {
+      if (prophecyText === undefined || x.prophecyText === undefined) {
+        switch (item.category) {
+          case ItemCategory.Prophecy:
+            return false;
+        }
+        return true;
+      }
+      return x.prophecyText === prophecyText
+    }
+
+    const filterName = (x: ItemCategoryValue, name: string) => {
+      switch (item.category) {
+        case ItemCategory.Prophecy:
+          // Remove the discriminator from the item name.
+          if (name.endsWith(')')) {
+            name = name.substr(0, name.lastIndexOf('(')).trim()
+          }
+          break
+      }
+      return x.name === name
+    }
+    
     return this.valuesProvider.provide(leagueId, item.rarity, item.category).pipe(
       map((response) => {
         const type = this.baseItemTypesService.translate(item.typeId, Language.English)
         const name = this.wordService.translate(item.nameId, Language.English)
         if (item.typeId && !item.nameId) {
-          return response.values.find((x) => x.name === type && filterLinks(x) && filterMapTier(x))
+          return response.values.find((x) => filterName(x, type) && filterLinks(x) && filterMapTier(x) && filterGemLevel(x) && filterGemQuality(x) && filterProphecyText(x) && filterCorruption(x))
         }
         return response.values.find(
           (x) =>
-            x.name === name && x.type === type && !x.relic && filterLinks(x) && filterMapTier(x)
+            filterName(x, name) && x.type === type && !x.relic && filterLinks(x) && filterMapTier(x) && filterGemLevel(x) && filterGemQuality(x) && filterProphecyText(x) && filterCorruption(x)
         )
       })
     )

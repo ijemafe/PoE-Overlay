@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Item, Language } from '../../type'
+import { Item, Language, ItemCategory } from '../../type'
 
 @Component({
   selector: 'app-item-frame-header',
@@ -19,4 +19,25 @@ export class ItemFrameHeaderComponent {
 
   @Input()
   public language: Language
+
+  public getHeaderClass(item: Item): string {
+    let headerClasses: string[] = ['header']
+
+    if (item.name && item.typeId) {
+      headerClasses.push('double')
+    }
+
+    switch (item.category) {
+      case ItemCategory.Prophecy:
+        headerClasses.push(item.category)
+        break
+      default:
+        if (item.rarity) {
+          headerClasses.push(item.rarity)
+        }
+        break
+    }
+
+    return headerClasses.join(' ')
+  }
 }

@@ -62,6 +62,13 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
         return null
     }
 
+    const masterMissionPhrases = this.getMasterMissionPhrases()
+    const masterMission = masterMissionPhrases.find((x) => item.sections.findIndex((section) => section.content.indexOf(x.prophecyText) !== -1) !== -1)
+    if (masterMission) {
+      target.type += ` (${masterMission.masterName})`
+      target.typeId = this.baseItemTypesService.search(target.type)
+    }
+
     if (!target.typeId) {
       return null
     }
@@ -182,6 +189,34 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
         key: this.clientString.translate('MetamorphBodyPart5'),
         value: 'MetamorphosisLiver'
       },
+    ]
+  }
+
+  private getMasterMissionPhrases(): {
+    prophecyText: string
+    masterName: string
+  }[] {
+    return [
+      {
+        prophecyText: this.clientString.translate('ProphecyQuestTrackerEinhar'),
+        masterName: this.clientString.translate('MasterNameEinhar'),
+      },
+      {
+        prophecyText: this.clientString.translate('ProphecyQuestTrackerAlva'),
+        masterName: this.clientString.translate('MasterNameAlva'),
+      },
+      {
+        prophecyText: this.clientString.translate('ProphecyQuestTrackerNiko'),
+        masterName: this.clientString.translate('MasterNameNiko'),
+      },
+      {
+        prophecyText: this.clientString.translate('ProphecyQuestTrackerZana'),
+        masterName: this.clientString.translate('MasterNameZana'),
+      },
+      {
+        prophecyText: this.clientString.translate('ProphecyQuestTrackerJun'),
+        masterName: this.clientString.translate('MasterNameJun'),
+      }
     ]
   }
 }
