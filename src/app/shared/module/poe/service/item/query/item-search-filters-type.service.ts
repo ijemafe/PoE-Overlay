@@ -112,6 +112,12 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.CurrencyResonator:
       case ItemCategory.CurrencyFossil:
       case ItemCategory.CurrencyIncubator:
+      // seed
+      case ItemCategory.CurrencySeed:
+      case ItemCategory.CurrencyWildSeed:
+      case ItemCategory.CurrencyVividSeed:
+      case ItemCategory.CurrencyPrimalSeed:
+      case ItemCategory.CurrencySeedBooster:
       // map
       case ItemCategory.MapFragment:
       case ItemCategory.MapScarab:

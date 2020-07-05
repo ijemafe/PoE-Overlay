@@ -83,6 +83,7 @@ export enum ItemCategory {
   GemSupportGem = 'gem.supportgem',
   GemSupportGemplus = 'gem.supportgemplus',
   Jewel = 'jewel',
+  JewelBase = 'jewel.base',
   JewelAbyss = 'jewel.abyss',
   JewelCluster = 'jewel.cluster',
   Flask = 'flask',
@@ -100,6 +101,11 @@ export enum ItemCategory {
   CurrencyResonator = 'currency.resonator',
   CurrencyFossil = 'currency.fossil',
   CurrencyIncubator = 'currency.incubator',
+  CurrencySeed = 'currency.seed',
+  CurrencyWildSeed = 'currency.wildseed',
+  CurrencyVividSeed = 'currency.vividseed',
+  CurrencyPrimalSeed = 'currency.primalseed',
+  CurrencySeedBooster = 'currency.seedbooster',
 }
 
 export interface ItemWeaponDamage {
