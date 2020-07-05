@@ -22,12 +22,16 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
 
     const name = this.itemNameService.getName(item.nameId, language)
     if (name) {
-      query.name = name
+      query.name = {
+        option: name
+      }
     }
 
     const type = this.itemNameService.getType(item.typeId, language)
     if (type) {
-      query.type = type
+      query.type = {
+        option: type
+      }
     }
 
     switch (item.category) {
@@ -74,7 +78,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
           }
 
           if (query.name) {
-            query.term = `${query.name || ''} ${query.type || ''}`.trim()
+            query.term = `${query.name.option || ''} ${query.type.option || ''}`.trim()
             query.name = query.type = undefined
           }
         }
@@ -135,7 +139,17 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
         query.filters.type_filters.filters.category = {
           option: item.category,
         }
-        query.term = query.type
+        if (query.type.option.endsWith(')')) {
+          const discrimininatorStartIdx = query.type.option.lastIndexOf('(')
+          query.name = {
+            option: query.type.option.substr(0, discrimininatorStartIdx).trim(),
+            discriminator: query.type.option.substr(discrimininatorStartIdx + 1, query.type.option.length - discrimininatorStartIdx - 2)
+          }
+        } else {
+          query.name = {
+            option: query.type.option
+          }
+        }
         query.type = undefined
         break
       default:

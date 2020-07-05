@@ -8,7 +8,7 @@ import {
 } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 import { ContextService } from '../../service'
-import { Item, Language } from '../../type'
+import { Item, Language, ItemRarity, ItemCategory } from '../../type'
 
 @Component({
   selector: 'app-item-frame',
@@ -102,5 +102,19 @@ export class ItemFrameComponent implements OnInit {
 
   public onPropertyChange(): void {
     this.queryItemChange.emit(this.queryItem)
+  }
+
+  public isQueryable(item: Item): boolean {
+    switch (item.category) {
+      case ItemCategory.Prophecy:
+        return false
+    }
+    switch (item.rarity) {
+      case ItemRarity.Normal:
+      case ItemRarity.Magic:
+      case ItemRarity.Rare:
+        return true
+    }
+    return false
   }
 }

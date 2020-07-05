@@ -134,10 +134,13 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       .map((text) => {
         const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('%1%', '')
         text = text.replace(max, '')
+        const augmented = text.indexOf(AUGMENTED_PHRASE) !== -1
+        text = text.replace(AUGMENTED_PHRASE, '')
         const property: ItemValueProperty = {
-          augmented: text.indexOf(AUGMENTED_PHRASE) !== -1,
+          augmented: augmented,
           value: {
-            text: text.replace(AUGMENTED_PHRASE, ''),
+            text: text,
+            value: +text.replace('+', '').replace('%', ''),
           },
         }
         return property

@@ -233,11 +233,15 @@ export interface Filters {
 
 export interface Query {
   status?: FilterOption
-  name?: string
+  name?: FilterOptionDiscriminator
+  type?: FilterOptionDiscriminator
   term?: string
-  type?: string
   stats?: StatsGroup[]
   filters?: Filters
+}
+
+export interface FilterOptionDiscriminator extends FilterOption {
+  discriminator?: string
 }
 
 export interface Sort {
