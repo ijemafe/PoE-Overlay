@@ -147,6 +147,7 @@ export interface ItemProperties {
   mapQuantity?: ItemProperty
   mapRarity?: ItemProperty
   mapPacksize?: ItemProperty
+  prophecyText?: string
 }
 
 export interface ItemProperty {
@@ -225,6 +226,7 @@ export enum ItemSection {
   Stats,
   Veiled,
   Flask,
+  Prophecy,
 }
 
 export interface ItemSectionParserService {

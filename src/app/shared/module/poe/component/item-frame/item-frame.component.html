@@ -7,7 +7,7 @@
   <app-item-frame-header
     [item]="item"
     [queryItem]="queryItem"
-    [queryable]="item.rarity === 'normal' || item.rarity === 'magic' || item.rarity === 'rare'"
+    [queryable]="isQueryable(item)"
     [language]="language"
   >
   </app-item-frame-header>
