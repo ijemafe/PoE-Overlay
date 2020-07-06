@@ -172,7 +172,21 @@ export class ItemFrameValueComponent implements OnInit {
 
   public getStepFromEvent(event: WheelEvent): number {
     let step = 1
-    if (event.altKey) {
+    if (event.altKey && event.shiftKey) {
+      if (this.value.value >= 100000000) {
+        step *= 1000000
+      } else if (this.value.value >= 10000000) {
+        step *= 100000
+      } else if (this.value.value >= 1000000) {
+        step *= 10000
+      } else if (this.value.value >= 100000) {
+        step *= 1000
+      } else if (this.value.value >= 10000) {
+        step *= 100
+      } else if (this.value.value >= 1000) {
+        step *= 10
+      }
+    } else if (event.altKey) {
       step = 0.1
     } else if (event.shiftKey) {
       step = 5

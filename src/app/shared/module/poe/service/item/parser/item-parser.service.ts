@@ -13,6 +13,7 @@ import { ItemSectionUnidentifiedParserService } from './item-section-unidentifie
 import { ItemSectionVeiledParserService } from './item-section-veiled-parser.service'
 import { ItemSectionFlaskParserService } from './item-section-flask-parser.service'
 import { ItemSectionProphecyParserService } from './item-section-prophecy-parser.service'
+import { ItemSectionGemExperienceParserService } from './item-section-gem-experience-parser.service'
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +34,8 @@ export class ItemParserService {
     itemSectionStatsParserService: ItemSectionStatsParserService,
     itemSectionUnidentifiedParserService: ItemSectionUnidentifiedParserService,
     itemSectionFlaskParserService: ItemSectionFlaskParserService,
-    itemSectionProphecyParserService: ItemSectionProphecyParserService
+    itemSectionProphecyParserService: ItemSectionProphecyParserService,
+    itemSectionGemExperienceParserService: ItemSectionGemExperienceParserService
   ) {
     this.parsers = [
       itemSectionRarityParser,
@@ -42,8 +44,9 @@ export class ItemParserService {
       itemSectionItemLevelParserService,
       itemSectionSocketsParserService,
       itemSectionPropertiesParserService,
-      itemSectionFlaskParserService,        // Properties have to be parsed first in case the Flask contains Quality.
-      itemSectionProphecyParserService,     // Properties have to be parsed first in case the Prophecy needs to adjust some properties.
+      itemSectionFlaskParserService,          // Properties have to be parsed first in case the Flask Parser contains Quality.
+      itemSectionProphecyParserService,       // Properties have to be parsed first in case the Prophecy Parser needs to adjust some properties.
+      itemSectionGemExperienceParserService,  // Properties have to be parsed first in case the Gem Experience Parser needs to adjust some properties.
       itemSectionCorruptedParserService,
       itemSectionVeiledParserService,
       itemSectionInfluencesParserService,

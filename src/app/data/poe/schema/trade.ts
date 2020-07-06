@@ -208,6 +208,9 @@ export interface MiscFilters {
   veiled?: FilterOption
   enchanted?: FilterOption
   talisman_tier?: FilterValueOption
+  stored_experience?: FilterValueOption
+  stack_size?: FilterValueOption
+  durability?: FilterValueOption
 }
 
 export interface TradeFilters {

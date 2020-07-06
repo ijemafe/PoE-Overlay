@@ -190,7 +190,19 @@
     </ng-container>
     <ng-container *ngSwitchCase="'gemExperience'">
       <ng-container
-        *ngTemplateOutlet="query; context: { prop: prop, name: property, key: 'Experience' }"
+        *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'Experience' }"
+      >
+      </ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'durability'">
+      <ng-container
+        *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayHarvestBoosterUses', range: false }"
+      >
+      </ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'storedExperience'">
+      <ng-container
+        *ngTemplateOutlet="value; context: { prop: prop, name: property, key: 'ItemDisplayStoredExperience', range: false }"
       >
       </ng-container>
     </ng-container>
