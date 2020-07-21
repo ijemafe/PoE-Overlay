@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.2 (2020-07-09)
+- Added code certification to resolve standalone installer freezing
+- Updated assests for 3.11 Harvest Items
+- Added support for search on the following item types: Scarabs, Vials, and delirium orbs
+- Added support for Elder/Shaper influenced maps
+- Added support for Elder guardian maps
+- Improved prophecy search
+
 ## 0.7.1 (2020-06-16) 
 - Added support for linux users
 - Updated Settings for better User experience
