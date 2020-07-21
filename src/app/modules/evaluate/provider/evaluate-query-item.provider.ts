@@ -48,6 +48,8 @@ export class EvaluateQueryItemProvider {
       if (prop) {
         queryItem.properties.gemLevel = prop.gemLevel
         queryItem.properties.mapTier = prop.mapTier
+        queryItem.properties.durability = prop.durability
+        queryItem.properties.storedExperience = prop.storedExperience
         if (item.rarity === ItemRarity.Gem || prop.qualityType > 0) {
           queryItem.properties.quality = prop.quality
         }
