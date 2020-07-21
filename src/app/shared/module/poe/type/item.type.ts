@@ -142,12 +142,14 @@ export interface ItemProperties {
   gemLevel?: ItemValueProperty
   quality?: ItemValueProperty
   qualityType?: ItemQualityType
-  gemExperience?: ItemProperty
+  gemExperience?: ItemValueProperty
   mapTier?: ItemProperty
   mapQuantity?: ItemProperty
   mapRarity?: ItemProperty
   mapPacksize?: ItemProperty
   prophecyText?: string
+  durability?: ItemValueProperty
+  storedExperience?: ItemValueProperty
 }
 
 export interface ItemProperty {
@@ -227,6 +229,7 @@ export enum ItemSection {
   Veiled,
   Flask,
   Prophecy,
+  Experience,
 }
 
 export interface ItemSectionParserService {

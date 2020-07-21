@@ -9,6 +9,7 @@ import {
   ItemSectionParserService,
   ItemValueProperty,
   Section,
+  ItemValue,
 } from '@shared/module/poe/type'
 import { ClientStringService } from '../../client-string/client-string.service'
 
@@ -72,18 +73,19 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       props.armourEnergyShield = this.parseValueProperty(line, phrases[9], props.armourEnergyShield)
       props.stackSize = this.parseProperty(line, phrases[10], props.stackSize)
       props.gemLevel = this.parseValueProperty(line, phrases[11], props.gemLevel)
-      props.gemExperience = this.parseProperty(line, phrases[12], props.gemExperience)
-      props.mapTier = this.parseProperty(line, phrases[13], props.mapTier)
-      props.mapQuantity = this.parseProperty(line, phrases[14], props.mapQuantity)
-      props.mapRarity = this.parseProperty(line, phrases[15], props.mapRarity)
-      props.mapPacksize = this.parseProperty(line, phrases[16], props.mapPacksize)
+      props.mapTier = this.parseProperty(line, phrases[12], props.mapTier)
+      props.mapQuantity = this.parseProperty(line, phrases[13], props.mapQuantity)
+      props.mapRarity = this.parseProperty(line, phrases[14], props.mapRarity)
+      props.mapPacksize = this.parseProperty(line, phrases[15], props.mapPacksize)
       for (let quality = 0; quality < 8; quality++) {
         const old = props.quality
-        props.quality = this.parseValueProperty(line, phrases[17 + quality], old)
+        props.quality = this.parseValueProperty(line, phrases[16 + quality], old)
         if (props.quality !== old) {
           props.qualityType = quality
         }
       }
+      props.durability = this.parseValueProperty(line, phrases[24], props.durability)
+      props.storedExperience = this.parseValueProperty(line, phrases[25], props.storedExperience)
     }
 
     target.properties = props
@@ -136,12 +138,24 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
         text = text.replace(max, '')
         const augmented = text.indexOf(AUGMENTED_PHRASE) !== -1
         text = text.replace(AUGMENTED_PHRASE, '')
+        let itemValue: ItemValue
+        if (text.indexOf('/') !== -1) {
+          const splitted = text.split('/')
+          itemValue = {
+            text: text,
+            value: +splitted[0].replace('%', ''),
+            min: +splitted[0].replace('%', ''),
+            max: +splitted[1].replace('%', ''),
+          }
+        } else {
+          itemValue = {
+            text: text,
+            value: +text.replace('%', ''),
+          }
+        }
         const property: ItemValueProperty = {
           augmented: augmented,
-          value: {
-            text: text,
-            value: +text.replace('+', '').replace('%', ''),
-          },
+          value: itemValue,
         }
         return property
       })
@@ -161,7 +175,6 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       `${this.clientString.translate('ItemDisplayArmourEnergyShield')}: `,
       `${this.clientString.translate('ItemDisplayStackSize')}: `,
       `${this.clientString.translate('Level')}: `,
-      `${this.clientString.translate('Experience')}: `,
       `${this.clientString.translate('ItemDisplayMapTier')}: `,
       `${this.clientString.translate('ItemDisplayMapQuantityIncrease')}: `,
       `${this.clientString.translate('ItemDisplayMapRarityIncrease')}: `,
@@ -174,6 +187,8 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       `${this.clientString.translate('Quality5')}: `,
       `${this.clientString.translate('Quality6')}: `,
       `${this.clientString.translate('Quality7')}: `,
+      `${this.clientString.translate('ItemDisplayHarvestBoosterUses')}: `,
+      `${this.clientString.translate('ItemDisplayStoredExperience')}: `,
     ]
   }
 }

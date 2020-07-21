@@ -47,7 +47,7 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
     }
 
     if (prop.gemExperience) {
-      const splittedExp = prop.gemExperience.value.split('/')
+      const splittedExp = prop.gemExperience.value.text.split('/')
       const exp = +(splittedExp[0] || '').split('.').join('')
       const expMax = +(splittedExp[1] || '').split('.').join('')
       if (!isNaN(exp) && !isNaN(expMax)) {
@@ -59,6 +59,20 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
     }
 
     this.mapQuality(prop, query)
+
+    if (prop.durability) {
+      query.filters.misc_filters.filters.durability = {
+        min: prop.durability.value.min,
+        max: prop.durability.value.max,
+      }
+    }
+
+    if (prop.storedExperience) {
+      query.filters.misc_filters.filters.stored_experience = {
+        min: prop.storedExperience.value.min,
+        max: prop.storedExperience.value.max,
+      }
+    }
   }
 
   private mapQuality(prop: ItemProperties, query: Query): void {
