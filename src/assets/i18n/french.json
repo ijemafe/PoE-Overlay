@@ -1,6 +1,7 @@
 {
   "app": {
     "clickable": "'Clic' = navigateur en jeu, 'CTRL + Clic' navigateur par défaut",
+    "clickable-external-only": "'Clic' navigateur par défaut",
     "language": "Langue",
     "shortcut": "Raccourci",
     "update": {
@@ -27,6 +28,7 @@
   "evaluate": {
     "age": "Âge",
     "analyzing": "Analyse des données...",
+    "browser": "navigateur en jeu",
     "cancel": "Annuler?",
     "canceled": "Recherche annulée. Ouvrir dans le navigateur?",
     "count": "Résultats",
@@ -36,6 +38,7 @@
     "days": "Les 7 derniers jours",
     "debounce-time": "Délai entre chaque recherche",
     "debounce-description": "Délai de recherche automatique",
+    "disable-browser-overlay": "Désactiver navigateur en jeu",
     "empty": "Aucun résultat. Ouvrir dans le navigateur?",
     "error": "Une erreur s'est produite.",
     "errors": {

@@ -1,6 +1,7 @@
 {
   "app": {
     "clickable": "'點擊'=遊戲內瀏覽器，'CTRL +點擊'默認瀏覽器",
+    "clickable-external-only": "'點擊'默認瀏覽器",
     "language": "語言",
     "shortcut": "捷徑",
     "update": {
@@ -27,6 +28,7 @@
   "evaluate": {
     "age": "年齡",
     "analyzing": "正在分析數據...",
+    "browser": "遊戲內瀏覽器",
     "cancel": "取消？",
     "canceled": "搜索已取消。在瀏覽器中打開？",
     "count": "結果",
@@ -36,6 +38,7 @@
     "days": "過去7天",
     "debounce-time": "去抖時間",
     "debounce-description": "自動搜尋延遲",
+    "disable-browser-overlay": "禁用 遊戲內瀏覽器",
     "empty": "沒有結果。在瀏覽器中打開？",
     "error": "發生錯誤。",
     "errors": {

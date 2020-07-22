@@ -1,6 +1,7 @@
 {
   "app": {
     "clickable": "'点击'=游戏内浏览器，'CTRL +点击'默认浏览器",
+    "clickable-external-only": "'点击'默认浏览器",
     "language": "语言",
     "shortcut": "捷径",
     "update": {
@@ -27,6 +28,7 @@
   "evaluate": {
     "age": "年龄",
     "analyzing": "正在分析数据...",
+    "browser": "游戏内浏览器",
     "cancel": "取消？",
     "canceled": "搜索已取消。在浏览器中打开？",
     "count": "结果",
@@ -36,6 +38,7 @@
     "days": "过去7天",
     "debounce-time": "去抖时间",
     "debounce-description": "自动搜寻延迟",
+    "disable-browser-overlay": "禁用 游戏内浏览器",
     "empty": "没有结果。在浏览器中打开？",
     "error": "发生错误。",
     "errors": {
