@@ -19,9 +19,11 @@ export class ItemSectionProphecyParserService implements ItemSectionParserServic
   public section = ItemSection.Prophecy
 
   public parse(item: ExportedItem, target: Item): Section {
-    const phrases = this.clientString.translateMultiple(new RegExp("^Prophecy"));
+    const phrases = this.clientString.translateMultiple(new RegExp('^Prophecy'))
 
-    const prophecySection = item.sections.find((section) => phrases.findIndex((phrase) => section.content.indexOf(phrase) !== -1) !== -1)
+    const prophecySection = item.sections.find(
+      (section) => phrases.findIndex((phrase) => section.content.indexOf(phrase) !== -1) !== -1
+    )
     if (!prophecySection) {
       return null
     }

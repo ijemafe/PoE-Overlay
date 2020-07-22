@@ -128,7 +128,7 @@ export class ItemExchangeRateService {
         }
         return true
       }
-      return x.gemQuality == gemQuality
+      return x.gemQuality === gemQuality
     }
 
     const corrupted = item.corrupted === true
@@ -141,7 +141,7 @@ export class ItemExchangeRateService {
           case ItemCategory.GemSupportGemplus:
             return false
         }
-        return true;
+        return true
       }
       return x.corrupted === corrupted
     }
@@ -151,9 +151,9 @@ export class ItemExchangeRateService {
       if (prophecyText === undefined || x.prophecyText === undefined) {
         switch (item.category) {
           case ItemCategory.Prophecy:
-            return false;
+            return false
         }
-        return true;
+        return true
       }
       return x.prophecyText === prophecyText
     }
@@ -169,17 +169,34 @@ export class ItemExchangeRateService {
       }
       return x.name === name
     }
-    
+
     return this.valuesProvider.provide(leagueId, item.rarity, item.category).pipe(
       map((response) => {
         const type = this.baseItemTypesService.translate(item.typeId, Language.English)
         const name = this.wordService.translate(item.nameId, Language.English)
         if (item.typeId && !item.nameId) {
-          return response.values.find((x) => filterName(x, type) && filterLinks(x) && filterMapTier(x) && filterGemLevel(x) && filterGemQuality(x) && filterProphecyText(x) && filterCorruption(x))
+          return response.values.find(
+            (x) =>
+              filterName(x, type) &&
+              filterLinks(x) &&
+              filterMapTier(x) &&
+              filterGemLevel(x) &&
+              filterGemQuality(x) &&
+              filterProphecyText(x) &&
+              filterCorruption(x)
+          )
         }
         return response.values.find(
           (x) =>
-            filterName(x, name) && x.type === type && !x.relic && filterLinks(x) && filterMapTier(x) && filterGemLevel(x) && filterGemQuality(x) && filterProphecyText(x) && filterCorruption(x)
+            filterName(x, name) &&
+            x.type === type &&
+            !x.relic &&
+            filterLinks(x) &&
+            filterMapTier(x) &&
+            filterGemLevel(x) &&
+            filterGemQuality(x) &&
+            filterProphecyText(x) &&
+            filterCorruption(x)
         )
       })
     )
