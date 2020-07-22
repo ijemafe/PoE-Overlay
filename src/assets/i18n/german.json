@@ -1,6 +1,7 @@
 {
   "app": {
     "clickable": "'Klick' = Browser im Spiel, 'STRG + Klick' Standardbrowser",
+    "clickable-external-only": "'Klick' Standardbrowser",
     "language": "Sprache",
     "shortcut": "Tastaturkürzel",
     "update": {
@@ -27,6 +28,7 @@
   "evaluate": {
     "age": "Alter",
     "analyzing": "Daten analysieren...",
+    "browser": "Browser im Spiel",
     "cancel": "Abbrechen?",
     "canceled": "Suche abgebrochen. Im Browser öffnen?",
     "count": "Ergebnisse",
@@ -36,6 +38,7 @@
     "days": "Letzte 7 Tage",
     "debounce-time": "Erzwungungene Wartezeit",
     "debounce-description": "Verzögerung der automatischen Suche",
+    "disable-browser-overlay": "Deaktivieren Browser im Spiel",
     "empty": "Keine Ergebnisse. Im Browser öffnen?",
     "error": "Es ist ein Fehler aufgetreten.",
     "errors": {

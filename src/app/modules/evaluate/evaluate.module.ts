@@ -79,6 +79,7 @@ export class EvaluateModule implements FeatureModule {
       evaluateTranslatedKeybinding: 'Alt + T',
       evaluatePricing: EvaluatePricing.Clipboard,
       evaluateQueryInitialSearch: false,
+      evaluateBrowserAlwaysExternal: false,
     }
     return {
       name: 'evaluate.name',

@@ -36,7 +36,10 @@ export class MapDialogComponent implements OnInit {
 
   public onMapClick(event: MouseEvent): void {
     if (this.map && this.map.url) {
-      this.browser.open(this.map.url, event.ctrlKey)
+      this.browser.open(
+        this.map.url,
+        this.data.settings.evaluateBrowserAlwaysExternal ? true : event.ctrlKey
+      )
     }
   }
 }

@@ -1,6 +1,7 @@
 {
   "app": {
     "clickable": "„Kliknięcie” = przeglądarka w grze, „CTRL + kliknięcie” Domyślna przeglądarka",
+    "clickable-external-only": "„kliknięcie” Domyślna przeglądarka",
     "language": "Język",
     "shortcut": "Skrót klawiszowy",
     "update": {
@@ -27,6 +28,7 @@
   "evaluate": {
     "age": "Wystawiono",
     "analyzing": "Analiza danych ...",
+    "browser": "Domyślna przeglądarka w grze",
     "cancel": "Anuluj?",
     "canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",
     "count": "Wyniki",
@@ -36,6 +38,7 @@
     "days": "ostatnie 7 dni",
     "debounce-time": "Czas oczekiwania na ponowną wycenę przedmiotu.",
     "debounce-description": "Opóźnienie automatycznego wyszukiwania",
+    "disable-browser-overlay": "Wyłączyć przeglądarka w grze",
     "empty": "Brak wyników. Otworzyć w przeglądarce?",
     "error": "Wystąpił błąd.",
     "errors": {

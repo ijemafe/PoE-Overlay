@@ -51,6 +51,7 @@ export class ItemSectionItemLevelParserService implements ItemSectionParserServi
 
     target.level = {
       text: itemLevel,
+      value: +itemLevel,
     }
 
     return itemLevelSection

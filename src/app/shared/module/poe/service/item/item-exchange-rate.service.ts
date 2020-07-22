@@ -158,6 +158,21 @@ export class ItemExchangeRateService {
       return x.prophecyText === prophecyText
     }
 
+    const itemLevel = item.level?.value
+    const filterItemLevel = (x: ItemCategoryValue) => {
+      if (itemLevel === undefined || x.levelRequired === undefined) {
+        switch (item.category) {
+          case ItemCategory.CurrencySeed:
+          case ItemCategory.CurrencyWildSeed:
+          case ItemCategory.CurrencyVividSeed:
+          case ItemCategory.CurrencyPrimalSeed:
+            return false;
+        }
+        return true;
+      }
+      return x.levelRequired <= itemLevel
+    }
+
     const filterName = (x: ItemCategoryValue, name: string) => {
       switch (item.category) {
         case ItemCategory.Prophecy:
@@ -170,34 +185,42 @@ export class ItemExchangeRateService {
       return x.name === name
     }
 
+    const sortFiltered = (a: ItemCategoryValue, b: ItemCategoryValue) => {
+      switch (item.category) {
+        case ItemCategory.CurrencySeed:
+        case ItemCategory.CurrencyWildSeed:
+        case ItemCategory.CurrencyVividSeed:
+        case ItemCategory.CurrencyPrimalSeed:
+          return b.levelRequired - a.levelRequired
+        default:
+          return 0
+      }
+    }
+    
     return this.valuesProvider.provide(leagueId, item.rarity, item.category).pipe(
       map((response) => {
         const type = this.baseItemTypesService.translate(item.typeId, Language.English)
         const name = this.wordService.translate(item.nameId, Language.English)
+        let results = response.values
+        // Filter based on item type or name
         if (item.typeId && !item.nameId) {
-          return response.values.find(
-            (x) =>
-              filterName(x, type) &&
-              filterLinks(x) &&
-              filterMapTier(x) &&
-              filterGemLevel(x) &&
-              filterGemQuality(x) &&
-              filterProphecyText(x) &&
-              filterCorruption(x)
-          )
+          results = results.filter((x) => filterName(x, type))
+        } else {
+          results = results.filter((x) => filterName(x, name) && x.type === type && !x.relic)
         }
-        return response.values.find(
-          (x) =>
-            filterName(x, name) &&
-            x.type === type &&
-            !x.relic &&
-            filterLinks(x) &&
-            filterMapTier(x) &&
-            filterGemLevel(x) &&
-            filterGemQuality(x) &&
-            filterProphecyText(x) &&
-            filterCorruption(x)
+        // Apply generic filters
+        results = results.filter((x) =>
+          filterLinks(x) &&
+          filterMapTier(x) &&
+          filterGemLevel(x) &&
+          filterGemQuality(x) &&
+          filterProphecyText(x) &&
+          filterCorruption(x) &&
+          filterItemLevel(x)
         )
+        // Sort the results
+        results = results.sort(sortFiltered);
+        return results[0]
       })
     )
   }

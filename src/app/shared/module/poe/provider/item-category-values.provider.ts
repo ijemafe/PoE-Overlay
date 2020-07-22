@@ -14,6 +14,7 @@ export interface ItemCategoryValue {
   name: string
   type: string
   mapTier: number
+  levelRequired: number
   links: number
   gemLevel: number
   gemQuality: number
@@ -179,13 +180,15 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.GemSupportGemplus:
         const gemKey = `${leagueId}_${ItemCategory.Gem}`
         return this.fetch(gemKey, () => this.fetchItem(leagueId, ItemOverviewType.SkillGem))
-      case ItemCategory.Leaguestone:
-      case ItemCategory.MonsterSample:
-      case ItemCategory.CurrencyPiece:
       case ItemCategory.CurrencySeed:
       case ItemCategory.CurrencyWildSeed:
       case ItemCategory.CurrencyVividSeed:
       case ItemCategory.CurrencyPrimalSeed:
+        const seedKey = `${leagueId}_${ItemCategory.CurrencySeed}`
+        return this.fetch(seedKey, () => this.fetchItem(leagueId, ItemOverviewType.Seed))
+      case ItemCategory.Leaguestone:
+      case ItemCategory.MonsterSample:
+      case ItemCategory.CurrencyPiece:
       case ItemCategory.CurrencySeedBooster:
         return of({ values: [] })
     }
@@ -215,6 +218,7 @@ export class ItemCategoryValuesProvider {
               type: undefined,
               links: undefined,
               mapTier: undefined,
+              levelRequired: undefined,
               gemLevel: undefined,
               gemQuality: undefined,
               prophecyText: undefined,
@@ -247,6 +251,7 @@ export class ItemCategoryValuesProvider {
               type: line.baseType,
               links: line.links,
               mapTier: line.mapTier,
+              levelRequired: line.levelRequired,
               gemLevel: line.gemLevel,
               gemQuality: line.gemQuality,
               prophecyText: line.prophecyText,

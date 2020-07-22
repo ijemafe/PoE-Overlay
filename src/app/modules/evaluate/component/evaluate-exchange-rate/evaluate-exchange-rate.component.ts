@@ -13,6 +13,7 @@ import { ItemExchangeRateResult, ItemExchangeRateService } from '@shared/module/
 import { Currency, Item, ItemRarity } from '@shared/module/poe/type'
 import { BehaviorSubject, Subject } from 'rxjs'
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component'
+import { EvaluateUserSettings } from '../evaluate-settings/evaluate-settings.component'
 
 interface Result {
   error?: boolean
@@ -39,6 +40,9 @@ export class EvaluateExchangeRateComponent implements OnInit {
 
   @Input()
   public item: Item
+
+  @Input()
+  public settings: EvaluateUserSettings
 
   @Input()
   public set currencies(currencies: Currency[]) {

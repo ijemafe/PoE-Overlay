@@ -1,6 +1,7 @@
 {
   "app": {
     "clickable": "'Click' = Navegador dentro del juego, 'CTRL + Click' Navegador predeterminado",
+    "clickable-external-only": "'Click' Navegador predeterminado",
     "language": "idioma",
     "shortcut": "Atajo",
     "update": {
@@ -27,6 +28,7 @@
   "evaluate": {
     "age": "años",
     "analyzing": "Analizando datos ...",
+    "browser": "Navegador dentro del juego",
     "cancel": "¿Cancelar?",
     "canceled": "Búsqueda cancelada ¿Abierta en el navegador?",
     "count": "Resultados",
@@ -36,6 +38,7 @@
     "days": "Los últimos 7 días",
     "debounce-time": "Tiempo de rebote",
     "debounce-description": "Retardo de búsqueda automática",
+    "disable-browser-overlay": "Inhabilitar Navegador dentro del juego",
     "empty": "No hay resultados. ¿Abierta en el navegador?",
     "error": "Ocurrió un error.",
     "errors": {
