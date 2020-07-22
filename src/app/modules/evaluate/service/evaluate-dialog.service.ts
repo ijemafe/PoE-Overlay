@@ -129,7 +129,12 @@ export class EvaluateDialogService {
       if (unique[StatType.Implicit]) {
         height += DIALOG_DIVIDER_HEIGHT
       }
-      if (unique[StatType.Explicit] || unique[StatType.Crafted] || unique[StatType.Fractured] || unique[StatType.Monster]) {
+      if (
+        unique[StatType.Explicit] ||
+        unique[StatType.Crafted] ||
+        unique[StatType.Fractured] ||
+        unique[StatType.Monster]
+      ) {
         height += DIALOG_DIVIDER_HEIGHT
       }
       if (unique[StatType.Pseudo]) {

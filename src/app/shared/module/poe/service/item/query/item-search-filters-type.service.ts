@@ -23,14 +23,14 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
     const name = this.itemNameService.getName(item.nameId, language)
     if (name) {
       query.name = {
-        option: name
+        option: name,
       }
     }
 
     const type = this.itemNameService.getType(item.typeId, language)
     if (type) {
       query.type = {
-        option: type
+        option: type,
       }
     }
 
@@ -149,11 +149,14 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
           const discrimininatorStartIdx = query.type.option.lastIndexOf('(')
           query.name = {
             option: query.type.option.substr(0, discrimininatorStartIdx).trim(),
-            discriminator: query.type.option.substr(discrimininatorStartIdx + 1, query.type.option.length - discrimininatorStartIdx - 2)
+            discriminator: query.type.option.substr(
+              discrimininatorStartIdx + 1,
+              query.type.option.length - discrimininatorStartIdx - 2
+            ),
           }
         } else {
           query.name = {
-            option: query.type.option
+            option: query.type.option,
           }
         }
         query.type = undefined

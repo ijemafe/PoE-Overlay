@@ -61,11 +61,11 @@ export class EvaluateModule implements FeatureModule {
         'pseudo.pseudo_total_energy_shield': true,
         'pseudo.pseudo_increased_energy_shield': true,
         'pseduo.pseudo_increased_movement_speed': true,
-        'explicit.stat_1479533453': true,// Sextant Uses
-        'enchant.stat_290368246': true,// Sextant Uses
-        'implicit.stat_299373046': true,// Blighted
-        'implicit.stat_1792283443': true,// Shaper/Elder influences maps
-        'implicit.stat_3624393862': true,// Guardian occupied maps
+        'explicit.stat_1479533453': true, // Sextant Uses
+        'enchant.stat_290368246': true, // Sextant Uses
+        'implicit.stat_299373046': true, // Blighted
+        'implicit.stat_1792283443': true, // Shaper/Elder influences maps
+        'implicit.stat_3624393862': true, // Guardian occupied maps
       },
       evaluateQueryDefaultStatsUnique: true,
       evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,

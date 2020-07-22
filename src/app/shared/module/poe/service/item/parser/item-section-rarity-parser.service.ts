@@ -63,7 +63,10 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     }
 
     const masterMissionPhrases = this.getMasterMissionPhrases()
-    const masterMission = masterMissionPhrases.find((x) => item.sections.findIndex((section) => section.content.indexOf(x.prophecyText) !== -1) !== -1)
+    const masterMission = masterMissionPhrases.find(
+      (x) =>
+        item.sections.findIndex((section) => section.content.indexOf(x.prophecyText) !== -1) !== -1
+    )
     if (masterMission) {
       target.type += ` (${masterMission.masterName})`
       target.typeId = this.baseItemTypesService.search(target.type)
@@ -75,17 +78,20 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
 
     const metamorphSamplePhrase = this.clientString.translate('MetamorphosisItemisedMapBoss')
 
-    const metamorphSample = item.sections.find((x) => x.content.indexOf(metamorphSamplePhrase) === 0)
+    const metamorphSample = item.sections.find(
+      (x) => x.content.indexOf(metamorphSamplePhrase) === 0
+    )
     if (!metamorphSample) {
       target.category = this.baseItemCategoriesService.get(target.typeId)
     } else {
       target.category = ItemCategory.MonsterSample
 
       // Determine the body part and update the item base type (typeId) accordingly.
-      const metamorphItemNameDisplay = this.clientString.translate('MetamorphosisItemisedBossDisplayText').replace('%1%', this.baseItemTypesService.translate(target.typeId))
-      const metamorphBodyParts = this.getMetamorphBodyParts();
-      for (let i = 0; i < metamorphBodyParts.length; i++) {
-        const metamorphBodyPart = metamorphBodyParts[i]
+      const metamorphItemNameDisplay = this.clientString
+        .translate('MetamorphosisItemisedBossDisplayText')
+        .replace('%1%', this.baseItemTypesService.translate(target.typeId))
+      const metamorphBodyParts = this.getMetamorphBodyParts()
+      for (const metamorphBodyPart of metamorphBodyParts) {
         if (metamorphItemNameDisplay.replace('%2%', metamorphBodyPart.key) === target.type) {
           target.name = target.type
           target.typeId = metamorphBodyPart.value
@@ -171,23 +177,23 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     return [
       {
         key: this.clientString.translate('MetamorphBodyPart1'),
-        value: 'MetamorphosisBrain'
+        value: 'MetamorphosisBrain',
       },
       {
         key: this.clientString.translate('MetamorphBodyPart2'),
-        value: 'MetamorphosisEye'
+        value: 'MetamorphosisEye',
       },
       {
         key: this.clientString.translate('MetamorphBodyPart3'),
-        value: 'MetamorphosisLung'
+        value: 'MetamorphosisLung',
       },
       {
         key: this.clientString.translate('MetamorphBodyPart4'),
-        value: 'MetamorphosisHeart'
+        value: 'MetamorphosisHeart',
       },
       {
         key: this.clientString.translate('MetamorphBodyPart5'),
-        value: 'MetamorphosisLiver'
+        value: 'MetamorphosisLiver',
       },
     ]
   }
@@ -216,7 +222,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       {
         prophecyText: this.clientString.translate('ProphecyQuestTrackerJun'),
         masterName: this.clientString.translate('MasterNameJun'),
-      }
+      },
     ]
   }
 }

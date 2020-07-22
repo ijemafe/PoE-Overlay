@@ -31,7 +31,7 @@ export class ItemSectionGemExperienceParserService implements ItemSectionParserS
         return null
     }
 
-    const phrase = `${this.clientString.translate('Experience')}: `;
+    const phrase = `${this.clientString.translate('Experience')}: `
 
     const experienceSection = item.sections.find((x) => x.content.indexOf(phrase) !== -1)
     if (!experienceSection) {
@@ -43,7 +43,9 @@ export class ItemSectionGemExperienceParserService implements ItemSectionParserS
       target.properties = props
     }
 
-    const experience = experienceSection.lines.find(x => x.indexOf(phrase) !== -1).replace(phrase, '')
+    const experience = experienceSection.lines
+      .find((x) => x.indexOf(phrase) !== -1)
+      .replace(phrase, '')
     const splittedExp = experience.split('/')
 
     target.properties.gemExperience = {
