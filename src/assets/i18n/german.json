@@ -4,7 +4,7 @@
     "language": "Sprache",
     "shortcut": "Tastaturkürzel",
     "update": {
-      "available": "Ein neues Update ist verfügbar. Wird automatisch heruntergeladen, sofern nicht anders angegeben.",
+      "available": "Ein neues Update ist verfügbar. Es wird automatisch heruntergeladen, sofern nicht anders angegeben.",
       "downloaded": "Das neue Update kann jetzt installiert werden. Bitte starten Sie PoE Overlay neu."
     }
   },
@@ -47,7 +47,7 @@
     "layout": "Layout",
     "listings": "Gefunden {{total}}. {{count}} Einträge abrufen ...",
     "loading": "Wird geladen...",
-    "mean": "Mean",
+    "mean": "Mittelwert",
     "median": "Median",
     "mode": "Mode",
     "name": "Bewerten",
@@ -148,10 +148,10 @@
     "dwm": "Dies wird hauptsächlich von einem deaktivierten Aero / DWM verursacht. Versuchen Sie daher, diese Windows-Funktion zu aktivieren.<br> Da diese erforderlich ist, um transparente Fenster zu erstellen.",
     "dwm-title": "Warum wird mein Bildschirm nach dem Benutzen einer Funktion schwarz / weiß?",
     "faq": "FAQ",
-    "graph": "Der Balken zeigt die Verteilung des Gegenstandwerts an. Grundsätzlich werden die Werte nach Wert gruppiert und gezählt.<br> Der höchste Balken ist der Modus. Wird auch als \"häufigster Wert\" bezeichnet. Mittelwert ist der Durchschnitt. Der Median ist der zentrierte Wert aller Werte.",
+    "graph": "Der Balken zeigt die Verteilung des Gegenstandwerts an. Grundsätzlich werden die Gegenstandswerte nach Wert gruppiert und gezählt.<br> Der höchste Balken ist der Modus. Wird auch als \"häufigster Wert\" bezeichnet. Mittelwert ist der Durchschnitt. Der Median ist der zentrierte Wert aller Werte.",
     "graph-title": "Was stellt die Grafik dar? Was ist Modus / Mittelwert / Median?",
     "graph-url": "\"So lesen Sie einen Histogramm-Min-Max-Median-Mittelwert\" von \"academy.datawrapper.de\" öffnen",
-    "graphic": "Dies wird hauptsächlich durch inkompatible Grafiktreiber für die aktuelle Chromversion verursacht.<br> Deaktivieren Sie die Hardwarebeschleunigung im Taskleistenmenü.",
+    "graphic": "Dies wird hauptsächlich durch inkompatible Grafiktreiber für die aktuelle Chromiumversion verursacht.<br> Deaktivieren Sie die Hardwarebeschleunigung im Taskleistenmenü.",
     "graphic-title": "Die Grafiken sind verschwommen / Grafikfehler?",
     "name": "Hilfe",
     "patreon": "Unterstütze mich auf Patreon",
@@ -212,7 +212,7 @@
     "auto-launch": "Automatisch starten",
     "cancel": "Abbrechen",
     "dialog": "Dialog",
-    "dialog-opacity": "Dialogopazität",
+    "dialog-opacity": "Dialogtransparenz",
     "dialog-spawn-position": {
       "center": "Zentrum",
       "cursor": "Mauszeiger"
@@ -242,6 +242,6 @@
     "relaunch-app": "App neu starten",
     "save": "Speichern",
     "ui-language": "Sprache der Benutzeroberfläche",
-    "zoom": "Skalierung"
+    "zoom": "Zoom"
   }
 }
