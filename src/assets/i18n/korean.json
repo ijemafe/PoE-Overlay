@@ -1,6 +1,7 @@
 {
   "app": {
     "clickable": "'Click'= 게임 내 브라우저, 'CTRL + 클릭'기본 브라우저",
+    "clickable-external-only": "'클릭'기본 브라우저",
     "language": "언어",
     "shortcut": "단축키",
     "update": {
@@ -27,6 +28,7 @@
   "evaluate": {
     "age": "나이",
     "analyzing": "데이터 분석 중 ...",
+    "browser": "게임 내 브라우저",
     "cancel": "취소?",
     "canceled": "검색이 취소되었습니다. 브라우저에서 열려?",
     "count": "결과",
@@ -36,6 +38,7 @@
     "days": "최근 7 일",
     "debounce-time": "디 바운스 시간",
     "debounce-description": "자동 검색 지연",
+    "disable-browser-overlay": "비활성화 게임 내 브라우저",
     "empty": "결과가 없습니다. 브라우저에서 열려?",
     "error": "오류가 발생했습니다.",
     "errors": {

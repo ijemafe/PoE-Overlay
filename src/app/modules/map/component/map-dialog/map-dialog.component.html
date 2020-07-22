@@ -20,7 +20,16 @@
       <div>{{ 'map.not-found' | translate }}</div>
     </ng-container>
     <ng-container *ngIf="map">
-      <div class="clickable" (click)="onMapClick($event)" [title]="'app.clickable' | translate">
+      <div
+        class="clickable"
+        (click)="onMapClick($event)"
+        [title]="
+          (data.settings.evaluateBrowserAlwaysExternal
+            ? 'app.clickable-external-only'
+            : 'app.clickable'
+          ) | translate
+        "
+      >
         <ng-container *ngIf="map.layout">
           <div class="description">
             {{ map.layout }}

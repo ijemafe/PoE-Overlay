@@ -11,6 +11,7 @@ import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
 export interface MapUserSettings extends UserSettings {
   mapInfoKeybinding: string
   mapInfoWarningStats: any
+  evaluateBrowserAlwaysExternal: boolean
 }
 
 @Component({

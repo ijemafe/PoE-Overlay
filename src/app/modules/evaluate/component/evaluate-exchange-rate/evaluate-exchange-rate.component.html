@@ -62,7 +62,12 @@
           <div
             class="values clickable"
             (click)="onClick($event)"
-            [title]="'app.clickable' | translate"
+            [title]="
+              (settings.evaluateBrowserAlwaysExternal
+                ? 'app.clickable-external-only'
+                : 'app.clickable'
+              ) | translate
+            "
           >
             <span
               class="value"

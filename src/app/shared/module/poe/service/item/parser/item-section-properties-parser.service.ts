@@ -142,19 +142,19 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
         if (text.indexOf('/') !== -1) {
           const splitted = text.split('/')
           itemValue = {
-            text: text,
+            text,
             value: +splitted[0].replace('%', ''),
             min: +splitted[0].replace('%', ''),
             max: +splitted[1].replace('%', ''),
           }
         } else {
           itemValue = {
-            text: text,
+            text,
             value: +text.replace('%', ''),
           }
         }
         const property: ItemValueProperty = {
-          augmented: augmented,
+          augmented,
           value: itemValue,
         }
         return property

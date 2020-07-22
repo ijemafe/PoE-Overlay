@@ -40,6 +40,7 @@ export class MapModule implements FeatureModule {
         'map_players_and_monsters_lightning_damage_taken_+%': true,
         'map_players_and_monsters_physical_damage_taken_+%': true,
       },
+      evaluateBrowserAlwaysExternal: false,
     }
     return {
       name: 'map.name',
