@@ -19,13 +19,15 @@ export class ItemSectionItemLevelParserService implements ItemSectionParserServi
   public section = ItemSection.ItemLevel
 
   public parse(item: ExportedItem, target: Item): Section {
-    let itemLevelSection: Section;
+    let itemLevelSection: Section
     let itemLevel: string
     switch (target.category) {
       case ItemCategory.CurrencyWildSeed:
       case ItemCategory.CurrencyVividSeed:
       case ItemCategory.CurrencyPrimalSeed:
-        const seedMonsterLevelPhrase = new RegExp(this.clientString.translate('ItemDisplayHarvestMonsterLevel').replace('%0', '(\\S+)'))
+        const seedMonsterLevelPhrase = new RegExp(
+          this.clientString.translate('ItemDisplayHarvestMonsterLevel').replace('%0', '(\\S+)')
+        )
 
         itemLevelSection = item.sections.find((x) => seedMonsterLevelPhrase.test(x.content))
         if (itemLevelSection) {

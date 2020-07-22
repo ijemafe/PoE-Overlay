@@ -39,14 +39,32 @@
     <app-card [title]="'misc.stash' | translate">
       <div class="row">
         <div class="col">
-          <mat-form-field>
-            <mat-label>{{ 'misc.navigation' | translate }} (CTRL + SCROLL)</mat-label>
-            <mat-select [(value)]="settings.miscStashNavigationMode">
-              <mat-option *ngFor="let navigation of navigations.keys" [value]="navigation">
-                {{ 'misc.navigations.' + (navigations.values[navigation] | lowercase) | translate }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+          <div class="row">
+            <mat-form-field class="col-lg-6">
+              <mat-label>{{ 'misc.navigation' | translate }}</mat-label>
+              <mat-select [(value)]="settings.miscStashNavigationMode">
+                <mat-option *ngFor="let navigation of navigations.keys" [value]="navigation">
+                  {{
+                    'misc.navigations.' + (navigations.values[navigation] | lowercase) | translate
+                  }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-lg-6">
+              <mat-label>Modifier + SCROLL</mat-label>
+              <mat-select [(value)]="settings.miscStashNavigationModifier">
+                <mat-option value="CmdOrCtrl">
+                  CmdOrCtrl
+                </mat-option>
+                <mat-option value="Shift">
+                  Shift
+                </mat-option>
+                <mat-option value="Alt">
+                  Alt
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
           <app-accelerator
             [label]="'misc.highlight' | translate"
             [(value)]="settings.miscStashHighlightKeybinding"

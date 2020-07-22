@@ -44,9 +44,10 @@ export class ItemParserService {
       itemSectionItemLevelParserService,
       itemSectionSocketsParserService,
       itemSectionPropertiesParserService,
-      itemSectionFlaskParserService,          // Properties have to be parsed first in case the Flask Parser contains Quality.
-      itemSectionProphecyParserService,       // Properties have to be parsed first in case the Prophecy Parser needs to adjust some properties.
-      itemSectionGemExperienceParserService,  // Properties have to be parsed first in case the Gem Experience Parser needs to adjust some properties.
+      itemSectionFlaskParserService, // Properties have to be parsed first in case the Flask Parser contains Quality.
+      itemSectionProphecyParserService, // Properties have to be parsed first in case the Prophecy Parser needs to adjust some properties.
+      // Properties have to be parsed first in case the Gem Experience Parser needs to adjust some properties.
+      itemSectionGemExperienceParserService,
       itemSectionCorruptedParserService,
       itemSectionVeiledParserService,
       itemSectionInfluencesParserService,

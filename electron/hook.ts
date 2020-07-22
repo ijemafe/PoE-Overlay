@@ -3,6 +3,8 @@ import { IpcMain } from 'electron'
 interface MouseWheelEvent {
   rotation: number
   ctrlKey: boolean
+  shiftKey: boolean
+  altKey: boolean
 }
 
 type MouseWheelFn = (event: MouseWheelEvent) => void
@@ -82,7 +84,43 @@ export function register(
           .then(
             (success) =>
               // tslint:disable-next-line:no-console
-              success ? console.debug('Started listening for Mousewheel-Events.') : null,
+              success ? console.debug('Started CmdOrCtrl listening for Mousewheel-Events.') : null,
+            (error) => onError(error)
+          )
+        break
+      case 'Shift + MouseWheelUp':
+      case 'Shift + MouseWheelDown':
+        hook
+          .enable((e) => {
+            if (e.shiftKey) {
+              const channel = `shortcut-Shift + ${
+                e.rotation === -1 ? 'MouseWheelUp' : 'MouseWheelDown'
+              }`
+              onEvent(channel)
+            }
+          })
+          .then(
+            (success) =>
+              // tslint:disable-next-line:no-console
+              success ? console.debug('Started Shift listening for Mousewheel-Events.') : null,
+            (error) => onError(error)
+          )
+        break
+      case 'Alt + MouseWheelUp':
+      case 'Alt + MouseWheelDown':
+        hook
+          .enable((e) => {
+            if (e.altKey) {
+              const channel = `shortcut-Alt + ${
+                e.rotation === -1 ? 'MouseWheelUp' : 'MouseWheelDown'
+              }`
+              onEvent(channel)
+            }
+          })
+          .then(
+            (success) =>
+              // tslint:disable-next-line:no-console
+              success ? console.debug('Started Alt listening for Mousewheel-Events.') : null,
             (error) => onError(error)
           )
         break
@@ -97,8 +135,27 @@ export function register(
       case 'CmdOrCtrl + MouseWheelUp':
       case 'CmdOrCtrl + MouseWheelDown':
         hook.disable().then(
-          // tslint:disable-next-line:no-console
-          (success) => (success ? console.debug('Stopped listening for Mousewheel-Events.') : null),
+          (success) =>
+            // tslint:disable-next-line:no-console
+            success ? console.debug('Stopped CmdOrCtrl listening for Mousewheel-Events.') : null,
+          (error) => onError(error)
+        )
+        break
+      case 'Shift + MouseWheelUp':
+      case 'Shift + MouseWheelDown':
+        hook.disable().then(
+          (success) =>
+            // tslint:disable-next-line:no-console
+            success ? console.debug('Stopped Shift listening for Mousewheel-Events.') : null,
+          (error) => onError(error)
+        )
+        break
+      case 'Alt + MouseWheelUp':
+      case 'Alt + MouseWheelDown':
+        hook.disable().then(
+          (success) =>
+            // tslint:disable-next-line:no-console
+            success ? console.debug('Stopped Alt listening for Mousewheel-Events.') : null,
           (error) => onError(error)
         )
         break

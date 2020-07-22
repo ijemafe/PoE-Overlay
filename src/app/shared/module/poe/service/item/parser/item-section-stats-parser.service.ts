@@ -42,7 +42,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
 
   private createOptions(item: Item): StatsSearchOptions {
     const options: StatsSearchOptions = {
-      monsterSample: item.category === ItemCategory.MonsterSample
+      monsterSample: item.category === ItemCategory.MonsterSample,
     }
     if (!item.properties) {
       return options

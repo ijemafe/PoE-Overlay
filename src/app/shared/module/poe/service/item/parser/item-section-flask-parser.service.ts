@@ -25,7 +25,8 @@ export class ItemSectionFlaskParserService implements ItemSectionParserService {
       return null
     }
 
-    // Nothing actually has to be done, It's just a matter of identifing this section of the item to prevent the content from being parsed for stats.
+    // Nothing actually has to be done, It's just a matter of identifying this
+    // section of the item to prevent the content from being parsed for stats.
 
     return flaskSection
   }
