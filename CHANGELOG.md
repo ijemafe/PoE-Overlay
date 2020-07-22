@@ -1,6 +1,19 @@
 # Changelog
 
+## 0.7.3 (2020-07-23)
+
+- Added support for 'Stored Experience' and 'Durability' evaluate options (used by the facetor's lens and harvest flowers)
+- Added support to increment search values (while holding ALT + SHIFT and scrolling up/down) by multiples of 10 based on the current value
+- Added support for 'Item Level' parsing of seeds
+- Added support for Seed exchange rates (pulled from poe.ninja, like other exchange rates)
+- Fixed an issue with Metamorph samples, Lab Enchants and cluster jewel enchants ([#104](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/104), [#111](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/111))
+- Added Shift and Alt modifier keys as options for Stash Navigation with SCROLL ([#109](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/109))
+- Added App Setting under Evaluate Tab to disable In-Game Browser completely ([#88](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/88))
+- Update some German strings ([#76](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/76)
+- Update some French strings
+
 ## 0.7.2 (2020-07-09)
+
 - Added code certification to resolve standalone installer freezing
 - Updated assests for 3.11 Harvest Items
 - Added support for search on the following item types: Scarabs, Vials, and delirium orbs
@@ -8,14 +21,14 @@
 - Added support for Elder guardian maps
 - Improved prophecy search
 
-## 0.7.1 (2020-06-16) 
+## 0.7.1 (2020-06-16)
+
 - Added support for linux users
 - Updated Settings for better User experience
 - rare search screen now show rare name along with base type
 - removed Pricing Method Tagging
 - misc documentation changes
 - misc bug fixes
-
 
 ## 0.6.28 (2020-05-09)
 
@@ -251,7 +264,7 @@
 
 ## 0.6.2 (2020-03-13)
 
-- added periodic version check 
+- added periodic version check
 - removed version popup
 - fixed auto updated not working
 
@@ -282,14 +295,14 @@
 
 ## 0.5.21 (2020-02-23)
 
- - fixed fast tag not working on multiple monitor set-up (#266)
+- fixed fast tag not working on multiple monitor set-up (#266)
 
 ## 0.5.20 (2020-02-23)
 
 - added bulk price support for fast tagging (#253)
 - updated browser width to consider aspect ratio
 - updated query to use rarity only for uniques (#231)
-- updated stats data  
+- updated stats data
   - fixed non negatable mods using it's matched predicate only (#237)
   - fixed some unavailable translations because of mismatched predicates
 - removed `alt f4` as possible hotkey (#259)
@@ -338,12 +351,12 @@
 - added missing pseudo mods (#230)
 - added elemental color to mods
 - added bookmark module (#206)
-    - `https://www.poelab.com/` on `num1`
-    - `https://wraeclast.com/` on `num2`
+  - `https://www.poelab.com/` on `num1`
+  - `https://wraeclast.com/` on `num2`
 - updated ux design (#211)
-    - new accent color
-    - menu keeps height after tab change
-    - custom scrollbar
+  - new accent color
+  - menu keeps height after tab change
+  - custom scrollbar
 - fixed nearby enemies counted as chaos resistance (#213)
 
 ## 0.5.15 (2020-02-10)
