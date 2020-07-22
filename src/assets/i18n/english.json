@@ -1,6 +1,7 @@
 {
   "app": {
     "clickable": "'Click' = In-Game Browser, 'CTRL + Click' Default Browser",
+
     "language": "Language",
     "shortcut": "Shortcut",
     "update": {
@@ -27,6 +28,7 @@
   "evaluate": {
     "age": "Age",
     "analyzing": "Analyzing data...",
+    "browser": "In-Game Browser",
     "cancel": "Cancel?",
     "canceled": "Search canceled. Open in browser?",
     "count": "Results",
@@ -36,6 +38,7 @@
     "days": "Last 7 days",
     "debounce-time": "Debounce Time",
     "debounce-description": "Auto-search Delay",
+    "disable-browser-overlay": "Disable In-Game Browser",
     "empty": "No results. Open in browser?",
     "error": "An error occured.",
     "errors": {

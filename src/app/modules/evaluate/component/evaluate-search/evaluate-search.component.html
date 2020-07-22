@@ -23,7 +23,12 @@
                     class="clickable values"
                     (click)="onCurrencyClick($event)"
                     (wheel)="onCurrencyWheel($event)"
-                    [title]="'app.clickable' | translate"
+                    [title]="
+                      (settings.evaluateBrowserAlwaysExternal
+                        ? 'app.clickable-external-only'
+                        : 'app.clickable'
+                      ) | translate
+                    "
                   >
                     <div>
                       <app-currency-frame
@@ -85,7 +90,12 @@
               <div
                 class="clickable"
                 (click)="onCurrencyClick($event)"
-                [title]="'app.clickable' | translate"
+                [title]="
+                  (settings.evaluateBrowserAlwaysExternal
+                    ? 'app.clickable-external-only'
+                    : 'app.clickable'
+                  ) | translate
+                "
               >
                 {{ 'evaluate.canceled' | translate }}
               </div>
@@ -105,7 +115,12 @@
           <div
             class="clickable"
             (click)="onCurrencyClick($event)"
-            [title]="'app.clickable' | translate"
+            [title]="
+              (settings.evaluateBrowserAlwaysExternal
+                ? 'app.clickable-external-only'
+                : 'app.clickable'
+              ) | translate
+            "
           >
             {{ 'evaluate.empty' | translate }}
           </div>
