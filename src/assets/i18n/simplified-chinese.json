@@ -38,7 +38,7 @@
     "days": "过去7天",
     "debounce-time": "去抖时间",
     "debounce-description": "自动搜寻延迟",
-    "disable-browser-overlay": "禁用 游戏内浏览器"
+    "disable-browser-overlay": "禁用 游戏内浏览器",
     "empty": "没有结果。在浏览器中打开？",
     "error": "发生错误。",
     "errors": {
