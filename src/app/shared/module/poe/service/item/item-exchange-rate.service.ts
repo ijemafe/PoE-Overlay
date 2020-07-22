@@ -128,7 +128,7 @@ export class ItemExchangeRateService {
         }
         return true
       }
-      return x.gemQuality == gemQuality
+      return x.gemQuality === gemQuality
     }
 
     const corrupted = item.corrupted === true
@@ -141,7 +141,7 @@ export class ItemExchangeRateService {
           case ItemCategory.GemSupportGemplus:
             return false
         }
-        return true;
+        return true
       }
       return x.corrupted === corrupted
     }
@@ -151,9 +151,9 @@ export class ItemExchangeRateService {
       if (prophecyText === undefined || x.prophecyText === undefined) {
         switch (item.category) {
           case ItemCategory.Prophecy:
-            return false;
+            return false
         }
-        return true;
+        return true
       }
       return x.prophecyText === prophecyText
     }

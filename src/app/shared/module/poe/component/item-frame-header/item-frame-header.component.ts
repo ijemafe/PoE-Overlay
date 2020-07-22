@@ -21,7 +21,7 @@ export class ItemFrameHeaderComponent {
   public language: Language
 
   public getHeaderClass(item: Item): string {
-    let headerClasses: string[] = ['header']
+    const headerClasses: string[] = ['header']
 
     if (item.name && item.typeId) {
       headerClasses.push('double')

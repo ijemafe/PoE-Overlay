@@ -73,11 +73,15 @@ export class ItemCategoryValuesProvider {
           this.fetch(`${key}_essence`, () => this.fetchItem(leagueId, ItemOverviewType.Essence)),
           this.fetch(`${key}_oil`, () => this.fetchItem(leagueId, ItemOverviewType.Oil)),
           this.fetch(`${key}_vial`, () => this.fetchItem(leagueId, ItemOverviewType.Vial)),
-          this.fetch(`${key}_deliriumOrb`, () => this.fetchItem(leagueId, ItemOverviewType.DeliriumOrb)),
+          this.fetch(`${key}_deliriumOrb`, () =>
+            this.fetchItem(leagueId, ItemOverviewType.DeliriumOrb)
+          ),
         ]).pipe(
           map(([currencies, essences, oil, vial, deliriumOrb]) => {
             return {
-              values: currencies.values.concat(essences.values.concat(oil.values.concat(vial.values.concat(deliriumOrb.values)))),
+              values: currencies.values.concat(
+                essences.values.concat(oil.values.concat(vial.values.concat(deliriumOrb.values)))
+              ),
             }
           })
         )
