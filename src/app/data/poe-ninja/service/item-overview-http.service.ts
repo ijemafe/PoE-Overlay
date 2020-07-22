@@ -31,7 +31,7 @@ export enum ItemOverviewType {
 }
 
 const PATH_TYPE_MAP = {
-  [ItemOverviewType.DeliriumOrb]: 'seeds',
+  [ItemOverviewType.Seed]: 'seeds',
   [ItemOverviewType.DeliriumOrb]: 'delirium-orbs',
   [ItemOverviewType.Watchstone]: 'watchstones',
   [ItemOverviewType.Oil]: 'oils',
