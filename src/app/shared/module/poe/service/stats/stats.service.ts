@@ -190,29 +190,48 @@ export class StatsService {
               }
             }
 
-            const text = test[0]
+            const sectionText = test[0]
+            let matchedText = sectionText
+            let matchedPredicate = predicate
+            let matchedValues = test.slice(1).map((x) => ({ text: x }))
+
+            // Check if your predicate uses a single number (e.g. '1 Added Passive Skill is a Jewel Socket' or 'Bow Attacks fire an additional Arrow')
+            if (predicate === '1' && stat.option !== true) {
+              const predicateArray: string[] = []
+              for (const otherPredicate in predicates) {
+                predicateArray.push(otherPredicate)
+              }
+              // Check if the 'next' predicate is an 'any' ('#') number predicate, if it is, then use it accordingly
+              let otherPredicate = predicateArray[predicateArray.indexOf(predicate) + 1]
+              if (otherPredicate !== undefined && otherPredicate.indexOf('#') !== -1) {
+                matchedPredicate = otherPredicate
+                matchedText = predicates[otherPredicate]
+                matchedValues = [{ text: '1' }]
+              }
+            }
+
             const itemStat: ItemStat = {
               id: stat.id,
               mod: stat.mod,
               option: stat.option,
               negated: stat.negated,
-              predicate,
+              predicate: matchedPredicate,
               type,
               tradeId,
-              values: test.slice(1).map((x) => ({ text: x })),
+              values: matchedValues,
               indistinguishable,
             }
             results.push({
               stat: itemStat,
-              match: { index: section.index, text },
+              match: { index: section.index, text: matchedText },
             })
 
             const length = section.text.length
             if (section.text[expr.lastIndex] === '\n') {
-              section.text = section.text.replace(`${text}\n`, '')
+              section.text = section.text.replace(`${sectionText}\n`, '')
             }
             if (section.text.length === length) {
-              section.text = section.text.replace(`${text}`, '')
+              section.text = section.text.replace(`${sectionText}`, '')
             }
             if (section.text.trim().length === 0) {
               search.sections.splice(index, 1)
