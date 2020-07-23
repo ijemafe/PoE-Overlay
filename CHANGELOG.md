@@ -9,7 +9,7 @@
 - Fixed an issue with Metamorph samples, Lab Enchants and cluster jewel enchants ([#104](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/104), [#111](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/111))
 - Added Shift and Alt modifier keys as options for Stash Navigation with SCROLL ([#109](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/109))
 - Added App Setting under Evaluate Tab to disable In-Game Browser completely ([#88](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/88))
-- Update some German strings ([#76](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/76)
+- Update some German strings ([#76](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/76))
 - Update some French strings
 
 ## 0.7.2 (2020-07-09)
