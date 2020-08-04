@@ -12,6 +12,7 @@ export interface StatsSearchResult {
 
 export interface StatsSearchOptions {
   monsterSample?: boolean
+  map?: boolean
   base_chance_to_poison_on_hit__?: boolean
   local_minimum_added_physical_damagelocal_maximum_added_physical_damage?: boolean
   local_minimum_added_fire_damagelocal_maximum_added_fire_damage?: boolean
@@ -164,6 +165,11 @@ export class StatsService {
             const test = expr.exec(section.text)
 
             if (!test) {
+              continue
+            }
+
+            // Check if we're explicitly dealing with maps and map mods
+            if (stat.mod == "maps" && !options.map) {
               continue
             }
 
