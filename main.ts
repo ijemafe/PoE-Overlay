@@ -200,7 +200,7 @@ function createWindow(): BrowserWindow {
       allowRunningInsecureContent: serve,
       webSecurity: false,
     },
-    focusable: false,
+    focusable: process.platform !== 'linux' ? false : true,
     skipTaskbar: true,
     show: false,
   })
