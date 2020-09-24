@@ -190,6 +190,16 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.MonsterSample:
       case ItemCategory.CurrencyPiece:
       case ItemCategory.CurrencySeedBooster:
+      case ItemCategory.AccessoryTrinket:
+      case ItemCategory.CurrencyHeistTarget:
+      case ItemCategory.HeistEquipment:
+      case ItemCategory.HeistGear:
+      case ItemCategory.HeistTool:
+      case ItemCategory.HeistCloak:
+      case ItemCategory.HeistUtility:
+      case ItemCategory.HeistMission:
+      case ItemCategory.HeistContract:
+      case ItemCategory.HeistBlueprint:
         return of({ values: [] })
     }
   }

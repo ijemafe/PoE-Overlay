@@ -68,6 +68,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.AccessoryAmulet:
       case ItemCategory.AccessoryBelt:
       case ItemCategory.AccessoryRing:
+      case ItemCategory.AccessoryTrinket:
         if (item.rarity === ItemRarity.Unique) {
           query.filters.type_filters.filters.rarity = {
             option: ItemRarity.Unique,
@@ -88,6 +89,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
         break
       // jewel
       case ItemCategory.Jewel:
+      case ItemCategory.JewelBase:
       case ItemCategory.JewelAbyss:
       case ItemCategory.JewelCluster:
       // flasks
@@ -116,6 +118,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.CurrencyResonator:
       case ItemCategory.CurrencyFossil:
       case ItemCategory.CurrencyIncubator:
+      case ItemCategory.CurrencyHeistTarget:
       // seed
       case ItemCategory.CurrencySeed:
       case ItemCategory.CurrencyWildSeed:
@@ -127,6 +130,15 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.MapScarab:
       // divination card
       case ItemCategory.Card:
+      // heist
+      case ItemCategory.HeistEquipment:
+      case ItemCategory.HeistGear:
+      case ItemCategory.HeistTool:
+      case ItemCategory.HeistCloak:
+      case ItemCategory.HeistUtility:
+      case ItemCategory.HeistMission:
+      case ItemCategory.HeistContract:
+      case ItemCategory.HeistBlueprint:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }
