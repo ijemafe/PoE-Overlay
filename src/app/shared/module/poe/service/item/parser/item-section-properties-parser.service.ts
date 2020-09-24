@@ -104,7 +104,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       .slice(phrase.length)
       .split(',')
       .map((text) => {
-        const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('%1%', '')
+        const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('{0}', '')
         text = text.replace(max, '')
         const property: ItemProperty = {
           augmented: text.indexOf(AUGMENTED_PHRASE) !== -1,
@@ -134,7 +134,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       .slice(phrase.length)
       .split(',')
       .map((text) => {
-        const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('%1%', '')
+        const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('{0}', '')
         text = text.replace(max, '')
         const augmented = text.indexOf(AUGMENTED_PHRASE) !== -1
         text = text.replace(AUGMENTED_PHRASE, '')

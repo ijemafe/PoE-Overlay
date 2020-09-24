@@ -26,7 +26,7 @@ export class ItemSectionItemLevelParserService implements ItemSectionParserServi
       case ItemCategory.CurrencyVividSeed:
       case ItemCategory.CurrencyPrimalSeed:
         const seedMonsterLevelPhrase = new RegExp(
-          this.clientString.translate('ItemDisplayHarvestMonsterLevel').replace('%0', '(\\S+)')
+          this.clientString.translate('ItemDisplayHarvestMonsterLevel').replace('{0}', '(\\S+)')
         )
 
         itemLevelSection = item.sections.find((x) => seedMonsterLevelPhrase.test(x.content))

@@ -89,10 +89,10 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       // Determine the body part and update the item base type (typeId) accordingly.
       const metamorphItemNameDisplay = this.clientString
         .translate('MetamorphosisItemisedBossDisplayText')
-        .replace('%1%', this.baseItemTypesService.translate(target.typeId))
+        .replace('{0}', this.baseItemTypesService.translate(target.typeId))
       const metamorphBodyParts = this.getMetamorphBodyParts()
       for (const metamorphBodyPart of metamorphBodyParts) {
-        if (metamorphItemNameDisplay.replace('%2%', metamorphBodyPart.key) === target.type) {
+        if (metamorphItemNameDisplay.replace('{1}', metamorphBodyPart.key) === target.type) {
           target.name = target.type
           target.typeId = metamorphBodyPart.value
           break
