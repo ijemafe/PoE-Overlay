@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.4 (2020-10-01)
+
+- Added support for the new Heist League (new/changed modifiers, base item types, Trade API changes)
+- Added support for 'maps' modifiers (e.g. `#% increased Experience gain (maps)`)
+- [Linux] Changed the window to be focusable per default
+
 ## 0.7.3 (2020-07-23)
 
 - Added support for 'Stored Experience' and 'Durability' evaluate options (used by the facetor's lens and harvest flowers)
