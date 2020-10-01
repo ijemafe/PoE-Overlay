@@ -182,6 +182,16 @@ export class OverlayComponent implements OnInit, OnDestroy {
         .add(settings.exitAppKeybinding, false, VisibleFlag.Game, VisibleFlag.Overlay)
         .subscribe(() => this.app.quit())
     }
+    if (settings.relaunchAppUserSettingsKeybinding) {
+      this.shortcut
+        .add(
+          settings.relaunchAppUserSettingsKeybinding,
+          false,
+          VisibleFlag.Game,
+          VisibleFlag.Overlay
+        )
+        .subscribe(() => this.app.relaunch())
+    }
   }
 
   private getContext(settings: UserSettings): Context {

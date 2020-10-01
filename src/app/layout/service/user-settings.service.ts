@@ -34,6 +34,7 @@ export class UserSettingsService {
         let mergedSettings: UserSettings = {
           openUserSettingsKeybinding: 'F7',
           exitAppKeybinding: 'F8',
+          relaunchAppUserSettingsKeybinding: 'F9',
           language: Language.English,
           uiLanguage: UiLanguage.English,
           zoom: 100,

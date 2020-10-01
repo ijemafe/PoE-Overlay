@@ -99,6 +99,7 @@ You can change these shortcuts in the user settings menu.
 | `F6`           | Toggle DND
 | `F7`           | Opens the user settings menu
 | `F8`           | Exits overlay
+| `F9`           | Restarts overlay
 | `Alt + Num1`   | Open `https://www.poelab.com/`
 | `Alt + Num2`   | Open `https://wraeclast.com/`
 | `Esc`          | Close latest dialog
