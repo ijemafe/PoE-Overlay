@@ -5,12 +5,11 @@
     </app-item-frame-query>
   </div>
   <div class="name" *ngIf="item.typeId">
-    <app-item-frame-query
-      [(property)]="queryItem.typeId"
-      [value]="item.typeId"
-      [disabled]="!queryable"
-    >
-      <span>{{ item.typeId | baseItemType: language }}</span>
+    <app-item-frame-query [(property)]="queryItem.typeId"
+                          [value]="item.typeId"
+                          [disabled]="!queryable">
+      <span *ngIf="!item.blighted">{{ item.typeId | baseItemType: language }}</span>
+      <span *ngIf="item.blighted">{{ ('InfectedMap' | clientString: language).replace('{0}', (item.typeId | baseItemType: language)) }}</span>
     </app-item-frame-query>
   </div>
 </div>

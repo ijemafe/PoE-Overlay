@@ -7,6 +7,7 @@ import {
 } from '../../provider/item-category-values.provider'
 import { Currency, Item, Language, ItemCategory } from '../../type'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
+import { ClientStringService } from '../client-string/client-string.service'
 import { ContextService } from '../context.service'
 import { CurrencyConverterService } from '../currency/currency-converter.service'
 import { CurrencySelectService, CurrencySelectStrategy } from '../currency/currency-select.service'
@@ -34,7 +35,8 @@ export class ItemExchangeRateService {
     private readonly currencyConverterService: CurrencyConverterService,
     private readonly currencySelectService: CurrencySelectService,
     private readonly baseItemTypesService: BaseItemTypesService,
-    private readonly wordService: WordService
+    private readonly wordService: WordService,
+    private readonly clientString: ClientStringService,
   ) {}
 
   public get(
@@ -179,6 +181,11 @@ export class ItemExchangeRateService {
           // Remove the discriminator from the item name.
           if (name.endsWith(')')) {
             name = name.substr(0, name.lastIndexOf('(')).trim()
+          }
+          break
+        case ItemCategory.Map:
+          if (item.blighted) {
+            name = this.clientString.translate('InfectedMap').replace('{0}', name)
           }
           break
       }

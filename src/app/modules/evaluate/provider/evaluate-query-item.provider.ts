@@ -23,6 +23,7 @@ export class EvaluateQueryItemProvider {
       corrupted: item.corrupted,
       unidentified: item.unidentified,
       veiled: item.veiled,
+      blighted: item.blighted,
       influences: item.influences || {},
       damage: {},
       stats: [],
