@@ -1,4 +1,4 @@
-<div appDrag=".cdk-overlay-pane">
+<div appDrag=".cdk-overlay-pane" (mouseleave)="onMouseOut($event, this)">
   <app-item-frame
     [item]="data.item"
     [language]="data.language"
