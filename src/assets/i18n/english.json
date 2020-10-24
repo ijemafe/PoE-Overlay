@@ -57,7 +57,7 @@
     "not-found": "No data found.",
     "prediction": {
       "confidence": "Confidence",
-      "error": "An error occured.",
+      "error": "An error occured during price prediction.",
       "errors": {
         "http": "Could not communicate with poeprices.info\nPlease make sure the website is reachable."
       },
