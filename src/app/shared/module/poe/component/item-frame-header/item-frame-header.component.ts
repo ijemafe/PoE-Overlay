@@ -41,7 +41,7 @@ export class ItemFrameHeaderComponent {
     return headerClasses.join(' ')
   }
 
-  public getNameSpanNum(item: Item): number {
+  public getNameLabelType(item: Item): number {
     if (item.blighted) {
       return 1
     }
