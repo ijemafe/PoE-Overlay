@@ -6,6 +6,7 @@ import {
   ItemSection,
   ItemSectionParserService,
   Section,
+  ItemCategory,
 } from '@shared/module/poe/type'
 import { ClientStringService } from '../../client-string/client-string.service'
 
@@ -19,7 +20,11 @@ export class ItemSectionProphecyParserService implements ItemSectionParserServic
   public section = ItemSection.Prophecy
 
   public parse(item: ExportedItem, target: Item): Section {
-    const phrases = this.clientString.translateMultiple(new RegExp('^Prophecy'))
+    if (target.category != ItemCategory.Prophecy) {
+      return null
+    }
+    
+    const phrases = this.clientString.translateMultiple(new RegExp('^Prophecy(?!(Tab|Popup))'))
 
     const prophecySection = item.sections.find(
       (section) => phrases.findIndex((phrase) => section.content.indexOf(phrase) !== -1) !== -1
