@@ -5,12 +5,12 @@
     </app-item-frame-query>
   </div>
   <div class="name" *ngIf="item.typeId">
-    <app-item-frame-query
-      [(property)]="queryItem.typeId"
-      [value]="item.typeId"
-      [disabled]="!queryable"
-    >
-      <span>{{ item.typeId | baseItemType: language }}</span>
+    <app-item-frame-query [(property)]="queryItem.typeId" [value]="item.typeId" [disabled]="!queryable">
+      <ng-container [ngSwitch]="getNameSpanNum(item)">
+        <span *ngSwitchDefault>{{ item.typeId | baseItemType: language }}</span>
+        <span *ngSwitchCase="1">{{ ('InfectedMap' | clientString: language).replace('{0}', (item.typeId | baseItemType: language)) }}</span>
+        <span *ngSwitchCase="2">{{ ('GemAlternateQuality' + item.properties.gemQualityType + 'Affix' | clientString: language).replace('{0}', (item.typeId | baseItemType: language)) }}</span>
+      </ng-container>
     </app-item-frame-query>
   </div>
 </div>

@@ -47,6 +47,7 @@ export class EvaluateQueryItemProvider {
       const prop = item.properties
       if (prop) {
         queryItem.properties.gemLevel = prop.gemLevel
+        queryItem.properties.gemQualityType = prop.gemQualityType
         queryItem.properties.mapTier = prop.mapTier
         queryItem.properties.durability = prop.durability
         queryItem.properties.storedExperience = prop.storedExperience

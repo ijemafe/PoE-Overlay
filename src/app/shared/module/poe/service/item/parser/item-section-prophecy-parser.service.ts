@@ -31,8 +31,7 @@ export class ItemSectionProphecyParserService implements ItemSectionParserServic
     const prophecyText = phrases.find((phrase) => prophecySection.content.indexOf(phrase) !== -1)
 
     if (!target.properties) {
-      const props: ItemProperties = {}
-      target.properties = props
+      target.properties = {}
     }
 
     target.properties.prophecyText = prophecyText

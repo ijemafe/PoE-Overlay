@@ -58,6 +58,12 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       }
     }
 
+    if (prop.gemQualityType) {
+      query.filters.misc_filters.filters.gem_alternate_quality = {
+        option: `${prop.gemQualityType}`
+      }
+    }
+
     this.mapQuality(prop, query)
 
     if (prop.durability) {

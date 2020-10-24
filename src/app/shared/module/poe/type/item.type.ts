@@ -150,6 +150,7 @@ export interface ItemProperties {
   armourEnergyShield?: ItemValueProperty
   stackSize?: ItemProperty
   gemLevel?: ItemValueProperty
+  gemQualityType?: ItemGemQualityType
   quality?: ItemValueProperty
   qualityType?: ItemQualityType
   gemExperience?: ItemValueProperty
@@ -181,6 +182,13 @@ export enum ItemQualityType {
   LifeAndManaModifiers = 5,
   ResistanceModifiers = 6,
   AttributeModifiers = 7,
+}
+
+export enum ItemGemQualityType {
+  Default = 0,
+  Anomalous = 1,
+  Divergent = 2,
+  Phantasmal = 3,
 }
 
 export interface ItemStat {

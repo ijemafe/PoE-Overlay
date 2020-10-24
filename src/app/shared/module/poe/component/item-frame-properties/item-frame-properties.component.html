@@ -174,9 +174,7 @@
       <app-item-frame-query [(property)]="queryItem.properties[property]" [value]="prop">
         <app-item-frame-value-group>
           <ng-container *ngIf="item.properties.qualityType">
-            <span>
-              {{ 'Quality' + item.properties.qualityType | clientString: language }}:&nbsp;</span
-            >
+            <span>{{ 'Quality' + item.properties.qualityType | clientString: language }}:&nbsp;</span>
           </ng-container>
           <ng-container *ngIf="!item.properties.qualityType">
             <span>{{ 'Quality' | clientString: language }}:&nbsp;</span>
@@ -187,6 +185,9 @@
           </span>
         </app-item-frame-value-group>
       </app-item-frame-query>
+    </ng-container>
+    <ng-container *ngSwitchCase="'gemQualityType'">
+      <span class="white">{{ 'GemAlternateQuality' + item.properties.gemQualityType + 'EffectName' | clientString: language }}</span>
     </ng-container>
     <ng-container *ngSwitchCase="'gemExperience'">
       <ng-container

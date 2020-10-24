@@ -192,6 +192,7 @@ export interface MiscFilters {
   ilvl?: FilterValueOption
   gem_level?: FilterValueOption
   gem_level_progress?: FilterValueOption
+  gem_alternate_quality?: FilterOption
   shaper_item?: FilterOption
   elder_item?: FilterOption
   crusader_item?: FilterOption

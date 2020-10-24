@@ -37,40 +37,52 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       return null
     }
 
-    const props: ItemProperties = {}
+    if (!target.properties) {
+      target.properties = {}
+    }
+
+    const props = target.properties
 
     const lines = propertiesSection.lines
     for (const line of lines) {
-      props.weaponPhysicalDamage = this.parseValueProperty(
-        line,
-        phrases[0],
-        props.weaponPhysicalDamage
-      )
-      props.weaponElementalDamage = this.parseValueProperties(
-        line,
-        phrases[1],
-        props.weaponElementalDamage
-      )
-      props.weaponChaosDamage = this.parseValueProperty(line, phrases[2], props.weaponChaosDamage)
-      props.weaponCriticalStrikeChance = this.parseValueProperty(
-        line,
-        phrases[3],
-        props.weaponCriticalStrikeChance
-      )
-      props.weaponAttacksPerSecond = this.parseValueProperty(
-        line,
-        phrases[4],
-        props.weaponAttacksPerSecond
-      )
-      props.weaponRange = this.parseProperty(line, phrases[5], props.weaponRange)
-      props.shieldBlockChance = this.parseValueProperty(line, phrases[6], props.shieldBlockChance)
-      props.armourArmour = this.parseValueProperty(line, phrases[7], props.armourArmour)
-      props.armourEvasionRating = this.parseValueProperty(
-        line,
-        phrases[8],
-        props.armourEvasionRating
-      )
-      props.armourEnergyShield = this.parseValueProperty(line, phrases[9], props.armourEnergyShield)
+      switch (target.rarity) {
+        case ItemRarity.Normal:
+        case ItemRarity.Magic:
+        case ItemRarity.Rare:
+        case ItemRarity.Unique:
+        case ItemRarity.NonUnique:
+          props.weaponPhysicalDamage = this.parseValueProperty(
+            line,
+            phrases[0],
+            props.weaponPhysicalDamage
+          )
+          props.weaponElementalDamage = this.parseValueProperties(
+            line,
+            phrases[1],
+            props.weaponElementalDamage
+          )
+          props.weaponChaosDamage = this.parseValueProperty(line, phrases[2], props.weaponChaosDamage)
+          props.weaponCriticalStrikeChance = this.parseValueProperty(
+            line,
+            phrases[3],
+            props.weaponCriticalStrikeChance
+          )
+          props.weaponAttacksPerSecond = this.parseValueProperty(
+            line,
+            phrases[4],
+            props.weaponAttacksPerSecond
+          )
+          props.weaponRange = this.parseProperty(line, phrases[5], props.weaponRange)
+          props.shieldBlockChance = this.parseValueProperty(line, phrases[6], props.shieldBlockChance)
+          props.armourArmour = this.parseValueProperty(line, phrases[7], props.armourArmour)
+          props.armourEvasionRating = this.parseValueProperty(
+            line,
+            phrases[8],
+            props.armourEvasionRating
+          )
+          props.armourEnergyShield = this.parseValueProperty(line, phrases[9], props.armourEnergyShield)
+          break
+      }
       props.stackSize = this.parseProperty(line, phrases[10], props.stackSize)
       props.gemLevel = this.parseValueProperty(line, phrases[11], props.gemLevel)
       props.mapTier = this.parseProperty(line, phrases[12], props.mapTier)
@@ -88,7 +100,6 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       props.storedExperience = this.parseValueProperty(line, phrases[25], props.storedExperience)
     }
 
-    target.properties = props
     return propertiesSection
   }
 

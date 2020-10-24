@@ -7,6 +7,7 @@ import {
   ItemSection,
   ItemSectionParserService,
   Section,
+  ItemGemQualityType,
 } from '../../../type'
 import { BaseItemCategoriesService } from '../../base-item-categories/base-item-categories.service'
 import { BaseItemTypesService } from '../../base-item-types/base-item-types.service'
@@ -62,6 +63,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
         return null
     }
 
+    // Check for special master mission prophecies
     const masterMissionPhrases = this.getMasterMissionPhrases()
     const masterMission = masterMissionPhrases.find(
       (x) =>
@@ -76,6 +78,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       return null
     }
 
+    // Check for metamorph samples
     const metamorphSamplePhrase = this.clientString.translate('MetamorphosisItemisedMapBoss')
 
     const metamorphSample = item.sections.find(
@@ -100,16 +103,20 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       }
     }
 
-    console.log(`target.typeId=${target.typeId}`)
-
     if (!target.category) {
       return null
     }
 
+    // Check for gem naming
     if (
       target.category === ItemCategory.Gem ||
       target.category.indexOf(`${ItemCategory.Gem}.`) === 0
     ) {
+      if (!target.properties) {
+        target.properties = {}
+      }
+
+      // Check for vaal gem
       for (const section of item.sections) {
         if (section.lines.length !== 1) {
           continue
@@ -128,6 +135,18 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
         target.typeId = id
         target.type = type
         break
+      }
+
+      // Check for alternate quality
+      target.properties.gemQualityType = ItemGemQualityType.Default
+
+      const alternateQualityPhrases = this.getAlternateQualityGemNamesPhrases();
+      for (const alternateQualityPhrase of alternateQualityPhrases) {
+        const alternateQualityGemNameDisplay = alternateQualityPhrase.alternateQualityText.replace('{0}', this.baseItemTypesService.translate(target.typeId))
+        if (target.type === alternateQualityGemNameDisplay) {
+          target.properties.gemQualityType = alternateQualityPhrase.gemQualityType
+          break
+        }
       }
     }
 
@@ -222,6 +241,26 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       {
         prophecyText: this.clientString.translate('ProphecyQuestTrackerJun'),
         masterName: this.clientString.translate('MasterNameJun'),
+      },
+    ]
+  }
+
+  private getAlternateQualityGemNamesPhrases(): {
+    alternateQualityText: string
+    gemQualityType: ItemGemQualityType
+  }[] {
+    return [
+      {
+        alternateQualityText: this.clientString.translate('GemAlternateQuality1Affix'),
+        gemQualityType: ItemGemQualityType.Anomalous,
+      },
+      {
+        alternateQualityText: this.clientString.translate('GemAlternateQuality2Affix'),
+        gemQualityType: ItemGemQualityType.Divergent,
+      },
+      {
+        alternateQualityText: this.clientString.translate('GemAlternateQuality3Affix'),
+        gemQualityType: ItemGemQualityType.Phantasmal,
       },
     ]
   }

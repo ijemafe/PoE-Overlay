@@ -39,8 +39,7 @@ export class ItemSectionGemExperienceParserService implements ItemSectionParserS
     }
 
     if (!target.properties) {
-      const props: ItemProperties = {}
-      target.properties = props
+      target.properties = {}
     }
 
     const experience = experienceSection.lines

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Item, Language, ItemCategory } from '../../type'
+import { Item, Language, ItemCategory, ItemRarity, ItemGemQualityType } from '../../type'
 
 @Component({
   selector: 'app-item-frame-header',
@@ -39,5 +39,15 @@ export class ItemFrameHeaderComponent {
     }
 
     return headerClasses.join(' ')
+  }
+
+  public getNameSpanNum(item: Item): number {
+    if (item.blighted) {
+      return 1
+    }
+    else if (item.rarity == ItemRarity.Gem && item.properties.gemQualityType != ItemGemQualityType.Default) {
+      return 2
+    }
+    return 0
   }
 }
