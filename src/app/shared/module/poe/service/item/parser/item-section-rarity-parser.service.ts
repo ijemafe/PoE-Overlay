@@ -78,6 +78,12 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       return null
     }
 
+    // Check for blighted map
+    const blightedMapItemNameDisplay = this.clientString.translate('InfectedMap').replace('{0}', this.baseItemTypesService.translate(target.typeId));
+    if (target.type === blightedMapItemNameDisplay) {
+      target.blighted = true
+    }
+
     // Check for metamorph samples
     const metamorphSamplePhrase = this.clientString.translate('MetamorphosisItemisedMapBoss')
 
