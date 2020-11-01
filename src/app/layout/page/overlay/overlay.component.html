@@ -1,1 +1,9 @@
-<div class="version" *ngIf="displayVersion$ | async">PoE Overlay: {{ version$ | async }}</div>
+<div class="game-overlay"
+     id="game-overlay"
+     [style.left]="(gameOverlayBounds | async).x + 'px'"
+     [style.top]="(gameOverlayBounds | async).y + 'px'"
+     [style.width]="(gameOverlayBounds | async).width + 'px'"
+     [style.height]="(gameOverlayBounds | async).height + 'px'"
+     >
+  <div class="version" *ngIf="displayVersion$ | async">PoE Overlay: {{ version$ | async }}</div>
+</div>

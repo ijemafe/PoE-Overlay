@@ -11,6 +11,7 @@ import {
   session,
   systemPreferences,
   Tray,
+  Rectangle,
 } from 'electron'
 import * as path from 'path'
 import * as url from 'url'
@@ -78,8 +79,28 @@ function setUserAgent(): void {
 
 /* helper */
 
-function getDisplay(): Display {
-  return screen.getPrimaryDisplay()
+function getBounds(): Rectangle {
+  const displays = screen.getAllDisplays()
+  const primary = screen.getPrimaryDisplay();
+  let bounds = {
+    x: primary.bounds.x,
+    y: primary.bounds.y,
+    width: primary.bounds.width,
+    height: primary.bounds.height,
+  }
+  displays.forEach((display) => {
+    if (display.id !== primary.id) {
+      if (bounds.x !== display.bounds.x) {
+        bounds.x = Math.min(bounds.x, display.bounds.x)
+        bounds.width += display.bounds.width
+      }
+      if (bounds.y !== display.bounds.y) {
+        bounds.y = Math.min(bounds.y, display.bounds.y)
+        bounds.height += display.bounds.height
+      }
+    }
+  });
+  return bounds
 }
 
 function send(channel: string, ...additionalArgs: any[]): void {
@@ -141,7 +162,7 @@ game.register(ipcMain, (poe) => {
       }
 
       if (poe.bounds) {
-        win.setBounds(poe.bounds)
+        send('game-bounds-change', poe.bounds)
       }
     } else {
       win.setAlwaysOnTop(false)
@@ -183,7 +204,7 @@ function showChangelog(): void {
 
 /* main window */
 function createWindow(): BrowserWindow {
-  const { bounds } = getDisplay()
+  const bounds = getBounds()
 
   // Create the browser window.
   win = new BrowserWindow({
@@ -191,6 +212,7 @@ function createWindow(): BrowserWindow {
     height: bounds.height,
     x: bounds.x,
     y: bounds.y,
+    enableLargerThanScreen: true,
     transparent: true,
     frame: false,
     resizable: false,
@@ -204,6 +226,7 @@ function createWindow(): BrowserWindow {
     skipTaskbar: true,
     show: false,
   })
+  win.setSize(bounds.width, bounds.height)    // Explicitly set size after creating the window since some OS'es don't allow an initial size larger than the display's size.
   win.removeMenu()
   win.setIgnoreMouseEvents(true)
 

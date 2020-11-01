@@ -2,17 +2,23 @@ import { Injectable, NgZone } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
 import { Rectangle } from '@app/type'
 import { BrowserWindow, Point } from 'electron'
-import { Observable, Subject } from 'rxjs'
+import { Observable, Subject, BehaviorSubject } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
 })
 export class WindowService {
+  public readonly gameBounds: BehaviorSubject<Rectangle>
   private readonly window: BrowserWindow
 
   constructor(private readonly ngZone: NgZone, electronProvider: ElectronProvider) {
     const electron = electronProvider.provideRemote()
     this.window = electron.getCurrentWindow()
+    this.gameBounds = new BehaviorSubject<Rectangle>(this.window.getBounds())
+
+    electronProvider.provideIpcRenderer().on('game-bounds-change', (_, bounds: Rectangle) => {
+      this.gameBounds.next(bounds)
+    })
   }
 
   public on(event: any): Observable<void> {
@@ -27,9 +33,15 @@ export class WindowService {
     this.window.removeAllListeners()
   }
 
-  public getBounds(): Rectangle {
+  public getWindowBounds(): Rectangle {
     const bounds = this.window.getBounds()
     return bounds
+  }
+
+  public getOffsettedGameBounds(): Rectangle {
+    const bounds = this.window.getBounds()
+    const poeBounds = this.gameBounds.value
+    return { x: poeBounds.x - bounds.x, y: poeBounds.y - bounds.y, width: poeBounds.width, height: poeBounds.height }
   }
 
   public hide(): void {
@@ -78,14 +90,15 @@ export class WindowService {
   }
 
   public convertToLocal(point: Point): Point {
-    const bounds = this.window.getBounds()
+    const winBounds = this.window.getBounds()
+    const poeBounds = this.gameBounds.value
     const local = {
       ...point,
     }
-    local.x -= bounds.x
-    local.x = Math.min(Math.max(local.x, 0), bounds.width)
-    local.y -= bounds.y
-    local.y = Math.min(Math.max(local.y, 0), bounds.height)
+    local.x -= (winBounds.x - poeBounds.x)
+    local.x = Math.min(Math.max(local.x, 0), winBounds.width)
+    local.y -= (winBounds.y - poeBounds.y)
+    local.y = Math.min(Math.max(local.y, 0), winBounds.height)
     return local
   }
 

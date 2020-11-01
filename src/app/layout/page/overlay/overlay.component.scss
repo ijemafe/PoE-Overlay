@@ -1,8 +1,12 @@
 @import './../../../../styles/variables';
 
+.game-overlay {
+    position: fixed;
+}
+
 .version {
   color: $yellow;
-  position: fixed;
+  position: absolute;
   bottom: 2px;
   left: 2px;
   font-size: 9px;

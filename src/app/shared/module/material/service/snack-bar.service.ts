@@ -33,15 +33,17 @@ export class SnackBarService {
     return from(
       forkJoin([this.translate.get(message), action ? this.translate.get(action) : of(undefined)])
         .pipe(
-          flatMap(([translatedMessage, translatedAction]) =>
-            this.matSnackBar
-              .open(translatedMessage, translatedAction, {
-                duration: 5 * 1000,
-                verticalPosition: 'bottom',
-                panelClass: ['snack-bar-service', panelClass],
-              })
-              .onAction()
-          )
+          flatMap(([translatedMessage, translatedAction]) => {
+            let snackBar = this.matSnackBar.open(translatedMessage, translatedAction, {
+              duration: 5 * 10000,
+              verticalPosition: 'bottom',
+              panelClass: ['snack-bar-service', panelClass],
+            })
+            let snackBarElement = document.getElementsByClassName('snack-bar-service')[0]
+            let gameOverlayElement = document.getElementById('game-overlay')
+            gameOverlayElement.append(snackBarElement.parentNode.parentNode)
+            return snackBar.onAction()
+          })
         )
         .toPromise()
     )

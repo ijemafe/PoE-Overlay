@@ -46,7 +46,7 @@ export class StashService {
 
   public hovering(point?: Point): boolean {
     point = point || this.mouse.position()
-    const gameBounds = this.window.getBounds()
+    const gameBounds = this.window.gameBounds.value
 
     const stashWidth = Math.round(gameBounds.height / GAME_HEIGHT_TO_STASH_WIDTH_RATIO)
     const relativePointX = point.x - gameBounds.x

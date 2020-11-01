@@ -10,7 +10,7 @@ import { AppService, AppTranslateService, RendererService, WindowService } from 
 import { DialogRefService } from '@app/service/dialog'
 import { ShortcutService } from '@app/service/input'
 import { FEATURE_MODULES } from '@app/token'
-import { AppUpdateState, FeatureModule, VisibleFlag } from '@app/type'
+import { AppUpdateState, FeatureModule, VisibleFlag, Rectangle } from '@app/type'
 import { SnackBarService } from '@shared/module/material/service'
 import { ContextService } from '@shared/module/poe/service'
 import { Context } from '@shared/module/poe/type'
@@ -28,8 +28,9 @@ import { UserSettings } from '../../type'
 export class OverlayComponent implements OnInit, OnDestroy {
   private userSettingsOpen: Observable<void>
 
-  public version$ = new BehaviorSubject<string>('')
-  public displayVersion$ = new BehaviorSubject(true)
+  public readonly version$ = new BehaviorSubject<string>('')
+  public readonly displayVersion$ = new BehaviorSubject(true)
+  public readonly gameOverlayBounds: BehaviorSubject<Rectangle>
 
   constructor(
     @Inject(FEATURE_MODULES)
@@ -43,7 +44,12 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService
-  ) {}
+  ) {
+    this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
+    this.window.gameBounds.subscribe((_) => {
+      this.gameOverlayBounds.next(this.window.getOffsettedGameBounds())
+    })
+  }
 
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
