@@ -14,7 +14,7 @@ export class WindowService {
   constructor(private readonly ngZone: NgZone, electronProvider: ElectronProvider) {
     const electron = electronProvider.provideRemote()
     this.window = electron.getCurrentWindow()
-    this.gameBounds = new BehaviorSubject<Rectangle>(this.window.getBounds())
+    this.gameBounds = new BehaviorSubject<Rectangle>(this.window?.getBounds() ?? {x: 0, y: 0, width: 0, height: 0})
 
     electronProvider.provideIpcRenderer().on('game-bounds-change', (_, bounds: Rectangle) => {
       this.gameBounds.next(bounds)
