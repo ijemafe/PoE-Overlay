@@ -107,6 +107,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       }
     })
     this.app.registerEvents(settings.autoDownload)
+    this.window.registerEvents()
   }
 
   private registerVisibleChange(): void {
