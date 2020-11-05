@@ -35,13 +35,17 @@ export class SnackBarService {
         .pipe(
           flatMap(([translatedMessage, translatedAction]) => {
             let snackBar = this.matSnackBar.open(translatedMessage, translatedAction, {
-              duration: 5 * 10000,
+              duration: 5 * 1000,
               verticalPosition: 'bottom',
               panelClass: ['snack-bar-service', panelClass],
             })
-            let snackBarElement = document.getElementsByClassName('snack-bar-service')[0]
+            let snackBarElements = document.querySelectorAll('.snack-bar-service')
             let gameOverlayElement = document.getElementById('game-overlay')
-            gameOverlayElement.append(snackBarElement.parentNode.parentNode)
+            if (gameOverlayElement !== undefined) {
+              snackBarElements.forEach((snackBarElement) => {
+                gameOverlayElement.append(snackBarElement.parentNode.parentNode)
+              });
+            }
             return snackBar.onAction()
           })
         )
