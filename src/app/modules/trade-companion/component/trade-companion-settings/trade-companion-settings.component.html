@@ -1,0 +1,96 @@
+<app-card [title]="'trade-companion.general' | translate">
+  <div class="row">
+    <div class="col-4">
+      <mat-slide-toggle [checked]="settings.tradeCompanionEnabled" (change)="settings.tradeCompanionEnabled = $event.checked">
+        {{ 'trade-companion.enabled' | translate }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+</app-card>
+<app-card [title]="'trade-companion.grid-overlay' | translate">
+  <div class="row">
+    <div class="col-4">
+      <mat-slide-toggle [title]="'trade-companion.show-grid-description' | translate" [checked]="settings.showStashGridOnTrade" (change)="settings.showStashGridOnTrade = $event.checked">
+        {{ 'trade-companion.show-grid' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-4">
+      <mat-slide-toggle [checked]="settings.highlightItemOnTrade" (change)="settings.highlightItemOnTrade = $event.checked">
+        {{ 'trade-companion.highlight-item' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-4">
+      <mat-slide-toggle [checked]="settings.showStashGridDropShadow" (change)="settings.showStashGridDropShadow = $event.checked">
+        {{ 'trade-companion.show-grid-drop-shadow' | translate }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+</app-card>
+<ng-container *ngTemplateOutlet="
+  tradeOptionsTemplate;
+  context: {
+    title: 'incoming-trade-options',
+    tradeOptions: settings.incomingTradeOptions,
+    addClick: onAddIncomingTradeOptionClick.bind(this),
+    removeClick: onRemoveIncomingTradeOptionClick.bind(this)
+  }
+  ">
+</ng-container>
+<ng-container *ngTemplateOutlet="
+  tradeOptionsTemplate;
+  context: {
+    title: 'outgoing-trade-options',
+    tradeOptions: settings.outgoingTradeOptions,
+    addClick: onAddOutgoingTradeOptionClick.bind(this),
+    removeClick: onRemoveOutgoingTradeOptionClick.bind(this)
+  }
+  ">
+</ng-container>
+
+<!-- Templates -->
+<ng-template #tradeOptionsTemplate let-title="title" let-tradeOptions="tradeOptions" let-addClick="addClick" let-removeClick="removeClick">
+  <app-card [title]="('trade-companion.' + title) | translate" class="trade-options">
+    <div class="row">
+      <div class="col-md-6 col-lg-4" *ngFor="let tradeOption of tradeOptions; let index = index">
+        <mat-card class="card">
+          <button class="remove" mat-icon-button (click)="removeClick(index)">
+            <mat-icon>close</mat-icon>
+          </button>
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <mat-label>{{ 'trade-companion.trade-option.button' | translate }}</mat-label>
+                <input matInput [(ngModel)]="tradeOption.buttonLabel" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <mat-label>{{ 'trade-companion.trade-option.whisper' | translate }}</mat-label>
+                <input matInput [(ngModel)]="tradeOption.whisperMessage" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <mat-slide-toggle [checked]="tradeOption.kickAfterWhisper" (change)="tradeOption.kickAfterWhisper = $event.checked">
+                {{ 'trade-companion.trade-option.kick' | translate }}
+              </mat-slide-toggle>
+            </div>
+            <div class="col-8 text-right">
+              <mat-slide-toggle [checked]="tradeOption.dismissNotification" (change)="tradeOption.dismissNotification = $event.checked">
+                {{ 'trade-companion.trade-option.dismiss' | translate }}
+              </mat-slide-toggle>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <button mat-raised-button (click)="addClick()" class="card-button">
+          {{ 'trade-companion.trade-option.add' | translate }}
+        </button>
+      </div>
+    </div>
+  </app-card>
+</ng-template>

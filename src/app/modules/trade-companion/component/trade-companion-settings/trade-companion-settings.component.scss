@@ -1,0 +1,19 @@
+.trade-options {
+  .card {
+    position: relative;
+    background-color: #2a2a2a;
+
+    .remove {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+    }
+  }
+
+  .card-button {
+    padding: 16px;
+    width: 100%;
+    background-color: #2a2a2a;
+  }
+}

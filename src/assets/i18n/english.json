@@ -246,5 +246,24 @@
     "save": "Save",
     "ui-language": "UI Language",
     "zoom": "Zoom"
+  },
+  "trade-companion": {
+    "enabled": "Use Trade Companion",
+    "general": "General",
+    "grid-overlay": "Stash Grid Overlay",
+    "highlight-item": "Highlight Item",
+    "incoming-trade-options": "Incoming Trade Options",
+    "name": "Trade Companion",
+    "outgoing-trade-options": "Outgoing Trade Options",
+    "show-grid": "Show Stash Grid",
+    "show-grid-description": "Show stash grid during an incoming trade",
+    "show-grid-drop-shadow": "Grid Drop Shadow",
+    "trade-option": {
+      "add": "Add Trade Option",
+      "button": "Button Label",
+      "dismiss": "Dismiss Notification",
+      "kick": "Kick",
+      "whisper": "Whisper Message"
+    }
   }
 }
