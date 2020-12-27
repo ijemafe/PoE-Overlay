@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.5 (2020-12-27)
+
+- Added support for Alternate Quality Gems (price checking and exchange rate look-ups)
+- Added support for Blighted Maps exchange rates ([#146](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/146))
+- Fixed an issue with "Seeker Runes" Prophecy and Cluster Jewel Notable ([#136](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/136))
+- Updated some English localization strings ([#151](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/151))
+
 ## 0.7.4 (2020-10-01)
 
 - Added support for the new Heist League (new/changed modifiers, base item types, Trade API changes)
