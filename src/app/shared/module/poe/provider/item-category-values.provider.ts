@@ -242,6 +242,26 @@ export class ItemCategoryValuesProvider {
             return value
           }),
         }
+        if (type === CurrencyOverviewType.Currency) {
+          // Explicitly add Chaos Orb to the list since this is the default exchange-currency (and thus not listed)
+          const chaosOrb: ItemCategoryValue = {
+            name: 'Chaos Orb',
+            type: undefined,
+            links: undefined,
+            mapTier: undefined,
+            levelRequired: undefined,
+            gemLevel: undefined,
+            gemQuality: undefined,
+            prophecyText: undefined,
+            corrupted: undefined,
+            relic: undefined,
+            change: 0,
+            history: [],
+            chaosAmount: 1,
+            url: response.url,
+          }
+          result.values.push(chaosOrb)
+        }
         return result
       })
     )
