@@ -2095,6 +2095,12 @@
 					"max": 12
 				}
 			],
+			"ImplicitDemigodOneHandSword1": [
+				{
+					"min": 16,
+					"max": 24
+				}
+			],
 			"UniqueRing26": [
 				{
 					"min": 10,
@@ -3511,6 +3517,12 @@
 				{
 					"min": 80,
 					"max": 100
+				}
+			],
+			"Unique__109_": [
+				{
+					"min": 45,
+					"max": 65
 				}
 			],
 			"LifeCrafted1__": [
@@ -12785,8 +12797,8 @@
 			],
 			"UniqueDescentStaff1": [
 				{
-					"min": 8,
-					"max": 8
+					"min": 16,
+					"max": 16
 				}
 			],
 			"UniqueQuiver4": [
@@ -15135,7 +15147,8 @@
 			"BlightHellionBossDaemon": [],
 			"BlightCannibalBossDaemon": [],
 			"MonsterAfflictionFlameblastOnDeath": [],
-			"ExileMovementVelocityPerTenLevels": []
+			"ExileMovementVelocityPerTenLevels": [],
+			"": []
 		},
 		"maximum_energy_shield_+%": {
 			"IncreasedUniqueOneHandSword2": [
@@ -32916,8 +32929,8 @@
 			],
 			"LightningResistUniqueDescentTwoHandSword1": [
 				{
-					"min": 25,
-					"max": 25
+					"min": 40,
+					"max": 40
 				}
 			],
 			"LightningResistUniqueShieldInt3": [
@@ -38436,6 +38449,12 @@
 				{
 					"min": 10,
 					"max": 10
+				}
+			],
+			"Unique__4": [
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HillShardActorScale": [
@@ -46460,78 +46479,6 @@
 				{
 					"min": 10,
 					"max": 10
-				},
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 2,
-					"max": 2
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"Exiles": [
-				{
-					"min": 20,
-					"max": 20
-				},
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 2,
-					"max": 2
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"EverythingSomewhereExiles": [
-				{
-					"min": 5,
-					"max": 5
-				},
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 2,
-					"max": 2
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"EverythingSomewhereExilesSingle": [
-				{
-					"min": 2,
-					"max": 2
-				},
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 2,
-					"max": 2
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"CustomLeagueExiles_": [
-				{
-					"min": 2,
-					"max": 2
 				},
 				{
 					"min": 1,
@@ -71913,6 +71860,12 @@
 					"min": 11,
 					"max": 15
 				}
+			],
+			"PhysicalDamageTakenAsLightningDescentTwoHandSword1": [
+				{
+					"min": 50,
+					"max": 50
+				}
 			]
 		},
 		"unique_ignite_chance_%_when_in_main_hand": {
@@ -72506,8 +72459,8 @@
 			],
 			"UniqueDescentTwoHandSword1_": [
 				{
-					"min": 2,
-					"max": 2
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -84583,46 +84536,6 @@
 					"min": 1,
 					"max": 1
 				}
-			],
-			"Invaders": [
-				{
-					"min": 20,
-					"max": 20
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"EverythingSomewhereInvaders_": [
-				{
-					"min": 5,
-					"max": 5
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"EverythingSomewhereInvadersSingle": [
-				{
-					"min": 2,
-					"max": 2
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"CustomLeagueInvaders_": [
-				{
-					"min": 2,
-					"max": 2
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
 			]
 		},
 		"map_num_extra_strongboxes map_set_league_category map_extra_content_weighting": {
@@ -84692,8 +84605,8 @@
 					"max": 5
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"EverythingSomewhereStrongboxesSingle": [
@@ -84702,8 +84615,8 @@
 					"max": 2
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"CustomLeagueStrongboxes": [
@@ -98764,8 +98677,8 @@
 			],
 			"EnchantmentCracklingLanceSecondaryBeamAngle2___": [
 				{
-					"min": 18,
-					"max": 18
+					"min": 36,
+					"max": 36
 				}
 			]
 		},
@@ -108665,6 +108578,14 @@
 		},
 		"keystone_corrupted_defences": {
 			"KeystoneUnique_1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"keystone_hex_zone_behaviour": {
+			"KeystoneUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -118703,6 +118624,154 @@
 				}
 			]
 		},
+		"map_spawn_extra_exiles map_ignore_rogue_exile_rarity_bias map_override_rogue_exile_min_level map_extra_content_weighting map_league_allow_duplicate_selection_of_league_items": {
+			"Exiles": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"EverythingSomewhereExiles": [
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"EverythingSomewhereExilesSingle": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"CustomLeagueExiles_": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"map_num_extra_invasion_bosses map_extra_content_weighting map_league_allow_duplicate_selection_of_league_items": {
+			"Invaders": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"EverythingSomewhereInvaders_": [
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"EverythingSomewhereInvadersSingle": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"CustomLeagueInvaders_": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
 		"map_breach_rules map_contains_additional_breaches map_extra_content_weighting": {
 			"Breaches": [
 				{
@@ -118728,8 +118797,8 @@
 					"max": 3
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"EverythingSomewhereBreachesSingle": [
@@ -118742,8 +118811,8 @@
 					"max": 1
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"CustomLeagueBreaches": [
@@ -118834,8 +118903,8 @@
 					"max": 5
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"EverythingSomewhereTormentedSpiritsSingle": [
@@ -118844,8 +118913,8 @@
 					"max": 3
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"CustomLeagueTormentedSpirits_": [
@@ -118924,8 +118993,8 @@
 					"max": 33
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"EverythingSomewherePerandusSingle": [
@@ -118938,8 +119007,8 @@
 					"max": 33
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"CustomLeaguePerandus_": [
@@ -119030,8 +119099,8 @@
 					"max": 20
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"EverythingSomewhereBeyondSingle": [
@@ -119040,8 +119109,8 @@
 					"max": 13
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				}
 			],
 			"CustomLeagueBeyond": [
@@ -119145,7 +119214,7 @@
 				}
 			]
 		},
-		"map_spawn_harbingers map_num_extra_harbingers map_extra_content_weighting": {
+		"map_spawn_harbingers map_num_extra_harbingers map_extra_content_weighting map_league_allow_duplicate_selection_of_league_items": {
 			"EverythingSomewhereHarbingersSingle_": [
 				{
 					"min": 1,
@@ -119158,6 +119227,28 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Harbingers": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 1,
+					"max": 1
 				}
 			],
 			"CustomLeagueHarbingers": [
@@ -119168,6 +119259,10 @@
 				{
 					"min": 2,
 					"max": 2
+				},
+				{
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 0,
@@ -119186,6 +119281,76 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"map_legion_league map_legion_league_extra_spawns map_extra_content_weighting": {
+			"EverythingSomewhereLegionSingle": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"map_blight_league map_num_extra_blights_ map_extra_content_weighting": {
+			"EverythingSomewhereBlightSingle___": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"map_area_contains_metamorphs map_extra_content_weighting": {
+			"EverythingSomewhereMetamorphSingle__": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"map_affliction_league map_spawn_affliction_mirror": {
+			"EverythingSomewhereDeliriumSingle__": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -162283,18 +162448,6 @@
 				}
 			]
 		},
-		"map_area_contains_metamorphs map_extra_content_weighting": {
-			"": [
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			]
-		},
 		"local_flask_duration_+% local_flask_consume_flask_duration_+%_when_used": {
 			"": [
 				{
@@ -162943,7 +163096,7 @@
 				}
 			]
 		},
-		"map_monster_skills_chain_X_additional_times map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monster_skills_chain_X_additional_times map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterChain1_": [
 				{
 					"min": 1,
@@ -162956,6 +163109,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -162978,10 +163139,18 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
-		"map_monsters_additional_number_of_projecitles map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_additional_number_of_projecitles map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterMultipleProjectiles": [
 				{
 					"min": 2,
@@ -162998,10 +163167,18 @@
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": -7,
+					"max": -7
+				},
+				{
+					"min": 7,
+					"max": 7
 				}
 			]
 		},
-		"map_monsters_movement_speed_cannot_be_reduced_below_base map_monsters_cannot_be_taunted map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_movement_speed_cannot_be_reduced_below_base map_monsters_cannot_be_taunted map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final": {
 			"HeistContractMonstersCantBeSlowedOrTaunted": [
 				{
 					"min": 1,
@@ -163022,10 +163199,14 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
 				}
 			]
 		},
-		"map_monsters_always_ignite map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_always_ignite map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonstersAllDamageAlwaysIgnites_": [
 				{
 					"min": 1,
@@ -163042,10 +163223,18 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
-		"map_monsters_are_hexproof map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_are_hexproof map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractHexproof": [
 				{
 					"min": 1,
@@ -163062,10 +163251,18 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
-		"map_monsters_cannot_be_stunned map_monsters_life_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_cannot_be_stunned map_monsters_life_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final": {
 			"HeistContractMonsterCannotBeStunned1": [
 				{
 					"min": 1,
@@ -163086,6 +163283,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonsterCannotBeStunned2": [
@@ -163108,6 +163309,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonsterCannotBeStunned3_": [
@@ -163130,6 +163335,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonsterCannotBeStunned4_": [
@@ -163152,6 +163361,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonsterCannotBeStunned5": [
@@ -163174,10 +163387,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			]
 		},
-		"map_monsters_additional_physical_damage_reduction map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_additional_physical_damage_reduction map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterPhysicalResistance1_": [
 				{
 					"min": 10,
@@ -163190,6 +163407,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -163212,6 +163437,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractMonsterPhysicalResistance3": [
@@ -163226,6 +163459,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -163248,6 +163489,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractMonsterPhysicalResistance5_": [
@@ -163266,10 +163515,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_monsters_life_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_life_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterLife1": [
 				{
 					"min": 10,
@@ -163282,6 +163539,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -163304,6 +163569,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractMonsterLife3": [
@@ -163318,6 +163591,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -163340,6 +163621,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractMonsterLife5_": [
@@ -163358,10 +163647,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_monsters_damage_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_damage_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterDamage1": [
 				{
 					"min": 8,
@@ -163374,6 +163671,14 @@
 				{
 					"min": 11,
 					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
@@ -163396,6 +163701,14 @@
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": -7,
+					"max": -7
+				},
+				{
+					"min": 7,
+					"max": 7
 				}
 			],
 			"HeistContractMonsterDamage3_": [
@@ -163410,6 +163723,14 @@
 				{
 					"min": 11,
 					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
@@ -163432,6 +163753,14 @@
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": -7,
+					"max": -7
+				},
+				{
+					"min": 7,
+					"max": 7
 				}
 			],
 			"HeistContractMonsterDamage5": [
@@ -163450,10 +163779,18 @@
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": -7,
+					"max": -7
+				},
+				{
+					"min": 7,
+					"max": 7
 				}
 			]
 		},
-		"map_monsters_%_physical_damage_to_add_as_fire map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_%_physical_damage_to_add_as_fire map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterFireDamage1": [
 				{
 					"min": 10,
@@ -163466,6 +163803,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -163488,6 +163833,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			],
 			"HeistContractMonsterFireDamage3": [
@@ -163502,6 +163855,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -163524,6 +163885,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			],
 			"HeistContractMonsterFireDamage5": [
@@ -163542,10 +163911,18 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
-		"map_monsters_%_physical_damage_to_add_as_cold map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_%_physical_damage_to_add_as_cold map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterColdDamage1_": [
 				{
 					"min": 10,
@@ -163558,6 +163935,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -163580,6 +163965,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			],
 			"HeistContractMonsterColdDamage3": [
@@ -163594,6 +163987,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -163616,6 +164017,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			],
 			"HeistContractMonsterColdDamage5": [
@@ -163634,10 +164043,18 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
-		"map_monsters_%_physical_damage_to_add_as_lightning map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_%_physical_damage_to_add_as_lightning map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterLightningDamage1": [
 				{
 					"min": 10,
@@ -163650,6 +164067,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -163672,6 +164097,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			],
 			"HeistContractMonsterLightningDamage3": [
@@ -163686,6 +164119,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -163708,6 +164149,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			],
 			"HeistContractMonsterLightningDamage5_": [
@@ -163722,6 +164171,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -163861,7 +164318,7 @@
 				}
 			]
 		},
-		"map_monsters_reflect_%_physical_damage map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_reflect_%_physical_damage map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterPhysicalReflection1_": [
 				{
 					"min": 13,
@@ -163874,6 +164331,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
 				},
 				{
 					"min": 4,
@@ -163896,6 +164361,14 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			],
 			"HeistContractMonsterPhysicalReflection3": [
@@ -163914,10 +164387,18 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
-		"map_monsters_reflect_%_elemental_damage map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_reflect_%_elemental_damage map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterElementalReflection1": [
 				{
 					"min": 13,
@@ -163930,6 +164411,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
 				},
 				{
 					"min": 4,
@@ -163952,6 +164441,14 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			],
 			"HeistContractMonsterElementalReflection3": [
@@ -163970,10 +164467,18 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
-		"map_monsters_curse_effect_on_self_+%_final map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_curse_effect_on_self_+%_final map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonstersCurseEffectOnSelfFinal1": [
 				{
 					"min": -15,
@@ -163986,6 +164491,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -164008,6 +164521,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractMonstersCurseEffectOnSelfFinal3": [
@@ -164022,6 +164543,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -164044,10 +164573,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_monsters_%_chance_to_inflict_status_ailments map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_%_chance_to_inflict_status_ailments map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonstersChanceToInflictStatusAilments1_": [
 				{
 					"min": 15,
@@ -164060,6 +164597,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -164082,10 +164627,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_monsters_additional_chaos_resistance map_monsters_additional_elemental_resistance map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_additional_chaos_resistance map_monsters_additional_elemental_resistance map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final": {
 			"HeistContractMonstersAllResistances1": [
 				{
 					"min": 10,
@@ -164106,6 +164659,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonstersAllResistances2": [
@@ -164128,6 +164685,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonstersAllResistances3_": [
@@ -164150,6 +164711,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonstersAllResistances4": [
@@ -164172,10 +164737,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			]
 		},
-		"map_monsters_avoid_poison_blind_bleed_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_avoid_poison_blind_bleed_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonstersAvoidPoisonBleedBlind1_": [
 				{
 					"min": 20,
@@ -164188,6 +164757,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
 				},
 				{
 					"min": 4,
@@ -164210,6 +164787,14 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			],
 			"HeistContractMonstersAvoidPoisonBleedBlind3___": [
@@ -164228,26 +164813,42 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
-		"heist_contract_patrol_additional_elite_chance_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_patrol_additional_elite_chance_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1": [
 				{
 					"min": 10,
 					"max": 12
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
 				}
 			],
 			"2": [
@@ -164256,16 +164857,24 @@
 					"max": 16
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
 				}
 			],
 			"3": [
@@ -164274,16 +164883,24 @@
 					"max": 20
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
 				}
 			],
 			"4": [
@@ -164292,16 +164909,24 @@
 					"max": 25
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
 				}
 			],
 			"5": [
@@ -164310,36 +164935,52 @@
 					"max": 30
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
 				}
 			]
 		},
-		"heist_contract_patrol_damage_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_patrol_damage_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1": [
 				{
 					"min": 13,
 					"max": 15
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"2_": [
@@ -164348,16 +164989,24 @@
 					"max": 18
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"3": [
@@ -164366,16 +165015,24 @@
 					"max": 22
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"4": [
@@ -164384,16 +165041,24 @@
 					"max": 26
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"5": [
@@ -164402,36 +165067,52 @@
 					"max": 30
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_contract_patrol_take_damage_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_patrol_take_damage_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1": [
 				{
 					"min": -15,
 					"max": -13
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"2_": [
@@ -164440,16 +165121,24 @@
 					"max": -16
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"3": [
@@ -164458,16 +165147,24 @@
 					"max": -19
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"4": [
@@ -164476,16 +165173,24 @@
 					"max": -23
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"5_": [
@@ -164494,36 +165199,52 @@
 					"max": -27
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_contract_side_area_monsters_damage_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_side_area_monsters_damage_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractMonsterSideAreaDamage1": [
 				{
 					"min": 13,
 					"max": 15
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractMonsterSideAreaDamage2": [
@@ -164532,16 +165253,24 @@
 					"max": 18
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractMonsterSideAreaDamage3": [
@@ -164550,16 +165279,24 @@
 					"max": 22
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractMonsterSideAreaDamage4": [
@@ -164568,16 +165305,24 @@
 					"max": 26
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractMonsterSideAreaDamage5": [
@@ -164586,404 +165331,50 @@
 					"max": 30
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
-				}
-			]
-		},
-		"heist_contract_side_area_monsters_take_damage_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
-			"HeistContractMonsterSideAreaDamageReduction1": [
-				{
-					"min": -15,
-					"max": -13
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
 				},
 				{
 					"min": 6,
 					"max": 6
-				}
-			],
-			"HeistContractMonsterSideAreaDamageReduction2": [
-				{
-					"min": -18,
-					"max": -16
 				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"HeistContractMonsterSideAreaDamageReduction3": [
-				{
-					"min": -22,
-					"max": -19
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"HeistContractMonsterSideAreaDamageReduction4_": [
-				{
-					"min": -26,
-					"max": -23
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"HeistContractMonsterSideAreaDamageReduction5____": [
-				{
-					"min": -30,
-					"max": -27
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			]
-		},
-		"heist_contract_guarding_monsters_damage_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
-			"1": [
-				{
-					"min": 13,
-					"max": 15
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"2": [
 				{
 					"min": 16,
-					"max": 18
+					"max": 16
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
+					"min": 9,
+					"max": 9
 				}
 			],
-			"3": [
-				{
-					"min": 19,
-					"max": 22
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"4": [
-				{
-					"min": 23,
-					"max": 26
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"5": [
-				{
-					"min": 27,
-					"max": 30
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			]
-		},
-		"heist_contract_guarding_monsters_take_damage_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
-			"1": [
-				{
-					"min": -15,
-					"max": -13
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"2___": [
-				{
-					"min": -18,
-					"max": -16
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"3": [
-				{
-					"min": -22,
-					"max": -19
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"4": [
-				{
-					"min": -26,
-					"max": -23
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			],
-			"5": [
-				{
-					"min": -30,
-					"max": -27
-				},
-				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
-				},
-				{
-					"min": 6,
-					"max": 6
-				}
-			]
-		},
-		"heist_contract_objective_completion_time_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
-			"1_": [
-				{
-					"min": -15,
-					"max": -13
-				},
-				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
-				},
-				{
-					"min": 5,
-					"max": 5
-				}
-			],
-			"2": [
-				{
-					"min": -18,
-					"max": -16
-				},
-				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
-				},
-				{
-					"min": 5,
-					"max": 5
-				}
-			],
-			"3_": [
-				{
-					"min": -22,
-					"max": -19
-				},
-				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
-				},
-				{
-					"min": 5,
-					"max": 5
-				}
-			],
-			"4__": [
-				{
-					"min": -26,
-					"max": -23
-				},
-				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
-				},
-				{
-					"min": 5,
-					"max": 5
-				}
-			],
-			"5": [
-				{
-					"min": -30,
-					"max": -27
-				},
-				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
-				},
-				{
-					"min": 5,
-					"max": 5
-				}
-			]
-		},
-		"heist_side_reward_room_monsters_damage_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
 			"1": [
 				{
 					"min": 13,
 					"max": 15
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"2_": [
@@ -164992,16 +165383,24 @@
 					"max": 18
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"3___": [
@@ -165010,16 +165409,24 @@
 					"max": 22
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"4": [
@@ -165028,16 +165435,24 @@
 					"max": 26
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"5": [
@@ -165046,36 +165461,182 @@
 					"max": 30
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_side_reward_room_monsters_damage_taken_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_side_area_monsters_take_damage_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
+			"HeistContractMonsterSideAreaDamageReduction1": [
+				{
+					"min": -15,
+					"max": -13
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"HeistContractMonsterSideAreaDamageReduction2": [
+				{
+					"min": -18,
+					"max": -16
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"HeistContractMonsterSideAreaDamageReduction3": [
+				{
+					"min": -22,
+					"max": -19
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"HeistContractMonsterSideAreaDamageReduction4_": [
+				{
+					"min": -26,
+					"max": -23
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"HeistContractMonsterSideAreaDamageReduction5____": [
+				{
+					"min": -30,
+					"max": -27
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
 			"1": [
 				{
 					"min": -15,
 					"max": -13
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"2": [
@@ -165084,16 +165645,24 @@
 					"max": -16
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"3__": [
@@ -165102,16 +165671,24 @@
 					"max": -19
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"4": [
@@ -165120,16 +165697,24 @@
 					"max": -23
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"5__": [
@@ -165138,72 +165723,104 @@
 					"max": -27
 				},
 				{
-					"min": -4,
-					"max": -4
-				},
-				{
-					"min": 4,
-					"max": 4
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_side_reward_room_monsters_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
-			"1_": [
+		"heist_contract_guarding_monsters_damage_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
+			"1": [
 				{
 					"min": 13,
 					"max": 15
 				},
 				{
-					"min": -3,
-					"max": -3
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 6,
+					"max": 6
 				},
 				{
-					"min": 5,
-					"max": 5
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
-			"2__": [
+			"2": [
 				{
 					"min": 16,
 					"max": 18
 				},
 				{
-					"min": -3,
-					"max": -3
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 6,
+					"max": 6
 				},
 				{
-					"min": 5,
-					"max": 5
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
-			"3_": [
+			"3": [
 				{
 					"min": 19,
 					"max": 22
 				},
 				{
-					"min": -3,
-					"max": -3
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 6,
+					"max": 6
 				},
 				{
-					"min": 5,
-					"max": 5
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"4": [
@@ -165212,16 +165829,24 @@
 					"max": 26
 				},
 				{
-					"min": -3,
-					"max": -3
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 6,
+					"max": 6
 				},
 				{
-					"min": 5,
-					"max": 5
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"5": [
@@ -165230,20 +165855,424 @@
 					"max": 30
 				},
 				{
-					"min": -3,
-					"max": -3
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			]
+		},
+		"heist_contract_guarding_monsters_take_damage_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
+			"1": [
+				{
+					"min": -15,
+					"max": -13
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"2___": [
+				{
+					"min": -18,
+					"max": -16
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"3": [
+				{
+					"min": -22,
+					"max": -19
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"4": [
+				{
+					"min": -26,
+					"max": -23
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"5": [
+				{
+					"min": -30,
+					"max": -27
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				}
+			]
+		},
+		"heist_contract_objective_completion_time_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
+			"1_": [
+				{
+					"min": -15,
+					"max": -13
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"2": [
+				{
+					"min": -18,
+					"max": -16
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"3_": [
+				{
+					"min": -22,
+					"max": -19
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"4__": [
+				{
+					"min": -26,
+					"max": -23
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"5": [
+				{
+					"min": -30,
+					"max": -27
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			]
 		},
-		"heist_reinforcements_movements_speed_+% heist_reinforcements_attack_speed_+% heist_reinforcements_cast_speed_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_side_reward_room_monsters_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
+			"1_": [
+				{
+					"min": 13,
+					"max": 15
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"2__": [
+				{
+					"min": 16,
+					"max": 18
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"3_": [
+				{
+					"min": 19,
+					"max": 22
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"4": [
+				{
+					"min": 23,
+					"max": 26
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"5": [
+				{
+					"min": 27,
+					"max": 30
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"heist_reinforcements_movements_speed_+% heist_reinforcements_attack_speed_+% heist_reinforcements_cast_speed_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
 			"1": [
 				{
 					"min": 5,
@@ -165258,12 +166287,12 @@
 					"max": 15
 				},
 				{
-					"min": -4,
-					"max": -4
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 6,
+					"max": 6
 				},
 				{
 					"min": 6,
@@ -165284,12 +166313,12 @@
 					"max": 20
 				},
 				{
-					"min": -4,
-					"max": -4
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 6,
+					"max": 6
 				},
 				{
 					"min": 6,
@@ -165310,12 +166339,12 @@
 					"max": 25
 				},
 				{
-					"min": -4,
-					"max": -4
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 6,
+					"max": 6
 				},
 				{
 					"min": 6,
@@ -165336,12 +166365,12 @@
 					"max": 35
 				},
 				{
-					"min": -4,
-					"max": -4
+					"min": -6,
+					"max": -6
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 6,
+					"max": 6
 				},
 				{
 					"min": 6,
@@ -165362,6 +166391,26 @@
 					"max": 45
 				},
 				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			]
+		},
+		"heist_patrols_are_magic heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
+			"1": [
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
 					"min": -4,
 					"max": -4
 				},
@@ -165370,60 +166419,108 @@
 					"max": 4
 				},
 				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"2": [
+				{
+					"min": 75,
+					"max": 75
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
 					"min": 6,
 					"max": 6
 				}
 			]
 		},
-		"heist_patrols_are_magic heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
-			"1": [
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
-				},
-				{
-					"min": 7,
-					"max": 7
-				}
-			]
-		},
-		"heist_guards_are_rare heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_guards_are_rare heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1___": [
 				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": -5,
-					"max": -5
-				},
-				{
 					"min": 5,
 					"max": 5
 				},
 				{
-					"min": 7,
-					"max": 7
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
-		"heist_lockdown_is_instant heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_lockdown_is_instant heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": -7,
-					"max": -7
+					"min": -10,
+					"max": -10
 				},
 				{
 					"min": 0,
@@ -165432,6 +166529,14 @@
 				{
 					"min": 10,
 					"max": 10
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
@@ -165463,7 +166568,7 @@
 				}
 			]
 		},
-		"map_monsters_poison_on_hit map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_poison_on_hit map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPoisoning": [
 				{
 					"min": 1,
@@ -165480,10 +166585,18 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
-		"map_player_has_elemental_equilibrium_keystone map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_player_has_elemental_equilibrium_keystone map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayerElementalEquilibrium": [
 				{
 					"min": 1,
@@ -165500,10 +166613,18 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
-		"map_players_have_point_blank map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_players_have_point_blank map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayersPointBlank": [
 				{
 					"min": 1,
@@ -165520,10 +166641,18 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
-		"map_monsters_add_frenzy_charge_on_hit_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_add_frenzy_charge_on_hit_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonstersFrenzyChargeOnHit1": [
 				{
 					"min": 30,
@@ -165536,6 +166665,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -165558,10 +166695,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_monsters_add_endurance_charge_on_hit_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_add_endurance_charge_on_hit_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonstersEnduranceChargeOnHit1__": [
 				{
 					"min": 30,
@@ -165574,6 +166719,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -165596,10 +166749,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_monsters_add_power_charge_on_hit_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_add_power_charge_on_hit_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonstersPowerChargeOnHit1": [
 				{
 					"min": 30,
@@ -165612,6 +166773,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -165634,10 +166803,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_monsters_area_of_effect_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_area_of_effect_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterAreaOfEffect1_": [
 				{
 					"min": 20,
@@ -165650,6 +166827,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -165672,6 +166857,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractMonsterAreaOfEffect3": [
@@ -165686,6 +166879,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -165708,6 +166909,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractMonsterAreaOfEffect5_": [
@@ -165726,10 +166935,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_monsters_critical_strike_chance_+% map_monsters_critical_strike_multiplier_+ map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_critical_strike_chance_+% map_monsters_critical_strike_multiplier_+ map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final": {
 			"HeistContractMonsterCriticalStrikesAndDamage1_": [
 				{
 					"min": 100,
@@ -165750,6 +166967,10 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				}
 			],
 			"HeistContractMonsterCriticalStrikesAndDamage2__": [
@@ -165772,6 +166993,10 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				}
 			],
 			"HeistContractMonsterCriticalStrikesAndDamage3": [
@@ -165794,6 +167019,10 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				}
 			],
 			"HeistContractMonsterCriticalStrikesAndDamage4": [
@@ -165816,6 +167045,10 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				}
 			],
 			"HeistContractMonsterCriticalStrikesAndDamage5": [
@@ -165838,10 +167071,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				}
 			]
 		},
-		"map_player_life_and_es_recovery_speed_+%_final map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_player_life_and_es_recovery_speed_+%_final map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayerReducedRegen1": [
 				{
 					"min": -20,
@@ -165854,6 +167091,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -165876,6 +167121,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			],
 			"HeistContractPlayerReducedRegen3": [
@@ -165890,6 +167143,14 @@
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
@@ -166321,7 +167582,7 @@
 				}
 			]
 		},
-		"map_player_has_level_X_elemental_weakness map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_player_has_level_X_elemental_weakness map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayerCurseElementalWeakness1_": [
 				{
 					"min": 10,
@@ -166334,6 +167595,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -166356,10 +167625,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_player_has_level_X_vulnerability map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_player_has_level_X_vulnerability map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayerCurseVulnerability1": [
 				{
 					"min": 10,
@@ -166372,6 +167649,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -166394,10 +167679,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_player_has_level_X_enfeeble map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_player_has_level_X_enfeeble map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayerCurseEnfeeblement1": [
 				{
 					"min": 10,
@@ -166410,6 +167703,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -166432,10 +167733,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_player_has_level_X_temporal_chains map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_player_has_level_X_temporal_chains map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayerCurseTemporalChains1": [
 				{
 					"min": 10,
@@ -166448,6 +167757,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -166470,10 +167787,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_players_no_regeneration_including_es map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_players_no_regeneration_including_es map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayerNoLifeESRegen_": [
 				{
 					"min": 1,
@@ -166490,10 +167815,18 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
+				},
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
-		"map_additional_player_maximum_resistances_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_additional_player_maximum_resistances_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayerMaxResists1__": [
 				{
 					"min": -8,
@@ -166506,6 +167839,14 @@
 				{
 					"min": 11,
 					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
@@ -166528,10 +167869,18 @@
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": -7,
+					"max": -7
+				},
+				{
+					"min": 7,
+					"max": 7
 				}
 			]
 		},
-		"map_monsters_life_leech_resistance_% map_monsters_mana_leech_resistance_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_life_leech_resistance_% map_monsters_mana_leech_resistance_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final": {
 			"HeistContractMonsterLifeLeechImmunity": [
 				{
 					"min": 100,
@@ -166552,10 +167901,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": -6,
+					"max": -6
 				}
 			]
 		},
-		"map_monsters_avoid_elemental_ailments_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_avoid_elemental_ailments_% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonsterStatusAilmentImmunity1": [
 				{
 					"min": 30,
@@ -166568,6 +167921,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
 				},
 				{
 					"min": 4,
@@ -166590,6 +167951,14 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			],
 			"HeistContractMonsterStatusAilmentImmunity3": [
@@ -166608,10 +167977,18 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
-		"map_monsters_base_self_critical_strike_multiplier_-% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_monsters_base_self_critical_strike_multiplier_-% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractMonstersBaseSelfCriticalMultiplier1": [
 				{
 					"min": 15,
@@ -166624,6 +168001,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
 				},
 				{
 					"min": 4,
@@ -166646,6 +168031,14 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			],
 			"HeistContractMonstersBaseSelfCriticalMultiplier3": [
@@ -166660,6 +168053,14 @@
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
 				},
 				{
 					"min": 4,
@@ -166682,6 +168083,14 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			],
 			"HeistContractMonstersBaseSelfCriticalMultiplier5": [
@@ -166700,10 +168109,18 @@
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": -4,
+					"max": -4
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
-		"map_player_charges_gained_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_player_charges_gained_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayersGainReducedFlaskCharges1": [
 				{
 					"min": -15,
@@ -166716,6 +168133,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -166738,6 +168163,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractPlayersGainReducedFlaskCharges3_": [
@@ -166752,6 +168185,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -166774,6 +168215,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractPlayersGainReducedFlaskCharges5": [
@@ -166792,10 +168241,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"map_players_block_chance_+% map_players_armour_+%_final map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_players_block_chance_+% map_players_armour_+%_final map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final": {
 			"HeistContractPlayersBlockAndArmour1": [
 				{
 					"min": -10,
@@ -166816,6 +168273,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractPlayersBlockAndArmour2": [
@@ -166838,6 +168299,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractPlayersBlockAndArmour3": [
@@ -166860,6 +168325,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractPlayersBlockAndArmour4": [
@@ -166882,10 +168351,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			]
 		},
-		"map_players_extra_dodge_rolls map_monsters_accuracy_rating_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_players_extra_dodge_rolls map_monsters_accuracy_rating_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final": {
 			"HeistContractMonsterAccuracyPlayersUnlockyDodge1": [
 				{
 					"min": -1,
@@ -166906,6 +168379,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonsterAccuracyPlayersUnlockyDodge2": [
@@ -166928,6 +168405,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonsterAccuracyPlayersUnlockyDodge3": [
@@ -166950,6 +168431,10 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			],
 			"HeistContractMonsterAccuracyPlayersUnlockyDodge4": [
@@ -166972,10 +168457,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				}
 			]
 		},
-		"map_players_skill_area_of_effect_+%_final map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+%": {
+		"map_players_skill_area_of_effect_+%_final map_item_drop_quantity_+% map_item_drop_rarity_+% heist_monster_spawner_alive_limit_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistContractPlayersAoERadius1": [
 				{
 					"min": -10,
@@ -166988,6 +168477,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -167010,6 +168507,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"HeistContractPlayersAoERadius3": [
@@ -167024,6 +168529,14 @@
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
@@ -167046,26 +168559,42 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": -5,
+					"max": -5
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
-		"heist_contract_total_cost_+%_final heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_total_cost_+%_final heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1_": [
 				{
 					"min": 13,
 					"max": 15
 				},
 				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"2": [
@@ -167074,16 +168603,24 @@
 					"max": 18
 				},
 				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"3_": [
@@ -167092,16 +168629,24 @@
 					"max": 22
 				},
 				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"4": [
@@ -167110,16 +168655,24 @@
 					"max": 26
 				},
 				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"5_": [
@@ -167128,20 +168681,28 @@
 					"max": 30
 				},
 				{
-					"min": -3,
-					"max": -3
-				},
-				{
-					"min": 3,
-					"max": 3
+					"min": -5,
+					"max": -5
 				},
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			]
 		},
-		"heist_contract_alert_level_from_chests_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_alert_level_from_chests_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1": [
 				{
 					"min": 13,
@@ -167158,6 +168719,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"2__": [
@@ -167176,6 +168745,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"3": [
@@ -167194,6 +168771,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"4__": [
@@ -167212,6 +168797,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"5": [
@@ -167230,10 +168823,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			]
 		},
-		"heist_contract_alert_level_from_monsters_+% heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_alert_level_from_monsters_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1_": [
 				{
 					"min": 13,
@@ -167250,6 +168851,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"2_": [
@@ -167268,6 +168877,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"3__": [
@@ -167286,6 +168903,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"4": [
@@ -167304,6 +168929,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"5": [
@@ -167322,10 +168955,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			]
 		},
-		"heist_contract_gang_takes_no_cut heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_gang_takes_no_cut heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1": [
 				{
 					"min": 1,
@@ -167342,10 +168983,18 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
-		"heist_contract_no_travel_cost heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_contract_no_travel_cost heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1__": [
 				{
 					"min": 1,
@@ -167362,10 +169011,18 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
-		"heist_alert_level_gained_per_10_sec heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_alert_level_gained_per_10_sec heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1": [
 				{
 					"min": 5,
@@ -167376,8 +169033,16 @@
 					"max": 0
 				},
 				{
-					"min": 8,
-					"max": 8
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 13,
+					"max": 13
 				},
 				{
 					"min": 8,
@@ -167385,7 +169050,7 @@
 				}
 			]
 		},
-		"heist_alert_level_gained_on_monster_death heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_alert_level_gained_on_monster_death heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"1": [
 				{
 					"min": -5,
@@ -167402,26 +169067,42 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
-		"heist_player_additional_maximum_resistances_%_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_additional_maximum_resistances_%_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerMaxResistsAlertLevel1_": [
 				{
 					"min": -3,
 					"max": -3
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
 				}
 			],
 			"HeistContractPlayerMaxResistsAlertLevel2_": [
@@ -167430,36 +169111,52 @@
 					"max": -4
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -7,
+					"max": -7
 				},
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
 				}
 			]
 		},
-		"heist_player_fire_resistance_%_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_fire_resistance_%_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerFireResistAlertLevel1": [
 				{
 					"min": -3,
 					"max": -3
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerFireResistAlertLevel2": [
@@ -167468,16 +169165,24 @@
 					"max": -4
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerFireResistAlertLevel3_": [
@@ -167486,36 +169191,52 @@
 					"max": -5
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_player_cold_resistance_%_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_cold_resistance_%_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerColdResistAlertLevel1_": [
 				{
 					"min": -3,
 					"max": -3
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerColdResistAlertLevel2_": [
@@ -167524,16 +169245,24 @@
 					"max": -4
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerColdResistAlertLevel3_": [
@@ -167542,36 +169271,52 @@
 					"max": -5
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_player_lightning_resistance_%_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_lightning_resistance_%_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerLightningResistAlertLevel1": [
 				{
 					"min": -3,
 					"max": -3
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerLightningResistAlertLevel2": [
@@ -167580,16 +169325,24 @@
 					"max": -4
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerLightningResistAlertLevel3": [
@@ -167598,36 +169351,52 @@
 					"max": -5
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_player_armour_+%_final_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_armour_+%_final_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerArmourAlertLevel1___": [
 				{
 					"min": -5,
 					"max": -5
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerArmourAlertLevel2_": [
@@ -167636,16 +169405,24 @@
 					"max": -6
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerArmourAlertLevel3": [
@@ -167654,16 +169431,24 @@
 					"max": -7
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerArmourAlertLevel4": [
@@ -167672,36 +169457,52 @@
 					"max": -8
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_player_evasion_rating_+%_final_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_evasion_rating_+%_final_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerEvasionAlertLevel1": [
 				{
 					"min": -5,
 					"max": -5
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerEvasionAlertLevel2__": [
@@ -167710,16 +169511,24 @@
 					"max": -6
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerEvasionAlertLevel3": [
@@ -167728,16 +169537,24 @@
 					"max": -7
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerEvasionAlertLevel4": [
@@ -167746,36 +169563,52 @@
 					"max": -8
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_player_energy_shield_recovery_rate_+%_final_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_energy_shield_recovery_rate_+%_final_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerEnergyShieldReducedRegenAlertLevel1_": [
 				{
 					"min": -6,
 					"max": -6
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerEnergyShieldReducedRegenAlertLevel2": [
@@ -167784,16 +169617,24 @@
 					"max": -12
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerEnergyShieldReducedRegenAlertLevel3__": [
@@ -167802,36 +169643,52 @@
 					"max": -16
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_player_life_recovery_rate_+%_final_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_life_recovery_rate_+%_final_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerLifeReducedRegenAlertLevel1": [
 				{
 					"min": -6,
 					"max": -6
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerLifeReducedRegenAlertLevel2": [
@@ -167840,16 +169697,24 @@
 					"max": -12
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerLifeReducedRegenAlertLevel3___": [
@@ -167858,36 +169723,52 @@
 					"max": -16
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_player_mana_recovery_rate_+%_final_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_mana_recovery_rate_+%_final_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayerManaReducedRegenAlertLevel1_": [
 				{
 					"min": -6,
 					"max": -6
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerManaReducedRegenAlertLevel2": [
@@ -167896,16 +169777,24 @@
 					"max": -12
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			],
 			"HeistContractPlayerManaReducedRegenAlertLevel3": [
@@ -167914,20 +169803,28 @@
 					"max": -16
 				},
 				{
-					"min": -5,
-					"max": -5
-				},
-				{
-					"min": 5,
-					"max": 5
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
 				}
 			]
 		},
-		"heist_player_flask_charges_gained_+%_per_25%_alert_level heist_contract_alert_level_+% heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+%": {
+		"heist_player_flask_charges_gained_+%_per_25%_alert_level heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+% heist_monster_spawner_alive_limit_+% map_item_drop_quantity_+% map_item_drop_rarity_+%": {
 			"HeistContractPlayersGainReducedFlaskChargesAlertLevel1_": [
 				{
 					"min": -4,
@@ -167944,6 +169841,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"HeistContractPlayersGainReducedFlaskChargesAlertLevel2": [
@@ -167962,6 +169867,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"HeistContractPlayersGainReducedFlaskChargesAlertLevel3": [
@@ -167980,6 +169893,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"HeistContractPlayersGainReducedFlaskChargesAlertLevel4": [
@@ -167998,6 +169919,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			],
 			"HeistContractPlayersGainReducedFlaskChargesAlertLevel5": [
@@ -168016,6 +169945,14 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
 				}
 			]
 		},
@@ -168743,7 +170680,7 @@
 				}
 			]
 		},
-		"heist_contract_lockdown_timer_+%": {
+		"heist_contract_lockdown_timer_+%_halved": {
 			"HeistNPCLockdownTimer1": [
 				{
 					"min": 9,
@@ -168795,55 +170732,183 @@
 				}
 			]
 		},
-		"heist_contract_npc_experience_gain_+%": {
+		"heist_contract_npc_experience_gain_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"HeistNPCExperienceGain1_": [
 				{
 					"min": 3,
 					"max": 4
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"HeistNPCExperienceGain2": [
 				{
 					"min": 5,
 					"max": 6
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"HeistNPCExperienceGain3_": [
 				{
 					"min": 7,
 					"max": 8
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"HeistNPCExperienceGain4_": [
 				{
 					"min": 9,
 					"max": 10
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
-		"heist_contract_npc_level_+": {
+		"heist_contract_npc_level_+ map_item_drop_quantity_+% map_item_drop_rarity_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"1_": [
 				{
 					"min": 1,
 					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"2": [
 				{
 					"min": 2,
 					"max": 2
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"3": [
 				{
 					"min": 3,
 					"max": 3
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"4": [
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -169521,7 +171586,7 @@
 				}
 			]
 		},
-		"heist_contract_lockdown_timer_+": {
+		"heist_contract_lockdown_timer_+_halved": {
 			"1": [
 				{
 					"min": 4000,
@@ -169573,81 +171638,273 @@
 				}
 			]
 		},
-		"heist_contract_npc_cost_+%": {
+		"heist_contract_npc_cost_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"1": [
 				{
 					"min": -7,
 					"max": -6
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"2": [
 				{
 					"min": -9,
 					"max": -8
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"3": [
 				{
 					"min": -12,
 					"max": -10
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"4": [
 				{
 					"min": -15,
 					"max": -13
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
-		"heist_contract_gang_cost_+%": {
+		"heist_contract_gang_cost_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"1": [
 				{
 					"min": -7,
 					"max": -6
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"2_": [
 				{
 					"min": -9,
 					"max": -8
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"3": [
 				{
 					"min": -12,
 					"max": -10
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"4": [
 				{
 					"min": -15,
 					"max": -13
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
-		"heist_contract_travel_cost_+%": {
+		"heist_contract_travel_cost_+% map_item_drop_quantity_+% map_item_drop_rarity_+% heist_contract_alert_level_+%_final heist_contract_lockdown_timer_+%": {
 			"1_": [
 				{
 					"min": -7,
 					"max": -6
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"2__": [
 				{
 					"min": -9,
 					"max": -8
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"3": [
 				{
 					"min": -12,
 					"max": -10
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"4": [
 				{
 					"min": -15,
 					"max": -13
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -174989,6 +177246,16 @@
 					"min": 0,
 					"max": 0
 				}
+			],
+			"HeistMonsterGuardBonusesFromMapStat": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
 			]
 		},
 		"local_all_damage_can_poison": {
@@ -176028,6 +178295,26 @@
 				{
 					"min": 10,
 					"max": 10
+				}
+			]
+		},
+		"minion_larger_aggro_radius": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"base_item_found_rarity_+% local_display_item_found_rarity_+%_for_you_and_nearby_allies": {
+			"LocalDisplayYouAndNearbyAlliesHaveIncreasedItemRarityUnique__1": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 30,
+					"max": 30
 				}
 			]
 		}
