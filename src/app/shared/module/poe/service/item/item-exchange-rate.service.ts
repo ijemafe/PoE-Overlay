@@ -64,9 +64,9 @@ export class ItemExchangeRateService {
               )
               const size = (item.properties?.stackSize?.value?.split('/') || ['1'])[0]
               const result: ItemExchangeRateResult = {
-                amount: Math.ceil(values[index][0] * 100) / 100,
+                amount: values[index][0],
                 factor: +size.replace('.', ''),
-                inverseAmount: Math.ceil((1 / values[index][0]) * 100) / 100,
+                inverseAmount: 1 / values[index][0],
                 currency: currencies[index],
                 change: value.change,
                 history: value.history || [],

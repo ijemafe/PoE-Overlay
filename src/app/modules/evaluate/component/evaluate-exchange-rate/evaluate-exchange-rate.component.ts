@@ -106,6 +106,10 @@ export class EvaluateExchangeRateComponent implements OnInit {
     })
   }
 
+  public roundAmount(amount: number): number {
+    return Math.ceil(amount * 100) / 100
+  }
+
   private evaluate(item: Item, currency?: Currency): void {
     this.exchangeRate
       .get(item, currency ? [currency] : this.currencies, this.options.leagueId)

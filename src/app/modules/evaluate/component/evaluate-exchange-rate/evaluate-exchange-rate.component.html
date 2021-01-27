@@ -19,7 +19,7 @@
               </mat-icon>
               <span class="amount-column">
                 <span class="amount clickable" (click)="onAmountClick($event, result.rate.amount)">
-                  {{ result.rate.amount | number: '1.2-2' }}&nbsp;</span
+                  {{ roundAmount(result.rate.amount) | number: '1.2-2' }}&nbsp;</span
                 >
                 <span
                   class="amount clickable"
@@ -32,7 +32,7 @@
                   "
                   *ngIf="result.rate.factor > 1"
                 >
-                  {{ result.rate.amount * result.rate.factor | number: '1.2-2' }}&nbsp;</span
+                  {{ roundAmount(result.rate.amount * result.rate.factor) | number: '1.2-2' }}&nbsp;</span
                 >
               </span>
               <app-currency-frame class="clickable" [currency]="result.rate.currency">
