@@ -1,7 +1,6 @@
 {
   "app": {
     "clickable": "'Click' = In-Game Browser, 'CTRL + Click' Default Browser",
-
     "language": "Language",
     "shortcut": "Shortcut",
     "update": {
@@ -28,6 +27,7 @@
   "evaluate": {
     "age": "Age",
     "analyzing": "Analyzing data...",
+    "auto-hide-search": "Hide Search When Mouse Leaves?",
     "browser": "In-Game Browser",
     "cancel": "Cancel?",
     "canceled": "Search canceled. Open in browser?",

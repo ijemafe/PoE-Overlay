@@ -28,6 +28,7 @@
   "evaluate": {
     "age": "年龄",
     "analyzing": "正在分析数据...",
+    "auto-hide-search": "鼠标离开时隐藏搜索？",
     "browser": "游戏内浏览器",
     "cancel": "取消？",
     "canceled": "搜索已取消。在浏览器中打开？",

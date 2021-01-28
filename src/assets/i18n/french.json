@@ -28,6 +28,7 @@
   "evaluate": {
     "age": "Âge",
     "analyzing": "Analyse des données...",
+    "auto-hide-search": "Masquer la recherche lorsque la souris quitte?",
     "browser": "navigateur en jeu",
     "cancel": "Annuler?",
     "canceled": "Recherche annulée. Ouvrir dans le navigateur?",

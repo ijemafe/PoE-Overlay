@@ -80,6 +80,7 @@ export class EvaluateModule implements FeatureModule {
       evaluatePricing: EvaluatePricing.Clipboard,
       evaluateQueryInitialSearch: false,
       evaluateBrowserAlwaysExternal: false,
+      evaluateQueryAutoHideSearch: false,
     }
     return {
       name: 'evaluate.name',

@@ -28,6 +28,7 @@
   "evaluate": {
     "age": "Wystawiono",
     "analyzing": "Analiza danych ...",
+    "auto-hide-search": "Ukryj wyszukiwanie, gdy mysz opuszcza?",
     "browser": "Domyślna przeglądarka w grze",
     "cancel": "Anuluj?",
     "canceled": "Wyszukiwanie anulowane. Otwórz w przeglądarce?",

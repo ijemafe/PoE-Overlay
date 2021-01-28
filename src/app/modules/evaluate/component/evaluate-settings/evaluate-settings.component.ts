@@ -46,6 +46,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDebounceTime: number
   evaluateQueryFetchCount: number
   evaluateQueryInitialSearch: boolean
+  evaluateQueryAutoHideSearch: boolean
   evaluatePricing: EvaluatePricing
   evaluateBrowserAlwaysExternal: boolean
 }

@@ -28,6 +28,7 @@
   "evaluate": {
     "age": "años",
     "analyzing": "Analizando datos ...",
+    "auto-hide-search": "Ocultar búsqueda cuando el ratón se va?",
     "browser": "Navegador dentro del juego",
     "cancel": "¿Cancelar?",
     "canceled": "Búsqueda cancelada ¿Abierta en el navegador?",

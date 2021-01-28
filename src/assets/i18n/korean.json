@@ -28,6 +28,7 @@
   "evaluate": {
     "age": "나이",
     "analyzing": "데이터 분석 중 ...",
+    "auto-hide-search": "마우스가 떠날 때 검색을 숨기시겠습니까?",
     "browser": "게임 내 브라우저",
     "cancel": "취소?",
     "canceled": "검색이 취소되었습니다. 브라우저에서 열려?",

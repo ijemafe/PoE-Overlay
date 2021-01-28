@@ -28,6 +28,7 @@
   "evaluate": {
     "age": "Alter",
     "analyzing": "Daten analysieren...",
+    "auto-hide-search": "Suche ausblenden, wenn die Maus geht?",
     "browser": "Browser im Spiel",
     "cancel": "Abbrechen?",
     "canceled": "Suche abgebrochen. Im Browser öffnen?",

@@ -173,4 +173,14 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
       }
     }
   }
+
+  public onMouseOut(event, elem): void {
+    const e = event.toElement || event.relatedTarget
+    if (e.parentNode == elem || e == elem) {
+      return
+    }
+
+    if (this.data.settings.evaluateQueryAutoHideSearch && this.ref && this.ref.close)
+      this.ref.close()
+  }
 }
