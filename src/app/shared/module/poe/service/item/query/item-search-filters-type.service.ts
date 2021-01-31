@@ -127,6 +127,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.CurrencySeedBooster:
       // map
       case ItemCategory.MapFragment:
+      case ItemCategory.MapInvitation:
       case ItemCategory.MapScarab:
       // divination card
       case ItemCategory.Card:

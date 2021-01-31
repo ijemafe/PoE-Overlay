@@ -91,6 +91,7 @@ export enum ItemCategory {
   Flask = 'flask',
   Map = 'map',
   MapFragment = 'map.fragment',
+  MapInvitation = 'map.invitation',
   MapScarab = 'map.scarab',
   Watchstone = 'watchstone',
   Leaguestone = 'leaguestone',

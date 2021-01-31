@@ -90,6 +90,10 @@ export class ItemCategoryValuesProvider {
         const key = `${leagueId}_${ItemCategory.MapFragment}`
         return this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Fragment))
       }
+      case ItemCategory.MapInvitation: {
+        const key = `${leagueId}_${ItemCategory.MapInvitation}`
+        return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Invitation))
+      }
       case ItemCategory.Watchstone: {
         const key = `${leagueId}_${ItemCategory.Watchstone}`
         return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Watchstone))
