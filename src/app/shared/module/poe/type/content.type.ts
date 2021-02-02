@@ -54,3 +54,7 @@ export interface AtlasMap {
 export interface AtlasMapsMap {
   [mapId: string]: AtlasMap
 }
+
+export interface AnnointmentMap {
+  [id: string]: string[]
+}
