@@ -4,6 +4,8 @@
       <div class="blue">
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
+      <app-item-frame-annointment *ngIf="showAnnointmentOils && isAnnointmentStat(stat.id)" [item]="item" [itemStat]="stat" [language]="language">
+      </app-item-frame-annointment>
       <app-item-frame-separator
         [item]="item"
         *ngIf="
