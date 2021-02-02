@@ -129,6 +129,7 @@
     "stats-export": "Export Stats to Clipboard",
     "stats-import": "Import Stats from Clipboard",
     "stats-range": "Min-Max Range",
+    "stats-show-annointment-oils": "Show Annointment Oils",
     "stats-unique-check-all": "Unique Check All",
     "switch": "switch amount",
     "tag": {
