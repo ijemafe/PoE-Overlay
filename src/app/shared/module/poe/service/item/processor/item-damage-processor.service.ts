@@ -80,12 +80,12 @@ export class ItemDamageProcessorService {
 
   private calculateElementalDps(properties: ItemProperties): ItemValue {
     const { weaponElementalDamage, weaponAttacksPerSecond } = properties
-    if (!weaponElementalDamage || weaponElementalDamage.length === 0) {
+    if (!weaponElementalDamage) {
       return undefined
     }
 
-    const totalDamage = weaponElementalDamage.reduce((damage, prop) => this.sum(prop, damage), 0)
-    const dps = this.addAps(weaponAttacksPerSecond, totalDamage)
+    const damage = this.sum(weaponElementalDamage)
+    const dps = this.addAps(weaponAttacksPerSecond, damage)
 
     const value: ItemValue = {
       text: `${dps}`,

@@ -48,8 +48,8 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
 
     if (prop.gemExperience) {
       const splittedExp = prop.gemExperience.value.text.split('/')
-      const exp = +(splittedExp[0] || '').split('.').join('')
-      const expMax = +(splittedExp[1] || '').split('.').join('')
+      const exp = +(splittedExp[0] || '').split("., ").join('')
+      const expMax = +(splittedExp[1] || '').split("., ").join('')
       if (!isNaN(exp) && !isNaN(expMax)) {
         const expFactor = (exp / expMax) * 100
         query.filters.misc_filters.filters.gem_level_progress = {

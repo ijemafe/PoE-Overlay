@@ -141,7 +141,7 @@ export interface ItemSocket {
 
 export interface ItemProperties {
   weaponPhysicalDamage?: ItemValueProperty
-  weaponElementalDamage?: ItemValueProperty[]
+  weaponElementalDamage?: ItemValueProperty
   weaponChaosDamage?: ItemValueProperty
   weaponCriticalStrikeChance?: ItemValueProperty
   weaponAttacksPerSecond?: ItemValueProperty
@@ -150,16 +150,16 @@ export interface ItemProperties {
   armourArmour?: ItemValueProperty
   armourEvasionRating?: ItemValueProperty
   armourEnergyShield?: ItemValueProperty
-  stackSize?: ItemProperty
+  stackSize?: ItemValueProperty
   gemLevel?: ItemValueProperty
   gemQualityType?: ItemGemQualityType
   quality?: ItemValueProperty
   qualityType?: ItemQualityType
   gemExperience?: ItemValueProperty
-  mapTier?: ItemProperty
-  mapQuantity?: ItemProperty
-  mapRarity?: ItemProperty
-  mapPacksize?: ItemProperty
+  mapTier?: ItemValueProperty
+  mapQuantity?: ItemValueProperty
+  mapRarity?: ItemValueProperty
+  mapPacksize?: ItemValueProperty
   prophecyText?: string
   durability?: ItemValueProperty
   storedExperience?: ItemValueProperty

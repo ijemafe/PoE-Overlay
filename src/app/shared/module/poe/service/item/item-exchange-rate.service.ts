@@ -62,10 +62,10 @@ export class ItemExchangeRateService {
                 values,
                 CurrencySelectStrategy.MinWithAtleast1
               )
-              const size = (item.properties?.stackSize?.value?.split('/') || ['1'])[0]
+              const size = (item.properties?.stackSize?.value?.min || 1)
               const result: ItemExchangeRateResult = {
                 amount: values[index][0],
-                factor: +size.replace('.', ''),
+                factor: size,
                 inverseAmount: 1 / values[index][0],
                 currency: currencies[index],
                 change: value.change,

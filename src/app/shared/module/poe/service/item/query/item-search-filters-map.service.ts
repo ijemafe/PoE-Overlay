@@ -25,19 +25,19 @@ export class ItemSearchFiltersMapService implements ItemSearchFiltersService {
 
     if (prop.mapQuantity) {
       query.filters.map_filters.filters.map_iiq = {
-        min: +prop.mapQuantity.value.replace('%', '').replace('+', ''),
+        min: prop.mapQuantity.value.value,
       }
     }
 
     if (prop.mapRarity) {
       query.filters.map_filters.filters.map_iir = {
-        min: +prop.mapRarity.value.replace('%', '').replace('+', ''),
+        min: prop.mapRarity.value.value,
       }
     }
 
     if (prop.mapPacksize) {
       query.filters.map_filters.filters.map_packsize = {
-        min: +prop.mapPacksize.value.replace('%', '').replace('+', ''),
+        min: prop.mapPacksize.value.value,
       }
     }
   }
