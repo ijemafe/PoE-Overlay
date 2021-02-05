@@ -4,10 +4,10 @@ import { getActiveWindow, Window } from './window'
 
 const POE_NAMES = [
   // Epic Games Store
-  'pathofexile_x64EGS.exe',
-  'pathofexileEGS.exe',
-  'pathofexile_x64EGS',
-  'pathofexileEGS',
+  'pathofexile_x64egs.exe',
+  'pathofexileegs.exe',
+  'pathofexile_x64egs',
+  'pathofexileegs',
 
   // Korean
   'pathofexile_x64_kg.exe',
