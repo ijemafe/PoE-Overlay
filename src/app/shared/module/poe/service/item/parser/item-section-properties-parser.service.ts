@@ -126,7 +126,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
   }
 
   private parseNumber(text: string): number {
-    return +text.split("+%,. ").join('')
+    return +text.split(/[\+%,\. ]+/).join('')
   }
 
   private parsePhrase(line: string, phrase: string): [string, boolean] {
