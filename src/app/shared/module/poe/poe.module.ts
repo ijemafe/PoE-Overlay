@@ -19,6 +19,7 @@ import { StatGroupPipe } from './pipe/stat-group.pipe'
 import { StatTransformPipe } from './pipe/stat-transform.pipe'
 import { WordPipe } from './pipe/word.pipe'
 import { ItemFrameValueInputComponent } from './component/item-frame-value-input/item-frame-value-input.component'
+import { ItemFrameAnnointmentComponent } from './component/item-frame-annointment/item-frame-annointment.component'
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ItemFrameValueInputComponent } from './component/item-frame-value-input
     ItemFrameStatsComponent,
     ItemFrameStateComponent,
     ItemFrameValueInputComponent,
+    ItemFrameAnnointmentComponent,
   ],
   imports: [BrowserModule],
   exports: [

@@ -326,13 +326,19 @@
             </ng-template>
           </div>
 
-          <div class="toggle">
-            <mat-slide-toggle
-              [checked]="settings.evaluateQueryDefaultStatsUnique"
-              (change)="settings.evaluateQueryDefaultStatsUnique = $event.checked"
-            >
-              {{ 'evaluate.stats-unique-check-all' | translate }}
-            </mat-slide-toggle>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsUnique"
+                                (change)="settings.evaluateQueryDefaultStatsUnique = $event.checked">
+                {{ 'evaluate.stats-unique-check-all' | translate }}
+              </mat-slide-toggle>
+            </div>
+            <div class="col-md-6">
+              <mat-slide-toggle [checked]="settings.evaluateShowAnnointmentOils"
+                                (change)="settings.evaluateShowAnnointmentOils = $event.checked">
+                {{ 'evaluate.stats-show-annointment-oils' | translate }}
+              </mat-slide-toggle>
+            </div>
           </div>
 
           <app-select-list [items]="stats$ | async" (itemsChange)="onStatsChange($event)">
