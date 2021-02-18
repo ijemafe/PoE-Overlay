@@ -98,6 +98,8 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.Map:
       // monster
       case ItemCategory.MonsterBeast:
+      // watchstones
+      case ItemCategory.Watchstone:
         query.filters.type_filters.filters.rarity = {
           option: item.rarity === ItemRarity.Unique ? ItemRarity.Unique : ItemRarity.NonUnique,
         }
@@ -110,7 +112,6 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.GemActivegem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
-      case ItemCategory.Watchstone:
       case ItemCategory.Leaguestone:
       // currency
       case ItemCategory.Currency:
