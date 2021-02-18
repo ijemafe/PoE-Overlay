@@ -131,7 +131,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
 
   private parsePhrase(line: string, phrase: string): [string, boolean] {
     if (line.indexOf(phrase) !== 0) {
-      return [undefined, false];
+      return ['', false];
     }
     let text = line.slice(phrase.length)
     const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('{0}', '')
