@@ -91,6 +91,11 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
     this.initSearch()
   }
 
+  public onRetryClick(): void {
+    this.clear()
+    this.search(this.queryItem)
+  }
+
   public onCurrencyClick(event: MouseEvent): void {
     const search = this.search$.value
     if (search?.url?.length) {

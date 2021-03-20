@@ -133,6 +133,8 @@
     </ng-container>
     <ng-template #error>
       <div>{{ error$ | async | translate }}</div>
+      &nbsp;
+      <div class="clickable" (click)="onRetryClick()">{{ 'evaluate.try-again' | translate }}</div>
     </ng-template>
   </ng-template>
 </ng-template>
