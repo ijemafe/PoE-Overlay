@@ -67,6 +67,9 @@ export class EvaluateSearchTableComponent {
   @Input()
   public original: boolean
 
+  @Input()
+  public wideViewport: boolean
+
   @Output()
   public amountSelect = new EventEmitter<SelectEvent>()
 

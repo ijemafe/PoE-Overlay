@@ -147,6 +147,10 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
     this.evaluateResult.next({ amount, currency })
   }
 
+  public useWideViewport(): boolean {
+    return this.search$.value?.searchType === ItemSearchType.BulkExchange
+  }
+
   private initSearch(): void {
     this.search(this.queryItem)
     this.registerSearchOnChange()

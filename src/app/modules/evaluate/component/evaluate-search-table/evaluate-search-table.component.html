@@ -8,6 +8,7 @@
     </tr>
   </table>
   <cdk-virtual-scroll-viewport class="viewport"
+                               [class.wide]="wideViewport"
                                [style.height.px]="rows.length > 20 ? 20 * 20 : (rows.length + 1) * 20"
                                itemSize="19"
                                minBufferPx="200"

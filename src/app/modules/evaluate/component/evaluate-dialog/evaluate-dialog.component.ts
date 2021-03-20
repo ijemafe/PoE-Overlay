@@ -164,7 +164,6 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
         case ItemCategory.GemActivegem:
         case ItemCategory.GemSupportGem:
         case ItemCategory.GemSupportGemplus:
-        case ItemCategory.MapScarab:
         case ItemCategory.Leaguestone:
         case ItemCategory.MonsterSample:
         case ItemCategory.CurrencyPiece:
