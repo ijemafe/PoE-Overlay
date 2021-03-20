@@ -1,3 +1,5 @@
+import { ItemSearchType } from '../../../shared/module/poe/service';
+
 export interface TradeResponse<TResult> {
   result: TResult[]
 }
@@ -247,6 +249,12 @@ export interface FilterOptionDiscriminator extends FilterOption {
   discriminator?: string
 }
 
+export interface Exchange {
+  status?: FilterOption
+  want?: string[]
+  have?: string[]
+}
+
 export interface Sort {
   price?: string
 }
@@ -256,10 +264,16 @@ export interface TradeSearchRequest {
   sort: Sort
 }
 
-export interface TradeSearchResponse extends TradeResponse<string> {
+export interface TradeOrExchangeSearchResponse extends TradeResponse<string> {
+  searchType: ItemSearchType
   id: string
   url: string
   total: number
+}
+
+export interface ExchangeSearchRequest {
+  exchange: Exchange
+  sort: Sort
 }
 
 export interface TradeFetchResultPrice {
@@ -278,7 +292,12 @@ export interface TradeFetchResultListing {
   account: TradeFetchResultAccount
 }
 
+export interface TradeFetchResultItem {
+  note?: string
+}
+
 export interface TradeFetchResult {
   id: string
   listing: TradeFetchResultListing
+  item: TradeFetchResultItem
 }

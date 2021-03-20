@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { CurrencyFrameComponent } from './component/currency-frame/currency-frame.component'
+import { CurrencyRatioFrameComponent } from './component/currency-ratio-frame/currency-ratio-frame.component'
 import { ItemFrameHeaderComponent } from './component/item-frame-header/item-frame-header.component'
 import { ItemFrameInfluencesComponent } from './component/item-frame-influences/item-frame-influences.component'
 import { ItemFrameLevelRequirementsComponent } from './component/item-frame-level-requirements/item-frame-level-requirements.component'
@@ -25,6 +26,7 @@ import { ItemFrameAnnointmentComponent } from './component/item-frame-annointmen
   declarations: [
     ItemFrameComponent,
     CurrencyFrameComponent,
+    CurrencyRatioFrameComponent,
     ClientStringPipe,
     StatGroupPipe,
     StatTransformPipe,
@@ -48,6 +50,7 @@ import { ItemFrameAnnointmentComponent } from './component/item-frame-annointmen
   exports: [
     ItemFrameComponent,
     CurrencyFrameComponent,
+    CurrencyRatioFrameComponent,
     ClientStringPipe,
     WordPipe,
     BaseItemTypePipe,

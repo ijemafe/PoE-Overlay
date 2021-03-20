@@ -4,6 +4,8 @@ import { Currency } from '@shared/module/poe/type'
 
 interface Row {
   amount: number
+  priceNumerator: number
+  priceDenominator: number
   originalAmount: number
   originalCurrency: Currency
   count: number
@@ -38,7 +40,9 @@ export class EvaluateSearchTableComponent {
       } = {}
       result.entries.forEach((item) => {
         const next: Row = {
-          amount: Math.round(item.targetAmount * 100) / 100,
+          amount: item.targetAmount,
+          priceNumerator: item.priceNumerator,
+          priceDenominator: item.priceDenominator,
           count: 1,
           originalAmount: item.originalAmount,
           originalCurrency: item.original,
@@ -73,5 +77,9 @@ export class EvaluateSearchTableComponent {
       amount: this.original ? row.originalAmount : row.amount,
       currency: this.original ? row.originalCurrency : undefined,
     })
+  }
+
+  public showRatio(row: Row): boolean {
+    return (row.priceDenominator != 1 || row.priceNumerator != row.originalAmount) && Math.floor(row.originalAmount) != row.originalAmount
   }
 }

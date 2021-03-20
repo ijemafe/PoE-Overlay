@@ -82,11 +82,11 @@ describe('ItemSearchAnalyzeService', () => {
     const requestedItem: Item = {
       typeId: baseItemTypesService.search('Topaz Ring'),
     }
-    itemSearchServiceSpy.search.and.returnValue(of(mockSearchResult))
+    itemSearchServiceSpy.searchOrExchange.and.returnValue(of(mockSearchResult))
     itemSearchServiceSpy.list.and.returnValue(of(mockListResult))
 
     forkJoin([
-      searchService.search(requestedItem).pipe(flatMap((result) => searchService.list(result, 10))),
+      searchService.searchOrExchange(requestedItem).pipe(flatMap((result) => searchService.list(result, 10))),
       currencyService.searchById('chaos'),
     ]).subscribe(
       (results) => {
