@@ -22,10 +22,14 @@
           <span class="value">{{ row.amount }}</span>
         </td>
         <td class="amount" *ngIf="original">
-          <app-currency-frame [amount]="row.originalAmount" [currency]="row.originalCurrency" *ngIf="!showRatio(row)">
-          </app-currency-frame>
-          <app-currency-ratio-frame [amount]="row.originalAmount" [currency]="row.originalCurrency" [numerator]="row.priceNumerator" [denominator]="row.priceDenominator" *ngIf="showRatio(row)">
-          </app-currency-ratio-frame>
+          <ng-container *ngIf="showRatio(row); else currencyframe">
+            <app-currency-ratio-frame [amount]="row.originalAmount" [currency]="row.originalCurrency" [numerator]="row.priceNumerator" [denominator]="row.priceDenominator">
+            </app-currency-ratio-frame>
+          </ng-container>
+          <ng-template #currencyframe>
+            <app-currency-frame [amount]="row.originalAmount" [currency]="row.originalCurrency">
+            </app-currency-frame>
+          </ng-template>
         </td>
         <td>
           <span *ngIf="row.count > 1">
