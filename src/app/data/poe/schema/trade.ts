@@ -54,16 +54,15 @@ export interface TradeStaticResultEntry {
 
 export enum TradeStaticResultId {
   Currency = 'Currency',
+  Splinters = 'Splinters',
   Fragments = 'Fragments',
+  DeliriumOrbs = 'DeliriumOrbs',
   Catalysts = 'Catalysts',
   Oils = 'Oils',
   Incubators = 'Incubators',
   Scarabs = 'Scarabs',
   DelveResonators = 'DelveResonators',
   DelveFossils = 'DelveFossils',
-  Vials = 'Vials',
-  Nets = 'Nets',
-  Leaguestones = 'Leaguestones',
   Essences = 'Essences',
   Cards = 'Cards',
   MapsTier1 = 'MapsTier1',
