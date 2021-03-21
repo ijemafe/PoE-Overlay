@@ -16,7 +16,7 @@ describe('ItemSearchService', () => {
   const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
   const mockStatic: any = require('doc/poe/api_trade_data_static.json')
   const mockSearchResult: TradeOrExchangeSearchResponse = {
-    searchType: TradeSearchType.Trade,
+    searchType: TradeSearchType.NormalTrade,
     id: 'y35jtR',
     result: [
       '72fad07c5684c05f543504bf40c1739081e34a3c63f101b1c4477d8547763563',
