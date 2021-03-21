@@ -5,7 +5,6 @@ import { environment } from '@env/environment'
 import { Language } from '@shared/module/poe/type'
 import { Observable, of, throwError } from 'rxjs'
 import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
-import { ItemSearchType } from '../../../shared/module/poe/service'
 import {
   ExchangeSearchRequest,
   TradeFetchResult,
@@ -16,6 +15,7 @@ import {
   TradeOrExchangeSearchResponse,
   TradeStaticResult,
   TradeStatsResult,
+  TradeSearchType,
 } from '../schema/trade'
 import { TradeRateLimitService } from './trade-rate-limit.service'
 
@@ -58,7 +58,7 @@ export class TradeHttpService {
     language: Language,
     leagueId: string
   ): Observable<TradeOrExchangeSearchResponse> {
-    return this.searchOrExchange(request, language, leagueId, ItemSearchType.Trade)
+    return this.searchOrExchange(request, language, leagueId, TradeSearchType.NormalTrade)
   }
 
   public exchange(
@@ -66,7 +66,7 @@ export class TradeHttpService {
     language: Language,
     leagueId: string
   ): Observable<TradeOrExchangeSearchResponse> {
-    return this.searchOrExchange(request, language, leagueId, ItemSearchType.BulkExchange)
+    return this.searchOrExchange(request, language, leagueId, TradeSearchType.BulkExchange)
   }
 
   public fetch(
@@ -98,7 +98,7 @@ export class TradeHttpService {
     request: TradeSearchRequest | ExchangeSearchRequest,
     language: Language,
     leagueId: string,
-    searchType: ItemSearchType,
+    searchType: TradeSearchType,
   ): Observable<TradeOrExchangeSearchResponse> {
     const url = this.getApiUrl(`${searchType}/${encodeURIComponent(leagueId)}`, language)
     return this.limit

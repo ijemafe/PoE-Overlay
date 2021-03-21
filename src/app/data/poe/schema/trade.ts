@@ -1,5 +1,3 @@
-import { ItemSearchType } from '../../../shared/module/poe/service';
-
 export interface TradeResponse<TResult> {
   result: TResult[]
 }
@@ -265,7 +263,7 @@ export interface TradeSearchRequest {
 }
 
 export interface TradeOrExchangeSearchResponse extends TradeResponse<string> {
-  searchType: ItemSearchType
+  searchType: TradeSearchType
   id: string
   url: string
   total: number
@@ -300,4 +298,9 @@ export interface TradeFetchResult {
   id: string
   listing: TradeFetchResultListing
   item: TradeFetchResultItem
+}
+
+export enum TradeSearchType {
+  NormalTrade = 'search',
+  BulkExchange = 'exchange',
 }

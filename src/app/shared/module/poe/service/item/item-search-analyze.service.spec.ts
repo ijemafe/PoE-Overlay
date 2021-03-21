@@ -3,11 +3,12 @@ import { Item, Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'
 import { forkJoin, of } from 'rxjs'
 import { flatMap } from 'rxjs/operators'
+import { TradeSearchType } from '@data/poe'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
 import { ItemSearchAnalyzeService } from './item-search-analyze.service'
-import { ItemSearchService, ItemSearchType } from './item-search.service'
+import { ItemSearchService } from './item-search.service'
 
 describe('ItemSearchAnalyzeService', () => {
   let sut: ItemSearchAnalyzeService
@@ -18,7 +19,7 @@ describe('ItemSearchAnalyzeService', () => {
   let itemSearchServiceSpy: jasmine.SpyObj<ItemSearchService>
 
   const mockSearchResult: any = {
-    searchType: ItemSearchType.Trade,
+    searchType: TradeSearchType.NormalTrade,
     id: 'y35jtR',
     hits: [
       '72fad07c5684c05f543504bf40c1739081e34a3c63f101b1c4477d8547763563',

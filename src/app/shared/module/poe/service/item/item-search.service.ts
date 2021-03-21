@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { CacheService, LoggerService } from '@app/service'
-import { ExchangeSearchRequest, TradeFetchResult, TradeHttpService, TradeSearchRequest } from '@data/poe'
+import { ExchangeSearchRequest, TradeFetchResult, TradeHttpService, TradeSearchRequest, TradeSearchType } from '@data/poe'
 import { Currency, Item, ItemCategory, Language } from '@shared/module/poe/type'
 import moment from 'moment'
 import { forkJoin, from, Observable, of } from 'rxjs'
@@ -25,17 +25,12 @@ export interface ItemSearchListing {
 }
 
 export interface ItemSearchResult {
-  searchType: ItemSearchType
+  searchType: TradeSearchType
   id: string
   language: Language
   url: string
   total: number
   hits: string[]
-}
-
-export enum ItemSearchType {
-  Trade = 'search',
-  BulkExchange = 'exchange',
 }
 
 @Injectable({

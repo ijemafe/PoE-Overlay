@@ -3,8 +3,8 @@ import { Item, Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
-import { ItemSearchService, ItemSearchType } from './item-search.service'
-import { TradeHttpService, TradeOrExchangeSearchResponse } from '@data/poe'
+import { ItemSearchService } from './item-search.service'
+import { TradeHttpService, TradeOrExchangeSearchResponse, TradeSearchType } from '@data/poe'
 import { of } from 'rxjs'
 
 describe('ItemSearchService', () => {
@@ -16,7 +16,7 @@ describe('ItemSearchService', () => {
   const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
   const mockStatic: any = require('doc/poe/api_trade_data_static.json')
   const mockSearchResult: TradeOrExchangeSearchResponse = {
-    searchType: ItemSearchType.Trade,
+    searchType: TradeSearchType.Trade,
     id: 'y35jtR',
     result: [
       '72fad07c5684c05f543504bf40c1739081e34a3c63f101b1c4477d8547763563',

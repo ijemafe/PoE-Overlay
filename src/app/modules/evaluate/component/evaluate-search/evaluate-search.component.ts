@@ -15,12 +15,12 @@ import {
   ItemSearchListing,
   ItemSearchResult,
   ItemSearchService,
-  ItemSearchType,
 } from '@shared/module/poe/service'
 import { Currency, Item } from '@shared/module/poe/type'
 import { ItemSearchOptions } from '@shared/module/poe/type/search.type'
 import { BehaviorSubject, Subject, Subscription, timer } from 'rxjs'
 import { debounceTime, takeUntil } from 'rxjs/operators'
+import { TradeSearchType } from '@data/poe'
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component'
 import {
   EvaluateResultView,
@@ -133,7 +133,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
 
 
     const search = this.search$.value
-    if (search?.searchType === ItemSearchType.BulkExchange) {
+    if (search?.searchType === TradeSearchType.BulkExchange) {
       this.clear()
       this.search(this.queryItem, this.currencies[index])
     } else {
@@ -148,7 +148,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
   }
 
   public useWideViewport(): boolean {
-    return this.search$.value?.searchType === ItemSearchType.BulkExchange
+    return this.search$.value?.searchType === TradeSearchType.BulkExchange
   }
 
   private initSearch(): void {
