@@ -58,7 +58,7 @@ describe('ItemSearchAnalyzeService', () => {
   ]
 
   beforeEach((done) => {
-    const itemSearchServiceSpyObj = jasmine.createSpyObj('ItemSearchService', ['search', 'list'])
+    const itemSearchServiceSpyObj = jasmine.createSpyObj('ItemSearchService', ['searchOrExchange', 'list'])
 
     TestBed.configureTestingModule({
       imports: [SharedModule],
