@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing'
+import { TestBed } from '@angular/core/testing'
 import { Item, Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'
 import { forkJoin, of } from 'rxjs'
@@ -8,7 +8,8 @@ import { BaseItemTypesService } from '../base-item-types/base-item-types.service
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
 import { ItemSearchAnalyzeService } from './item-search-analyze.service'
-import { ItemSearchService } from './item-search.service'
+import { ItemSearchListing, ItemSearchResult, ItemSearchService } from './item-search.service'
+import moment from 'moment'
 
 describe('ItemSearchAnalyzeService', () => {
   let sut: ItemSearchAnalyzeService
@@ -18,7 +19,7 @@ describe('ItemSearchAnalyzeService', () => {
   let baseItemTypesService: BaseItemTypesService
   let itemSearchServiceSpy: jasmine.SpyObj<ItemSearchService>
 
-  const mockSearchResult: any = {
+  const mockSearchResult: ItemSearchResult = {
     searchType: TradeSearchType.NormalTrade,
     id: 'y35jtR',
     hits: [
@@ -30,10 +31,10 @@ describe('ItemSearchAnalyzeService', () => {
     url: 'https://www.pathofexile.com/trade/search/Delirum/y35jtR',
   }
 
-  const mockListResult: any = [
+  const mockListResult: ItemSearchListing[] = [
     {
       seller: 'Lord_Mohamed',
-      indexed: '2020-06-12T13:49:07.000Z',
+      indexed: moment('2020-06-12T13:49:07.000Z'),
       currency: {
         id: 'jew',
         nameType: "Jeweller's Orb",
@@ -42,10 +43,12 @@ describe('ItemSearchAnalyzeService', () => {
       },
       amount: 1,
       age: '4 days ago',
+      priceNumerator: 1,
+      priceDenominator: 1,
     },
     {
       seller: 'Lord_Mohamed',
-      indexed: '2020-06-13T12:54:38.000Z',
+      indexed: moment('2020-06-13T12:54:38.000Z'),
       currency: {
         id: 'alch',
         nameType: 'Orb of Alchemy',
@@ -54,11 +57,16 @@ describe('ItemSearchAnalyzeService', () => {
       },
       amount: 1,
       age: '3 days ago',
+      priceNumerator: 1,
+      priceDenominator: 1,
     },
   ]
 
   beforeEach((done) => {
-    const itemSearchServiceSpyObj = jasmine.createSpyObj('ItemSearchService', ['searchOrExchange', 'list'])
+    const itemSearchServiceSpyObj = jasmine.createSpyObj('ItemSearchService', [
+      'searchOrExchange',
+      'list',
+    ])
 
     TestBed.configureTestingModule({
       imports: [SharedModule],
@@ -88,7 +96,9 @@ describe('ItemSearchAnalyzeService', () => {
     itemSearchServiceSpy.list.and.returnValue(of(mockListResult))
 
     forkJoin([
-      searchService.searchOrExchange(requestedItem).pipe(flatMap((result) => searchService.list(result, 10))),
+      searchService
+        .searchOrExchange(requestedItem)
+        .pipe(flatMap((result) => searchService.list(result, 10))),
       currencyService.searchById('chaos'),
     ]).subscribe(
       (results) => {
