@@ -155,12 +155,11 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
     Object.getOwnPropertyNames(pseudos).forEach((tradeId) => {
       const pseudo = pseudos[tradeId]
       if (PSEUDO_MODIFIERS[tradeId]) {
-        const predicate = Object.getOwnPropertyNames(pseudo.text[this.settings.language])[0]
         const key = `${StatType.Pseudo}.${tradeId}`
         const item: StatSelectListItem = {
           key,
           type: StatType.Pseudo,
-          text: this.statsService.translate(pseudo, predicate, this.settings.language),
+          text: this.statsService.translate(pseudo, 0, this.settings.language),
           selected: !!this.settings.evaluateQueryDefaultStats[key],
         }
         items.push(item)
@@ -181,15 +180,16 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
         const stat = stats[tradeId]
         const localStat = stat.text[this.settings.language]
         if (localStat) {
-          const predicate = Object.getOwnPropertyNames(localStat)[0]
-          const key = `${type}.${tradeId}`
-          const item: StatSelectListItem = {
-            key,
-            type,
-            text: this.statsService.translate(stat, predicate, this.settings.language),
-            selected: !!this.settings.evaluateQueryDefaultStats[key],
-          }
-          items.push(item)
+          localStat.forEach((_, index) => {
+            const key = `${type}.${tradeId}`
+            const item: StatSelectListItem = {
+              key,
+              type,
+              text: this.statsService.translate(stat, index, this.settings.language),
+              selected: !!this.settings.evaluateQueryDefaultStats[key],
+            }
+            items.push(item)
+          })
         } else {
           console.warn(`Stat with ${tradeId} not found in ${this.settings.language}.`)
         }

@@ -195,6 +195,7 @@ export enum ItemGemQualityType {
 
 export interface ItemStat {
   id: string
+  predicateIndex: number
   predicate: string
   tradeId: string
   mod: string

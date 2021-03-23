@@ -56,6 +56,7 @@ export class ItemPseudoProcessorService {
       const itemStat: ItemStat = {
         id,
         type: StatType.Pseudo,
+        predicateIndex: 0,
         predicate: '#',
         tradeId: id,
         values: values.map((x: number) => ({ text: `${+x.toFixed(2)}` })),
