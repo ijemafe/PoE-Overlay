@@ -247,7 +247,7 @@ export interface FilterOptionDiscriminator extends FilterOption {
   discriminator?: string
 }
 
-export interface Exchange {
+interface Exchange {
   status?: FilterOption
   want?: string[]
   have?: string[]
@@ -290,7 +290,7 @@ export interface TradeFetchResultListing {
   account: TradeFetchResultAccount
 }
 
-export interface TradeFetchResultItem {
+interface TradeFetchResultItem {
   note?: string
 }
 
