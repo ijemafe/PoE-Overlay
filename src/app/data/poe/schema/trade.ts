@@ -54,16 +54,15 @@ export interface TradeStaticResultEntry {
 
 export enum TradeStaticResultId {
   Currency = 'Currency',
+  Splinters = 'Splinters',
   Fragments = 'Fragments',
+  DeliriumOrbs = 'DeliriumOrbs',
   Catalysts = 'Catalysts',
   Oils = 'Oils',
   Incubators = 'Incubators',
   Scarabs = 'Scarabs',
   DelveResonators = 'DelveResonators',
   DelveFossils = 'DelveFossils',
-  Vials = 'Vials',
-  Nets = 'Nets',
-  Leaguestones = 'Leaguestones',
   Essences = 'Essences',
   Cards = 'Cards',
   MapsTier1 = 'MapsTier1',
@@ -248,6 +247,12 @@ export interface FilterOptionDiscriminator extends FilterOption {
   discriminator?: string
 }
 
+interface Exchange {
+  status?: FilterOption
+  want?: string[]
+  have?: string[]
+}
+
 export interface Sort {
   price?: string
 }
@@ -257,10 +262,16 @@ export interface TradeSearchRequest {
   sort: Sort
 }
 
-export interface TradeSearchResponse extends TradeResponse<string> {
+export interface TradeOrExchangeSearchResponse extends TradeResponse<string> {
+  searchType: TradeSearchType
   id: string
   url: string
   total: number
+}
+
+export interface ExchangeSearchRequest {
+  exchange: Exchange
+  sort: Sort
 }
 
 export interface TradeFetchResultPrice {
@@ -279,7 +290,17 @@ export interface TradeFetchResultListing {
   account: TradeFetchResultAccount
 }
 
+interface TradeFetchResultItem {
+  note?: string
+}
+
 export interface TradeFetchResult {
   id: string
   listing: TradeFetchResultListing
+  item: TradeFetchResultItem
+}
+
+export enum TradeSearchType {
+  NormalTrade = 'search',
+  BulkExchange = 'exchange',
 }

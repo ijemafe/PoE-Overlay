@@ -3,6 +3,7 @@ import { CurrenciesProvider } from '@shared/module/poe/provider'
 import { Currency, Language } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
+import { TradeStaticResultId } from '../../../../../data/poe'
 import { ContextService } from '../context.service'
 
 const CACHE_SIZE = 1
@@ -23,7 +24,7 @@ export class CurrencyService {
   public get(language?: Language): Observable<Currency[]> {
     language = language || this.context.get().language
 
-    return this.currenciesProvider.provide(language)
+    return this.currenciesProvider.provide(language, TradeStaticResultId.Currency)
   }
 
   public searchById(id: string, language?: Language): Observable<Currency> {
