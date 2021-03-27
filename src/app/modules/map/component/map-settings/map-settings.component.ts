@@ -109,11 +109,14 @@ export class MapSettingsComponent implements UserSettingsComponent {
 
         const localStat = stat.text[this.settings.language]
         if (localStat) {
-          const predicates = Object.getOwnPropertyNames(localStat)
-          const predicate = predicates.find((x) => (x[0] === 'N' && stat.negated) || !stat.negated)
+          const statDescIndex = localStat.findIndex(
+            (statDesc) =>
+              (statDesc[Object.getOwnPropertyNames(statDesc)[0]][0] === 'N' && stat.negated) ||
+              !stat.negated
+          )
           const item: SelectListItem = {
             key,
-            text: this.statsService.translate(stat, predicate, this.settings.language),
+            text: this.statsService.translate(stat, statDescIndex, this.settings.language),
             selected: !!this.settings.mapInfoWarningStats[key],
           }
           items.push(item)

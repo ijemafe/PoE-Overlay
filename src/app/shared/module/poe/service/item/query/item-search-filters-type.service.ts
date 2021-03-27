@@ -98,6 +98,8 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.Map:
       // monster
       case ItemCategory.MonsterBeast:
+      // watchstones
+      case ItemCategory.Watchstone:
         query.filters.type_filters.filters.rarity = {
           option: item.rarity === ItemRarity.Unique ? ItemRarity.Unique : ItemRarity.NonUnique,
         }
@@ -110,7 +112,6 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.GemActivegem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
-      case ItemCategory.Watchstone:
       case ItemCategory.Leaguestone:
       // currency
       case ItemCategory.Currency:
@@ -127,6 +128,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.CurrencySeedBooster:
       // map
       case ItemCategory.MapFragment:
+      case ItemCategory.MapInvitation:
       case ItemCategory.MapScarab:
       // divination card
       case ItemCategory.Card:
@@ -135,7 +137,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.HeistGear:
       case ItemCategory.HeistTool:
       case ItemCategory.HeistCloak:
-      case ItemCategory.HeistUtility:
+      case ItemCategory.HeistBrooch:
       case ItemCategory.HeistMission:
       case ItemCategory.HeistContract:
       case ItemCategory.HeistBlueprint:

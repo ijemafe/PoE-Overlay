@@ -20,10 +20,10 @@ export class ItemSectionProphecyParserService implements ItemSectionParserServic
   public section = ItemSection.Prophecy
 
   public parse(item: ExportedItem, target: Item): Section {
-    if (target.category != ItemCategory.Prophecy) {
+    if (target.category !== ItemCategory.Prophecy) {
       return null
     }
-    
+
     const phrases = this.clientString.translateMultiple(new RegExp('^Prophecy(?!(Tab|Popup))'))
 
     const prophecySection = item.sections.find(

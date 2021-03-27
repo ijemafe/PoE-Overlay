@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { CurrencyFrameComponent } from './component/currency-frame/currency-frame.component'
+import { CurrencyRatioFrameComponent } from './component/currency-ratio-frame/currency-ratio-frame.component'
 import { ItemFrameHeaderComponent } from './component/item-frame-header/item-frame-header.component'
 import { ItemFrameInfluencesComponent } from './component/item-frame-influences/item-frame-influences.component'
 import { ItemFrameLevelRequirementsComponent } from './component/item-frame-level-requirements/item-frame-level-requirements.component'
@@ -19,11 +20,13 @@ import { StatGroupPipe } from './pipe/stat-group.pipe'
 import { StatTransformPipe } from './pipe/stat-transform.pipe'
 import { WordPipe } from './pipe/word.pipe'
 import { ItemFrameValueInputComponent } from './component/item-frame-value-input/item-frame-value-input.component'
+import { ItemFrameAnnointmentComponent } from './component/item-frame-annointment/item-frame-annointment.component'
 
 @NgModule({
   declarations: [
     ItemFrameComponent,
     CurrencyFrameComponent,
+    CurrencyRatioFrameComponent,
     ClientStringPipe,
     StatGroupPipe,
     StatTransformPipe,
@@ -41,11 +44,13 @@ import { ItemFrameValueInputComponent } from './component/item-frame-value-input
     ItemFrameStatsComponent,
     ItemFrameStateComponent,
     ItemFrameValueInputComponent,
+    ItemFrameAnnointmentComponent,
   ],
   imports: [BrowserModule],
   exports: [
     ItemFrameComponent,
     CurrencyFrameComponent,
+    CurrencyRatioFrameComponent,
     ClientStringPipe,
     WordPipe,
     BaseItemTypePipe,

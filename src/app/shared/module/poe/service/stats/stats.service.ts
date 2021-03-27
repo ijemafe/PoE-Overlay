@@ -57,16 +57,17 @@ export class StatsService {
     private readonly statsIndistinguishableProvider: StatsIndistinguishableProvider
   ) {}
 
-  public translate(stat: Stat, predicate: string, language?: Language): string {
+  public translate(stat: Stat, statDescIndex: number, language?: Language): string {
     language = language || this.context.get().language
 
-    if (!stat.text[language] || !stat.text[language][predicate]) {
+    if (!stat.text[language] || statDescIndex < 0 || statDescIndex >= stat.text[language].length) {
       return `untranslated: '${stat.id}' for language: '${Language[language]}'`
     }
 
-    const result = stat.text[language][predicate]
-    return result
-      .slice(1, result.length - 1)
+    const statDesc = stat.text[language][statDescIndex]
+    const regex = statDesc[Object.getOwnPropertyNames(statDesc)[0]]
+    return regex
+      .slice(1, regex.length - 1)
       .split(VALUE_PLACEHOLDER)
       .map((part) =>
         part
@@ -80,15 +81,25 @@ export class StatsService {
     language = language || this.context.get().language
 
     const stats = this.statsProvider.provide(stat.type)
+    const tradeStat = stats[stat.tradeId]
+    const localStat = tradeStat?.text[language]
     if (
-      !stats[stat.tradeId] ||
-      !stats[stat.tradeId].text[language] ||
-      !stats[stat.tradeId].text[language][stat.predicate]
+      !tradeStat ||
+      !localStat ||
+      stat.predicateIndex < 0 ||
+      stat.predicateIndex >= localStat.length
     ) {
       return [`untranslated: '${stat.type}.${stat.tradeId}' for language: '${Language[language]}'`]
     }
 
-    const result = stats[stat.tradeId].text[language][stat.predicate]
+    const statDesc = localStat[stat.predicateIndex]
+    if (!statDesc) {
+      return [
+        `untranslated: '${stat.type}.${stat.tradeId}' (predicate '${stat.predicate}') for language: '${Language[language]}'`,
+      ]
+    }
+
+    const result = statDesc[Object.getOwnPropertyNames(statDesc)[0]]
     return result
       .slice(1, result.length - 1)
       .split(VALUE_PLACEHOLDER)
@@ -146,19 +157,16 @@ export class StatsService {
 
         const stat = stats[tradeId]
 
-        const predicates = stat.text[language]
-        for (const predicate in predicates) {
-          if (!predicates.hasOwnProperty(predicate)) {
-            continue
+        const statDescs = stat.text[language]
+        statDescs.forEach((statDesc, statDescIndex) => {
+          const predicate = Object.getOwnPropertyNames(statDesc)[0]
+          const regex = statDesc[predicate]
+          if (regex.length <= 0) {
+            return
           }
 
-          const value = predicates[predicate]
-          if (value.length <= 0) {
-            continue
-          }
-
-          const key = `${type}_${tradeId}_${predicate}`
-          const expr = this.cache[key] || (this.cache[key] = new RegExp(value, 'm'))
+          const key = `${type}_${tradeId}_${statDescIndex}`
+          const expr = this.cache[key] || (this.cache[key] = new RegExp(regex, 'm'))
           for (let index = search.sections.length - 1; index >= 0; --index) {
             const section = search.sections[index]
 
@@ -169,7 +177,7 @@ export class StatsService {
             }
 
             // Check if we're explicitly dealing with maps and map mods
-            if (stat.mod == "maps" && !options.map) {
+            if (stat.mod === 'maps' && !options.map) {
               continue
             }
 
@@ -198,21 +206,24 @@ export class StatsService {
 
             const sectionText = test[0]
             let matchedText = sectionText
+            let matchedIndex = statDescIndex
             let matchedPredicate = predicate
             let matchedValues = test.slice(1).map((x) => ({ text: x }))
 
-            // Check if your predicate uses a single number (e.g. '1 Added Passive Skill is a Jewel Socket' or 'Bow Attacks fire an additional Arrow')
+            // Check if your predicate uses a single number
+            // (e.g. '1 Added Passive Skill is a Jewel Socket' or 'Bow Attacks fire an additional Arrow')
             if (predicate === '1' && stat.option !== true) {
-              const predicateArray: string[] = []
-              for (const otherPredicate in predicates) {
-                predicateArray.push(otherPredicate)
-              }
               // Check if the 'next' predicate is an 'any' ('#') number predicate, if it is, then use it accordingly
-              let otherPredicate = predicateArray[predicateArray.indexOf(predicate) + 1]
-              if (otherPredicate !== undefined && otherPredicate.indexOf('#') !== -1) {
-                matchedPredicate = otherPredicate
-                matchedText = predicates[otherPredicate]
-                matchedValues = [{ text: '1' }]
+              const nextIndex = statDescIndex + 1
+              const nextStatDesc = statDescs[nextIndex]
+              if (nextStatDesc) {
+                const nextStatPredicate = Object.getOwnPropertyNames(nextStatDesc)[0]
+                if (nextStatPredicate.indexOf('#') !== -1) {
+                  matchedIndex = nextIndex
+                  matchedPredicate = nextStatPredicate
+                  matchedText = nextStatDesc[nextStatPredicate]
+                  matchedValues = [{ text: '1' }]
+                }
               }
             }
 
@@ -221,6 +232,7 @@ export class StatsService {
               mod: stat.mod,
               option: stat.option,
               negated: stat.negated,
+              predicateIndex: matchedIndex,
               predicate: matchedPredicate,
               type,
               tradeId,
@@ -243,7 +255,7 @@ export class StatsService {
               search.sections.splice(index, 1)
             }
           }
-        }
+        })
 
         if (search.sections.length === 0) {
           return

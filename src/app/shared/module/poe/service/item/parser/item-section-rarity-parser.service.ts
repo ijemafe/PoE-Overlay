@@ -79,7 +79,9 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     }
 
     // Check for blighted map
-    const blightedMapItemNameDisplay = this.clientString.translate('InfectedMap').replace('{0}', this.baseItemTypesService.translate(target.typeId));
+    const blightedMapItemNameDisplay = this.clientString
+      .translate('InfectedMap')
+      .replace('{0}', this.baseItemTypesService.translate(target.typeId))
     if (target.type === blightedMapItemNameDisplay) {
       target.blighted = true
     }
@@ -146,9 +148,12 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       // Check for alternate quality
       target.properties.gemQualityType = ItemGemQualityType.Default
 
-      const alternateQualityPhrases = this.getAlternateQualityGemNamesPhrases();
+      const alternateQualityPhrases = this.getAlternateQualityGemNamesPhrases()
       for (const alternateQualityPhrase of alternateQualityPhrases) {
-        const alternateQualityGemNameDisplay = alternateQualityPhrase.alternateQualityText.replace('{0}', this.baseItemTypesService.translate(target.typeId))
+        const alternateQualityGemNameDisplay = alternateQualityPhrase.alternateQualityText.replace(
+          '{0}',
+          this.baseItemTypesService.translate(target.typeId)
+        )
         if (target.type === alternateQualityGemNameDisplay) {
           target.properties.gemQualityType = alternateQualityPhrase.gemQualityType
           break

@@ -53,6 +53,9 @@ export class ItemFrameComponent implements OnInit {
   @Input()
   public filterOptionsOpen = false
 
+  @Input()
+  public showAnnointmentOils = false
+
   public req: boolean
   public sockets: boolean
   public stats: boolean

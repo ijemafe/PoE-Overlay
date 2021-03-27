@@ -20,6 +20,7 @@ import { Currency, Item } from '@shared/module/poe/type'
 import { ItemSearchOptions } from '@shared/module/poe/type/search.type'
 import { BehaviorSubject, Subject, Subscription, timer } from 'rxjs'
 import { debounceTime, takeUntil } from 'rxjs/operators'
+import { TradeSearchType } from '@data/poe'
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component'
 import {
   EvaluateResultView,
@@ -91,6 +92,11 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
     this.initSearch()
   }
 
+  public onRetryClick(): void {
+    this.clear()
+    this.search(this.queryItem)
+  }
+
   public onCurrencyClick(event: MouseEvent): void {
     const search = this.search$.value
     if (search?.url?.length) {
@@ -125,13 +131,23 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
       index = this.currencies.length - 1
     }
 
-    this.result$.next(null)
-    this.analyze(listings, this.currencies[index])
+    const search = this.search$.value
+    if (search?.searchType === TradeSearchType.BulkExchange) {
+      this.clear()
+      this.search(this.queryItem, this.currencies[index])
+    } else {
+      this.result$.next(null)
+      this.analyze(listings, this.currencies[index])
+    }
   }
 
   public onAmountSelect(amount: number, currency?: Currency): void {
     currency = currency || this.result$.value.currency
     this.evaluateResult.next({ amount, currency })
+  }
+
+  public useWideViewport(): boolean {
+    return this.search$.value?.searchType === TradeSearchType.BulkExchange
   }
 
   private initSearch(): void {
@@ -168,13 +184,14 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
     })
   }
 
-  private search(item: Item): void {
+  private search(item: Item, currency?: Currency): void {
     this.searched$.next(true)
     const options: ItemSearchOptions = {
       ...this.options,
     }
+    currency = currency || this.currencies[0]
     this.searchSubscription = this.itemSearchService
-      .search(item, options)
+      .searchOrExchange(item, options, currency)
       .pipe(takeUntil(this.queryItemChange))
       .subscribe(
         (search) => {
@@ -182,14 +199,14 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
           if (search.total > 0) {
             const count = Math.min(this.options.fetchCount, search.total)
             this.count$.next(count)
-            this.list(search)
+            this.list(search, currency)
           }
         },
         (error) => this.handleError(error)
       )
   }
 
-  private list(search: ItemSearchResult): void {
+  private list(search: ItemSearchResult, currency?: Currency): void {
     this.listSubscription = this.itemSearchService
       .list(search, this.options.fetchCount)
       .pipe(takeUntil(this.queryItemChange))
@@ -197,7 +214,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
         (listings) => {
           this.listings$.next(listings)
           if (listings.length > 0) {
-            this.analyze(listings)
+            this.analyze(listings, currency)
           }
         },
         (error) => this.handleError(error)
@@ -220,6 +237,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
     this.search$.next(null)
     this.listings$.next(null)
     this.result$.next(null)
+    this.listSubscription?.unsubscribe()
   }
 
   private handleError(error: any): void {

@@ -8,6 +8,7 @@ import { ItemOverviewResponse } from '../schema/item-overview'
 
 export enum ItemOverviewType {
   Seed = 'Seed',
+  Invitation = 'Invitation',
   DeliriumOrb = 'DeliriumOrb',
   Watchstone = 'Watchstone',
   Oil = 'Oil',
@@ -32,6 +33,7 @@ export enum ItemOverviewType {
 
 const PATH_TYPE_MAP = {
   [ItemOverviewType.Seed]: 'seeds',
+  [ItemOverviewType.Invitation]: 'invitations',
   [ItemOverviewType.DeliriumOrb]: 'delirium-orbs',
   [ItemOverviewType.Watchstone]: 'watchstones',
   [ItemOverviewType.Oil]: 'oils',

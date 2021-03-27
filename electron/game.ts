@@ -3,19 +3,32 @@ import * as path from 'path'
 import { getActiveWindow, Window } from './window'
 
 const POE_NAMES = [
+  // Epic Games Store
+  'pathofexile_x64egs.exe',
+  'pathofexileegs.exe',
+  'pathofexile_x64egs',
+  'pathofexileegs',
+
+  // Korean
   'pathofexile_x64_kg.exe',
   'pathofexile_kg.exe',
-  'pathofexile_x64steam.exe',
-  'pathofexilesteam.exe',
-  'pathofexile_x64.exe',
-  'pathofexile.exe',
   'pathofexile_x64_kg',
   'pathofexile_kg',
+
+  // Steam
+  'pathofexile_x64steam.exe',
+  'pathofexilesteam.exe',
   'pathofexile_x64steam',
   'pathofexilesteam',
+
+  // Standalone
+  'pathofexile_x64.exe',
+  'pathofexile.exe',
   'pathofexile_x64',
   'pathofexile',
-  'wine64-preloader', // linux
+
+  // Linux
+  'wine64-preloader',
 ]
 
 const POE_TITLES = ['Path of Exile']

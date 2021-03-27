@@ -18,26 +18,26 @@ export class ItemSearchFiltersMapService implements ItemSearchFiltersService {
     const prop = item.properties
     if (prop.mapTier) {
       query.filters.map_filters.filters.map_tier = {
-        min: +prop.mapTier.value,
-        max: +prop.mapTier.value,
+        min: +prop.mapTier.value.value,
+        max: +prop.mapTier.value.value,
       }
     }
 
     if (prop.mapQuantity) {
       query.filters.map_filters.filters.map_iiq = {
-        min: +prop.mapQuantity.value.replace('%', '').replace('+', ''),
+        min: prop.mapQuantity.value.value,
       }
     }
 
     if (prop.mapRarity) {
       query.filters.map_filters.filters.map_iir = {
-        min: +prop.mapRarity.value.replace('%', '').replace('+', ''),
+        min: prop.mapRarity.value.value,
       }
     }
 
     if (prop.mapPacksize) {
       query.filters.map_filters.filters.map_packsize = {
-        min: +prop.mapPacksize.value.replace('%', '').replace('+', ''),
+        min: prop.mapPacksize.value.value,
       }
     }
   }

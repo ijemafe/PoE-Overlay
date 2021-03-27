@@ -90,6 +90,10 @@ export class ItemCategoryValuesProvider {
         const key = `${leagueId}_${ItemCategory.MapFragment}`
         return this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Fragment))
       }
+      case ItemCategory.MapInvitation: {
+        const key = `${leagueId}_${ItemCategory.MapInvitation}`
+        return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Invitation))
+      }
       case ItemCategory.Watchstone: {
         const key = `${leagueId}_${ItemCategory.Watchstone}`
         return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Watchstone))
@@ -196,7 +200,7 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.HeistGear:
       case ItemCategory.HeistTool:
       case ItemCategory.HeistCloak:
-      case ItemCategory.HeistUtility:
+      case ItemCategory.HeistBrooch:
       case ItemCategory.HeistMission:
       case ItemCategory.HeistContract:
       case ItemCategory.HeistBlueprint:
@@ -241,6 +245,26 @@ export class ItemCategoryValuesProvider {
             }
             return value
           }),
+        }
+        if (type === CurrencyOverviewType.Currency) {
+          // Explicitly add Chaos Orb to the list since this is the default exchange-currency (and thus not listed)
+          const chaosOrb: ItemCategoryValue = {
+            name: 'Chaos Orb',
+            type: undefined,
+            links: undefined,
+            mapTier: undefined,
+            levelRequired: undefined,
+            gemLevel: undefined,
+            gemQuality: undefined,
+            prophecyText: undefined,
+            corrupted: undefined,
+            relic: undefined,
+            change: 0,
+            history: [],
+            chaosAmount: 1,
+            url: response.url,
+          }
+          result.values.push(chaosOrb)
         }
         return result
       })

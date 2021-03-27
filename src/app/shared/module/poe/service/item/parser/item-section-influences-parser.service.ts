@@ -38,6 +38,8 @@ export class ItemSectionInfluencesParserService implements ItemSectionParserServ
       inf.warlord = this.parseInfluence(line, phrases[3], inf.warlord)
       inf.shaper = this.parseInfluence(line, phrases[4], inf.shaper)
       inf.elder = this.parseInfluence(line, phrases[5], inf.elder)
+      inf.fractured = this.parseInfluence(line, phrases[6], inf.fractured)
+      inf.synthesized = this.parseInfluence(line, phrases[7], inf.synthesized)
     }
 
     target.influences = inf
@@ -59,6 +61,8 @@ export class ItemSectionInfluencesParserService implements ItemSectionParserServ
       this.clientString.translate('ItemPopupWarlordItem'),
       this.clientString.translate('ItemPopupShaperItem'),
       this.clientString.translate('ItemPopupElderItem'),
+      this.clientString.translate('ItemPopupFracturedItem'),
+      this.clientString.translate('ItemPopupSynthesisedItem'),
     ]
   }
 }

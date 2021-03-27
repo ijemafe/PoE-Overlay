@@ -11,6 +11,7 @@
     [propertyMaxRange]="data.settings.evaluatePropertyMaxRange / 100"
     [opacity]="data.settings.dialogOpacity"
     [filterOptionsOpen]="filterOptionsOpen"
+    [showAnnointmentOils]="data.settings.evaluateShowAnnointmentOils"
   >
     <ng-container *ngIf="currencies$ | async as currencies; else loading">
       <app-evaluate-options

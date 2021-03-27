@@ -1,5 +1,50 @@
 # Changelog
 
+## 0.7.10 (2021-03-06)
+
+- Pseudo grouping no longer removes Stats from Unique Items
+- Fixed a parsing error for Non-Influenced items
+
+## 0.7.9 (2021-03-06)
+
+- Updated assets to support 3.13.1e
+  - This fixed certain watchstone modifiers not being found/parsed when evaluating the item
+- Added support to detect Fractured and Synthesized item 'influences'
+- Pseudo grouping no longer removes Fractured or Synthesized Implicits stats
+- Fixed 'Map Tier' not being taken into account when evaluating the item or retrieving the item exchange rate
+- Fixed Critical Strike Chance and Attacks Per Second decimal parsing ([#185](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/185))
+
+## 0.7.8 (2021-02-18)
+
+- Added support to show annointment oils (toggleable in the settings) ([#170](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/170))
+- Added support for Maven invitations
+- Fixed the following indistinguishable stats:
+  - Local/global (flat) evation rating
+  - Increased time before lockdown
+  - Local/global % evasion rating
+  - Local/global (flat) energy shield ([#176](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/176))
+  - % of recovery applied instantly ([#175](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/175))
+  - Recover % mana on kill
+  - Trigger level # assassin's mark when you hit a rare or unique enemy
+- Fixed flask parsing (it included unsearchable implicit stats while it shouldn't have)
+- Fixed Watchstone item search filter category (it now takes item rarity into account)
+- Fixed Heist equipment not using their respective categories
+- Fixed EGS client detection
+- Fixed an issue with number parsing related to decimal separators
+
+## 0.7.7 (2021-01-27)
+
+- Updated assets to support 3.13.0c
+- Fixed currency exchange rate rounding ([#171](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/171))
+- Fixed an issue with the '10% chance to gain Onslaught for 10 seconds on kill' stat not being recognised ([#172](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/172))
+
+## 0.7.6 (2021-01-15)
+
+- Updated assets to support 3.13.0 (Ritual League)
+- Added support for the Epic Games Store PoE Client
+- Fixed Chaos Orb currency not having/showing an exchange rate
+- Changed how cache validity & expiration works internally (makes it easier to debug and test features that cache results)
+
 ## 0.7.5 (2020-12-27)
 
 - Added support for Alternate Quality Gems (price checking and exchange rate look-ups)

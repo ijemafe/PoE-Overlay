@@ -16,26 +16,31 @@ export class CurrenciesProvider {
     private readonly cache: CacheService
   ) {}
 
-  public provide(language: Language): Observable<Currency[]> {
-    const key = `currencies_${language}`
-    return this.cache.proxy(key, () => this.fetch(language), CACHE_EXPIRY)
+  public provide(language: Language, groupId?: PoE.TradeStaticResultId): Observable<Currency[]> {
+    const groupKey = groupId?.toLowerCase() || 'all'
+    const key = `${groupKey}_${language}`
+    return this.cache.proxy(key, () => this.fetch(language, groupId), CACHE_EXPIRY)
   }
 
-  private fetch(language: Language): Observable<Currency[]> {
+  private fetch(language: Language, groupId?: PoE.TradeStaticResultId): Observable<Currency[]> {
     return this.tradeHttpService.getStatic(language).pipe(
       map((response) => {
-        const currencyGroup = response.result.find((group) => group.id === 'Currency')
-        if (!currencyGroup) {
-          return []
+        let result = response.result
+        if (groupId) {
+          result = result.filter((group) => group.id === groupId)
         }
-        return currencyGroup.entries.map((entry) => {
-          const currency: Currency = {
-            id: entry.id,
-            nameType: entry.text,
-            image: entry.image,
-          }
-          return currency
-        })
+        return [].concat(
+          ...result.map((group) =>
+            group.entries.map((entry) => {
+              const currency: Currency = {
+                id: entry.id,
+                nameType: entry.text,
+                image: entry.image,
+              }
+              return currency
+            })
+          )
+        )
       })
     )
   }

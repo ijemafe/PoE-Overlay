@@ -15,9 +15,11 @@ export interface Stat {
   mod?: string
   negated?: boolean
   text: {
-    [language: number]: {
-      [predicate: string]: string
-    }
+    [language: number]: StatDesc[]
   }
   option?: boolean
+}
+
+export interface StatDesc {
+  [predicate: string]: string
 }

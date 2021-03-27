@@ -23,6 +23,9 @@ export class ItemFrameStatsComponent {
   @Input()
   public modifierMaxRange: number
 
+  @Input()
+  public showAnnointmentOils: boolean
+
   public getValueClass(id: string): string {
     if (!id || id.length === 0) {
       return ''
@@ -42,5 +45,9 @@ export class ItemFrameStatsComponent {
     }
 
     return ''
+  }
+
+  public isAnnointmentStat(id: string): boolean {
+    return id === 'mod_granted_passive_hash'
   }
 }

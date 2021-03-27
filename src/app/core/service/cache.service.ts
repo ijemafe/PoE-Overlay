@@ -6,7 +6,9 @@ import { StorageService } from './storage.service'
 
 interface CacheEntry<TValue> {
   value: TValue
+  creation: number
   expiry: number
+  expired: number
 }
 
 @Injectable({
@@ -28,11 +30,17 @@ export class CacheService {
     return this.storage.get<CacheEntry<TValue>>(key).pipe(
       flatMap((entry) => {
         const now = Date.now()
-        if (entry && entry.expiry > now) {
+        if (
+          entry &&
+          ((entry.expiry === expiry && entry.expired > now) ||
+            (entry.expiry !== expiry && entry.creation + expiry > now))
+        ) {
           if (slidingExpiry) {
             this.storage.save(key, {
               value: entry.value,
-              expiry: now + expiry,
+              creation: now,
+              expiry,
+              expired: now + expiry,
             })
           }
           return of(entry.value)
@@ -43,7 +51,7 @@ export class CacheService {
               if (entry) {
                 this.logger.info(
                   `Could not update value for key: '${key}'. Using cached value from: '${new Date(
-                    entry.expiry
+                    entry.expired
                   ).toISOString()}'.`,
                   error
                 )
@@ -55,7 +63,9 @@ export class CacheService {
               this.cache[key] = undefined
               this.storage.save(key, {
                 value,
-                expiry: now + expiry,
+                creation: now,
+                expiry,
+                expired: now + expiry,
               })
             }),
             shareReplay(1)
@@ -75,7 +85,9 @@ export class CacheService {
     const now = Date.now()
     const result = this.storage.save(key, {
       value,
-      expiry: now + expiry,
+      creation: now,
+      expiry,
+      expired: now + expiry,
     })
     if (waitForResult) {
       return result.pipe(map(() => value))
@@ -90,7 +102,7 @@ export class CacheService {
   public clear(path: string): Observable<void> {
     const now = Date.now()
     return this.storage.delete<CacheEntry<any>>((key, value) => {
-      return key.startsWith(path) && value && value.expiry <= now
+      return key.startsWith(path) && value && value.expired <= now
     })
   }
 

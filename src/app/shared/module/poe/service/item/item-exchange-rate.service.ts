@@ -36,7 +36,7 @@ export class ItemExchangeRateService {
     private readonly currencySelectService: CurrencySelectService,
     private readonly baseItemTypesService: BaseItemTypesService,
     private readonly wordService: WordService,
-    private readonly clientString: ClientStringService,
+    private readonly clientString: ClientStringService
   ) {}
 
   public get(
@@ -62,11 +62,11 @@ export class ItemExchangeRateService {
                 values,
                 CurrencySelectStrategy.MinWithAtleast1
               )
-              const size = (item.properties?.stackSize?.value?.split('/') || ['1'])[0]
+              const size = item.properties?.stackSize?.value?.min || 1
               const result: ItemExchangeRateResult = {
-                amount: Math.ceil(values[index][0] * 100) / 100,
-                factor: +size.replace('.', ''),
-                inverseAmount: Math.ceil((1 / values[index][0]) * 100) / 100,
+                amount: values[index][0],
+                factor: size,
+                inverseAmount: 1 / values[index][0],
                 currency: currencies[index],
                 change: value.change,
                 history: value.history || [],
@@ -95,7 +95,7 @@ export class ItemExchangeRateService {
       return false
     }
 
-    const tier = +item.properties?.mapTier?.value
+    const tier = +item.properties?.mapTier?.value?.value
     const filterMapTier = (x: ItemCategoryValue) => {
       if (isNaN(tier) || x.mapTier === undefined) {
         return true
@@ -168,9 +168,9 @@ export class ItemExchangeRateService {
           case ItemCategory.CurrencyWildSeed:
           case ItemCategory.CurrencyVividSeed:
           case ItemCategory.CurrencyPrimalSeed:
-            return false;
+            return false
         }
-        return true;
+        return true
       }
       return x.levelRequired <= itemLevel
     }
@@ -192,7 +192,9 @@ export class ItemExchangeRateService {
         case ItemCategory.GemActivegem:
         case ItemCategory.GemSupportGem:
           if (item.properties?.gemQualityType) {
-            name = this.clientString.translate('GemAlternateQuality' + item.properties.gemQualityType + 'Affix').replace('{0}', name)
+            name = this.clientString
+              .translate('GemAlternateQuality' + item.properties.gemQualityType + 'Affix')
+              .replace('{0}', name)
           }
           break
       }
@@ -210,7 +212,7 @@ export class ItemExchangeRateService {
           return 0
       }
     }
-    
+
     return this.valuesProvider.provide(leagueId, item.rarity, item.category).pipe(
       map((response) => {
         const type = this.baseItemTypesService.translate(item.typeId, Language.English)
@@ -223,17 +225,18 @@ export class ItemExchangeRateService {
           results = results.filter((x) => filterName(x, name) && x.type === type && !x.relic)
         }
         // Apply generic filters
-        results = results.filter((x) =>
-          filterLinks(x) &&
-          filterMapTier(x) &&
-          filterGemLevel(x) &&
-          filterGemQuality(x) &&
-          filterProphecyText(x) &&
-          filterCorruption(x) &&
-          filterItemLevel(x)
+        results = results.filter(
+          (x) =>
+            filterLinks(x) &&
+            filterMapTier(x) &&
+            filterGemLevel(x) &&
+            filterGemQuality(x) &&
+            filterProphecyText(x) &&
+            filterCorruption(x) &&
+            filterItemLevel(x)
         )
         // Sort the results
-        results = results.sort(sortFiltered);
+        results = results.sort(sortFiltered)
         return results[0]
       })
     )

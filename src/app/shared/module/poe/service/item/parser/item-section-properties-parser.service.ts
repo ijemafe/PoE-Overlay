@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core'
 import {
   ExportedItem,
   Item,
-  ItemProperties,
   ItemProperty,
   ItemRarity,
   ItemSection,
@@ -56,39 +55,53 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
             phrases[0],
             props.weaponPhysicalDamage
           )
-          props.weaponElementalDamage = this.parseValueProperties(
+          props.weaponElementalDamage = this.parseValueProperty(
             line,
             phrases[1],
             props.weaponElementalDamage
           )
-          props.weaponChaosDamage = this.parseValueProperty(line, phrases[2], props.weaponChaosDamage)
+          props.weaponChaosDamage = this.parseValueProperty(
+            line,
+            phrases[2],
+            props.weaponChaosDamage
+          )
           props.weaponCriticalStrikeChance = this.parseValueProperty(
             line,
             phrases[3],
-            props.weaponCriticalStrikeChance
+            props.weaponCriticalStrikeChance,
+            2
           )
           props.weaponAttacksPerSecond = this.parseValueProperty(
             line,
             phrases[4],
-            props.weaponAttacksPerSecond
+            props.weaponAttacksPerSecond,
+            2
           )
           props.weaponRange = this.parseProperty(line, phrases[5], props.weaponRange)
-          props.shieldBlockChance = this.parseValueProperty(line, phrases[6], props.shieldBlockChance)
+          props.shieldBlockChance = this.parseValueProperty(
+            line,
+            phrases[6],
+            props.shieldBlockChance
+          )
           props.armourArmour = this.parseValueProperty(line, phrases[7], props.armourArmour)
           props.armourEvasionRating = this.parseValueProperty(
             line,
             phrases[8],
             props.armourEvasionRating
           )
-          props.armourEnergyShield = this.parseValueProperty(line, phrases[9], props.armourEnergyShield)
+          props.armourEnergyShield = this.parseValueProperty(
+            line,
+            phrases[9],
+            props.armourEnergyShield
+          )
           break
       }
-      props.stackSize = this.parseProperty(line, phrases[10], props.stackSize)
+      props.stackSize = this.parseValueProperty(line, phrases[10], props.stackSize)
       props.gemLevel = this.parseValueProperty(line, phrases[11], props.gemLevel)
-      props.mapTier = this.parseProperty(line, phrases[12], props.mapTier)
-      props.mapQuantity = this.parseProperty(line, phrases[13], props.mapQuantity)
-      props.mapRarity = this.parseProperty(line, phrases[14], props.mapRarity)
-      props.mapPacksize = this.parseProperty(line, phrases[15], props.mapPacksize)
+      props.mapTier = this.parseValueProperty(line, phrases[12], props.mapTier)
+      props.mapQuantity = this.parseValueProperty(line, phrases[13], props.mapQuantity)
+      props.mapRarity = this.parseValueProperty(line, phrases[14], props.mapRarity)
+      props.mapPacksize = this.parseValueProperty(line, phrases[15], props.mapPacksize)
       for (let quality = 0; quality < 8; quality++) {
         const old = props.quality
         props.quality = this.parseValueProperty(line, phrases[16 + quality], old)
@@ -104,72 +117,63 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
   }
 
   private parseProperty(line: string, phrase: string, prop: ItemProperty): ItemProperty {
-    return this.parseProperties(line, phrase, [prop])[0]
-  }
-
-  private parseProperties(line: string, phrase: string, props: ItemProperty[]): ItemProperty[] {
-    if (line.indexOf(phrase) !== 0) {
-      return props
+    const [text, augmented] = this.parsePhrase(line, phrase)
+    if (!text) {
+      return prop
     }
-    return line
-      .slice(phrase.length)
-      .split(',')
-      .map((text) => {
-        const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('{0}', '')
-        text = text.replace(max, '')
-        const property: ItemProperty = {
-          augmented: text.indexOf(AUGMENTED_PHRASE) !== -1,
-          value: text.replace(AUGMENTED_PHRASE, ''),
-        }
-        return property
-      })
+    const property: ItemProperty = {
+      augmented,
+      value: text,
+    }
+    return property
   }
 
   private parseValueProperty(
     line: string,
     phrase: string,
-    prop: ItemValueProperty
+    prop: ItemValueProperty,
+    numDecimals: number = 0
   ): ItemValueProperty {
-    return this.parseValueProperties(line, phrase, [prop])[0]
+    const [text, augmented] = this.parsePhrase(line, phrase)
+    if (!text) {
+      return prop
+    }
+    let itemValue: ItemValue
+    if (text.indexOf('/') !== -1) {
+      const splitted = text.split('/')
+      itemValue = {
+        text,
+        value: this.parseNumber(splitted[0], numDecimals),
+        min: this.parseNumber(splitted[0], numDecimals),
+        max: this.parseNumber(splitted[1], numDecimals),
+      }
+    } else {
+      itemValue = {
+        text,
+        value: this.parseNumber(text, numDecimals),
+      }
+    }
+    const property: ItemValueProperty = {
+      augmented,
+      value: itemValue,
+    }
+    return property
   }
 
-  private parseValueProperties(
-    line: string,
-    phrase: string,
-    props: ItemValueProperty[]
-  ): ItemValueProperty[] {
+  private parseNumber(text: string, numDecimals: number): number {
+    return +text.split(/[\+%,\. ]+/).join('') / Math.pow(10, numDecimals)
+  }
+
+  private parsePhrase(line: string, phrase: string): [string, boolean] {
     if (line.indexOf(phrase) !== 0) {
-      return props
+      return ['', false]
     }
-    return line
-      .slice(phrase.length)
-      .split(',')
-      .map((text) => {
-        const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('{0}', '')
-        text = text.replace(max, '')
-        const augmented = text.indexOf(AUGMENTED_PHRASE) !== -1
-        text = text.replace(AUGMENTED_PHRASE, '')
-        let itemValue: ItemValue
-        if (text.indexOf('/') !== -1) {
-          const splitted = text.split('/')
-          itemValue = {
-            text,
-            value: +splitted[0].replace('%', ''),
-            min: +splitted[0].replace('%', ''),
-            max: +splitted[1].replace('%', ''),
-          }
-        } else {
-          itemValue = {
-            text,
-            value: +text.replace('%', ''),
-          }
-        }
-        const property: ItemValueProperty = {
-          augmented,
-          value: itemValue,
-        }
-        return property
-      })
+    let text = line.slice(phrase.length)
+    const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('{0}', '')
+    text = text.replace(max, '')
+    const augmented = text.indexOf(AUGMENTED_PHRASE) !== -1
+    text = text.replace(AUGMENTED_PHRASE, '')
+    return [text, augmented]
   }
 
   private getPhrases(): string[] {

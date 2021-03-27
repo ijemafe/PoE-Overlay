@@ -91,6 +91,7 @@ export enum ItemCategory {
   Flask = 'flask',
   Map = 'map',
   MapFragment = 'map.fragment',
+  MapInvitation = 'map.invitation',
   MapScarab = 'map.scarab',
   Watchstone = 'watchstone',
   Leaguestone = 'leaguestone',
@@ -102,7 +103,7 @@ export enum ItemCategory {
   HeistGear = 'heistequipment.heistweapon',
   HeistTool = 'heistequipment.heisttool',
   HeistCloak = 'heistequipment.heistutility',
-  HeistUtility = 'heistequipment.heistreward',
+  HeistBrooch = 'heistequipment.heistreward',
   HeistMission = 'heistmission',
   HeistContract = 'heistmission.contract',
   HeistBlueprint = 'heistmission.blueprint',
@@ -140,7 +141,7 @@ export interface ItemSocket {
 
 export interface ItemProperties {
   weaponPhysicalDamage?: ItemValueProperty
-  weaponElementalDamage?: ItemValueProperty[]
+  weaponElementalDamage?: ItemValueProperty
   weaponChaosDamage?: ItemValueProperty
   weaponCriticalStrikeChance?: ItemValueProperty
   weaponAttacksPerSecond?: ItemValueProperty
@@ -149,16 +150,16 @@ export interface ItemProperties {
   armourArmour?: ItemValueProperty
   armourEvasionRating?: ItemValueProperty
   armourEnergyShield?: ItemValueProperty
-  stackSize?: ItemProperty
+  stackSize?: ItemValueProperty
   gemLevel?: ItemValueProperty
   gemQualityType?: ItemGemQualityType
   quality?: ItemValueProperty
   qualityType?: ItemQualityType
   gemExperience?: ItemValueProperty
-  mapTier?: ItemProperty
-  mapQuantity?: ItemProperty
-  mapRarity?: ItemProperty
-  mapPacksize?: ItemProperty
+  mapTier?: ItemValueProperty
+  mapQuantity?: ItemValueProperty
+  mapRarity?: ItemValueProperty
+  mapPacksize?: ItemValueProperty
   prophecyText?: string
   durability?: ItemValueProperty
   storedExperience?: ItemValueProperty
@@ -194,6 +195,7 @@ export enum ItemGemQualityType {
 
 export interface ItemStat {
   id: string
+  predicateIndex: number
   predicate: string
   tradeId: string
   mod: string
@@ -218,6 +220,8 @@ export interface ItemInfluences {
   elder?: boolean
   redeemer?: boolean
   warlord?: boolean
+  fractured?: boolean
+  synthesized?: boolean
 }
 
 export interface ItemsMap {

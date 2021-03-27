@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core'
 import { CacheService, LoggerService } from '@app/service'
-import { TradeFetchResult, TradeHttpService, TradeSearchRequest } from '@data/poe'
-import { Currency, Item, Language } from '@shared/module/poe/type'
+import {
+  ExchangeSearchRequest,
+  TradeFetchResult,
+  TradeHttpService,
+  TradeSearchRequest,
+  TradeSearchType,
+} from '@data/poe'
+import { Currency, Item, ItemCategory, Language } from '@shared/module/poe/type'
 import moment from 'moment'
 import { forkJoin, from, Observable, of } from 'rxjs'
 import { flatMap, map, mergeMap, toArray } from 'rxjs/operators'
 import { ItemSearchIndexed, ItemSearchOptions } from '../../type/search.type'
+import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
 import { ItemSearchQueryService } from './query/item-search-query.service'
@@ -19,9 +26,12 @@ export interface ItemSearchListing {
   age: string
   currency: Currency
   amount: number
+  priceNumerator: number
+  priceDenominator: number
 }
 
 export interface ItemSearchResult {
+  searchType: TradeSearchType
   id: string
   language: Language
   url: string
@@ -36,61 +46,36 @@ export class ItemSearchService {
   constructor(
     private readonly context: ContextService,
     private readonly currencyService: CurrencyService,
+    private readonly baseItemTypesServices: BaseItemTypesService,
     private readonly requestService: ItemSearchQueryService,
     private readonly tradeService: TradeHttpService,
     private readonly cache: CacheService,
     private readonly logger: LoggerService
   ) {}
 
-  public search(requestedItem: Item, options?: ItemSearchOptions): Observable<ItemSearchResult> {
+  public searchOrExchange(
+    requestedItem: Item,
+    options?: ItemSearchOptions,
+    currency?: Currency
+  ): Observable<ItemSearchResult> {
     options = options || {}
     options.leagueId = options.leagueId || this.context.get().leagueId
     options.language = options.language || this.context.get().language
 
-    const request: TradeSearchRequest = {
-      sort: {
-        price: 'asc',
-      },
-      query: {
-        status: {
-          option: options.online ? 'online' : 'any',
-        },
-        filters: {
-          trade_filters: {
-            filters: {
-              sale_type: {
-                option: 'priced',
-              },
-            },
-          },
-        },
-        stats: [],
-      },
-    }
-
-    const { indexed } = options
-    if (indexed) {
-      request.query.filters.trade_filters.filters.indexed = {
-        option: indexed === ItemSearchIndexed.AnyTime ? null : indexed,
-      }
-    }
-
-    const { language, leagueId } = options
-    this.requestService.map(requestedItem, language, request.query)
-
-    return this.tradeService.search(request, language, leagueId).pipe(
-      map((response) => {
-        const { id, url, total } = response
-        const result: ItemSearchResult = {
-          id,
-          language,
-          url,
-          total,
-          hits: response.result || [],
+    switch (requestedItem.category) {
+      case ItemCategory.Currency:
+      case ItemCategory.CurrencyFossil:
+      case ItemCategory.CurrencyResonator:
+      case ItemCategory.CurrencyIncubator:
+      case ItemCategory.MapFragment:
+      case ItemCategory.MapScarab:
+      case ItemCategory.Card:
+        if (currency) {
+          return this.exchange(requestedItem, options, currency)
         }
-        return result
-      })
-    )
+        break
+    }
+    return this.search(requestedItem, options)
   }
 
   public list(search: ItemSearchResult, fetchCount: number): Observable<ItemSearchListing[]> {
@@ -158,6 +143,103 @@ export class ItemSearchService {
     )
   }
 
+  private search(requestedItem: Item, options: ItemSearchOptions): Observable<ItemSearchResult> {
+    const request: TradeSearchRequest = {
+      sort: {
+        price: 'asc',
+      },
+      query: {
+        status: {
+          option: options.online ? 'online' : 'any',
+        },
+        filters: {
+          trade_filters: {
+            filters: {
+              sale_type: {
+                option: 'priced',
+              },
+            },
+          },
+        },
+        stats: [],
+      },
+    }
+
+    const { indexed } = options
+    if (indexed) {
+      request.query.filters.trade_filters.filters.indexed = {
+        option: indexed === ItemSearchIndexed.AnyTime ? null : indexed,
+      }
+    }
+
+    const { language, leagueId } = options
+    this.requestService.map(requestedItem, language, request.query)
+
+    return this.tradeService.search(request, language, leagueId).pipe(
+      map((response) => {
+        const { id, url, total } = response
+        const result: ItemSearchResult = {
+          searchType: response.searchType,
+          id,
+          language,
+          url,
+          total,
+          hits: response.result || [],
+        }
+        return result
+      })
+    )
+  }
+
+  private exchange(
+    requestedItem: Item,
+    options: ItemSearchOptions,
+    currency: Currency
+  ): Observable<ItemSearchResult> {
+    const { online, language, leagueId } = options
+
+    return this.currencyService
+      .searchByNameType(
+        this.baseItemTypesServices.translate(requestedItem.typeId, language),
+        language
+      )
+      .pipe(
+        flatMap((requestedCurrency) => {
+          if (!requestedCurrency) {
+            return this.search(requestedItem, options)
+          }
+
+          const request: ExchangeSearchRequest = {
+            sort: {
+              price: 'asc',
+            },
+            exchange: {
+              status: {
+                option: online ? 'online' : 'any',
+              },
+              want: [requestedCurrency.id],
+              have: [currency.id],
+            },
+          }
+
+          return this.tradeService.exchange(request, language, leagueId).pipe(
+            map((response) => {
+              const { id, url, total } = response
+              const result: ItemSearchResult = {
+                searchType: response.searchType,
+                id,
+                language,
+                url,
+                total,
+                hits: response.result || [],
+              }
+              return result
+            })
+          )
+        })
+      )
+  }
+
   private mapResult(result: TradeFetchResult): Observable<ItemSearchListing> {
     if (
       !result ||
@@ -170,7 +252,7 @@ export class ItemSearchService {
       return of(undefined)
     }
 
-    const { listing } = result
+    const { listing, item } = result
 
     const indexed = moment(listing.indexed)
     if (!indexed.isValid()) {
@@ -191,6 +273,17 @@ export class ItemSearchService {
       return of(undefined)
     }
 
+    let priceNumerator = amount
+    let priceDenominator = 1
+
+    const { note } = item
+    const priceFraction =
+      note?.replace(price.type, '').replace(price.currency, '').trim().split('/') || []
+    if (priceFraction.length === 2) {
+      priceNumerator = +priceFraction[0]
+      priceDenominator = +priceFraction[1]
+    }
+
     const currencyId = price.currency
     return this.currencyService.searchById(currencyId).pipe(
       map((currency) => {
@@ -204,6 +297,8 @@ export class ItemSearchService {
           currency,
           amount,
           age: indexed.fromNow(),
+          priceNumerator,
+          priceDenominator,
         }
       })
     )

@@ -44,8 +44,10 @@ export class ItemFrameHeaderComponent {
   public getNameLabelType(item: Item): number {
     if (item.blighted) {
       return 1
-    }
-    else if (item.rarity == ItemRarity.Gem && item.properties.gemQualityType != ItemGemQualityType.Default) {
+    } else if (
+      item.rarity === ItemRarity.Gem &&
+      item.properties.gemQualityType !== ItemGemQualityType.Default
+    ) {
       return 2
     }
     return 0

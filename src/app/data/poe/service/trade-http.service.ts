@@ -6,14 +6,16 @@ import { Language } from '@shared/module/poe/type'
 import { Observable, of, throwError } from 'rxjs'
 import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
 import {
+  ExchangeSearchRequest,
   TradeFetchResult,
   TradeItemsResult,
   TradeLeaguesResult,
   TradeResponse,
   TradeSearchRequest,
-  TradeSearchResponse,
+  TradeOrExchangeSearchResponse,
   TradeStaticResult,
   TradeStatsResult,
+  TradeSearchType,
 } from '../schema/trade'
 import { TradeRateLimitService } from './trade-rate-limit.service'
 
@@ -55,24 +57,16 @@ export class TradeHttpService {
     request: TradeSearchRequest,
     language: Language,
     leagueId: string
-  ): Observable<TradeSearchResponse> {
-    const url = this.getApiUrl(`search/${encodeURIComponent(leagueId)}`, language)
-    return this.limit
-      .throttle('search', () =>
-        this.http.post<TradeSearchResponse>(url, request, {
-          withCredentials: true,
-          observe: 'response',
-        })
-      )
-      .pipe(
-        retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
-        ),
-        map((response) => {
-          response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`
-          return response
-        })
-      )
+  ): Observable<TradeOrExchangeSearchResponse> {
+    return this.searchOrExchange(request, language, leagueId, TradeSearchType.NormalTrade)
+  }
+
+  public exchange(
+    request: ExchangeSearchRequest,
+    language: Language,
+    leagueId: string
+  ): Observable<TradeOrExchangeSearchResponse> {
+    return this.searchOrExchange(request, language, leagueId, TradeSearchType.BulkExchange)
   }
 
   public fetch(
@@ -97,6 +91,32 @@ export class TradeHttpService {
         retryWhen((errors) =>
           errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
         )
+      )
+  }
+
+  private searchOrExchange(
+    request: TradeSearchRequest | ExchangeSearchRequest,
+    language: Language,
+    leagueId: string,
+    searchType: TradeSearchType
+  ): Observable<TradeOrExchangeSearchResponse> {
+    const url = this.getApiUrl(`${searchType}/${encodeURIComponent(leagueId)}`, language)
+    return this.limit
+      .throttle(searchType, () =>
+        this.http.post<TradeOrExchangeSearchResponse>(url, request, {
+          withCredentials: true,
+          observe: 'response',
+        })
+      )
+      .pipe(
+        retryWhen((errors) =>
+          errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+        ),
+        map((response) => {
+          response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`
+          response.searchType = searchType
+          return response
+        })
       )
   }
 
