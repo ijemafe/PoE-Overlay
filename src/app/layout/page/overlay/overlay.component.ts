@@ -59,9 +59,11 @@ export class OverlayComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.version$.next(this.app.version())
     this.initSettings()
+    this.window.enableTransparencyMouseFix()
   }
 
   public ngOnDestroy(): void {
+    this.window.disableTransparencyMouseFix(true)
     this.reset()
   }
 
@@ -148,6 +150,8 @@ export class OverlayComponent implements OnInit, OnDestroy {
         () => (this.userSettingsOpen = null)
       )
       this.reset()
+    } else {
+      this.renderer.restore('user-settings');
     }
   }
 

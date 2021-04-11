@@ -1,8 +1,9 @@
 import { Injectable, NgZone } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
 import { Rectangle } from '@app/type'
-import { BrowserWindow, Point, IpcRenderer } from 'electron'
+import { BrowserWindow, Point, IpcRenderer, Remote } from 'electron'
 import { Observable, Subject, BehaviorSubject } from 'rxjs'
+import { TransparencyMouseFix } from '../../transparency-mouse-fix'
 
 @Injectable({
   providedIn: 'root',
@@ -10,20 +11,35 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs'
 export class WindowService {
   public readonly gameBounds: BehaviorSubject<Rectangle>
 
+  // Don't remove this. We need to keep the instance, but don't actually use it (because all magic happens inside)
+  private transparencyMouseFix: TransparencyMouseFix
+
+  private readonly electronRemote: Remote
   private readonly ipcRenderer: IpcRenderer
   private readonly window: BrowserWindow
 
   constructor(private readonly ngZone: NgZone, electronProvider: ElectronProvider) {
     this.ipcRenderer = electronProvider.provideIpcRenderer()
-    const electron = electronProvider.provideRemote()
-    this.window = electron.getCurrentWindow()
-    this.gameBounds = new BehaviorSubject<Rectangle>(this.window?.getBounds() ?? {x: 0, y: 0, width: 0, height: 0})
+    this.electronRemote = electronProvider.provideRemote()
+    this.window = this.electronRemote.getCurrentWindow()
+    this.gameBounds = new BehaviorSubject<Rectangle>(this.window?.getBounds() ?? { x: 0, y: 0, width: 0, height: 0 })
   }
 
   public registerEvents(): void {
     this.ipcRenderer.on('game-bounds-change', (_, bounds: Rectangle) => {
       this.gameBounds.next(bounds)
     })
+  }
+
+  public enableTransparencyMouseFix() {
+    this.transparencyMouseFix = new TransparencyMouseFix(this.electronRemote)
+  }
+
+  public disableTransparencyMouseFix(ignoreMouse = false) {
+    this.transparencyMouseFix?.dispose()
+    this.transparencyMouseFix = null
+
+    this.window.setIgnoreMouseEvents(ignoreMouse, { forward: ignoreMouse})
   }
 
   public on(event: any): Observable<void> {
@@ -57,6 +73,18 @@ export class WindowService {
     this.window.show()
   }
 
+  public focus(): void {
+    this.window.focus()
+  }
+
+  public minimize(): void {
+    this.window.minimize()
+  }
+
+  public restore(): void {
+    this.window.restore()
+  }
+
   public close(): void {
     this.window.close()
   }
@@ -77,7 +105,7 @@ export class WindowService {
     if (focusable) {
       this.window.blur()
     }
-    this.window.setIgnoreMouseEvents(true)
+    this.window.setIgnoreMouseEvents(true, { forward: true })
     if (focusable) {
       this.window.setFocusable(false)
     }

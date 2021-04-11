@@ -55,7 +55,7 @@ export class UserSettingsComponent implements OnInit {
 
   public onSave(): void {
     this.save().subscribe(() => {
-      this.window.hide()
+      this.window.close()
     })
   }
 
@@ -64,7 +64,6 @@ export class UserSettingsComponent implements OnInit {
     const titlebar = new Titlebar({
       backgroundColor: Color.fromHex('#7f7f7f'),
       menu: null,
-      hideWhenClickingClose: true,
     })
 
     titlebar.on(

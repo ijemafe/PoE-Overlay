@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { IpcRenderer, Remote } from 'electron'
+import { IpcRenderer, Remote, IpcMain } from 'electron'
 
 type Electron = typeof Electron
 
@@ -23,5 +23,9 @@ export class ElectronProvider {
 
   public provideIpcRenderer(): IpcRenderer {
     return this.electron?.ipcRenderer
+  }
+
+  public provideIpcMain(): IpcMain {
+    return this.provideRemote().ipcMain
   }
 }

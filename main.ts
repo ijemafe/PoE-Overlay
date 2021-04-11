@@ -228,7 +228,7 @@ function createWindow(): BrowserWindow {
   })
   win.setSize(bounds.width, bounds.height)    // Explicitly set size after creating the window since some OS'es don't allow an initial size larger than the display's size.
   win.removeMenu()
-  win.setIgnoreMouseEvents(true)
+  win.setIgnoreMouseEvents(true, {forward: true})
 
   if (process.platform !== 'linux') {
     win.setAlwaysOnTop(true, 'pop-up-menu', 1)
@@ -261,7 +261,6 @@ ipcMain.on('open-route', (event, route) => {
         width: 1210,
         height: 700,
         frame: false,
-        closable: false,
         resizable: true,
         movable: true,
         webPreferences: {
@@ -275,19 +274,18 @@ ipcMain.on('open-route', (event, route) => {
 
       childs[route].removeMenu()
 
-      childs[route].once('close', () => {
+      childs[route].once('closed', () => {
         childs[route] = null
         event.reply('open-route-reply', 'close')
       })
 
       loadApp(childs[route], `#/${route}`)
     } else {
+      if (childs[route].isMinimized) {
+        childs[route].restore()
+      }
       childs[route].show()
     }
-
-    childs[route].once('hide', () => {
-      event.reply('open-route-reply', 'hide')
-    })
   } catch (error) {
     event.reply('open-route-reply', error)
   }
@@ -299,6 +297,10 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
       electron: require(`${__dirname}/node_modules/electron`),
     })
     self.loadURL('http://localhost:4200' + route)
+    self.webContents.openDevTools({ mode: 'undocked' })
+
+    // Electron bug workaround: this must be triggered after the devtools loaded
+    win.setIgnoreMouseEvents(true, { forward: true })
   } else {
     const appUrl = url.format({
       pathname: path.join(__dirname, 'dist/index.html'),
@@ -306,10 +308,6 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
       slashes: true,
     })
     self.loadURL(appUrl + route)
-  }
-
-  if (serve) {
-    self.webContents.openDevTools({ mode: 'undocked' })
   }
 }
 

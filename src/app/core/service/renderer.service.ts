@@ -21,6 +21,10 @@ export class RendererService {
     return callback
   }
 
+  public restore(route: string) {
+    this.ipcRenderer.send('open-route', route)
+  }
+
   public open(route: string): Observable<void> {
     const promise = new Promise<void>((resolve, reject) => {
       this.ipcRenderer.send('open-route', route)
