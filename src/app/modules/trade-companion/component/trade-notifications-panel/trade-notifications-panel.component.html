@@ -1,0 +1,12 @@
+<div class="panel interactable">
+  <div class="header">
+    <mat-icon>open_with</mat-icon>
+    <mat-icon>grid_on</mat-icon>
+    <mat-icon>settings</mat-icon>
+    <mat-icon>power_settings_new</mat-icon>
+  </div>
+  <div class="notifications">
+    <app-trade-notification *ngFor="let notification of notifications" [notification]="notification" [settings]="settings" (dismissNotification)="onDismissNotification($event)">
+    </app-trade-notification>
+  </div>
+</div>

@@ -6,8 +6,8 @@
        [style.top.px]="gameOverlayBounds.y"
        [style.width.px]="gameOverlayBounds.width"
        [style.height.px]="gameOverlayBounds.height">
-    <template #stashGridContainer>
-    </template>
+    <app-trade-companion-stash-grid [settings]="userSettings"></app-trade-companion-stash-grid>
     <div class="version" *ngIf="userSettings.displayVersion">PoE Overlay: {{ version$ | async }}</div>
+    <app-trade-notifications-panel *ngIf="userSettings.tradeCompanionEnabled" [settings]="userSettings"></app-trade-notifications-panel>
   </div>
 </ng-container>

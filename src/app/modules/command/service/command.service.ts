@@ -3,11 +3,16 @@ import { ClipboardService, KeyboardService, KeyCode } from '@app/service/input'
 import { Subject } from 'rxjs'
 import { delay, map, tap, throttleTime } from 'rxjs/operators'
 
+interface Command {
+  text: string,
+  send: boolean,
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class CommandService {
-  private readonly command$ = new Subject<string>()
+  private readonly command$ = new Subject<Command>()
 
   constructor(
     private readonly clipboard: ClipboardService,
@@ -16,8 +21,8 @@ export class CommandService {
     this.init()
   }
 
-  public command(command: string): void {
-    this.command$.next(command)
+  public command(command: string, send = true): void {
+    this.command$.next({ text: command, send })
   }
 
   private init(): void {
@@ -26,11 +31,13 @@ export class CommandService {
         throttleTime(350),
         map((command) => {
           const text = this.clipboard.readText()
-          this.clipboard.writeText(command)
+          this.clipboard.writeText(command.text)
           this.keyboard.setKeyboardDelay(5)
           this.keyboard.keyTap(KeyCode.VK_RETURN)
           this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control'])
-          this.keyboard.keyTap(KeyCode.VK_RETURN)
+          if (command.send) {
+            this.keyboard.keyTap(KeyCode.VK_RETURN)
+          }
           return text
         }),
         delay(200),

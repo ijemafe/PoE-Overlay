@@ -2,24 +2,20 @@ import {
     ChangeDetectionStrategy,
     Component,
     ComponentFactoryResolver,
-    ComponentRef, HostListener,
+    HostListener,
     Inject,
     OnDestroy,
-    OnInit,
-    ViewChild,
-    ViewContainerRef
+    OnInit
 } from '@angular/core'
 import { AppService, AppTranslateService, RendererService, WindowService } from '@app/service'
 import { DialogRefService } from '@app/service/dialog'
 import { ShortcutService } from '@app/service/input'
 import { FEATURE_MODULES } from '@app/token'
 import { AppUpdateState, FeatureModule, Rectangle, VisibleFlag } from '@app/type'
-import { TradeCompanionStashGridComponent } from '@modules/trade-companion/component/stash-grid/trade-companion-stash-grid.component'
 import { SnackBarService } from '@shared/module/material/service'
 import { ContextService } from '@shared/module/poe/service'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/stash-grid/trade-companion-stash-grid.service'
 import { Context } from '@shared/module/poe/type'
-import { TradeCompanionUserSettings } from '@shared/module/poe/type/trade-companion.type'
 import { BehaviorSubject, EMPTY, Observable, timer } from 'rxjs'
 import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
 import { UserSettingsService } from '../../service'
@@ -37,10 +33,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
   public readonly version$ = new BehaviorSubject<string>('')
   public readonly userSettings$ = new BehaviorSubject<UserSettings>(null)
   public readonly gameOverlayBounds: BehaviorSubject<Rectangle>
-
-  @ViewChild("stashGridContainer", { read: ViewContainerRef })
-  public stashGridContainer
-  private stashGridRef: ComponentRef<TradeCompanionStashGridComponent>
 
   constructor(
     @Inject(FEATURE_MODULES)
@@ -75,7 +67,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.stashGridRef?.destroy()
     this.window.disableTransparencyMouseFix(true)
     this.stashGridService.unregisterEvents()
     this.reset()
@@ -84,7 +75,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
   private initSettings(): void {
     this.userSettingsService.init(this.modules).subscribe((settings) => {
       this.translate.use(settings.uiLanguage)
-      this.userSettings$.next(settings)
       this.window.setZoom(settings.zoom / 100)
 
       this.context.init(this.getContext(settings)).subscribe(() => {
@@ -155,7 +145,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
           this.translate.use(settings.uiLanguage)
           this.window.setZoom(settings.zoom / 100)
-          this.userSettings$.next(settings)
           this.context.update(this.getContext(settings))
 
           this.app.updateAutoDownload(settings.autoDownload)
@@ -181,11 +170,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.registerSettings(settings)
     this.dialogRef.register()
 
-    this.stashGridContainer.clear();
-    const factory = this.componentFactoryResolver.resolveComponentFactory(TradeCompanionStashGridComponent);
-    this.stashGridRef = this.stashGridContainer.createComponent(factory);
-    this.stashGridRef.instance.settings = settings as TradeCompanionUserSettings
-    this.stashGridRef.changeDetectorRef.markForCheck()
+    this.userSettings$.next(settings)
   }
 
   private registerFeatures(settings: UserSettings): void {
