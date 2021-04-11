@@ -25,6 +25,13 @@
       </mat-slide-toggle>
     </div>
   </div>
+  <div class="row">
+    <div class="col-2" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
+      <button mat-raised-button (click)="onEditStashGridClick(stashGridBound.key)">
+        {{ 'trade-companion.edit-stash-grid.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
+      </button>
+    </div>
+  </div>
 </app-card>
 <ng-container *ngTemplateOutlet="
   tradeOptionsTemplate;

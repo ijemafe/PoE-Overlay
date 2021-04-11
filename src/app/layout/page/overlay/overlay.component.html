@@ -1,10 +1,13 @@
-<div class="game-overlay"
-     id="game-overlay"
-     *ngIf="(gameOverlayBounds | async) as gameOverlayBounds"
-     [style.left]="gameOverlayBounds.x + 'px'"
-     [style.top]="gameOverlayBounds.y + 'px'"
-     [style.width]="gameOverlayBounds.width + 'px'"
-     [style.height]="gameOverlayBounds.height + 'px'"
-     >
-  <div class="version" *ngIf="displayVersion$ | async">PoE Overlay: {{ version$ | async }}</div>
-</div>
+<ng-container *ngIf="(userSettings$ | async) as userSettings">
+  <div class="game-overlay"
+       id="game-overlay"
+       *ngIf="(gameOverlayBounds | async) as gameOverlayBounds"
+       [style.left.px]="gameOverlayBounds.x"
+       [style.top.px]="gameOverlayBounds.y"
+       [style.width.px]="gameOverlayBounds.width"
+       [style.height.px]="gameOverlayBounds.height">
+    <template #stashGridContainer>
+    </template>
+    <div class="version" *ngIf="userSettings.displayVersion">PoE Overlay: {{ version$ | async }}</div>
+  </div>
+</ng-container>

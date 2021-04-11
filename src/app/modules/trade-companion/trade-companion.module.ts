@@ -1,13 +1,18 @@
-import { NgModule, Injectable } from '@angular/core'
+import { NgModule } from '@angular/core'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
+import { TradeCompanionUserSettings } from '@shared/module/poe/type/trade-companion.type'
 import { SharedModule } from '@shared/shared.module'
 import { UserSettingsFeature } from 'src/app/layout/type'
-import { TradeCompanionSettingsComponent, TradeCompanionUserSettings } from './component/trade-companion-settings/trade-companion-settings.component'
+import { TradeCompanionStashGridComponent } from './component/stash-grid/trade-companion-stash-grid.component'
+import { TradeCompanionSettingsComponent } from './component/trade-companion-settings/trade-companion-settings.component'
 
 @NgModule({
   providers: [{ provide: FEATURE_MODULES, useClass: TradeCompanionModule, multi: true }],
-  declarations: [TradeCompanionSettingsComponent],
+  declarations: [
+    TradeCompanionSettingsComponent,
+    TradeCompanionStashGridComponent,
+  ],
   imports: [SharedModule],
 })
 export class TradeCompanionModule implements FeatureModule {
@@ -44,18 +49,22 @@ export class TradeCompanionModule implements FeatureModule {
           dismissNotification: true,
         },
       ],
-      normalStashGrid: {
-        x: 16,
-        y: 134,
-        width: 624,//12*52px
-        height: 624,
-      },
-      quadStashGrid: {
-        x: 16,
-        y: 134,
-        width: 624,//24*26px
-        height: 624,
-      },
+      stashGridBounds:
+        [
+          {
+            x: 16,
+            y: 134,
+            width: 624,//12*52px
+            height: 624,
+          },
+          {
+            x: 16,
+            y: 134,
+            width: 624,//24*26px
+            height: 624,
+          }
+        ],
+      stashGrids: new Map(),
       showStashGridOnTrade: true,
       highlightItemOnTrade: true,
       showStashGridDropShadow: true
@@ -68,7 +77,10 @@ export class TradeCompanionModule implements FeatureModule {
   }
 
   public getFeatures(settings: TradeCompanionUserSettings): Feature[] {
-    return []
+    return [{
+      name: 'stash-grid',
+      accelerator: undefined,
+    }]
   }
 
   public run(feature: string, settings: TradeCompanionUserSettings): void {

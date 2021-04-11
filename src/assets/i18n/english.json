@@ -250,6 +250,10 @@
     "zoom": "Zoom"
   },
   "trade-companion": {
+    "edit-stash-grid": {
+      "normal": "Edit Normal stash grid",
+      "quad": "Edit Quad stash grid"
+    },
     "enabled": "Use Trade Companion",
     "general": "General",
     "grid-overlay": "Stash Grid Overlay",

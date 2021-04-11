@@ -1,12 +1,11 @@
 ::ng-deep {
   .container-after-titlebar {
     background: #1c1c1c;
+    bottom: 36px !important;
   }
 }
 
 .content {
-  padding-bottom: 36px;
-
   .tab-content {
     padding: 12px 12px 0px 12px;
   }
@@ -21,4 +20,5 @@
   z-index: 1;
   background: #232323;
   color: rgba(200, 200, 200, 0.87);
+  border-top: 1px solid rgba(200, 200, 200, 0.12);
 }

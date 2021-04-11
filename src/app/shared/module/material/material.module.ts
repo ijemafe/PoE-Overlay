@@ -17,9 +17,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatTabsModule } from '@angular/material/tabs'
 import { TranslateModule } from '@ngx-translate/core'
 import { AcceleratorComponent } from './component/accelerator/accelerator.component'
+import { CardComponent } from './component/card/card.component'
 import { SelectListComponent } from './component/select-list/select-list.component'
 import { DragDirective } from './directive/drag.directive'
-import { CardComponent } from './component/card/card.component'
+import { ResizeDragDirective } from './directive/resize-drag.directive'
 
 @NgModule({
   imports: [
@@ -65,7 +66,8 @@ import { CardComponent } from './component/card/card.component'
     SelectListComponent,
     DragDirective,
     CardComponent,
+    ResizeDragDirective,
   ],
-  declarations: [AcceleratorComponent, SelectListComponent, DragDirective, CardComponent],
+  declarations: [AcceleratorComponent, SelectListComponent, DragDirective, CardComponent, ResizeDragDirective],
 })
 export class MaterialModule {}

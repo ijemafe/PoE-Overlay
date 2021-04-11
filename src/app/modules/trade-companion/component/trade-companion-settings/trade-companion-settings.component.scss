@@ -1,7 +1,10 @@
-.trade-options {
+app-card {
+  .card, button {
+    background-color: #2a2a2a;
+  }
+
   .card {
     position: relative;
-    background-color: #2a2a2a;
 
     .remove {
       position: absolute;
@@ -14,6 +17,5 @@
   .card-button {
     padding: 16px;
     width: 100%;
-    background-color: #2a2a2a;
   }
 }

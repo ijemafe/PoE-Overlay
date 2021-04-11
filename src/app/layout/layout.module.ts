@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core'
+import { TradeCompanionModule } from '@modules/trade-companion/trade-companion.module'
 import { SharedModule } from '@shared/shared.module'
 import {
-  UserSettingsFeatureContainerComponent,
-  UserSettingsFormComponent,
-  UserSettingsHelpComponent,
+    UserSettingsFeatureContainerComponent,
+    UserSettingsFormComponent,
+    UserSettingsHelpComponent
 } from './component'
 import { ResizeDirective } from './directive/resize.directive'
 import { OverlayComponent, UserSettingsComponent } from './page'
@@ -20,6 +21,6 @@ import { OverlayComponent, UserSettingsComponent } from './page'
     OverlayComponent,
     UserSettingsComponent,
   ],
-  imports: [SharedModule],
+  imports: [SharedModule, TradeCompanionModule],
 })
 export class LayoutModule {}
