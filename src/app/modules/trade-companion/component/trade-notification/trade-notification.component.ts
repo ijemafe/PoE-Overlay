@@ -1,15 +1,25 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 import { CommandService } from '@modules/command/service/command.service';
 import { SnackBarService } from '@shared/module/material/service';
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/stash-grid/trade-companion-stash-grid.service';
 import { StashGridType, TradeCompanionOption, TradeCompanionUserSettings, TradeNotification, TradeNotificationType } from '@shared/module/poe/type/trade-companion.type';
 import moment from 'moment';
 
+const tooltipDefaultOptions: MatTooltipDefaultOptions = {
+  showDelay: 1000,
+  hideDelay: 500,
+  touchendHideDelay: 1000,
+};
+
 @Component({
   selector: 'app-trade-notification',
   templateUrl: './trade-notification.component.html',
   styleUrls: ['./trade-notification.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: tooltipDefaultOptions }
+  ],
 })
 export class TradeNotificationComponent implements OnInit, OnDestroy {
   @Input()

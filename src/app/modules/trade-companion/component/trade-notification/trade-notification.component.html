@@ -1,47 +1,47 @@
 <div class="notifciation">
   <div class="header">
-    <mat-icon *ngIf="collapsed; else notCollapsed" class="collapse clickable" (click)="toggleCollapsed()">keyboard_arrow_right</mat-icon>
+    <mat-icon *ngIf="collapsed; else notCollapsed" class="collapse clickable" (click)="toggleCollapsed()" matTooltip="Expand">keyboard_arrow_right</mat-icon>
     <ng-template #notCollapsed>
-      <mat-icon class="collapse clickable" (click)="toggleCollapsed()">keyboard_arrow_down</mat-icon>
+      <mat-icon class="collapse clickable" (click)="toggleCollapsed()" matTooltip="Collapse">keyboard_arrow_down</mat-icon>
     </ng-template>
-    <div class="playerName" [class.joinedHideout]="notification.playerInHideout" [class.leftHideout]="notification.playerLeftHideout" title="{{ notification.playerName }}">{{ notification.playerName }}</div>
+    <div class="playerName" [class.joinedHideout]="notification.playerInHideout" [class.leftHideout]="notification.playerLeftHideout" matTooltip="{{ notification.playerName }}">{{ notification.playerName }}</div>
     <ng-container [ngSwitch]="notification.type">
       <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
         <mat-icon class="incomingArrow">forward</mat-icon>
         <ng-container *ngTemplateOutlet="offerAndTimeTemplate"></ng-container>
-        <mat-icon class="inviteToParty clickable" (click)="inviteToParty()">add_circle_outline</mat-icon>
+        <mat-icon class="inviteToParty clickable" (click)="inviteToParty()" matTooltip="Invite to Party">add_circle_outline</mat-icon>
         <ng-container *ngTemplateOutlet="requestTradeTemplate"></ng-container>
-        <mat-icon class="kickFromParty clickable" (click)="kickFromParty()">remove_circle_outline</mat-icon>
+        <mat-icon class="kickFromParty clickable" (click)="kickFromParty()" matTooltip="Kick from Party">remove_circle_outline</mat-icon>
       </ng-container>
       <ng-container *ngSwitchCase="TradeNotificationType.Outgoing">
         <mat-icon class="outgoingArrow">forward</mat-icon>
         <ng-container *ngTemplateOutlet="offerAndTimeTemplate"></ng-container>
-        <mat-icon class="visitPlayerHideout clickable" (click)="visitPlayerHideout()">home</mat-icon>
+        <mat-icon class="visitPlayerHideout clickable" (click)="visitPlayerHideout()" matTooltip="Go to Player Hideout">home</mat-icon>
         <ng-container *ngTemplateOutlet="requestTradeTemplate"></ng-container>
-        <mat-icon class="leaveParty clickable" (click)="leaveParty()">directions_run</mat-icon>
-        <mat-icon class="whois clickable" (click)="whois()">person_outline</mat-icon>
+        <mat-icon class="leaveParty clickable" (click)="leaveParty()" matTooltip="Leave Party">directions_run</mat-icon>
+        <mat-icon class="whois clickable" (click)="whois()" matTooltip="Who is?">person_outline</mat-icon>
       </ng-container>
     </ng-container>
-    <mat-icon class="whisperPlayer clickable" (click)="whisperPlayer()">textsms</mat-icon>
+    <mat-icon class="whisperPlayer clickable" (click)="whisperPlayer()" matTooltip="Whisper Player">textsms</mat-icon>
     <mat-icon class="dismiss clickable" (click)="dismiss()" matTooltip="Dismiss">close</mat-icon>
   </div>
   <div class="body" *ngIf="!collapsed">
     <div class="tradeItem">
       <ng-container [ngSwitch]="notification.type">
         <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
-          <div class="itemName clickable" (click)="highlightItem()" title="{{ notification.itemName }}">{{ notification.itemName }}</div>
+          <div class="itemName clickable" (click)="highlightItem()" matTooltip="{{ notification.itemName }}">{{ notification.itemName }}</div>
         </ng-container>
         <ng-container *ngSwitchCase="TradeNotificationType.Outgoing">
-          <div class="itemName" title="{{ notification.itemName }}">{{ notification.itemName }}</div>
+          <div class="itemName" matTooltip="{{ notification.itemName }}">{{ notification.itemName }}</div>
         </ng-container>
       </ng-container>
-      <div class="itemOffer" title="{{ notification.offer }}">{{ notification.offer }}</div>
+      <div class="itemOffer" matTooltip="{{ notification.offer }}">{{ notification.offer }}</div>
       <ng-container [ngSwitch]="notification.type">
         <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
-          <mat-icon class="askStillInterested clickable" (click)="askStillInterested()">help_outline</mat-icon>
+          <mat-icon class="askStillInterested clickable" (click)="askStillInterested()" matTooltip="Ask if still interested">help_outline</mat-icon>
         </ng-container>
         <ng-container *ngSwitchCase="TradeNotificationType.Outgoing">
-          <mat-icon class="repeatTradeWhisper clickable" (click)="repeatTradeWhisper()">refresh</mat-icon>
+          <mat-icon class="repeatTradeWhisper clickable" (click)="repeatTradeWhisper()" matTooltip="Repeat trade whisper">refresh</mat-icon>
         </ng-container>
       </ng-container>
     </div>
@@ -59,12 +59,12 @@
 </div>
 
 <ng-template #offerAndTimeTemplate>
-  <div class="price" title="{{ notification.price.amount + ' ' + notification.price.currency.nameType }}">{{ notification.price.amount }}<img [src]="'https://web.poecdn.com' + notification.price.currency.image" /></div>
+  <div class="price" matTooltip="{{ notification.price.amount + ' ' + notification.price.currency.nameType }}">{{ notification.price.amount }}<img [src]="'https://web.poecdn.com' + notification.price.currency.image" /></div>
   <div class="elapsedTime">{{ elapsedTime }}</div>
 </ng-template>
 
 <ng-template #requestTradeTemplate>
-  <mat-icon class="requestTrade clickable" (click)="requestTrade()">title</mat-icon>
+  <mat-icon class="requestTrade clickable" (click)="requestTrade()" matTooltip="Request Trade">title</mat-icon>
 </ng-template>
 
 <ng-template #buttonTemplate let-tradeOptions="tradeOptions">
