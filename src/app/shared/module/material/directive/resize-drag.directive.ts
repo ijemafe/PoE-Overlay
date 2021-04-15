@@ -1,4 +1,4 @@
-import { Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core'
+import { Directive, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core'
 import { Point } from '@app/type'
 import { Rectangle } from 'electron';
 
@@ -20,7 +20,7 @@ interface AppliedBounds {
 @Directive({
   selector: '[appResizeDrag]',
 })
-export class ResizeDragDirective implements OnInit, OnDestroy {
+export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
   private element: HTMLElement
   private resizeAnchorContainer: HTMLElement
 
@@ -34,6 +34,9 @@ export class ResizeDragDirective implements OnInit, OnDestroy {
 
   @Input('ardDisabled')
   public disabled: boolean
+
+  @Input('ardAllowResize')
+  public allowResize: boolean
 
   @Input('ardBounds')
   public bounds: Rectangle
@@ -79,9 +82,6 @@ export class ResizeDragDirective implements OnInit, OnDestroy {
   constructor(private readonly elementRef: ElementRef<HTMLElement>) { }
 
   public ngOnInit(): void {
-    if (this.disabled) {
-      return
-    }
     if (this.rootElementSelector) {
       this.element = getClosestMatchingAncestor(
         this.elementRef.nativeElement,
@@ -92,79 +92,54 @@ export class ResizeDragDirective implements OnInit, OnDestroy {
     this.element.addEventListener('mousedown', this.onMousedown, true)
     this.element.addEventListener('mouseup', this.onMouseup, true)
     this.element.addEventListener('mousemove', this.onMousemove, true)
+  }
 
-    this.resizeAnchorContainer = document.createElement('div')
-    this.resizeAnchorContainer.classList.add('interactable')
-    this.resizeAnchorContainer.style['display'] = 'inline-grid'
-    this.resizeAnchorContainer.style['position'] = 'absolute'
-    this.resizeAnchorContainer.style['top'] = '0px'
-    this.resizeAnchorContainer.style['left'] = '0px'
-    this.resizeAnchorContainer.style['grid-auto-flow'] = 'row'
-    const templateColRows = `auto ${this.resizeWidth}px`
-    this.resizeAnchorContainer.style['grid-template-columns'] = templateColRows
-    this.resizeAnchorContainer.style['grid-template-rows'] = templateColRows
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (!this.element) {
+      return
+    }
 
-    this.resizeAnchorContainer.appendChild(document.createElement('div'))
+    if (this.allowResize && !this.resizeAnchorContainer) {
+      this.resizeAnchorContainer = document.createElement('div')
+      this.resizeAnchorContainer.classList.add('interactable')
+      this.resizeAnchorContainer.style['display'] = 'inline-grid'
+      this.resizeAnchorContainer.style['position'] = 'absolute'
+      this.resizeAnchorContainer.style['top'] = '0px'
+      this.resizeAnchorContainer.style['left'] = '0px'
+      this.resizeAnchorContainer.style['grid-auto-flow'] = 'row'
+      const templateColRows = `auto ${this.resizeWidth}px`
+      this.resizeAnchorContainer.style['grid-template-columns'] = templateColRows
+      this.resizeAnchorContainer.style['grid-template-rows'] = templateColRows
 
-    const resizeWidthHeight = `${(this.resizeWidth * 2)}px`
-    const resizeBGColor = 'rgb(0, 0, 0, 0.01)'
+      this.resizeAnchorContainer.appendChild(document.createElement('div'))
 
-    const topRightResizeAnchor = document.createElement('div')
-    topRightResizeAnchor.style['width'] = resizeWidthHeight
-    topRightResizeAnchor.style['cursor'] = 'e-resize'
-    topRightResizeAnchor.style['background-color'] = resizeBGColor
-    this.resizeAnchorContainer.appendChild(topRightResizeAnchor)
+      const resizeWidthHeight = `${(this.resizeWidth * 2)}px`
+      const resizeBGColor = 'rgb(0, 0, 0, 0.01)'
 
-    const bottomLeftResizeAnchor = document.createElement('div')
-    bottomLeftResizeAnchor.style['height'] = resizeWidthHeight
-    bottomLeftResizeAnchor.style['cursor'] = 's-resize'
-    bottomLeftResizeAnchor.style['background-color'] = resizeBGColor
-    this.resizeAnchorContainer.appendChild(bottomLeftResizeAnchor)
+      const topRightResizeAnchor = document.createElement('div')
+      topRightResizeAnchor.style['width'] = resizeWidthHeight
+      topRightResizeAnchor.style['cursor'] = 'e-resize'
+      topRightResizeAnchor.style['background-color'] = resizeBGColor
+      this.resizeAnchorContainer.appendChild(topRightResizeAnchor)
 
-    const bottomRightResizeAnchor = document.createElement('div')
-    bottomRightResizeAnchor.style['transform'] = 'rotateZ(45deg)'
-    bottomRightResizeAnchor.style['border-style'] = 'solid'
-    bottomRightResizeAnchor.style['border-width'] = `${this.resizeWidth}px`
-    bottomRightResizeAnchor.style['border-color'] = 'transparent transparent transparent yellow'
-    bottomRightResizeAnchor.style['cursor'] = 'nwse-resize'
-    this.resizeAnchorContainer.appendChild(bottomRightResizeAnchor)
+      const bottomLeftResizeAnchor = document.createElement('div')
+      bottomLeftResizeAnchor.style['height'] = resizeWidthHeight
+      bottomLeftResizeAnchor.style['cursor'] = 's-resize'
+      bottomLeftResizeAnchor.style['background-color'] = resizeBGColor
+      this.resizeAnchorContainer.appendChild(bottomLeftResizeAnchor)
 
-    this.element.append(this.resizeAnchorContainer)
+      const bottomRightResizeAnchor = document.createElement('div')
+      bottomRightResizeAnchor.style['transform'] = 'rotateZ(45deg)'
+      bottomRightResizeAnchor.style['border-style'] = 'solid'
+      bottomRightResizeAnchor.style['border-width'] = `${this.resizeWidth}px`
+      bottomRightResizeAnchor.style['border-color'] = 'transparent transparent transparent yellow'
+      bottomRightResizeAnchor.style['cursor'] = 'nwse-resize'
+      this.resizeAnchorContainer.appendChild(bottomRightResizeAnchor)
+
+      this.element.append(this.resizeAnchorContainer)
+    }
 
     this.applyBounds()
-
-    /*
-<div style="
-    display: inline-grid;
-    width: 100%;
-    height: 624px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    grid-auto-flow: column;
-    grid - template - columns: auto 8px;
-    grid - template - rows: auto 8px;
-    "><div style="
-    width: 100 %;
-    "></div><div class="interactable" style="
-    height: 16px;
-    cursor: s - resize;
-    "></div><div style="
-    width: 16px;
-    cursor: e - resize;
-    " class="interactable"></div><div _ngcontent-jwq-c253="" class="grid - resize - corner interactable"></div></div>
-
-    left: 100%;
-    top: 100%;
-    width: 0px;
-    height: 0px;
-    transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
-    border-style: solid;
-    border-width: 8px;
-    border-color: transparent transparent transparent yellow;
-    cursor: nwse-resize;
-
-     * */
   }
 
   public ngOnDestroy(): void {
@@ -172,24 +147,30 @@ export class ResizeDragDirective implements OnInit, OnDestroy {
     this.element.removeEventListener('mouseup', this.onMouseup)
     this.element.removeEventListener('mousemove', this.onMousemove)
 
-    this.resizeAnchorContainer.remove()
+    this.resizeAnchorContainer?.remove()
   }
 
   private applyBounds() {
+    if (this.disabled) {
+      return
+    }
+
     if (this.appliedBounds.x) this.element.style['left'] = `${this.bounds.x}px`
     if (this.appliedBounds.y) this.element.style['top'] = `${this.bounds.y}px`
 
-    const width = `${this.bounds.width}px`
-    if (this.appliedBounds.width) this.element.style['width'] = width
-    this.resizeAnchorContainer.style['width'] = width
+    if (this.allowResize) {
+      const width = `${this.bounds.width}px`
+      if (this.appliedBounds.width) this.element.style['width'] = width
+      this.resizeAnchorContainer.style['width'] = width
 
-    const height = `${this.bounds.height}px`
-    if (this.appliedBounds.height) this.element.style['height'] = height
-    this.resizeAnchorContainer.style['height'] = height
+      const height = `${this.bounds.height}px`
+      if (this.appliedBounds.height) this.element.style['height'] = height
+      this.resizeAnchorContainer.style['height'] = height
+    }
   }
 
   private onMousedown = (event: MouseEvent) => {
-    if (this.status !== Status.OFF) {
+    if (this.disabled || this.status !== Status.OFF) {
       return
     }
     this.mouseDownPosition = {
@@ -212,7 +193,7 @@ export class ResizeDragDirective implements OnInit, OnDestroy {
   }
 
   private onMouseup = () => {
-    if (this.status === Status.OFF) {
+    if (this.disabled || this.status === Status.OFF) {
       return
     }
 
@@ -222,7 +203,7 @@ export class ResizeDragDirective implements OnInit, OnDestroy {
   }
 
   private onMousemove = (event: MouseEvent) => {
-    if (this.status === Status.OFF) {
+    if (this.disabled || this.status === Status.OFF) {
       return
     }
 
@@ -255,11 +236,6 @@ export class ResizeDragDirective implements OnInit, OnDestroy {
         this.bounds.height = this.mouseDownBounds.height + delta.y
         break
     }
-
-    console.log(`S: ${this.status}`)
-    console.log(`B height: ${this.bounds.height}`)
-    console.log(`MDB height: ${this.mouseDownBounds.height}`)
-    console.log(`deltaY: ${delta.y}`)
 
     this.applyBounds()
     this.resizeDrag.emit(this.bounds)

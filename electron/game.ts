@@ -1,5 +1,6 @@
 import { IpcMain, Rectangle } from 'electron'
 import * as path from 'path'
+import { GameLogListener, OnLogLineAddedFunc } from './game-log-listener'
 import { getActiveWindow, Window } from './window'
 
 const POE_NAMES = [
@@ -37,9 +38,14 @@ const POE_ALTERNATIVE_TITLES = ['Path of Exile <---> ']
 
 export class Game {
   private window: Window
+  private gameLogListener: GameLogListener
 
   public active?: boolean
   public bounds?: Rectangle
+
+  constructor(onLogLineAdded: OnLogLineAddedFunc) {
+    this.gameLogListener = new GameLogListener(onLogLineAdded)
+  }
 
   public async update(): Promise<boolean> {
     const old = this.toString()
@@ -54,6 +60,7 @@ export class Game {
           this.window = window
           this.active = true
           this.bounds = window.bounds()
+          this.gameLogListener.setLogFilePath(path.join(path.parse(windowPath).dir, "logs", "Client.txt"))
         } else {
           this.active = false
         }
@@ -81,8 +88,8 @@ export class Game {
   }
 }
 
-export function register(ipcMain: IpcMain, onUpdate: (game: Game) => void): void {
-  const game = new Game()
+export function register(ipcMain: IpcMain, onUpdate: (game: Game) => void, onLogLineAdded: OnLogLineAddedFunc): void {
+  const game = new Game(onLogLineAdded)
 
   ipcMain.on('game-focus', (event) => {
     game.focus()

@@ -59,7 +59,7 @@
 </div>
 
 <ng-template #offerAndTimeTemplate>
-  <div class="price" matTooltip="{{ notification.price.amount + ' ' + notification.price.currency.nameType }}">{{ notification.price.amount }}<img [src]="'https://web.poecdn.com' + notification.price.currency.image" /></div>
+  <div class="price" matTooltip="{{ notification.price.amount + ' ' + notification.price.currency.nameType }}">{{ notification.price.amount }}<span *ngIf="!notification.price.currency.image">&nbsp;???</span><img *ngIf="notification.price.currency.image" [src]="'https://web.poecdn.com' + notification.price.currency.image" /></div>
   <div class="elapsedTime">{{ elapsedTime }}</div>
 </ng-template>
 

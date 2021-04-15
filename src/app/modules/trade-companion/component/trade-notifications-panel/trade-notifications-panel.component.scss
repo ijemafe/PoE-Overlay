@@ -1,24 +1,28 @@
 .panel {
   display: inline-block;
-}
+  position: relative;
 
-.header {
-  color: #F0F0F0;
-  background-color: #3C3C3C;
-  padding: 4px;
-  border: 1px solid #000;
-  display: flex;
+  .header {
+    color: #F0F0F0;
+    background-color: #3C3C3C;
+    padding: 4px;
+    border: 1px solid #000;
+    display: flex;
 
-  .mat-icon {
-    margin-right: 10px;
+    .mat-icon {
+      margin-right: 10px;
+    }
+
+    :last-child {
+      margin-left: auto;
+      margin-right: 0px;
+    }
+
+    .movable {
+      cursor: move;
+    }
   }
 
-  :last-child {
-    margin-left: auto;
-    margin-right: 0px;
+  .notifications {
   }
-}
-
-.notifications {
-
 }

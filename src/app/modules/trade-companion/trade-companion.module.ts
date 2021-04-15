@@ -27,8 +27,11 @@ export class TradeCompanionModule implements FeatureModule {
   constructor() { }
 
   public getSettings(): UserSettingsFeature {
+    const maxVisibileTradeNotifications = 8
     const defaultSettings: TradeCompanionUserSettings = {
       tradeCompanionEnabled: false,
+      tradeCompanionOpacity: 1.0,
+      maxVisibileTradeNotifications: maxVisibileTradeNotifications,
       incomingTradeOptions: [
         {
           buttonLabel: '1m',

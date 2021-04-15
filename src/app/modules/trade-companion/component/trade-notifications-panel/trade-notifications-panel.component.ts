@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { TradeCompanionUserSettings, TradeNotification, TradeNotificationType } from '@shared/module/poe/type/trade-companion.type';
-import { CurrencyService } from '@shared/module/poe/service/currency/currency.service';
-import moment from 'moment';
-import { forkJoin } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service';
+import { TradeCompanionUserSettings, TradeNotification } from '@shared/module/poe/type/trade-companion.type';
+import { Rectangle } from 'electron';
+import { Subject, Subscription } from 'rxjs';
+import { debounceTime, map } from 'rxjs/operators';
+import { UserSettingsService } from '../../../../layout/service';
 
 @Component({
   selector: 'app-trade-notifications-panel',
@@ -14,86 +16,72 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
   @Input()
   public settings: TradeCompanionUserSettings
 
-  public notifications: TradeNotification[]
+  @Input()
+  public gameBounds: Rectangle
+
+  @Output()
+  public openSettings = new EventEmitter<void>()
+
+  public locked = true
+
+  public notifications: TradeNotification[] = []
+
+  private logLineAddedSub: Subscription
+
+  private boundsUpdate$ = new Subject<Rectangle>()
+  private closeClick$ = new Subject()
 
   constructor(
-    private readonly currencyService: CurrencyService,
-    private readonly ref: ChangeDetectorRef
+    private readonly ref: ChangeDetectorRef,
+    private readonly tradeNotificationsService: TradeNotificationsService,
+    private readonly userSettingsService: UserSettingsService,
   ) {
   }
 
   ngOnInit(): void {
-    forkJoin([this.currencyService.searchById('chaos', this.settings.language), this.currencyService.searchById('exalted', this.settings.language)]).subscribe(
-      (currencies) => {
-        const dummyNotification1: TradeNotification = {
-          text: 'The actual whisper text',
-          type: TradeNotificationType.Incoming,
-          //time: moment('2021/04/10 16:38:00', 'YYYY/MM/DD HH:mm:ss'),
-          time: moment(),
-          playerName: 'Wratho',
-          itemName: 'Tabula',
-          itemLocation: {
-            tabName: '~price 10 chaos',
-            bounds: {
-              x: 0,
-              y: 0,
-              width: 1,
-              height: 1,
-            }
-          },
-          offer: 'offer',
-          price: {
-            amount: 10,
-            currency: currencies[0],
-          },
-          partyInviteSent: false,
-          partyInviteAccepted: false,
-          playerInHideout: false,
-          playerLeftHideout: false,
-          tradeRequestSent: false,
-        };
-        const dummyNotification2: TradeNotification = {
-          text: 'The actual whisper text',
-          type: TradeNotificationType.Outgoing,
-          //time: moment('2021/04/10 16:38:00', 'YYYY/MM/DD HH:mm:ss'),
-          time: moment(),
-          playerName: 'Versedii',
-          itemName: 'Bottled Faith',
-          itemLocation: {
-            tabName: 'Sell Tab 3',
-            bounds: {
-              x: 5,
-              y: 7,
-              width: 1,
-              height: 2,
-            }
-          },
-          price: {
-            amount: 100,
-            currency: currencies[1],
-          },
-          partyInviteSent: false,
-          partyInviteAccepted: false,
-          playerInHideout: false,
-          playerLeftHideout: false,
-          tradeRequestSent: false,
-        };
-        this.notifications = [
-          dummyNotification1,
-          dummyNotification2,
-        ];
-        this.ref.markForCheck()
-    });
+    this.logLineAddedSub = this.tradeNotificationsService.notificationAddedOrChanged.subscribe((notification) => {
+      if (this.notifications.indexOf(notification) === -1) {
+        this.notifications.push(notification)
+      }
+      this.ref.markForCheck()
+    })
+    this.boundsUpdate$.pipe(
+      debounceTime(350),
+      map((bounds) => {
+        this.userSettingsService.update<TradeCompanionUserSettings>((settings) => {
+          settings.tradeCompanionBounds = bounds
+          return settings
+        })
+      })
+    )
+    this.closeClick$.pipe(
+      debounceTime(350),
+      map(() => {
+        this.userSettingsService.update<TradeCompanionUserSettings>((settings) => {
+          settings.tradeCompanionEnabled = false
+          return settings
+        })
+      })
+    )
   }
 
   ngOnDestroy(): void {
+    this.logLineAddedSub.unsubscribe()
+  }
+
+  public onResizeDragEnd(bounds: Rectangle): void {
+    this.boundsUpdate$.next(bounds)
   }
 
   public toggleGrid(): void {
-    
   }
 
-  public onDismissNotification(tradeNotification: TradeNotification): void {
-    this.notifications = this.notifications.filter((tn) => tn !== tradeNotification)
+  public close(): void {
+    this.closeClick$.next()
+  }
+
+  public onDismissNotification(notification: TradeNotification): void {
+    this.notifications = this.notifications.filter((tn) => tn !== notification)
+    this.tradeNotificationsService.dismissNotification(notification)
   }
 }

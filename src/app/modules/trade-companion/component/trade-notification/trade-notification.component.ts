@@ -2,9 +2,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, In
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 import { CommandService } from '@modules/command/service/command.service';
 import { SnackBarService } from '@shared/module/material/service';
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/stash-grid/trade-companion-stash-grid.service';
+import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service';
 import { StashGridType, TradeCompanionOption, TradeCompanionUserSettings, TradeNotification, TradeNotificationType } from '@shared/module/poe/type/trade-companion.type';
 import moment from 'moment';
+import { timer } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 const tooltipDefaultOptions: MatTooltipDefaultOptions = {
   showDelay: 1000,
@@ -135,9 +137,13 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
   public executeTradeOption(tradeOption: TradeCompanionOption): void {
     this.commandService.command(`@${this.notification.playerName} ${tradeOption.whisperMessage}`)
     if (tradeOption.kickAfterWhisper) {
-      this.kickFromParty()
-    }
-    if (tradeOption.dismissNotification) {
+      timer(550).subscribe(() => {
+        this.kickFromParty()
+        if (tradeOption.dismissNotification) {
+          this.dismiss()
+        }
+      })
+    } else if (tradeOption.dismissNotification) {
       this.dismiss()
     }
   }

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { ElectronProvider } from '@app/provider/electron.provider';
 import { Rectangle } from '@app/type';
 import { IpcMain, IpcRenderer, IpcMainEvent } from 'electron';
-import { BehaviorSubject, Observable, Observer, from } from 'rxjs';
-import { TradeCompanionStashGridOptions } from '../../../type/trade-companion.type';
-import { WindowService, GameService } from '../../../../../../core/service';
+import { BehaviorSubject, Observable, from } from 'rxjs';
+import { TradeCompanionStashGridOptions } from '@shared/module/poe/type/trade-companion.type';
+import { WindowService, GameService } from '@app/service';
 
 const StashGridOptionsKey = 'stash-grid-options'
 const EditStashGridOptionsKey = 'stash-grid-options-edit'

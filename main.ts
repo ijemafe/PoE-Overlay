@@ -169,7 +169,7 @@ game.register(ipcMain, (poe) => {
       win.setVisibleOnAllWorkspaces(false)
     }
   }
-})
+}, (logLine: string) => send('game-log-line', logLine))
 
 hook.register(
   ipcMain,

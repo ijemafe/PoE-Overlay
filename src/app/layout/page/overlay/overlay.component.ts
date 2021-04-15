@@ -14,7 +14,7 @@ import { FEATURE_MODULES } from '@app/token'
 import { AppUpdateState, FeatureModule, Rectangle, VisibleFlag } from '@app/type'
 import { SnackBarService } from '@shared/module/material/service'
 import { ContextService } from '@shared/module/poe/service'
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/stash-grid/trade-companion-stash-grid.service'
+import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
 import { Context } from '@shared/module/poe/type'
 import { BehaviorSubject, EMPTY, Observable, timer } from 'rxjs'
 import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
@@ -47,7 +47,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService,
     private readonly stashGridService: TradeCompanionStashGridService,
-    private readonly componentFactoryResolver: ComponentFactoryResolver
   ) {
     this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
     this.window.gameBounds.subscribe((_) => {
@@ -70,6 +69,29 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.window.disableTransparencyMouseFix(true)
     this.stashGridService.unregisterEvents()
     this.reset()
+  }
+
+  public openUserSettings(): void {
+    if (!this.userSettingsOpen) {
+      this.userSettingsOpen = this.renderer.open('user-settings')
+      this.userSettingsOpen.pipe(flatMap(() => this.userSettingsService.get())).subscribe(
+        (settings) => {
+          this.userSettingsOpen = null
+
+          this.translate.use(settings.uiLanguage)
+          this.window.setZoom(settings.zoom / 100)
+          this.context.update(this.getContext(settings))
+
+          this.app.updateAutoDownload(settings.autoDownload)
+          this.register(settings)
+          this.app.triggerVisibleChange()
+        },
+        () => (this.userSettingsOpen = null)
+      )
+      this.reset()
+    } else {
+      this.renderer.restore('user-settings');
+    }
   }
 
   private initSettings(): void {
@@ -134,29 +156,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
         }
       })
     this.app.triggerVisibleChange()
-  }
-
-  private openUserSettings(): void {
-    if (!this.userSettingsOpen) {
-      this.userSettingsOpen = this.renderer.open('user-settings')
-      this.userSettingsOpen.pipe(flatMap(() => this.userSettingsService.get())).subscribe(
-        (settings) => {
-          this.userSettingsOpen = null
-
-          this.translate.use(settings.uiLanguage)
-          this.window.setZoom(settings.zoom / 100)
-          this.context.update(this.getContext(settings))
-
-          this.app.updateAutoDownload(settings.autoDownload)
-          this.register(settings)
-          this.app.triggerVisibleChange()
-        },
-        () => (this.userSettingsOpen = null)
-      )
-      this.reset()
-    } else {
-      this.renderer.restore('user-settings');
-    }
   }
 
   private reset(): void {

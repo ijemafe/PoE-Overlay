@@ -3,7 +3,7 @@ import { EnumValues } from '@app/class';
 import { UserSettingsComponent } from 'src/app/layout/type';
 import { WindowService } from '@app/service';
 import { StashGridType, TradeCompanionUserSettings, TradeCompanionStashGridOptions } from '@shared/module/poe/type/trade-companion.type';
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/stash-grid/trade-companion-stash-grid.service';
+import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service';
 
 @Component({
   selector: 'app-trade-companion-settings',
@@ -32,6 +32,8 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent {
 
   public load(): void {
   }
+
+  public displayWithOpacity = (value: number) => `${Math.round(value * 100)}%`
 
   public onEditStashGridClick(gridType: StashGridType): void {
     const options: TradeCompanionStashGridOptions = {

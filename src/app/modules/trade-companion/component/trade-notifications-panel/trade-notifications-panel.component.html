@@ -1,12 +1,23 @@
-<div class="panel interactable">
+<div class="panel interactable"
+     [style.opacity]="settings.tradeCompanionOpacity"
+     appResizeDrag
+     [ardBounds]="settings.tradeCompanionBounds || gameBounds"
+     [ardAppliedBounds.width]="false"
+     [ardAppliedBounds.height]="false"
+     [ardDisabled]="locked"
+     (ardResizeDragEnd)="onResizeDragEnd($event)"
+     [class.movable]="!locked">
   <div class="header">
-    <mat-icon>open_with</mat-icon>
-    <mat-icon>grid_on</mat-icon>
-    <mat-icon>settings</mat-icon>
-    <mat-icon>power_settings_new</mat-icon>
+    <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ locked ? 'Locked - Click to unlock' : 'Unlocked - Click to lock' }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
+    <mat-icon [class.movable]="!locked" matTooltip="{{ locked ? 'Locked - Unlock to allow moving of the Trade Companion' : 'Drag this handle to move the Trade Companion' }}">open_with</mat-icon>
+    <mat-icon class="clickable">grid_on</mat-icon>
+    <mat-icon class="clickable" (click)="openSettings.emit()" matTooltip="Open Settings">settings</mat-icon>
+    <mat-icon class="clickable" (click)="close()" matTooltip="Disable Trade Companion">power_settings_new</mat-icon>
   </div>
   <div class="notifications">
-    <app-trade-notification *ngFor="let notification of notifications" [notification]="notification" [settings]="settings" (dismissNotification)="onDismissNotification($event)">
-    </app-trade-notification>
+    <ng-container *ngFor="let notification of notifications; let index=index">
+      <app-trade-notification *ngIf="index < settings.maxVisibileTradeNotifications" [notification]="notification" [settings]="settings" (dismissNotification)="onDismissNotification($event)">
+      </app-trade-notification>
+    </ng-container>
   </div>
 </div>

@@ -1,13 +1,19 @@
 <ng-container *ngIf="(userSettings$ | async) as userSettings">
-  <div class="game-overlay"
-       id="game-overlay"
-       *ngIf="(gameOverlayBounds | async) as gameOverlayBounds"
-       [style.left.px]="gameOverlayBounds.x"
-       [style.top.px]="gameOverlayBounds.y"
-       [style.width.px]="gameOverlayBounds.width"
-       [style.height.px]="gameOverlayBounds.height">
-    <app-trade-companion-stash-grid [settings]="userSettings"></app-trade-companion-stash-grid>
-    <div class="version" *ngIf="userSettings.displayVersion">PoE Overlay: {{ version$ | async }}</div>
-    <app-trade-notifications-panel *ngIf="userSettings.tradeCompanionEnabled" [settings]="userSettings"></app-trade-notifications-panel>
-  </div>
+  <ng-container *ngIf="(gameOverlayBounds | async) as gameOverlayBounds">
+    <div class="game-overlay"
+         id="game-overlay"
+         [style.left.px]="gameOverlayBounds.x"
+         [style.top.px]="gameOverlayBounds.y"
+         [style.width.px]="gameOverlayBounds.width"
+         [style.height.px]="gameOverlayBounds.height">
+      <app-trade-companion-stash-grid [settings]="userSettings"></app-trade-companion-stash-grid>
+      <div class="version" *ngIf="userSettings.displayVersion">PoE Overlay: {{ version$ | async }}</div>
+    </div>
+    <app-trade-notifications-panel
+                                   *ngIf="userSettings.tradeCompanionEnabled"
+                                   [settings]="userSettings"
+                                   [gameBounds]="gameOverlayBounds"
+                                   (openSettings)="openUserSettings()">
+    </app-trade-notifications-panel>
+  </ng-container>
 </ng-container>

@@ -9,6 +9,9 @@ export type EnumDictionary<T extends string | symbol | number, U> = {
 
 export interface TradeCompanionUserSettings extends UserSettings {
   tradeCompanionEnabled: boolean
+  tradeCompanionOpacity: number
+  tradeCompanionBounds?: Rectangle
+  maxVisibileTradeNotifications: number
   incomingTradeOptions: TradeCompanionOption[]
   outgoingTradeOptions: TradeCompanionOption[]
   stashGridBounds: Rectangle[]
@@ -56,11 +59,8 @@ export interface TradeNotification {
   itemLocation: TradeItemLocation,
   price: TradePrice,
   offer?: string,
-  partyInviteSent: boolean,
-  partyInviteAccepted: boolean,
-  playerInHideout: boolean,
-  playerLeftHideout: boolean,
-  tradeRequestSent: boolean,
+  playerInHideout?: boolean,
+  playerLeftHideout?: boolean,
 }
 
 export interface TradePrice {
