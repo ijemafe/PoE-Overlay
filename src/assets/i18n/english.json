@@ -255,6 +255,10 @@
       "quad": "Edit Quad stash grid"
     },
     "enabled": "Use Trade Companion",
+    "example-trade-notification": {
+      "item": "Add Example Item Trade",
+      "currency": "Add Example Currency Trade"
+    },
     "general": "General",
     "general-trade-options": "General Trade Options",
     "grid-overlay": "Stash Grid Overlay",
@@ -263,6 +267,7 @@
     "max-visible-notifications": "Max. visible Notifications",
     "name": "Trade Companion",
     "outgoing-trade-options": "Outgoing Trade Options",
+    "reset": "Reset",
     "show-grid": "Show Stash Grid",
     "show-grid-description": "Show stash grid during an incoming trade",
     "show-grid-drop-shadow": "Grid Drop Shadow",
@@ -272,6 +277,7 @@
       "dismiss": "Dismiss Notification",
       "kick": "Kick",
       "whisper": "Whisper Message"
-    }
+    },
+    "window-bounds": "Window Bounds"
   }
 }

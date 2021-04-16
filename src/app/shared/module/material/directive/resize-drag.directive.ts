@@ -35,6 +35,9 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
   @Input('ardDisabled')
   public disabled: boolean
 
+  @Input('ardInteractionsDisabled')
+  public interactionsDisabled: boolean
+
   @Input('ardAllowResize')
   public allowResize: boolean
 
@@ -92,9 +95,23 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     this.element.addEventListener('mousedown', this.onMousedown, true)
     this.element.addEventListener('mouseup', this.onMouseup, true)
     this.element.addEventListener('mousemove', this.onMousemove, true)
+
+    this.onChanged()
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
+    this.onChanged()
+  }
+
+  public ngOnDestroy(): void {
+    this.element.removeEventListener('mousedown', this.onMousedown)
+    this.element.removeEventListener('mouseup', this.onMouseup)
+    this.element.removeEventListener('mousemove', this.onMousemove)
+
+    this.resizeAnchorContainer?.remove()
+  }
+
+  private onChanged() {
     if (!this.element) {
       return
     }
@@ -142,14 +159,6 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     this.applyBounds()
   }
 
-  public ngOnDestroy(): void {
-    this.element.removeEventListener('mousedown', this.onMousedown)
-    this.element.removeEventListener('mouseup', this.onMouseup)
-    this.element.removeEventListener('mousemove', this.onMousemove)
-
-    this.resizeAnchorContainer?.remove()
-  }
-
   private applyBounds() {
     if (this.disabled) {
       return
@@ -158,19 +167,21 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     if (this.appliedBounds.x) this.element.style['left'] = `${this.bounds.x}px`
     if (this.appliedBounds.y) this.element.style['top'] = `${this.bounds.y}px`
 
-    if (this.allowResize) {
-      const width = `${this.bounds.width}px`
-      if (this.appliedBounds.width) this.element.style['width'] = width
+    const width = `${this.bounds.width}px`
+    if (this.appliedBounds.width) this.element.style['width'] = width
+    if (this.resizeAnchorContainer) {
       this.resizeAnchorContainer.style['width'] = width
+    }
 
-      const height = `${this.bounds.height}px`
-      if (this.appliedBounds.height) this.element.style['height'] = height
+    const height = `${this.bounds.height}px`
+    if (this.appliedBounds.height) this.element.style['height'] = height
+    if (this.resizeAnchorContainer) {
       this.resizeAnchorContainer.style['height'] = height
     }
   }
 
   private onMousedown = (event: MouseEvent) => {
-    if (this.disabled || this.status !== Status.OFF) {
+    if (this.disabled || this.interactionsDisabled || this.status !== Status.OFF) {
       return
     }
     this.mouseDownPosition = {
@@ -193,17 +204,22 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
   }
 
   private onMouseup = () => {
-    if (this.disabled || this.status === Status.OFF) {
+    if (this.disabled || this.interactionsDisabled || this.status === Status.OFF) {
       return
     }
 
+    const oldStatus = this.status
     this.status = Status.OFF
 
-    this.resizeDragEnd.emit(this.bounds)
+    switch (oldStatus) {
+      case Status.MOVING:
+      case Status.RESIZING:
+        this.resizeDragEnd.emit(this.bounds)
+    }
   }
 
   private onMousemove = (event: MouseEvent) => {
-    if (this.disabled || this.status === Status.OFF) {
+    if (this.disabled || this.interactionsDisabled || this.status === Status.OFF) {
       return
     }
 

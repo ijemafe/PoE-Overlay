@@ -4,6 +4,7 @@ import { TradeCompanionUserSettings, TradeNotification } from '@shared/module/po
 import { Rectangle } from 'electron';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
+import { WindowService } from '../../../../core/service';
 import { UserSettingsService } from '../../../../layout/service';
 
 @Component({
@@ -35,6 +36,7 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
     private readonly ref: ChangeDetectorRef,
     private readonly tradeNotificationsService: TradeNotificationsService,
     private readonly userSettingsService: UserSettingsService,
+    private readonly windowService: WindowService,
   ) {
   }
 
@@ -51,18 +53,21 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
         this.userSettingsService.update<TradeCompanionUserSettings>((settings) => {
           settings.tradeCompanionBounds = bounds
           return settings
-        })
+        }).subscribe()
       })
-    )
+    ).subscribe()
     this.closeClick$.pipe(
       debounceTime(350),
       map(() => {
         this.userSettingsService.update<TradeCompanionUserSettings>((settings) => {
           settings.tradeCompanionEnabled = false
           return settings
+        }).subscribe((settings) => {
+          this.settings = settings
+          this.ref.markForCheck()
         })
       })
-    )
+    ).subscribe()
   }
 
   ngOnDestroy(): void {
@@ -70,7 +75,16 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
   }
 
   public onResizeDragEnd(bounds: Rectangle): void {
-    this.boundsUpdate$.next(bounds)
+    const offset = 50
+    let windowBounds = this.windowService.getWindowBounds()
+    windowBounds.x = offset
+    windowBounds.y = offset
+    windowBounds.width -= offset * 2
+    windowBounds.height -= offset * 2
+
+    if (this.intersects(bounds, windowBounds)) {
+      this.boundsUpdate$.next(bounds)
+    }
   }
 
   public toggleGrid(): void {
@@ -83,5 +97,10 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
   public onDismissNotification(notification: TradeNotification): void {
     this.notifications = this.notifications.filter((tn) => tn !== notification)
     this.tradeNotificationsService.dismissNotification(notification)
+  }
+
+  private intersects(a: Rectangle, b: Rectangle): boolean {
+    return (a.x <= (b.x + b.width) && (a.x + a.width) >= b.x) &&
+      (a.y <= (b.y + b.height) && (a.y + a.height) >= b.y)
   }
 }

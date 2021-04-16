@@ -7,14 +7,14 @@
     <div class="playerName" [class.joinedHideout]="notification.playerInHideout" [class.leftHideout]="notification.playerLeftHideout" matTooltip="{{ notification.playerName }}">{{ notification.playerName }}</div>
     <ng-container [ngSwitch]="notification.type">
       <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
-        <mat-icon class="incomingArrow">forward</mat-icon>
+        <mat-icon class="incomingArrow" matTooltip="Incoming Trade">forward</mat-icon>
         <ng-container *ngTemplateOutlet="offerAndTimeTemplate"></ng-container>
         <mat-icon class="inviteToParty clickable" (click)="inviteToParty()" matTooltip="Invite to Party">add_circle_outline</mat-icon>
         <ng-container *ngTemplateOutlet="requestTradeTemplate"></ng-container>
         <mat-icon class="kickFromParty clickable" (click)="kickFromParty()" matTooltip="Kick from Party">remove_circle_outline</mat-icon>
       </ng-container>
       <ng-container *ngSwitchCase="TradeNotificationType.Outgoing">
-        <mat-icon class="outgoingArrow">forward</mat-icon>
+        <mat-icon class="outgoingArrow" matTooltip="Outgoing Trade">forward</mat-icon>
         <ng-container *ngTemplateOutlet="offerAndTimeTemplate"></ng-container>
         <mat-icon class="visitPlayerHideout clickable" (click)="visitPlayerHideout()" matTooltip="Go to Player Hideout">home</mat-icon>
         <ng-container *ngTemplateOutlet="requestTradeTemplate"></ng-container>
@@ -27,14 +27,7 @@
   </div>
   <div class="body" *ngIf="!collapsed">
     <div class="tradeItem">
-      <ng-container [ngSwitch]="notification.type">
-        <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
-          <div class="itemName clickable" (click)="highlightItem()" matTooltip="{{ notification.itemName }}">{{ notification.itemName }}</div>
-        </ng-container>
-        <ng-container *ngSwitchCase="TradeNotificationType.Outgoing">
-          <div class="itemName" matTooltip="{{ notification.itemName }}">{{ notification.itemName }}</div>
-        </ng-container>
-      </ng-container>
+      <ng-container *ngIf="notification.itemLocation; then itemNameTemplate; else currencyItemTemplate"></ng-container>
       <div class="itemOffer" matTooltip="{{ notification.offer }}">{{ notification.offer }}</div>
       <ng-container [ngSwitch]="notification.type">
         <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
@@ -59,7 +52,7 @@
 </div>
 
 <ng-template #offerAndTimeTemplate>
-  <div class="price" matTooltip="{{ notification.price.amount + ' ' + notification.price.currency.nameType }}">{{ notification.price.amount }}<span *ngIf="!notification.price.currency.image">&nbsp;???</span><img *ngIf="notification.price.currency.image" [src]="'https://web.poecdn.com' + notification.price.currency.image" /></div>
+  <ng-container *ngTemplateOutlet="currencyAmountTemplate; context: { currencyAmount: notification.price }"></ng-container>
   <div class="elapsedTime">{{ elapsedTime }}</div>
 </ng-template>
 
@@ -69,4 +62,30 @@
 
 <ng-template #buttonTemplate let-tradeOptions="tradeOptions">
   <div class="button clickable" *ngFor="let tradeOption of tradeOptions" (click)="executeTradeOption(tradeOption)">{{ tradeOption.buttonLabel }}</div>
+</ng-template>
+
+<ng-template #itemNameTemplate>
+  <ng-container [ngSwitch]="notification.type">
+    <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
+      <div class="itemName clickable" (click)="highlightItem()" matTooltip="{{ notification.item }} ({{ notification.itemLocation.tabName }} @ {{ notification.itemLocation.bounds.x }}, {{ notification.itemLocation.bounds.y }})">{{ notification.item }}</div>
+    </ng-container>
+    <ng-container *ngSwitchCase="TradeNotificationType.Outgoing">
+      <div class="itemName" matTooltip="{{ notification.item }}">{{ notification.item }}</div>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #currencyItemTemplate>
+  <div class="itemCurrency">
+    <ng-container *ngTemplateOutlet="currencyAmountTemplate; context: { currencyAmount: notification.item }"></ng-container>
+    <div class="price" matTooltip="1 {{ $any(notification.item).currency.nameType }} = {{ itemExchangeRatio() }} {{ notification.price.currency.nameType }}">({{ itemExchangeRatio() }}<ng-container *ngTemplateOutlet="currencyImageTemplate; context: { currency: notification.price.currency }"></ng-container>)</div>
+  </div>
+</ng-template>
+
+<ng-template #currencyAmountTemplate let-currencyAmount="currencyAmount">
+  <div class="price" matTooltip="{{ currencyAmount.amount }} {{ currencyAmount.currency.nameType }}">{{ currencyAmount.amount }}<ng-container *ngTemplateOutlet="currencyImageTemplate; context: { currency: currencyAmount.currency }"></ng-container></div>
+</ng-template>
+
+<ng-template #currencyImageTemplate let-currency="currency">
+  <span *ngIf="!currency.image">&nbsp;???</span><img *ngIf="currency.image" [src]="'https://web.poecdn.com' + currency.image" />
 </ng-template>

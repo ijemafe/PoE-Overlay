@@ -23,9 +23,13 @@
     }
 
     .gridCell {
-      border: 1px solid yellow;
       width: 100%;
       height: 100%;
+      border: 1px solid rgb(0,0,0,0.65);
+    }
+
+    .gridCell.highlight {
+      border: 1px solid yellow;
     }
   }
 
@@ -55,6 +59,19 @@
       padding: 4px;
       width: 100px;
       margin: auto;
+
+      > .mat-icon {
+        position: relative;
+        top: 2px;
+        width: 19px;
+        height: 19px;
+        font-size: 15px;
+      }
+    }
+
+    .tabName {
+      width: auto;
+      color: lightgray;
     }
   }
 }

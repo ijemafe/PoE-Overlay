@@ -18,6 +18,7 @@ import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade
 import { Context } from '@shared/module/poe/type'
 import { BehaviorSubject, EMPTY, Observable, timer } from 'rxjs'
 import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
+import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
 import { UserSettingsService } from '../../service'
 import { UserSettings } from '../../type'
 
@@ -47,6 +48,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService,
     private readonly stashGridService: TradeCompanionStashGridService,
+    private readonly tradeNotificationsService: TradeNotificationsService,
   ) {
     this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
     this.window.gameBounds.subscribe((_) => {
@@ -57,6 +59,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   @HostListener('window:beforeunload', [])
   public onWindowBeforeUnload(): void {
     this.reset()
+    this.window.removeAllListeners()
   }
 
   public ngOnInit(): void {
@@ -68,6 +71,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this.window.disableTransparencyMouseFix(true)
     this.stashGridService.unregisterEvents()
+    this.tradeNotificationsService.unregisterEvents()
     this.reset()
   }
 
@@ -137,6 +141,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.app.registerEvents(settings.autoDownload)
     this.window.registerEvents()
     this.stashGridService.registerEvents()
+    this.tradeNotificationsService.registerEvents()
   }
 
   private registerVisibleChange(): void {
@@ -159,7 +164,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   private reset(): void {
-    this.window.removeAllListeners()
     this.dialogRef.reset()
     this.shortcut.reset()
   }

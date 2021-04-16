@@ -1,17 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { WindowService } from '@app/service';
+import { EnumValues } from '@app/class';
 import { ShortcutService } from '@app/service/input';
 import { Rectangle, VisibleFlag } from '@app/type';
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service';
-import { STASH_TAB_CELL_COUNT_MAP, TradeCompanionStashGridOptions, TradeCompanionUserSettings } from '@shared/module/poe/type/trade-companion.type';
+import { StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeCompanionStashGridOptions, TradeCompanionUserSettings } from '@shared/module/poe/type/trade-companion.type';
 import { BehaviorSubject, Subscription } from 'rxjs';
-
-export enum ResizeSide {
-  Left,
-  Right,
-  Top,
-  Bottom,
-}
 
 @Component({
   selector: 'app-trade-companion-stash-grid',
@@ -28,17 +21,15 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy {
   public gridBounds: Rectangle
   public cellArray: number[]
 
-  // Make the enum available in the html
-  public ResizeSide = ResizeSide
-
   public readonly darkerShadow: boolean = false
 
   private stashGridServiceSubscription: Subscription
   private escapeSubscription: Subscription
 
+  private stashGridTypes = new EnumValues(StashGridType)
+
   constructor(
     private readonly stashGridService: TradeCompanionStashGridService,
-    private readonly window: WindowService,
     private readonly shortcutService: ShortcutService,
   ) {
   }
@@ -81,12 +72,31 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy {
     }
   }
 
+  public intersectsHighlightBounds(colIndex: number, rowIndex: number) {
+    const highlightLocation = this.stashGridOptions$.value.highlightLocation
+    if (highlightLocation) {
+      const bounds = highlightLocation.bounds
+      colIndex += 1
+      rowIndex += 1
+      return colIndex >= bounds.x && colIndex < (bounds.x + bounds.width) &&
+        rowIndex >= bounds.y && rowIndex < (bounds.y + bounds.height)
+    }
+    return false
+  }
+
   public saveChanges(): void {
     this.stashGridService.completeStashGridEdit(this.gridBounds)
   }
 
   public cancelChanges(): void {
     this.stashGridService.completeStashGridEdit(null)
+  }
+
+  public toggleStashGrid(): void {
+    let stashGridOptions = this.stashGridOptions$.value
+    stashGridOptions.gridType = ((stashGridOptions.gridType + 1) % this.stashGridTypes.keys.length)
+    stashGridOptions.gridBounds = null
+    this.stashGridService.stashGridOptions$.next(stashGridOptions)
   }
 
   private createArray(n: number): number[] {

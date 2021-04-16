@@ -3,7 +3,7 @@ import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/
 import { CommandService } from '@modules/command/service/command.service';
 import { SnackBarService } from '@shared/module/material/service';
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service';
-import { StashGridType, TradeCompanionOption, TradeCompanionUserSettings, TradeNotification, TradeNotificationType } from '@shared/module/poe/type/trade-companion.type';
+import { CurrencyAmount, StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeCompanionOption, TradeCompanionUserSettings, TradeNotification, TradeNotificationType } from '@shared/module/poe/type/trade-companion.type';
 import moment from 'moment';
 import { timer } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -72,6 +72,10 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
   }
 
+  public itemExchangeRatio(): number {
+    return this.floorMD(this.notification.price.amount / (<CurrencyAmount>this.notification.item).amount, 3)
+  }
+
   public dismiss(): void {
     this.dismissNotification.emit(this.notification)
   }
@@ -116,7 +120,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
 
   public askStillInterested(): void {
     // TODO: Translate?
-    this.commandService.command(`@${this.notification.playerName} Hi, are you still interested in ${this.notification.itemName} for ${this.notification.price.amount} ${this.notification.price.currency.nameType}?`)
+    this.commandService.command(`@${this.notification.playerName} Hi, are you still interested in ${this.notification.item} for ${this.notification.price.amount} ${this.notification.price.currency.nameType}?`)
   }
 
   public highlightItem(): void {
@@ -125,12 +129,15 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
       this.stashGridService.hideStashGrid()
     } else {
       this.showingStashGrid = true
+      const bounds = this.notification.itemLocation.bounds
+      const normalGridCellCount = STASH_TAB_CELL_COUNT_MAP[StashGridType.Normal]
       this.stashGridService.showStashGrid({
         editMode: false,
-        gridType: StashGridType.Normal,
-        gridBounds: this.settings.stashGridBounds[StashGridType.Normal],
-        highlightBounds: this.notification.itemLocation.bounds
-      });
+        gridType: bounds.x <= normalGridCellCount && bounds.y <= normalGridCellCount ? StashGridType.Normal : StashGridType.Quad,
+        highlightLocation: this.notification.itemLocation
+      }).subscribe(() => {
+        this.showingStashGrid = false
+      })
     }
   }
 
@@ -146,5 +153,12 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
     } else if (tradeOption.dismissNotification) {
       this.dismiss()
     }
+  }
+
+  // Floors the value to a meaningful amount of decimals
+  private floorMD(n: number, d: number) {
+    const log10 = n ? Math.floor(Math.log10(n)) : 0
+    const div = log10 < 0 ? Math.pow(10, 1 - log10) : Math.pow(10, d);
+    return Math.floor(n * div) / div
   }
 }

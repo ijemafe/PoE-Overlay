@@ -1,12 +1,21 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { ElectronProvider } from '@app/provider/electron.provider';
+import { IpcMain, IpcMainEvent, IpcRenderer } from 'electron';
 import moment from 'moment';
+import { forkJoin } from 'rxjs';
 import { GameLogService } from '../../../../../core/service/game-log.service';
-import { TradeNotification, TradeNotificationType } from '../../type/trade-companion.type';
+import { ExampleNotificationType, TradeNotification, TradeNotificationType } from '../../type/trade-companion.type';
 import { CurrencyService } from '../currency/currency.service';
 
-const regTradeOffer = /^(.+) (.+) (.+) (.+) (.+) (.+) (@(From|To) ((<(.*)> )?(.+))\: Hi, I would like to buy your (.+) listed for ([0-9\.]+) (.+) in (.+) \(stash tab "(.+)"; position: left ([0-9]+), top ([0-9]+)\)(.*)){1}/i;
+const regItemTradeOffer = /^(.+) (.+) (.+) (.+) (.+) (.+) @(From|To) ((<(.*)> )?(.+))\: (Hi, I would like to buy your (.+) listed for ([0-9\.]+) (.+) in (.+) \(stash tab "(.+)"; position: left ([0-9]+), top ([0-9]+)\)(.*)){1}/i;
+const regCurrencyTradeOffer = /^(.+) (.+) (.+) (.+) (.+) (.+) @(From|To) ((<(.*)> )?(.+))\: (Hi, I'd like to buy your ([0-9\.]+) (.+) for my ([0-9\.]+) (.+) in (.+)\.(.*)){1}/i;
 const regPlayerJoinedArea = /(.+) (.+) has joined the area./i;
 const regPlayerLeftArea = /(.+) (.+) has left the area./i;
+
+const logLineDateFormat = 'YYYY/MM/DD HH:mm:ss'
+const fromToPlaceholder = '{fromto}'
+
+const AddExampleTradeNotificationKey = 'trade-notification-add-example'
 
 @Injectable({
   providedIn: 'root',
@@ -14,23 +23,66 @@ const regPlayerLeftArea = /(.+) (.+) has left the area./i;
 export class TradeNotificationsService {
   public readonly notificationAddedOrChanged = new EventEmitter<TradeNotification>()
 
+  private ipcMain: IpcMain
+  private ipcRenderer: IpcRenderer
+
   private notifications: TradeNotification[] = []
 
+  private scopedAddExampleNotificationEvent
+
   constructor(
+    electronProvider: ElectronProvider,
     private readonly gameLogService: GameLogService,
     private readonly currencyService: CurrencyService,
   ) {
+    this.ipcMain = electronProvider.provideIpcMain()
+    this.ipcRenderer = electronProvider.provideIpcRenderer()
     this.gameLogService.logLineAdded.subscribe((logLine: string) => this.onLogLineAdded(logLine))
+  }
+
+  /**
+   * Call this method only from the main window
+   */
+  public registerEvents() {
+    if (!this.scopedAddExampleNotificationEvent) {
+      this.scopedAddExampleNotificationEvent = (event, exampleNotificationType) => this.onAddExampleNotification(event, exampleNotificationType)
+      this.ipcMain.on(AddExampleTradeNotificationKey, this.scopedAddExampleNotificationEvent)
+    }
+  }
+
+  /**
+   * Call this method only from the main window
+   */
+  public unregisterEvents() {
+    this.ipcMain.removeListener(AddExampleTradeNotificationKey, this.scopedAddExampleNotificationEvent)
+  }
+
+  /**
+   * Call this method only from the settings window
+   */
+  public addExampleTradeNotification(exampleNotificationType: ExampleNotificationType): void {
+    this.ipcRenderer.send(AddExampleTradeNotificationKey, exampleNotificationType)
   }
 
   public dismissNotification(notification: TradeNotification): void {
     this.notifications = this.notifications.filter((tn) => tn !== notification)
   }
 
+  private addNotification(notification: TradeNotification) {
+    this.notifications.push(notification)
+    this.notificationAddedOrChanged.emit(notification)
+  }
+
   private onLogLineAdded(logLine: string): void {
-    const tradeOfferMatch = logLine.match(regTradeOffer)
-    if (tradeOfferMatch) {
-      this.parseTradeWhisper(tradeOfferMatch)
+    const itemTradeOfferMatch = logLine.match(regItemTradeOffer)
+    if (itemTradeOfferMatch) {
+      this.parseItemTradeWhisper(itemTradeOfferMatch)
+      return
+    }
+
+    const currencyTradeOfferMatch = logLine.match(regCurrencyTradeOffer)
+    if (currencyTradeOfferMatch) {
+      this.parseCurrencyTradeWhisper(currencyTradeOfferMatch)
       return
     }
 
@@ -76,15 +128,48 @@ export class TradeNotificationsService {
     }
   }
 
-  private parseTradeWhisper(whisperMatch: RegExpMatchArray): void {
+  private parseCurrencyTradeWhisper(whisperMatch: RegExpMatchArray): void {
+    const playerName = whisperMatch[11]
+    const currencyID = whisperMatch[14]
+    const offerItemID = whisperMatch[16]
+    forkJoin([this.currencyService.searchByNameType(currencyID), this.currencyService.searchByNameType(offerItemID)]).subscribe((currencies) => {
+      const notification: TradeNotification = {
+        text: `@${playerName} ${whisperMatch[12]}`,
+        type: whisperMatch[7] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing,
+        time: moment(whisperMatch[1], logLineDateFormat),
+        playerName: playerName,
+        item: {
+          amount: +whisperMatch[13],
+          currency: currencies[0] || {
+            id: currencyID,
+            nameType: currencyID,
+            image: null,
+          }
+        },
+        price: {
+          amount: +whisperMatch[15],
+          currency: currencies[1] || {
+            id: offerItemID,
+            nameType: offerItemID,
+            image: null,
+          },
+        },
+        offer: whisperMatch[18],
+      }
+      this.addNotification(notification)
+    })
+  }
+
+  private parseItemTradeWhisper(whisperMatch: RegExpMatchArray): void {
     const currencyID = whisperMatch[15]
+    const playerName = whisperMatch[11]
     this.currencyService.searchById(currencyID).subscribe((currency) => {
       const notification: TradeNotification = {
-        text: whisperMatch[7],
-        type: whisperMatch[8] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing,
-        time: moment(whisperMatch[1], 'YYYY/MM/DD HH:mm:ss'),
-        playerName: whisperMatch[12],
-        itemName: whisperMatch[13],
+        text: `@${playerName} ${whisperMatch[12]}`,
+        type: whisperMatch[7] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing,
+        time: moment(whisperMatch[1], logLineDateFormat),
+        playerName: playerName,
+        item: whisperMatch[13],
         price: {
           amount: +whisperMatch[14],
           currency: currency || {
@@ -104,8 +189,27 @@ export class TradeNotificationsService {
         },
         offer: whisperMatch[20],
       }
-      this.notifications.push(notification)
-      this.notificationAddedOrChanged.emit(notification)
+      this.addNotification(notification)
     })
+  }
+
+  private onAddExampleNotification(event: IpcMainEvent, exampleNotificationType: ExampleNotificationType) {
+    let logLine: string
+    switch (exampleNotificationType) {
+      case ExampleNotificationType.Item:
+        //2021/04/16 17:04:56 26257593 bb3 [INFO Client 24612] @From FakePlayerName: Hi, I would like to buy your level 14 0% Steelskin listed for 1 alch in Standard (stash tab "~price 1 alch #2"; position: left 3, top 9) -- Offer 1c?
+        logLine = `${moment().format(logLineDateFormat)}  12345678 bb3 [INFO Client 12345] @${fromToPlaceholder} FakePlayerName: Hi, I would like to buy your level 14 0% Steelskin listed for 1 alch in Standard (stash tab "~price 1 alch #2"; position: left 3, top 9) -- Offer 1c?`
+        break
+
+      case ExampleNotificationType.Currency:
+        //2021/04/16 15:48:55 12345678 bb3 [INFO Client 12345] @From FakePlayerName: Hi, I'd like to buy your 1 Exalted Orb for my 100 Chaos Orb in Standard. -- Offer 95c?
+        logLine = `${moment().format(logLineDateFormat)}  12345678 bb3 [INFO Client 12345] @${fromToPlaceholder} FakePlayerName: Hi, I'd like to buy your 1 Exalted Orb for my 100 Chaos Orb in Standard. -- Offer 95c?`
+        break
+
+      default:
+        return
+    }
+    this.onLogLineAdded(logLine.replace(fromToPlaceholder, 'To'));
+    this.onLogLineAdded(logLine.replace(fromToPlaceholder, 'From'));
   }
 }

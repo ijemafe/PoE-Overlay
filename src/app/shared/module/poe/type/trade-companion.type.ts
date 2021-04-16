@@ -37,12 +37,17 @@ export interface TradeCompanionStashGridOptions {
   gridType: StashGridType
   editMode: boolean
   gridBounds?: Rectangle
-  highlightBounds?: Rectangle
+  highlightLocation?: TradeItemLocation
 }
 
 export const STASH_TAB_CELL_COUNT_MAP = {
   [StashGridType.Normal]: 12,
   [StashGridType.Quad]: 24,
+}
+
+export enum ExampleNotificationType {
+  Item = 0,
+  Currency = 1,
 }
 
 export enum TradeNotificationType {
@@ -55,15 +60,15 @@ export interface TradeNotification {
   type: TradeNotificationType
   time: moment.Moment,
   playerName: string,
-  itemName: string,
-  itemLocation: TradeItemLocation,
-  price: TradePrice,
+  item: string | CurrencyAmount,
+  itemLocation?: TradeItemLocation,
+  price: CurrencyAmount,
   offer?: string,
   playerInHideout?: boolean,
   playerLeftHideout?: boolean,
 }
 
-export interface TradePrice {
+export interface CurrencyAmount {
   amount: number,
   currency: Currency,
 }

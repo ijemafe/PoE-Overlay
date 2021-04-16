@@ -4,28 +4,40 @@
          appResizeDrag
          [ardBounds]="gridBounds"
          [ardAppliedBounds.height]="false"
-         [ardDisabled]="!options.editMode">
+         [ardInteractionsDisabled]="!options.editMode"
+         [ardAllowResize]="options.editMode">
       <div class="grid"
            [style.height.px]="gridBounds.height"
            [class.interactable]="options.editMode"
            [class.editMode]="options.editMode">
         <div class="gridRow" *ngFor="let row of cellArray; let rowIndex = index">
           <div class="gridCol" *ngFor="let col of cellArray; let colIndex = index">
-            <div class="gridCell"></div>
+            <div class="gridCell" [class.highlight]="options.editMode || intersectsHighlightBounds(colIndex, rowIndex)"></div>
           </div>
         </div>
       </div>
-      <ng-container *ngIf="options.editMode">
-        <!--<div class="grid-resize-corner interactable"></div>-->
-        <div class="gridControls">
+      <div class="gridControls">
+        <ng-container *ngIf="options.editMode; else nonEditModeButtonsTemplate">
           <div class="gridControl clickable" (click)="saveChanges()">
             Save
           </div>
           <div class="gridControl clickable" (click)="cancelChanges()">
             Cancel
           </div>
-        </div>
-      </ng-container>
+        </ng-container>
+      </div>
     </div>
   </ng-container>
+
+  <ng-template #nonEditModeButtonsTemplate>
+    <div class="gridControl clickable" (click)="toggleStashGrid()">
+      Toggle <mat-icon>grid_on</mat-icon>
+    </div>
+    <div class="gridControl interactable tabName" *ngIf="options.highlightLocation" matTooltip="Tab: {{ options.highlightLocation.tabName }}">
+      {{ options.highlightLocation.tabName }}
+    </div>
+    <div class="gridControl clickable" (click)="cancelChanges()">
+      Close
+    </div>
+  </ng-template>
 </ng-container>

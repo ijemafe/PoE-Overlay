@@ -7,7 +7,8 @@ import { TradeCompanionStashGridOptions } from '@shared/module/poe/type/trade-co
 import { WindowService, GameService } from '@app/service';
 
 const StashGridOptionsKey = 'stash-grid-options'
-const EditStashGridOptionsKey = 'stash-grid-options-edit'
+const StashGridOptionsReplyKey = 'stash-grid-options-reply'
+const ClosedKey = 'closed'
 
 @Injectable({
   providedIn: 'root',
@@ -47,11 +48,24 @@ export class TradeCompanionStashGridService {
     this.ipcMain.removeListener(StashGridOptionsKey, this.scopedStashGridOptionsEvent)
   }
 
-  public showStashGrid(stashGridOptions: TradeCompanionStashGridOptions) {
-    this.ipcRenderer.send(StashGridOptionsKey, stashGridOptions)
+  public showStashGrid(stashGridOptions: TradeCompanionStashGridOptions): Observable<void> {
+    const promise = new Promise<void>((resolve, reject) => {
+      this.ipcRenderer.send(StashGridOptionsKey, stashGridOptions)
+      const scopedReplyEvent = (_, stashGridBounds: Rectangle) => {
+        this.ipcRenderer.removeListener(ClosedKey, scopedClosedEvent)
+        resolve()
+      }
+      const scopedClosedEvent = () => {
+        this.ipcRenderer.removeListener(StashGridOptionsReplyKey, scopedReplyEvent)
+        resolve()
+      }
+      this.ipcRenderer.once(StashGridOptionsReplyKey, scopedReplyEvent)
+      this.ipcRenderer.once(ClosedKey, scopedClosedEvent)
+    })
+    return from(promise)
   }
 
-  public hideStashGrid() {
+  public hideStashGrid(): void {
     this.ipcRenderer.send(StashGridOptionsKey, null)
   }
 
@@ -61,12 +75,16 @@ export class TradeCompanionStashGridService {
   public editStashGrid(stashGridOptions: TradeCompanionStashGridOptions): Observable<Rectangle> {
     const promise = new Promise<Rectangle>((resolve, reject) => {
       this.ipcRenderer.send(StashGridOptionsKey, stashGridOptions)
-      this.ipcRenderer.once(EditStashGridOptionsKey, (_, stashGridBounds: Rectangle) => {
+      const scopedReplyEvent = (_, stashGridBounds: Rectangle) => {
+        this.ipcRenderer.removeListener(ClosedKey, scopedClosedEvent)
         resolve(stashGridBounds)
-      })
-      this.ipcRenderer.once('closed', () => {
+      }
+      const scopedClosedEvent = () => {
+        this.ipcRenderer.removeListener(StashGridOptionsReplyKey, scopedReplyEvent)
         resolve(null)
-      })
+      }
+      this.ipcRenderer.once(StashGridOptionsReplyKey, scopedReplyEvent)
+      this.ipcRenderer.once(ClosedKey, scopedClosedEvent)
     })
     return from(promise)
   }
@@ -77,19 +95,16 @@ export class TradeCompanionStashGridService {
   public completeStashGridEdit(stashGridBounds: Rectangle) {
     if (this.ipcMainEvent) {
       this.stashGridOptions$.next(null)
-      this.ipcMainEvent.reply(EditStashGridOptionsKey, stashGridBounds)
+      this.ipcMainEvent.reply(StashGridOptionsReplyKey, stashGridBounds)
       this.ipcMainEvent = null;
     }
   }
 
   private onStashGridOptions(event: IpcMainEvent, stashGridOptions: TradeCompanionStashGridOptions) {
-    if (!this.ipcMainEvent) {
-      this.ipcMainEvent = event
-      this.stashGridOptions$.next(stashGridOptions)
-      this.game.focus()
-      this.window.focus()
-    } else if (!stashGridOptions) {
-      this.completeStashGridEdit(null)
-    }
+    this.completeStashGridEdit(null)
+    this.ipcMainEvent = event
+    this.stashGridOptions$.next(stashGridOptions)
+    this.game.focus()
+    this.window.focus()
   }
 }

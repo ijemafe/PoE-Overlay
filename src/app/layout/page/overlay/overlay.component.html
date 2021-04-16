@@ -9,9 +9,7 @@
       <app-trade-companion-stash-grid [settings]="userSettings"></app-trade-companion-stash-grid>
       <div class="version" *ngIf="userSettings.displayVersion">PoE Overlay: {{ version$ | async }}</div>
     </div>
-    <app-trade-notifications-panel
-                                   *ngIf="userSettings.tradeCompanionEnabled"
-                                   [settings]="userSettings"
+    <app-trade-notifications-panel [settings]="userSettings"
                                    [gameBounds]="gameOverlayBounds"
                                    (openSettings)="openUserSettings()">
     </app-trade-notifications-panel>

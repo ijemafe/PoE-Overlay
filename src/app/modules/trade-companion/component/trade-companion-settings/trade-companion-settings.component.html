@@ -1,11 +1,18 @@
 <app-card [title]="'trade-companion.general' | translate">
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
       <mat-slide-toggle [checked]="settings.tradeCompanionEnabled" (change)="settings.tradeCompanionEnabled = $event.checked">
         {{ 'trade-companion.enabled' | translate }}
       </mat-slide-toggle>
     </div>
-    <div class="col-md-8">
+    <div class="col-3" style="font-size: 12px;">
+      {{ 'trade-companion.window-bounds' | translate }}: {{ settings.tradeCompanionBounds.x }}, {{ settings.tradeCompanionBounds.y }} ({{ settings.tradeCompanionBounds.width }}x{{ settings.tradeCompanionBounds.height }})
+      <br/>
+      <button mat-raised-button (click)="onResetTradeCompanionBoundsClick()">
+        {{ 'trade-companion.reset' | translate }}
+      </button>
+    </div>
+    <div class="col-6">
       <div class="value-range">
         <label class="label">
           {{ 'settings.dialog-opacity' | translate }}:
@@ -64,6 +71,13 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2" *ngFor="let exampleNotificationType of exampleNotificationTypes.keys">
+      <button mat-raised-button (click)="onAddExampleTradeNotificationClick(exampleNotificationType)">
+        {{ 'trade-companion.example-trade-notification.' + (exampleNotificationTypes.values[exampleNotificationType] | lowercase) | translate }}
+      </button>
     </div>
   </div>
 </app-card>

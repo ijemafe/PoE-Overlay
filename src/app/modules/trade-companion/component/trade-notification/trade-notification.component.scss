@@ -77,19 +77,6 @@ $text-padding: 1px;
       color: $lime-green;
     }
 
-    .price {
-      white-space: nowrap;
-      margin-right: $text-space;
-      padding-top: $text-padding;
-
-      > img {
-        width: 22px;
-        height: 22px;
-        vertical-align: bottom;
-        margin-left: 2px;
-      }
-    }
-
     .elapsedTime {
       margin-right: $text-space;
       color: $dark-golden-rod;
@@ -140,8 +127,14 @@ $text-padding: 1px;
         margin-right: 0px;
       }
 
-      .itemName + * {
+      .itemName + *,
+      .itemCurrency + * {
         margin-left: auto;
+      }
+
+      .itemCurrency {
+        display: flex;
+        flex-grow: 100;
       }
 
       .itemName {
@@ -187,6 +180,19 @@ $text-padding: 1px;
       .button:hover {
         border: 2px solid $broken-white;
       }
+    }
+  }
+
+  .price {
+    white-space: nowrap;
+    margin-right: $text-space;
+    padding-top: $text-padding;
+
+    > img {
+      width: 22px;
+      height: 22px;
+      vertical-align: bottom;
+      margin-left: 2px;
     }
   }
 }

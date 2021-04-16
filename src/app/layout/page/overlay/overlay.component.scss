@@ -1,5 +1,11 @@
 @import './../../../../styles/variables';
 
+::ng-deep {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .game-overlay {
   position: fixed;
 }
