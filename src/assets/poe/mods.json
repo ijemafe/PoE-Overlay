@@ -385,6 +385,12 @@
 					"max": 20
 				}
 			],
+			"Unique__21": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			],
 			"Crafted": [
 				{
 					"min": 25,
@@ -1065,6 +1071,12 @@
 				{
 					"min": 20,
 					"max": 40
+				}
+			],
+			"Unique__21_": [
+				{
+					"min": 10,
+					"max": 20
 				}
 			],
 			"Crafted": [
@@ -1749,6 +1761,12 @@
 					"max": 30
 				}
 			],
+			"Unique__28": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			],
 			"Crafted": [
 				{
 					"min": 25,
@@ -2199,8 +2217,8 @@
 			],
 			"Unique__9": [
 				{
-					"min": 10,
-					"max": 15
+					"min": 15,
+					"max": 20
 				}
 			],
 			"Unique__10_": [
@@ -2279,6 +2297,12 @@
 				{
 					"min": 20,
 					"max": 30
+				}
+			],
+			"Unique__23": [
+				{
+					"min": 5,
+					"max": 10
 				}
 			],
 			"StrMasterCrafted1": [
@@ -3383,8 +3407,8 @@
 			],
 			"Unique__82": [
 				{
-					"min": 30,
-					"max": 50
+					"min": 80,
+					"max": 100
 				}
 			],
 			"Unique__83": [
@@ -3552,6 +3576,12 @@
 			"Unique__110": [
 				{
 					"min": 50,
+					"max": 70
+				}
+			],
+			"Unique__111__": [
+				{
+					"min": 40,
 					"max": 70
 				}
 			],
@@ -4393,6 +4423,12 @@
 					"max": 160
 				}
 			],
+			"Unique__21": [
+				{
+					"min": 40,
+					"max": 70
+				}
+			],
 			"StrIntMasterManaCrafted1": [
 				{
 					"min": 17,
@@ -4681,6 +4717,16 @@
 				{
 					"min": 240,
 					"max": 240
+				}
+			],
+			"JunMasterVeiledAndRegen": [
+				{
+					"min": 51,
+					"max": 55
+				},
+				{
+					"min": 320,
+					"max": 320
 				}
 			],
 			"EnhancedLevel50ModRegen": [
@@ -5537,6 +5583,12 @@
 					"max": 200
 				}
 			],
+			"LocalIncreasedEnergyShieldUnique__31": [
+				{
+					"min": 30,
+					"max": 60
+				}
+			],
 			"LocalIncreasedEnergyShield1": [
 				{
 					"min": 3,
@@ -5617,8 +5669,8 @@
 			],
 			"LocalIncreasedEnergyShieldEssenceChest7__": [
 				{
-					"min": 83,
-					"max": 92
+					"min": 88,
+					"max": 95
 				}
 			],
 			"LocalIncreasedEnergyShieldEssenceShield5": [
@@ -5635,8 +5687,8 @@
 			],
 			"LocalIncreasedEnergyShieldEssenceShield7": [
 				{
-					"min": 70,
-					"max": 80
+					"min": 75,
+					"max": 85
 				}
 			],
 			"LocalIncreasedEnergyShieldEssenceBootsGloves4": [
@@ -5659,8 +5711,8 @@
 			],
 			"LocalIncreasedEnergyShieldEssenceBootsGloves7": [
 				{
-					"min": 36,
-					"max": 42
+					"min": 38,
+					"max": 45
 				}
 			],
 			"LocalIncreasedEnergyShieldEssenceHelm5": [
@@ -6856,6 +6908,16 @@
 					"min": 7,
 					"max": 8
 				}
+			],
+			"AbyssAddedPhysicalDamageWithBowsJewel5": [
+				{
+					"min": 7,
+					"max": 8
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
 			]
 		},
 		"unique_dewaths_hide_physical_attack_damage_dealt_-": {
@@ -7527,6 +7589,16 @@
 					"max": 49
 				}
 			],
+			"LocalAddedEssenceNew7": [
+				{
+					"min": 19,
+					"max": 25
+				},
+				{
+					"min": 39,
+					"max": 45
+				}
+			],
 			"LocalAddedTwoHand1": [
 				{
 					"min": 2,
@@ -7615,6 +7687,16 @@
 				{
 					"min": 66,
 					"max": 78
+				}
+			],
+			"LocalAddedTwoHandEssenceNew7__": [
+				{
+					"min": 30,
+					"max": 41
+				},
+				{
+					"min": 63,
+					"max": 73
 				}
 			],
 			"LocalAddedUniqueBow1": [
@@ -11489,34 +11571,64 @@
 					"max": 23
 				}
 			],
-			"AbyssJewel1": [
+			"QuiverAddedChaosEssence1_": [
 				{
-					"min": 1,
-					"max": 1
+					"min": 7,
+					"max": 9
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 13,
+					"max": 17
+				}
+			],
+			"QuiverAddedChaosEssence2_": [
+				{
+					"min": 9,
+					"max": 11
+				},
+				{
+					"min": 15,
+					"max": 19
+				}
+			],
+			"QuiverAddedChaosEssence3__": [
+				{
+					"min": 11,
+					"max": 13
+				},
+				{
+					"min": 19,
+					"max": 23
+				}
+			],
+			"AbyssJewel1": [
+				{
+					"min": 6,
+					"max": 7
+				},
+				{
+					"min": 11,
+					"max": 13
 				}
 			],
 			"AbyssJewel2": [
 				{
-					"min": 2,
-					"max": 3
+					"min": 8,
+					"max": 9
 				},
 				{
-					"min": 4,
-					"max": 5
+					"min": 14,
+					"max": 17
 				}
 			],
 			"AbyssJewel3": [
 				{
-					"min": 4,
-					"max": 5
+					"min": 10,
+					"max": 11
 				},
 				{
-					"min": 6,
-					"max": 7
+					"min": 18,
+					"max": 21
 				}
 			],
 			"EinharMasterAdded1": [
@@ -11661,6 +11773,36 @@
 					"max": 123
 				}
 			],
+			"LocalAddedChaosDamageEssence1_": [
+				{
+					"min": 37,
+					"max": 59
+				},
+				{
+					"min": 79,
+					"max": 103
+				}
+			],
+			"LocalAddedChaosDamageEssence2__": [
+				{
+					"min": 43,
+					"max": 67
+				},
+				{
+					"min": 89,
+					"max": 113
+				}
+			],
+			"LocalAddedChaosDamageEssence3": [
+				{
+					"min": 53,
+					"max": 79
+				},
+				{
+					"min": 101,
+					"max": 131
+				}
+			],
 			"LocalAddedChaosDamageTwoHand1": [
 				{
 					"min": 81,
@@ -11669,6 +11811,36 @@
 				{
 					"min": 171,
 					"max": 215
+				}
+			],
+			"LocalAddedChaosDamageTwoHandEssence1": [
+				{
+					"min": 61,
+					"max": 103
+				},
+				{
+					"min": 149,
+					"max": 193
+				}
+			],
+			"LocalAddedChaosDamageTwoHandEssence2": [
+				{
+					"min": 73,
+					"max": 113
+				},
+				{
+					"min": 163,
+					"max": 205
+				}
+			],
+			"LocalAddedChaosDamageTwoHandEssence3": [
+				{
+					"min": 89,
+					"max": 131
+				},
+				{
+					"min": 181,
+					"max": 229
 				}
 			],
 			"LocalAddedChaosDamageImplicitE1": [
@@ -12955,6 +13127,12 @@
 				{
 					"min": 5,
 					"max": 7
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 8,
+					"max": 9
 				}
 			],
 			"SynthesisImplicitAttackBlock1": [
@@ -14255,8 +14433,8 @@
 			],
 			"LocalIncreasedPhysicalDamagePercentUnique__34___": [
 				{
-					"min": 110,
-					"max": 120
+					"min": 180,
+					"max": 210
 				}
 			],
 			"LocalIncreasedPhysicalDamagePercentUnique__35": [
@@ -15215,8 +15393,11 @@
 			"BlightCannibalBossDaemon": [],
 			"MonsterAfflictionFlameblastOnDeath": [],
 			"ExileMovementVelocityPerTenLevels": [],
+			"Map": [],
 			"MavenBuffedMapBoss": [],
-			"": []
+			"": [],
+			"UltimatumDaemonGraveyard_": [],
+			"UltimatumDaemonGraveyardRuin": []
 		},
 		"maximum_energy_shield_+%": {
 			"IncreasedUniqueOneHandSword2": [
@@ -15753,6 +15934,12 @@
 				{
 					"min": 80,
 					"max": 120
+				}
+			],
+			"LocalIncreasedPhysicalDamageReductionRatingPercentUnique__23": [
+				{
+					"min": 120,
+					"max": 150
 				}
 			],
 			"LocalIncreasedPhysicalDamageReductionRatingUnique__2": [
@@ -16363,6 +16550,12 @@
 				{
 					"min": 120,
 					"max": 150
+				}
+			],
+			"LocalIncreasedEvasionRatingPercentUnique__18": [
+				{
+					"min": 170,
+					"max": 250
 				}
 			],
 			"EvasionPercentCrafted": [
@@ -17225,8 +17418,8 @@
 			],
 			"LocalIncreasedArmourAndEnergyShieldUnique__12": [
 				{
-					"min": 60,
-					"max": 80
+					"min": 140,
+					"max": 220
 				}
 			],
 			"LocalIncreasedArmourAndEnergyShieldUnique__13_": [
@@ -17551,8 +17744,8 @@
 			],
 			"LocalIncreasedEvasionAndEnergyShieldUnique__16": [
 				{
-					"min": 100,
-					"max": 125
+					"min": 200,
+					"max": 250
 				}
 			],
 			"LocalIncreasedEvasionAndEnergyShieldUnique__17": [
@@ -20125,6 +20318,12 @@
 					"max": 180
 				}
 			],
+			"AbyssFlatEvasionJewel4_": [
+				{
+					"min": 181,
+					"max": 250
+				}
+			],
 			"Unique__1": [
 				{
 					"min": 40,
@@ -20183,8 +20382,8 @@
 			],
 			"Essence7": [
 				{
-					"min": 420,
-					"max": 480
+					"min": 481,
+					"max": 520
 				}
 			],
 			"EssenceRing5": [
@@ -20287,6 +20486,12 @@
 				{
 					"min": 101,
 					"max": 180
+				}
+			],
+			"AbyssFlatArmourJewel4__": [
+				{
+					"min": 181,
+					"max": 250
 				}
 			],
 			"Unique__1": [
@@ -23385,6 +23590,26 @@
 					"max": 12
 				}
 			],
+			"JunMasterVeiledSpellDamageAndNonChaosDamageToAddAsChaosDamage1h": [
+				{
+					"min": 60,
+					"max": 69
+				},
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
+			"JunMasterVeiledSpellDamageAndNonChaosDamageToAddAsChaosDamage2h": [
+				{
+					"min": 90,
+					"max": 99
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
 			"SpellDamageOnWeaponEnhancedLevel50Mod": [
 				{
 					"min": 70,
@@ -23711,6 +23936,12 @@
 				{
 					"min": 11,
 					"max": 12
+				}
+			],
+			"JunMasterVeiled_": [
+				{
+					"min": 14,
+					"max": 16
 				}
 			],
 			"EinharMasterTrapThrowingSpeed1": [
@@ -24567,6 +24798,26 @@
 				{
 					"min": 25,
 					"max": 28
+				}
+			],
+			"JunMasterVeiledMinionAttackAndCastSpeedOnWeapon1h": [
+				{
+					"min": 18,
+					"max": 20
+				},
+				{
+					"min": 18,
+					"max": 20
+				}
+			],
+			"JunMasterVeiledMinionAttackAndCastSpeedOnWeapon2h": [
+				{
+					"min": 34,
+					"max": 38
+				},
+				{
+					"min": 34,
+					"max": 38
 				}
 			],
 			"MinionAttackAndCastSpeedEnhancedLevel50Mod_": [
@@ -26651,6 +26902,12 @@
 					"max": 5
 				}
 			],
+			"UniqueSpecialCorruptionItemQuantity_": [
+				{
+					"min": 5,
+					"max": 7
+				}
+			],
 			"TalismanIncreasedItemQuantity": [
 				{
 					"min": 6,
@@ -27019,6 +27276,12 @@
 				{
 					"min": 30,
 					"max": 50
+				}
+			],
+			"ReducedImplicit1_": [
+				{
+					"min": 10,
+					"max": 15
 				}
 			],
 			"PvPMasterEnergyShieldRecoveryCooldownCrafted": [
@@ -29427,6 +29690,12 @@
 					"max": 240
 				}
 			],
+			"AbyssAccuracyRatingJewel5": [
+				{
+					"min": 241,
+					"max": 300
+				}
+			],
 			"EinharMasterAccuracyRating1": [
 				{
 					"min": 91,
@@ -29931,20 +30200,20 @@
 			],
 			"AbyssFlatJewel1": [
 				{
-					"min": 120,
-					"max": 240
+					"min": 540,
+					"max": 720
 				}
 			],
 			"AbyssFlatJewel2": [
 				{
-					"min": 300,
-					"max": 480
+					"min": 780,
+					"max": 960
 				}
 			],
 			"AbyssFlatJewel3_": [
 				{
-					"min": 540,
-					"max": 720
+					"min": 1020,
+					"max": 1200
 				}
 			],
 			"SynthesisImplicitLifeRegen1_": [
@@ -30205,6 +30474,12 @@
 				{
 					"min": 42,
 					"max": 60
+				}
+			],
+			"JunMasterVeiledLifeRegeneration": [
+				{
+					"min": 62,
+					"max": 80
 				}
 			],
 			"SynthesisImplicitPercentLifeRegen1": [
@@ -31413,6 +31688,56 @@
 				{
 					"min": 31,
 					"max": 60
+				}
+			]
+		},
+		"bow_critical_strike_chance_+%": {
+			"CriticalStrikeChanceWithBows1_": [
+				{
+					"min": 10,
+					"max": 14
+				}
+			],
+			"CriticalStrikeChanceWithBows2_": [
+				{
+					"min": 15,
+					"max": 19
+				}
+			],
+			"CriticalStrikeChanceWithBows3": [
+				{
+					"min": 20,
+					"max": 24
+				}
+			],
+			"CriticalStrikeChanceWithBows4": [
+				{
+					"min": 25,
+					"max": 29
+				}
+			],
+			"CriticalStrikeChanceWithBows5_": [
+				{
+					"min": 30,
+					"max": 34
+				}
+			],
+			"CriticalStrikeChanceWithBows6": [
+				{
+					"min": 35,
+					"max": 38
+				}
+			],
+			"CriticalStrikeChanceWithBows7": [
+				{
+					"min": 39,
+					"max": 44
+				}
+			],
+			"CritChanceWithBowJewel": [
+				{
+					"min": 12,
+					"max": 16
 				}
 			]
 		},
@@ -33261,8 +33586,8 @@
 			],
 			"LightningResistUnique__17_": [
 				{
-					"min": 15,
-					"max": 20
+					"min": 25,
+					"max": 30
 				}
 			],
 			"LightningResistUnique__18": [
@@ -33719,6 +34044,12 @@
 					"max": 13
 				}
 			],
+			"ChaosResistImplicitBoots1": [
+				{
+					"min": 7,
+					"max": 13
+				}
+			],
 			"ChaosResistUniqueAmulet15_": [
 				{
 					"min": 8,
@@ -33915,6 +34246,12 @@
 				{
 					"min": 23,
 					"max": 31
+				}
+			],
+			"ChaosResistUnique__21": [
+				{
+					"min": 19,
+					"max": 29
 				}
 			],
 			"ChaosResistCorruption": [
@@ -35231,6 +35568,62 @@
 				{
 					"min": 21,
 					"max": 24
+				}
+			]
+		},
+		"bow_critical_strike_multiplier_+": {
+			"CriticalMultiplierWithBows1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			],
+			"CriticalMultiplierWithBows2": [
+				{
+					"min": 13,
+					"max": 19
+				}
+			],
+			"CriticalMultiplierWithBows3": [
+				{
+					"min": 20,
+					"max": 24
+				}
+			],
+			"CriticalMultiplierWithBows4__": [
+				{
+					"min": 25,
+					"max": 29
+				}
+			],
+			"CriticalMultiplierWithBows5_": [
+				{
+					"min": 30,
+					"max": 34
+				}
+			],
+			"CriticalMultiplierWithBows6": [
+				{
+					"min": 35,
+					"max": 38
+				}
+			],
+			"CritMultiplierWithBowJewel": [
+				{
+					"min": 8,
+					"max": 10
+				}
+			],
+			"SynthesisImplicitBowCriticalMultiplierJewel1_": [
+				{
+					"min": 2,
+					"max": 3
+				}
+			],
+			"SynthesisImplicitBowCriticalMultiplierJewel2": [
+				{
+					"min": 4,
+					"max": 5
 				}
 			]
 		},
@@ -36603,12 +36996,6 @@
 					"max": 100
 				}
 			],
-			"Unique__1": [
-				{
-					"min": 25,
-					"max": 35
-				}
-			],
 			"Unique__2": [
 				{
 					"min": 70,
@@ -36625,6 +37012,12 @@
 				{
 					"min": 10,
 					"max": 10
+				}
+			],
+			"FireDamageAsPortionOfPhysicalDamageEssence2": [
+				{
+					"min": 15,
+					"max": 15
 				}
 			],
 			"AmuletUber1": [
@@ -37611,20 +38004,20 @@
 			],
 			"JunMaster21": [
 				{
-					"min": 11,
-					"max": 13
+					"min": 9,
+					"max": 11
 				}
 			],
 			"JunMaster22_": [
 				{
-					"min": 14,
-					"max": 16
+					"min": 12,
+					"max": 14
 				}
 			],
 			"JunMaster23": [
 				{
-					"min": 17,
-					"max": 20
+					"min": 15,
+					"max": 17
 				}
 			],
 			"JunMaster1": [
@@ -37649,6 +38042,12 @@
 				{
 					"min": 17,
 					"max": 20
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 20,
+					"max": 23
 				}
 			],
 			"SynthesisImplicit1_": [
@@ -37778,6 +38177,12 @@
 					"min": 40,
 					"max": 40
 				}
+			],
+			"MonsterSlowerAttacksRareUnique": [
+				{
+					"min": -25,
+					"max": -25
+				}
 			]
 		},
 		"monster_dropped_item_quantity_+% monster_dropped_item_rarity_+% display_monster_wealth_mod": {
@@ -37864,6 +38269,12 @@
 				}
 			],
 			"V2": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UniqueSpecialCorruptionAdditionalProjectile": [
 				{
 					"min": 1,
 					"max": 1
@@ -37960,6 +38371,12 @@
 				}
 			],
 			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Unique__1_": [
 				{
 					"min": 1,
 					"max": 1
@@ -38091,6 +38508,20 @@
 				{
 					"min": 20,
 					"max": 20
+				}
+			],
+			"UltimatumAcceleratingMonsters": [
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -38361,8 +38792,8 @@
 					"max": 698
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 6,
+					"max": 6
 				}
 			],
 			"MonsterMakeCloneUniqueLife": [
@@ -38743,7 +39174,7 @@
 			]
 		},
 		"monster_slain_experience_+% monster_dropped_item_quantity_+% monster_dropped_item_rarity_+%": {
-			"": [
+			"MonsterQuestBoss": [
 				{
 					"min": 250,
 					"max": 250
@@ -38755,6 +39186,48 @@
 				{
 					"min": 1500,
 					"max": 1500
+				}
+			],
+			"": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 3500,
+					"max": 3500
+				},
+				{
+					"min": 2500,
+					"max": 2500
+				}
+			],
+			"UnholyTrio_": [
+				{
+					"min": 325,
+					"max": 325
+				},
+				{
+					"min": 6000,
+					"max": 6000
+				},
+				{
+					"min": 4000,
+					"max": 4000
+				}
+			],
+			"KitavaFinal": [
+				{
+					"min": 400,
+					"max": 400
+				},
+				{
+					"min": 8000,
+					"max": 8000
+				},
+				{
+					"min": 6000,
+					"max": 6000
 				}
 			],
 			"": [
@@ -39035,8 +39508,8 @@
 					"max": 100
 				},
 				{
-					"min": 600,
-					"max": 600
+					"min": 300,
+					"max": 300
 				}
 			],
 			"2": [
@@ -39045,8 +39518,8 @@
 					"max": 100
 				},
 				{
-					"min": 700,
-					"max": 700
+					"min": 400,
+					"max": 400
 				}
 			],
 			"3": [
@@ -39055,8 +39528,8 @@
 					"max": 100
 				},
 				{
-					"min": 800,
-					"max": 800
+					"min": 500,
+					"max": 500
 				}
 			],
 			"_": [
@@ -39741,6 +40214,24 @@
 					"max": 0
 				}
 			],
+			"MonsterIncursionMediumDropModifiers": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 1500,
+					"max": 1500
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
 			"MonsterIncursionLargeDropModifiers": [
 				{
 					"min": 0,
@@ -39917,8 +40408,8 @@
 					"max": 525
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				}
 			],
 			"MonsterHarvestT2DropModifiers": [
@@ -39935,8 +40426,8 @@
 					"max": 900
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				}
 			],
 			"MonsterHarvestT3DropModifiers": [
@@ -40830,6 +41321,12 @@
 					"min": -25,
 					"max": -20
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": -25,
+					"max": -20
+				}
 			]
 		},
 		"local_socketed_gem_level_+": {
@@ -40969,6 +41466,12 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			],
+			"UniqueSpecialCorruptionSocketedGemLevel": [
+				{
+					"min": 2,
+					"max": 2
 				}
 			],
 			"SynthesisImplicitLocal1_": [
@@ -41349,6 +41852,14 @@
 				{
 					"min": 3,
 					"max": 3
+				}
+			]
+		},
+		"vaal_skill_gem_level_+": {
+			"GlobalVaalGemsLevelImplicit1_": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -42126,6 +42637,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"global_always_hit": {
@@ -42413,6 +42930,12 @@
 					"max": 5
 				}
 			],
+			"UniqueSpecialCorruption_": [
+				{
+					"min": 15,
+					"max": 25
+				}
+			],
 			"DexMissionChieftainBoss": [
 				{
 					"min": 125,
@@ -42433,8 +42956,8 @@
 			],
 			"Essence1": [
 				{
-					"min": 10,
-					"max": 10
+					"min": 25,
+					"max": 25
 				}
 			],
 			"Uber1_": [
@@ -43049,6 +43572,18 @@
 					"max": 1
 				}
 			],
+			"DummyModKeystoneShieldUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"DummyModRageGlovesUnique__1__": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
 			"MinionDamageUnique__1": [
 				{
 					"min": 30,
@@ -43420,6 +43955,60 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"UltimatumDaemonFireBeam": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UltimatumDaemonFireBeamRuin": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UltimatumDaemonColdBeam": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UltimatumDaemonColdBeamRuin": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UltimatumDaemonLightningBeam": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UltimatumDaemonLightningBeamRuin_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UltimatumDaemonChaosBeam": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UltimatumDaemonChaosBeamRuin": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"ProjectileRetaliation__": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"base_physical_damage_%_to_convert_to_fire": {
@@ -43511,6 +44100,12 @@
 				{
 					"min": 20,
 					"max": 25
+				}
+			],
+			"JunMasterVeiledPhysicalDamageConvertedToFire_": [
+				{
+					"min": 30,
+					"max": 35
 				}
 			],
 			"SynthesisImplicitPhysicalConvertedToFireMinor1": [
@@ -43641,6 +44236,12 @@
 					"max": 25
 				}
 			],
+			"JunMasterVeiledPhysicalDamageConvertedToCold": [
+				{
+					"min": 30,
+					"max": 35
+				}
+			],
 			"SynthesisImplicitPhysicalConvertedToColdMinor1": [
 				{
 					"min": 7,
@@ -43755,6 +44356,12 @@
 				{
 					"min": 20,
 					"max": 25
+				}
+			],
+			"JunMasterVeiledPhysicalDamageConvertedToLightning": [
+				{
+					"min": 30,
+					"max": 35
 				}
 			],
 			"SynthesisImplicitPhysicalConvertedToLightningMinor1": [
@@ -44873,6 +45480,12 @@
 					"max": 1
 				}
 			],
+			"JunMasterVeiledMaximumCurse": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
 			"Influence1": [
 				{
 					"min": 1,
@@ -45721,14 +46334,14 @@
 			],
 			"AbyssAvoidShockJewel1": [
 				{
-					"min": 6,
-					"max": 8
+					"min": 12,
+					"max": 16
 				}
 			],
 			"AbyssAvoidShockJewel2": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 17,
+					"max": 20
 				}
 			],
 			"SynthesisImplicitImmuneToShock1": [
@@ -46425,22 +47038,22 @@
 			],
 			"AbyssAvoidFreezeAndChillJewel1": [
 				{
-					"min": 6,
-					"max": 8
+					"min": 12,
+					"max": 16
 				},
 				{
-					"min": 6,
-					"max": 8
+					"min": 12,
+					"max": 16
 				}
 			],
 			"AbyssAvoidFreezeAndChillJewel2": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 17,
+					"max": 20
 				},
 				{
-					"min": 9,
-					"max": 10
+					"min": 17,
+					"max": 20
 				}
 			]
 		},
@@ -47438,6 +48051,56 @@
 					"min": 100,
 					"max": 100
 				}
+			],
+			"UltimatumTrialDifficultyLife1": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"UltimatumTrialDifficultyLife2_": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 30,
+					"max": 30
+				}
+			],
+			"UltimatumTrialDifficultyLife3": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 70,
+					"max": 70
+				}
+			],
+			"UltimatumTrialDifficultyLife4_": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 120,
+					"max": 120
+				}
+			],
+			"UltimatumTrialDifficultyLife5": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 200,
+					"max": 200
+				}
 			]
 		},
 		"map_item_drop_quantity_+% map_monsters_damage_+%": {
@@ -47529,6 +48192,56 @@
 				{
 					"min": 100,
 					"max": 100
+				}
+			],
+			"UltimatumTrialDifficultyDamage1": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"UltimatumTrialDifficultyDamage2__": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"UltimatumTrialDifficultyDamage3": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"UltimatumTrialDifficultyDamage4_": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 30,
+					"max": 30
+				}
+			],
+			"UltimatumTrialDifficultyDamage5_": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -59357,8 +60070,8 @@
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_boss_maximum_life_+% map_packs_are_mechanical_totems": {
 			"IncursionTemple1": [
 				{
-					"min": 5,
-					"max": 5
+					"min": 20,
+					"max": 20
 				},
 				{
 					"min": 0,
@@ -59379,8 +60092,8 @@
 			],
 			"IncursionTemple2": [
 				{
-					"min": 10,
-					"max": 10
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 0,
@@ -59401,8 +60114,8 @@
 			],
 			"IncursionTemple3": [
 				{
-					"min": 15,
-					"max": 15
+					"min": 60,
+					"max": 60
 				},
 				{
 					"min": 0,
@@ -62836,6 +63549,12 @@
 					"min": 30,
 					"max": 30
 				}
+			],
+			"SpellBlockOnLowLifeEssence1": [
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"base_maximum_cold_damage_resistance_%": {
@@ -63379,6 +64098,12 @@
 				{
 					"min": -50,
 					"max": -50
+				}
+			],
+			"BeastRun__": [
+				{
+					"min": 317,
+					"max": 317
 				}
 			],
 			"ShakariImmobile": [
@@ -65863,6 +66588,18 @@
 					"max": 6
 				}
 			],
+			"AbyssDamageRecoupedAsMana1": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"AbyssDamageRecoupedAsMana2": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
 			"Delve": [
 				{
 					"min": 5,
@@ -66047,6 +66784,12 @@
 					"max": 8
 				}
 			],
+			"JunMasterVeiledPhysicalDamageTakenAsFirePercent__": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
 			"SynthesisImplicitPhysicalTakenAsFire1": [
 				{
 					"min": 7,
@@ -66130,7 +66873,7 @@
 			"ChanceToEssence7_": [
 				{
 					"min": 31,
-					"max": 34
+					"max": 44
 				}
 			],
 			"UniqueOneHandSword4": [
@@ -66171,14 +66914,14 @@
 			],
 			"AbyssJewel1_": [
 				{
-					"min": 6,
-					"max": 8
+					"min": 12,
+					"max": 16
 				}
 			],
 			"AbyssJewel2": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 17,
+					"max": 20
 				}
 			],
 			"SynthesisImplicitImmuneToIgnite1": [
@@ -66779,8 +67522,8 @@
 		"spell_damage_taken_+%_when_on_low_mana": {
 			"UniqueBodyInt4": [
 				{
-					"min": 25,
-					"max": 25
+					"min": 15,
+					"max": 15
 				}
 			]
 		},
@@ -67250,6 +67993,12 @@
 				}
 			],
 			"GlobalUnique__1": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"UniqueSpecialCorruption": [
 				{
 					"min": 10,
 					"max": 15
@@ -67806,7 +68555,7 @@
 				}
 			]
 		},
-		"base_mana_reservation_+%": {
+		"base_reservation_+%": {
 			"UniqueHelmetDex5": [
 				{
 					"min": -8,
@@ -68029,6 +68778,12 @@
 				{
 					"min": 12,
 					"max": 15
+				}
+			],
+			"UniqueSpecialCorruption": [
+				{
+					"min": 15,
+					"max": 25
 				}
 			],
 			"TalismanIncreased": [
@@ -69543,8 +70298,8 @@
 			],
 			"Unique__1": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				}
 			],
 			"UniqueDescentHelmet1": [
@@ -69937,20 +70692,20 @@
 			],
 			"JunMaster2StrengthAndDexterity1__": [
 				{
-					"min": 11,
-					"max": 12
+					"min": 10,
+					"max": 15
 				}
 			],
 			"JunMaster2StrengthAndDexterity2": [
 				{
-					"min": 13,
-					"max": 14
+					"min": 16,
+					"max": 20
 				}
 			],
 			"JunMaster2StrengthAndDexterity3_": [
 				{
-					"min": 15,
-					"max": 17
+					"min": 21,
+					"max": 25
 				}
 			],
 			"JunMasterStrengthAndDexterity1": [
@@ -69975,6 +70730,12 @@
 				{
 					"min": 15,
 					"max": 17
+				}
+			],
+			"JunMasterVeiledStrengthAndDexterity": [
+				{
+					"min": 31,
+					"max": 35
 				}
 			]
 		},
@@ -70011,20 +70772,20 @@
 			],
 			"JunMaster2StrengthAndIntelligence1": [
 				{
-					"min": 11,
-					"max": 12
+					"min": 10,
+					"max": 15
 				}
 			],
 			"JunMaster2StrengthAndIntelligence2": [
 				{
-					"min": 13,
-					"max": 14
+					"min": 16,
+					"max": 20
 				}
 			],
 			"JunMaster2StrengthAndIntelligence3": [
 				{
-					"min": 15,
-					"max": 17
+					"min": 21,
+					"max": 25
 				}
 			],
 			"JunMasterStrengthAndIntelligence1": [
@@ -70049,6 +70810,12 @@
 				{
 					"min": 15,
 					"max": 17
+				}
+			],
+			"JunMasterVeiledStrengthAndIntelligence": [
+				{
+					"min": 31,
+					"max": 35
 				}
 			]
 		},
@@ -70079,20 +70846,20 @@
 			],
 			"JunMaster2DexterityAndIntelligence1_": [
 				{
-					"min": 11,
-					"max": 12
+					"min": 10,
+					"max": 15
 				}
 			],
 			"JunMaster2DexterityAndIntelligence2": [
 				{
-					"min": 13,
-					"max": 14
+					"min": 16,
+					"max": 20
 				}
 			],
 			"JunMaster2DexterityAndIntelligence3__": [
 				{
-					"min": 15,
-					"max": 17
+					"min": 21,
+					"max": 25
 				}
 			],
 			"JunMasterDexterityAndIntelligence1": [
@@ -70117,6 +70884,12 @@
 				{
 					"min": 15,
 					"max": 17
+				}
+			],
+			"JunMasterVeiledDexterityAndIntelligence": [
+				{
+					"min": 31,
+					"max": 35
 				}
 			]
 		},
@@ -70742,6 +71515,12 @@
 				}
 			],
 			"KeystoneUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"KeystoneUnique__2": [
 				{
 					"min": 1,
 					"max": 1
@@ -71958,6 +72737,14 @@
 				}
 			]
 		},
+		"damage_cannot_be_reflected": {
+			"DamageCannotBeReflectedUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"base_reduce_enemy_fire_resistance_%": {
 			"IncreasedUniqueHelmetInt5": [
 				{
@@ -72865,6 +73652,18 @@
 					"max": 16
 				}
 			],
+			"JunMasterVeiledPhysicalAddedAsChaos1h": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"JunMasterVeiledPhysicalAddedAsChaos2h_": [
+				{
+					"min": 18,
+					"max": 20
+				}
+			],
 			"SynthesisImplicitPhysicalAddedAsChaos1": [
 				{
 					"min": 4,
@@ -72912,6 +73711,12 @@
 					"min": 21,
 					"max": 26
 				}
+			],
+			"UltimatumMonsterBuffPhysicalDamageAddedAsChaosDamage": [
+				{
+					"min": 30,
+					"max": 30
+				}
 			]
 		},
 		"fire_damage_%_to_add_as_chaos": {
@@ -72955,6 +73760,18 @@
 				{
 					"min": 14,
 					"max": 16
+				}
+			],
+			"JunMasterVeiledFireAddedAsChaos1h_": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"JunMasterVeiledFireAddedAsChaos2h_": [
+				{
+					"min": 18,
+					"max": 20
 				}
 			],
 			"SynthesisImplicitFireAddedAsChaos1": [
@@ -73004,6 +73821,12 @@
 					"min": 21,
 					"max": 26
 				}
+			],
+			"BreachBody1_": [
+				{
+					"min": 10,
+					"max": 10
+				}
 			]
 		},
 		"cold_damage_%_to_add_as_chaos": {
@@ -73047,6 +73870,18 @@
 				{
 					"min": 14,
 					"max": 16
+				}
+			],
+			"JunMasterVeiledColdAddedAsChaos1h": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"JunMasterVeiledColdAddedAsChaos2h_": [
+				{
+					"min": 18,
+					"max": 20
 				}
 			],
 			"SynthesisImplicitColdAddedAsChaos1": [
@@ -73096,6 +73931,12 @@
 					"min": 21,
 					"max": 26
 				}
+			],
+			"BreachBody1": [
+				{
+					"min": 10,
+					"max": 10
+				}
 			]
 		},
 		"lightning_damage_%_to_add_as_chaos": {
@@ -73139,6 +73980,18 @@
 				{
 					"min": 14,
 					"max": 16
+				}
+			],
+			"JunMasterVeiledLightningAddedAsChaos1h": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"JunMasterVeiledLightningAddedAsChaos2h__": [
+				{
+					"min": 18,
+					"max": 20
 				}
 			],
 			"SynthesisImplicitLightningAddedAsChaos1": [
@@ -73187,6 +74040,12 @@
 				{
 					"min": 21,
 					"max": 26
+				}
+			],
+			"BreachBody1": [
+				{
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
@@ -73591,8 +74450,8 @@
 		"base_corrupt_blood_when_hit_%_average_damage_to_deal_per_minute_per_stack": {
 			"CorruptedBlood": [
 				{
-					"min": 375,
-					"max": 375
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -74525,20 +75384,20 @@
 			],
 			"AbyssFlatManaShieldRegenerationJewel1": [
 				{
-					"min": 30,
-					"max": 60
-				}
-			],
-			"AbyssFlatManaShieldRegenerationJewel2": [
-				{
 					"min": 66,
 					"max": 120
 				}
 			],
-			"AbyssFlatManaShieldRegenerationJewel3": [
+			"AbyssFlatManaShieldRegenerationJewel2": [
 				{
 					"min": 126,
 					"max": 180
+				}
+			],
+			"AbyssFlatManaShieldRegenerationJewel3": [
+				{
+					"min": 196,
+					"max": 240
 				}
 			],
 			"AddedUber1": [
@@ -75213,6 +76072,12 @@
 					"max": 10
 				}
 			],
+			"JunMasterVeiled__": [
+				{
+					"min": 12,
+					"max": 14
+				}
+			],
 			"SynthesisImplicitSpellDodge1": [
 				{
 					"min": 2,
@@ -75718,6 +76583,12 @@
 					"min": 4,
 					"max": 6
 				}
+			],
+			"BreachBody1": [
+				{
+					"min": 100,
+					"max": 100
+				}
 			]
 		},
 		"minimum_lightning_damage_to_return_on_block maximum_lightning_damage_to_return_on_block": {
@@ -75781,6 +76652,12 @@
 				{
 					"min": 20,
 					"max": 30
+				}
+			],
+			"Implicit1": [
+				{
+					"min": 14,
+					"max": 18
 				}
 			],
 			"V2IncreasedCorrupted_": [
@@ -76298,13 +77175,15 @@
 				}
 			]
 		},
-		"chest_item_rarity_+%": {
+		"chest_item_rarity_+%_final_from_mod": {
 			"": [
 				{
-					"min": 1000,
-					"max": 2000
+					"min": 100,
+					"max": 250
 				}
-			],
+			]
+		},
+		"chest_item_rarity_+%": {
 			"ArmoryMap": [
 				{
 					"min": 1500,
@@ -77947,6 +78826,12 @@
 					"max": 2
 				}
 			],
+			"LocalIncreaseSocketedVaalGemLevelUnique__1": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
 			"SocketedVaalGemsIncreaseCorrupted": [
 				{
 					"min": 1,
@@ -78675,6 +79560,12 @@
 				{
 					"min": 90,
 					"max": 90
+				}
+			],
+			"UniqueSpecialCorruptionSocketedGemsManaMultiplier_": [
+				{
+					"min": 80,
+					"max": 80
 				}
 			],
 			"SynthesisImplicitSocketedSkillsManaMultiplier1": [
@@ -79456,6 +80347,12 @@
 					"min": 45,
 					"max": 51
 				}
+			],
+			"Unique__1": [
+				{
+					"min": 80,
+					"max": 120
+				}
 			]
 		},
 		"chaos_damage_+%_per_equipped_corrupted_item": {
@@ -79670,41 +80567,11 @@
 				}
 			]
 		},
-		"number_of_chains": {
+		"arrow_chains_+": {
 			"V2AdditionalCorrupted": [
 				{
 					"min": 1,
 					"max": 1
-				}
-			],
-			"AdditionalUniqueOneHandMace3": [
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"AdditionalUnique__1": [
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"AdditionalUnique__2": [
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"MonsterAdditional1": [
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"MonsterAdditional2": [
-				{
-					"min": 2,
-					"max": 2
 				}
 			]
 		},
@@ -79727,6 +80594,12 @@
 				{
 					"min": 10,
 					"max": 10
+				}
+			],
+			"BreachBody1": [
+				{
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
@@ -80301,6 +81174,12 @@
 					"max": 30
 				}
 			],
+			"JunMasterVeiledEffectOfAilments__": [
+				{
+					"min": 33,
+					"max": 40
+				}
+			],
 			"SynthesisImplicitAilmentEffect1": [
 				{
 					"min": 6,
@@ -80473,8 +81352,8 @@
 			],
 			"1_": [
 				{
-					"min": 6,
-					"max": 10
+					"min": 10,
+					"max": 15
 				}
 			],
 			"Unique__1": [
@@ -80880,7 +81759,7 @@
 				}
 			]
 		},
-		"local_display_socketed_gems_get_blood_magic_level": {
+		"local_display_socketed_gems_supported_by_level_x_lifetap": {
 			"V2SupportedByBloodmagicCorrupted": [
 				{
 					"min": 1,
@@ -81610,6 +82489,272 @@
 				}
 			]
 		},
+		"base_cooldown_speed_+%": {
+			"UniqueSpecialCorruptionSpeed__": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			],
+			"GlobalUnique__1": [
+				{
+					"min": 15,
+					"max": 20
+				}
+			],
+			"AbyssSpeed1_": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"AbyssSpeed2__": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"IncreasedBootsUber1": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"IncreasedUber1": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"IncreasedUber2_": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
+			"JunMaster2Global1": [
+				{
+					"min": 6,
+					"max": 8
+				}
+			],
+			"JunMaster2Global2": [
+				{
+					"min": 9,
+					"max": 12
+				}
+			],
+			"JunMasterGlobal1": [
+				{
+					"min": 6,
+					"max": 8
+				}
+			],
+			"JunMasterGlobal2": [
+				{
+					"min": 9,
+					"max": 12
+				}
+			],
+			"JunMasterVeiledGlobal": [
+				{
+					"min": 13,
+					"max": 16
+				}
+			],
+			"Influence1": [
+				{
+					"min": 6,
+					"max": 10
+				}
+			],
+			"Influence2": [
+				{
+					"min": 11,
+					"max": 15
+				}
+			],
+			"HighInfluence1": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"HighInfluence2": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
+			"IncreasedBootsUberMaven_": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
+			"InfluenceMaven_": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
+			"Monster___": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"curse_effect_+%": {
+			"UniqueSpecialCorruptionCurseEffect___": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"UniqueJewel45": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"Unique__1": [
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Unique__2_": [
+				{
+					"min": 15,
+					"max": 20
+				}
+			],
+			"Unique__3_": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"Unique__4": [
+				{
+					"min": 25,
+					"max": 35
+				}
+			],
+			"AbyssCurseEffectJewel1": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"AbyssCurseEffectJewel2": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"Delve": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"JunMaster2CurseEffect1": [
+				{
+					"min": 6,
+					"max": 7
+				}
+			],
+			"JunMaster2CurseEffect2": [
+				{
+					"min": 8,
+					"max": 10
+				}
+			],
+			"JunMasterCurseEffect1": [
+				{
+					"min": 5,
+					"max": 7
+				}
+			],
+			"JunMasterCurseEffect2": [
+				{
+					"min": 8,
+					"max": 10
+				}
+			],
+			"JunMasterVeiledCurseEffect": [
+				{
+					"min": 12,
+					"max": 14
+				}
+			],
+			"SynthesisImplicitCurseEffect1": [
+				{
+					"min": 6,
+					"max": 10
+				}
+			],
+			"Influence1_": [
+				{
+					"min": 8,
+					"max": 11
+				}
+			],
+			"Influence2": [
+				{
+					"min": 12,
+					"max": 15
+				}
+			]
+		},
+		"minimum_frenzy_power_endurance_charges": {
+			"UniqueSpecialCorruptionAllMinCharges": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"dummy_stat_display_nothing local_display_nearby_enemies_are_blinded": {
+			"UniqueSpecialCorruptionNearbyEnemiesBlinded": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Influence1_": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_nearby_enemies_have_malediction": {
+			"UniqueSpecialCorruptionNearbyEnemiesMalediction": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_nearby_enemies_are_crushed": {
+			"UniqueSpecialCorruptionNearbyEnemiesCrushed": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"map_ambush_chests map_extra_content_weighting": {
 			"": [
 				{
@@ -82087,6 +83232,38 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"number_of_chains": {
+			"AdditionalUniqueOneHandMace3": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"AdditionalUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"AdditionalUnique__2": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MonsterAdditional1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MonsterAdditional2": [
+				{
+					"min": 2,
+					"max": 2
 				}
 			]
 		},
@@ -82647,6 +83824,12 @@
 					"max": 34
 				}
 			],
+			"Implicit1_": [
+				{
+					"min": 17,
+					"max": 23
+				}
+			],
 			"Jewel": [
 				{
 					"min": 9,
@@ -82861,8 +84044,8 @@
 			],
 			"Essence1": [
 				{
-					"min": 40,
-					"max": 40
+					"min": 150,
+					"max": 150
 				}
 			],
 			"DexIntMasterVendorItem": [
@@ -83581,20 +84764,20 @@
 			],
 			"JunMaster2ReduceGlobalFlatManaCost1": [
 				{
-					"min": -5,
+					"min": -4,
 					"max": -4
 				}
 			],
 			"JunMaster2ReduceGlobalFlatManaCost2__": [
 				{
-					"min": -7,
-					"max": -6
+					"min": -5,
+					"max": -5
 				}
 			],
 			"JunMaster2ReduceGlobalFlatManaCost3_": [
 				{
-					"min": -9,
-					"max": -8
+					"min": -7,
+					"max": -6
 				}
 			],
 			"JunMasterReduceGlobalFlatManaCost1_": [
@@ -83619,6 +84802,12 @@
 				{
 					"min": -9,
 					"max": -8
+				}
+			],
+			"JunMasterVeiledReduceGlobalFlatManaCost": [
+				{
+					"min": -10,
+					"max": -9
 				}
 			],
 			"SynthesisImplicitTotalManaCost1_": [
@@ -85766,19 +86955,19 @@
 			"StunAvoidanceEssence7": [
 				{
 					"min": 31,
-					"max": 34
+					"max": 44
 				}
 			],
 			"AbyssJewel1": [
 				{
-					"min": 6,
-					"max": 8
+					"min": 12,
+					"max": 16
 				}
 			],
 			"AbyssJewel2": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 17,
+					"max": 20
 				}
 			],
 			"ChanceToUber1": [
@@ -86627,6 +87816,14 @@
 			]
 		},
 		"local_display_socketed_gems_have_secrets_of_suffering": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"unaffected_by_ignite_and_shock_while_max_life_mana_within_500": {
 			"Unique__1": [
 				{
 					"min": 1,
@@ -87582,7 +88779,7 @@
 				}
 			]
 		},
-		"no_mana_cost": {
+		"no_cost": {
 			"Grandmaster": [
 				{
 					"min": 1,
@@ -87929,32 +89126,32 @@
 		"bloodlines_corrupted_blood_%_average_damage_to_deal_per_minute_per_stack_for_20_pack_members": {
 			"MonsterCorruptedBlood": [
 				{
-					"min": 625,
-					"max": 625
+					"min": 100,
+					"max": 100
 				}
 			],
 			"MonsterCorruptedBlood2": [
 				{
-					"min": 563,
-					"max": 563
+					"min": 100,
+					"max": 100
 				}
 			],
 			"MonsterCorruptedBlood3": [
 				{
-					"min": 500,
-					"max": 500
+					"min": 100,
+					"max": 100
 				}
 			],
 			"MonsterCorruptedBlood4": [
 				{
-					"min": 438,
-					"max": 438
+					"min": 100,
+					"max": 100
 				}
 			],
 			"MonsterCorruptedBlood5": [
 				{
-					"min": 375,
-					"max": 375
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -88113,6 +89310,12 @@
 				{
 					"min": 4,
 					"max": 5
+				}
+			],
+			"BreachBodyLifeGainedOnHittingIgnitedEnemies1": [
+				{
+					"min": 20,
+					"max": 30
 				}
 			]
 		},
@@ -88340,7 +89543,7 @@
 				}
 			]
 		},
-		"minion_damage_+%_per_10_dex": {
+		"minion_damage_+%_per_5_dex": {
 			"UniqueBow12": [
 				{
 					"min": 1,
@@ -88558,6 +89761,30 @@
 				}
 			]
 		},
+		"deal_no_non_physical_damage": {
+			"UniqueBelt__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"steel_ammo_consumed_per_use_with_attacks_that_fire_projectiles": {
+			"UniqueBelt__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"skills_fire_x_additional_projectiles_for_4_seconds_after_consuming_12_steel_ammo": {
+			"UniqueBelt__1": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			]
+		},
 		"old_do_not_use_life_leech_from_attack_damage_permyriad_vs_chilled_enemies": {
 			"FromAttacksAgainstChilledEnemiesUniqueBelt14": [
 				{
@@ -88741,6 +89968,12 @@
 				{
 					"min": 11,
 					"max": 12
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 14,
+					"max": 16
 				}
 			],
 			"EinharMasterMineLayingSpeed1": [
@@ -90155,6 +91388,12 @@
 					"max": 6
 				}
 			],
+			"JunMasterVeiledAttackAndCastSpeed_": [
+				{
+					"min": 7,
+					"max": 8
+				}
+			],
 			"SynthesisImplicitAttackAndCastSpeed1": [
 				{
 					"min": 3,
@@ -90239,32 +91478,32 @@
 			],
 			"JunMaster2BaseLifeAndMana1_": [
 				{
-					"min": 21,
-					"max": 27
+					"min": 28,
+					"max": 33
 				},
 				{
-					"min": 21,
-					"max": 27
+					"min": 28,
+					"max": 33
 				}
 			],
 			"JunMaster2BaseLifeAndMana2": [
 				{
-					"min": 28,
-					"max": 33
+					"min": 34,
+					"max": 40
 				},
 				{
-					"min": 28,
-					"max": 33
+					"min": 34,
+					"max": 40
 				}
 			],
 			"JunMaster2BaseLifeAndMana3": [
 				{
-					"min": 34,
-					"max": 40
+					"min": 41,
+					"max": 45
 				},
 				{
-					"min": 34,
-					"max": 40
+					"min": 41,
+					"max": 45
 				}
 			],
 			"JunMasterBaseLifeAndMana1": [
@@ -90306,6 +91545,16 @@
 					"min": 34,
 					"max": 40
 				}
+			],
+			"JunMasterVeiledBaseLifeAndMana_": [
+				{
+					"min": 55,
+					"max": 60
+				},
+				{
+					"min": 55,
+					"max": 60
+				}
 			]
 		},
 		"maximum_life_+% maximum_mana_+%": {
@@ -90337,6 +91586,16 @@
 				{
 					"min": 5,
 					"max": 8
+				}
+			],
+			"JunMasterVeiledPercentageLifeAndMana": [
+				{
+					"min": 9,
+					"max": 10
+				},
+				{
+					"min": 9,
+					"max": 10
 				}
 			]
 		},
@@ -90470,14 +91729,6 @@
 				}
 			]
 		},
-		"bow_critical_strike_chance_+%": {
-			"CritChanceWithBowJewel": [
-				{
-					"min": 12,
-					"max": 16
-				}
-			]
-		},
 		"claw_critical_strike_chance_+%": {
 			"CritChanceWithClawJewel": [
 				{
@@ -90564,26 +91815,6 @@
 				}
 			],
 			"SynthesisImplicitSwordCriticalMultiplierJewel2_": [
-				{
-					"min": 4,
-					"max": 5
-				}
-			]
-		},
-		"bow_critical_strike_multiplier_+": {
-			"CritMultiplierWithBowJewel": [
-				{
-					"min": 8,
-					"max": 10
-				}
-			],
-			"SynthesisImplicitBowCriticalMultiplierJewel1_": [
-				{
-					"min": 2,
-					"max": 3
-				}
-			],
-			"SynthesisImplicitBowCriticalMultiplierJewel2": [
 				{
 					"min": 4,
 					"max": 5
@@ -91072,54 +92303,6 @@
 					"min": 4,
 					"max": 5
 				}
-			],
-			"PoisonDamagePrefixInfluence1__": [
-				{
-					"min": 60,
-					"max": 69
-				}
-			],
-			"PoisonDamagePrefixInfluence2__": [
-				{
-					"min": 70,
-					"max": 79
-				}
-			],
-			"PoisonDamagePrefixInfluence3": [
-				{
-					"min": 80,
-					"max": 89
-				}
-			],
-			"PoisonDamagePrefixInfluence4": [
-				{
-					"min": 90,
-					"max": 94
-				}
-			],
-			"PoisonDamagePrefixTwoHandInfluence1": [
-				{
-					"min": 100,
-					"max": 109
-				}
-			],
-			"PoisonDamagePrefixTwoHandInfluence2__": [
-				{
-					"min": 110,
-					"max": 119
-				}
-			],
-			"PoisonDamagePrefixTwoHandInfluence3": [
-				{
-					"min": 120,
-					"max": 129
-				}
-			],
-			"PoisonDamagePrefixTwoHandInfluence4_": [
-				{
-					"min": 130,
-					"max": 134
-				}
 			]
 		},
 		"bleeding_damage_+%": {
@@ -91181,54 +92364,6 @@
 				{
 					"min": 4,
 					"max": 5
-				}
-			],
-			"BleedingDamagePrefixInfluence1": [
-				{
-					"min": 60,
-					"max": 69
-				}
-			],
-			"BleedingDamagePrefixInfluence2": [
-				{
-					"min": 70,
-					"max": 79
-				}
-			],
-			"BleedingDamagePrefixInfluence3_": [
-				{
-					"min": 80,
-					"max": 89
-				}
-			],
-			"BleedingDamagePrefixInfluence4": [
-				{
-					"min": 90,
-					"max": 94
-				}
-			],
-			"BleedingDamagePrefixTwoHandInfluence1": [
-				{
-					"min": 100,
-					"max": 109
-				}
-			],
-			"BleedingDamagePrefixTwoHandInfluence2": [
-				{
-					"min": 110,
-					"max": 119
-				}
-			],
-			"BleedingDamagePrefixTwoHandInfluence3": [
-				{
-					"min": 120,
-					"max": 129
-				}
-			],
-			"BleedingDamagePrefixTwoHandInfluence4": [
-				{
-					"min": 130,
-					"max": 134
 				}
 			]
 		},
@@ -91815,6 +92950,12 @@
 					"max": 43
 				}
 			],
+			"JunMasterVeiled": [
+				{
+					"min": 54,
+					"max": 60
+				}
+			],
 			"SynthesisImplicit1": [
 				{
 					"min": 10,
@@ -92042,6 +93183,14 @@
 				}
 			]
 		},
+		"vaal_skill_soul_refund_chance_%": {
+			"UniqueCorruptedJewel5": [
+				{
+					"min": 15,
+					"max": 20
+				}
+			]
+		},
 		"vaal_skill_critical_strike_chance_+%": {
 			"CorruptedJewel6": [
 				{
@@ -92229,6 +93378,12 @@
 					"max": 8
 				}
 			],
+			"JunMasterVeiled": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
 			"Influence1": [
 				{
 					"min": 4,
@@ -92239,86 +93394,6 @@
 				{
 					"min": 8,
 					"max": 10
-				}
-			]
-		},
-		"curse_effect_+%": {
-			"UniqueJewel45": [
-				{
-					"min": 4,
-					"max": 4
-				}
-			],
-			"Unique__1": [
-				{
-					"min": 0,
-					"max": 0
-				}
-			],
-			"Unique__2_": [
-				{
-					"min": 15,
-					"max": 20
-				}
-			],
-			"Unique__3_": [
-				{
-					"min": 10,
-					"max": 15
-				}
-			],
-			"Unique__4": [
-				{
-					"min": 25,
-					"max": 35
-				}
-			],
-			"Delve": [
-				{
-					"min": 10,
-					"max": 15
-				}
-			],
-			"JunMaster2CurseEffect1": [
-				{
-					"min": 6,
-					"max": 7
-				}
-			],
-			"JunMaster2CurseEffect2": [
-				{
-					"min": 8,
-					"max": 10
-				}
-			],
-			"JunMasterCurseEffect1": [
-				{
-					"min": 5,
-					"max": 7
-				}
-			],
-			"JunMasterCurseEffect2": [
-				{
-					"min": 8,
-					"max": 10
-				}
-			],
-			"SynthesisImplicitCurseEffect1": [
-				{
-					"min": 6,
-					"max": 10
-				}
-			],
-			"Influence1_": [
-				{
-					"min": 8,
-					"max": 11
-				}
-			],
-			"Influence2": [
-				{
-					"min": 12,
-					"max": 15
 				}
 			]
 		},
@@ -92649,6 +93724,36 @@
 					"max": 50
 				}
 			],
+			"Implicit1": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
+			"Essence1": [
+				{
+					"min": 21,
+					"max": 25
+				}
+			],
+			"Essence2": [
+				{
+					"min": 26,
+					"max": 30
+				}
+			],
+			"Essence3": [
+				{
+					"min": 31,
+					"max": 35
+				}
+			],
+			"Essence4": [
+				{
+					"min": 36,
+					"max": 45
+				}
+			],
 			"JunMaster21": [
 				{
 					"min": 18,
@@ -92683,6 +93788,12 @@
 				{
 					"min": 24,
 					"max": 30
+				}
+			],
+			"JunMasterVeiled_": [
+				{
+					"min": 36,
+					"max": 40
 				}
 			],
 			"SynthesisImplicitTotemPlacementSpeed1": [
@@ -94091,6 +95202,12 @@
 					"max": 28
 				}
 			],
+			"JunMasterVeiled": [
+				{
+					"min": 36,
+					"max": 40
+				}
+			],
 			"SynthesisImplicit1": [
 				{
 					"min": 10,
@@ -94913,6 +96030,12 @@
 				{
 					"min": 6,
 					"max": 6
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 7,
+					"max": 8
 				}
 			],
 			"SynthesisImplicitPercentAllAttributes1": [
@@ -97270,6 +98393,20 @@
 				}
 			]
 		},
+		"bloodreap_damage_+%": {
+			"EnchantmentBloodreapDamage1_": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentBloodreapDamage2_": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
 		"burning_arrow_damage_+%": {
 			"EnchantmentBurningArrowDamage1": [
 				{
@@ -97376,6 +98513,20 @@
 				}
 			],
 			"EnchantmentContagionDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"corrupting_fever_damage_+%": {
+			"EnchantmentCorruptingFeverDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentCorruptingFeverDamage2__": [
 				{
 					"min": 40,
 					"max": 40
@@ -97572,6 +98723,20 @@
 				}
 			],
 			"EnchantmentExplosiveArrowDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"exsanguinate_damage_+%": {
+			"EnchantmentExsanguinateDamage1_": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentExsanguinateDamage2": [
 				{
 					"min": 40,
 					"max": 40
@@ -99490,6 +100655,12 @@
 					"min": -100,
 					"max": -100
 				}
+			],
+			"BreachBody1": [
+				{
+					"min": -50,
+					"max": -50
+				}
 			]
 		},
 		"arctic_breath_duration_+%": {
@@ -99866,6 +101037,28 @@
 				}
 			]
 		},
+		"bloodreap_skill_area_of_effect_+%": {
+			"EnchantmentBloodreapRadius1": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentBloodreapRadius2___": [
+				{
+					"min": 24,
+					"max": 24
+				}
+			]
+		},
+		"maximum_blood_scythe_charges": {
+			"EnchantmentBloodreapMaxBloodCharge1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"bone_offering_duration_+%": {
 			"EnchantmentBoneOfferingDuration1": [
 				{
@@ -100233,6 +101426,28 @@
 				{
 					"min": 24,
 					"max": 24
+				}
+			]
+		},
+		"corrupting_fever_duration_+%": {
+			"EnchantmentCorruptingFeverDuration1_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"EnchantmentCorruptingFeverDuration2": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"corrupting_fever_apply_additional_corrupted_blood_%": {
+			"EnchantmentCorruptingFeverAdditionalStack1": [
+				{
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -100951,6 +102166,28 @@
 				{
 					"min": 15,
 					"max": 15
+				}
+			]
+		},
+		"exsanguinate_duration_+%": {
+			"EnchantmentExsanguinateDuration1_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"EnchantmentExsanguinateDuration2_": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"exsanguinate_additional_chain_chance_%": {
+			"EnchantmentExsanguinateChainChance1": [
+				{
+					"min": 25,
+					"max": 25
 				}
 			]
 		},
@@ -103011,6 +104248,20 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"petrified_blood_reservation_+%": {
+			"EnchantmentPetrifiedBloodReservation1": [
+				{
+					"min": -14,
+					"max": -14
+				}
+			],
+			"EnchantmentPetrifiedBloodReservation2": [
+				{
+					"min": -20,
+					"max": -20
 				}
 			]
 		},
@@ -106210,6 +107461,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"BreachBody1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"attacks_use_life_in_place_of_mana": {
@@ -106921,8 +108178,8 @@
 		"local_unique_jewel_vigilant_strike_fortifies_nearby_allies_for_x_seconds_with_50_str_in_radius local_jewel_effect_base_radius": {
 			"__1": [
 				{
-					"min": 12,
-					"max": 12
+					"min": 8,
+					"max": 8
 				},
 				{
 					"min": 1200,
@@ -107037,20 +108294,20 @@
 		"local_unique_flask_minimum_added_lightning_damage_to_spells_during_flask_effect local_unique_flask_maximum_added_lightning_damage_to_spells_during_flask_effect": {
 			"__1": [
 				{
-					"min": 15,
-					"max": 25
+					"min": 25,
+					"max": 35
 				},
 				{
-					"min": 70,
-					"max": 90
+					"min": 110,
+					"max": 130
 				}
 			]
 		},
 		"local_unique_flask_physical_damage_%_converted_to_lightning_during_flask_effect": {
 			"__1": [
 				{
-					"min": 20,
-					"max": 20
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -107600,6 +108857,12 @@
 				}
 			],
 			"HearbyEnemiesAreHinderedHarbinger": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"HearbyEnemiesAreHinderedUltimatum_": [
 				{
 					"min": 1,
 					"max": 1
@@ -108206,6 +109469,12 @@
 					"min": 10,
 					"max": 10
 				}
+			],
+			"JunMasterVeiledWolfOnKill___": [
+				{
+					"min": 20,
+					"max": 20
+				}
 			]
 		},
 		"local_display_trigger_level_20_summon_spectral_wolf_on_crit_with_this_weapon_%_chance local_use_skill_on_crit_%": {
@@ -108284,7 +109553,7 @@
 				}
 			]
 		},
-		"projectiles_fork": {
+		"arrows_fork": {
 			"Unique____1": [
 				{
 					"min": 1,
@@ -108617,20 +109886,20 @@
 			],
 			"JunMaster2ElementalPenetrationWithAttacks1": [
 				{
-					"min": 5,
-					"max": 6
+					"min": 6,
+					"max": 7
 				}
 			],
 			"JunMaster2ElementalPenetrationWithAttacks2": [
 				{
-					"min": 7,
-					"max": 8
+					"min": 8,
+					"max": 10
 				}
 			],
 			"JunMaster2ElementalPenetrationWithAttacks3": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 11,
+					"max": 13
 				}
 			],
 			"JunMasterElementalPenetrationWithAttacks1": [
@@ -108646,6 +109915,12 @@
 				}
 			],
 			"JunMasterElementalPenetrationWithAttacks3_": [
+				{
+					"min": 14,
+					"max": 16
+				}
+			],
+			"JunMasterVeiledElementalPenetrationWithAttacks_": [
 				{
 					"min": 14,
 					"max": 16
@@ -108755,6 +110030,12 @@
 				{
 					"min": 30,
 					"max": 40
+				}
+			],
+			"PhysicalAddedAsFireUnique__1": [
+				{
+					"min": 25,
+					"max": 35
 				}
 			]
 		},
@@ -109488,6 +110769,16 @@
 					"min": 25,
 					"max": 25
 				}
+			],
+			"BreachBody1": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"recover_X_mana_on_killing_frozen_enemy": {
@@ -109503,6 +110794,12 @@
 				{
 					"min": 50,
 					"max": 50
+				}
+			],
+			"BreachBody1": [
+				{
+					"min": 25,
+					"max": 25
 				}
 			]
 		},
@@ -109602,6 +110899,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"BreachBody1": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"movement_speed_+%_while_bleeding": {
@@ -109629,6 +110932,16 @@
 				{
 					"min": 10,
 					"max": 10
+				}
+			],
+			"BreachBody1": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
@@ -109660,6 +110973,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"BreachBody1": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"reflect_shocks_to_enemies_in_radius": {
@@ -109672,6 +110991,12 @@
 		},
 		"chaos_damage_does_not_bypass_energy_shield_while_not_low_life_or_mana": {
 			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"BreachBody1_": [
 				{
 					"min": 1,
 					"max": 1
@@ -109702,6 +111027,12 @@
 		},
 		"blind_chilled_enemies_on_hit_%": {
 			"Unique__1_": [
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"BreachBody1": [
 				{
 					"min": 100,
 					"max": 100
@@ -109758,6 +111089,12 @@
 					"min": 15,
 					"max": 15
 				}
+			],
+			"BreachBodyGrantsEnvy1": [
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"X_armour_if_you_have_blocked_recently": {
@@ -109792,6 +111129,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"BreachBody1": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"minions_chance_to_poison_on_hit_%": {
@@ -109802,6 +111145,12 @@
 				}
 			],
 			"Unique__2": [
+				{
+					"min": 60,
+					"max": 60
+				}
+			],
+			"BreachBody1_": [
 				{
 					"min": 60,
 					"max": 60
@@ -109846,10 +111195,22 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"BreachBody1____": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"evasion_rating_increased_by_uncapped_cold_resistance": {
 			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"BreachBody1": [
 				{
 					"min": 1,
 					"max": 1
@@ -109862,10 +111223,22 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"BreachBody1": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"apply_covered_in_ash_to_attacker_when_hit_%": {
 			"Unique__1": [
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"BreachBody1__": [
 				{
 					"min": 100,
 					"max": 100
@@ -109915,6 +111288,12 @@
 					"max": 10
 				}
 			],
+			"JunMasterVeiled": [
+				{
+					"min": 12,
+					"max": 14
+				}
+			],
 			"SynthesisImplicit1_": [
 				{
 					"min": 3,
@@ -109932,6 +111311,12 @@
 		},
 		"chill_enemy_when_hit_duration_ms": {
 			"Unique__1": [
+				{
+					"min": 1000,
+					"max": 1000
+				}
+			],
+			"BreachBody1": [
 				{
 					"min": 1000,
 					"max": 1000
@@ -109956,6 +111341,12 @@
 		},
 		"curse_on_hit_level_10_vulnerability_%": {
 			"CurseLevel10VulnerabilityOnHitUnique__1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"BreachBodyVulnerabilityOnHit1": [
 				{
 					"min": 25,
 					"max": 25
@@ -110098,6 +111489,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"KeystoneUnique__2": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"keystone_elemental_overload": {
@@ -110204,6 +111601,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"KeystoneUnique__2_": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"keystone_wind_dancer": {
@@ -110216,6 +111619,12 @@
 		},
 		"keystone_miracle_of_thaumaturgy": {
 			"KeystoneUnique__1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"KeystoneUnique__2": [
 				{
 					"min": 1,
 					"max": 1
@@ -110252,9 +111661,39 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"KeystoneUnique__2_": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"keystone_hex_zone_behaviour": {
+			"KeystoneUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"keystone_divine_flesh": {
+			"KeystoneUnique__1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"keystone_everlasting_sacrifice": {
+			"KeystoneUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"keystone_shepherd_of_souls": {
 			"KeystoneUnique__1": [
 				{
 					"min": 1,
@@ -110861,12 +112300,12 @@
 			],
 			"GlobalUnique__2": [
 				{
-					"min": 20,
-					"max": 22
+					"min": 50,
+					"max": 55
 				},
 				{
-					"min": 30,
-					"max": 37
+					"min": 72,
+					"max": 80
 				}
 			],
 			"GlobalUnique__3": [
@@ -111770,6 +113209,12 @@
 					"min": 186,
 					"max": 285
 				}
+			],
+			"JunMasterVeiledArmourAndEvasionRating": [
+				{
+					"min": 365,
+					"max": 400
+				}
 			]
 		},
 		"essence_corrupt_spawn_monster_on_death_variation cannot_have_life_leeched_from": {
@@ -112181,8 +113626,8 @@
 					"max": 2500
 				},
 				{
-					"min": 1000,
-					"max": 1000
+					"min": 4000,
+					"max": 4000
 				},
 				{
 					"min": 0,
@@ -112343,12 +113788,12 @@
 		"minimum_added_fire_damage_if_blocked_recently maximum_added_fire_damage_if_blocked_recently": {
 			"Essence1": [
 				{
-					"min": 40,
-					"max": 40
+					"min": 60,
+					"max": 60
 				},
 				{
-					"min": 80,
-					"max": 80
+					"min": 100,
+					"max": 100
 				}
 			],
 			"Unique__1": [
@@ -112367,6 +113812,14 @@
 				{
 					"min": 50,
 					"max": 50
+				}
+			]
+		},
+		"local_display_socketed_gems_damage_+%_final_while_on_low_life": {
+			"SocketedSkillDamageOnLowLifeEssence1__": [
+				{
+					"min": 30,
+					"max": 30
 				}
 			]
 		},
@@ -112507,8 +113960,8 @@
 		"reflect_damage_taken_and_minion_reflect_damage_taken_+%": {
 			"Essence1": [
 				{
-					"min": -10,
-					"max": -10
+					"min": -40,
+					"max": -40
 				}
 			],
 			"SynthesisImplicit1": [
@@ -112533,8 +113986,8 @@
 		"power_charge_on_block_%_chance": {
 			"Essence1": [
 				{
-					"min": 10,
-					"max": 10
+					"min": 25,
+					"max": 25
 				}
 			]
 		},
@@ -112647,8 +114100,8 @@
 					"max": 1
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 2,
+					"max": 2
 				},
 				{
 					"min": 20,
@@ -112727,8 +114180,8 @@
 		"local_display_fire_burst_on_hit_%": {
 			"FireBurstOnHitEssence1": [
 				{
-					"min": 10,
-					"max": 10
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -112808,11 +114261,47 @@
 				}
 			]
 		},
+		"unique_gain_onslaught_when_hit_duration_ms": {
+			"OnslaughtWhenHitNewEssence1": [
+				{
+					"min": 6000,
+					"max": 6000
+				}
+			],
+			"BetrayalUpgradeMonsterOnslaughtOnHit": [
+				{
+					"min": 5000,
+					"max": 5000
+				}
+			]
+		},
 		"local_display_socketed_gems_damage_over_time_+%_final": {
 			"SupportDamageOverTimeEssence1": [
 				{
 					"min": 30,
 					"max": 30
+				}
+			]
+		},
+		"curse_maximum_doom": {
+			"Essence1__": [
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
+			"Unique__1___": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"mark_skills_curse_effect_+%": {
+			"MarkEffectEssence1": [
+				{
+					"min": 25,
+					"max": 25
 				}
 			]
 		},
@@ -112840,11 +114329,19 @@
 				}
 			]
 		},
+		"mana_regeneration_rate_+%_while_shocked": {
+			"Essence1": [
+				{
+					"min": 70,
+					"max": 70
+				}
+			]
+		},
 		"mana_%_gained_on_block": {
 			"Essence1": [
 				{
-					"min": 2,
-					"max": 2
+					"min": 5,
+					"max": 5
 				}
 			],
 			"Uber1": [
@@ -116988,6 +118485,12 @@
 					"min": 99,
 					"max": 99
 				}
+			],
+			"BreachBody1___": [
+				{
+					"min": 10,
+					"max": 10
+				}
 			]
 		},
 		"cannot_be_used_as_minion": {
@@ -118518,6 +120021,110 @@
 				}
 			]
 		},
+		"local_display_socketed_vaal_skills_damage_+%_final": {
+			"Unique__1_": [
+				{
+					"min": 150,
+					"max": 150
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_soul_requirement_+%_final": {
+			"Unique__1": [
+				{
+					"min": -30,
+					"max": -30
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_store_uses_+": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_ignore_monster_resistances": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_ignore_monster_phys_reduction": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_elusive_on_use": {
+			"Unique__1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_tailwind_if_socketed_vaal_skill_used_recently": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_area_of_effect_+%": {
+			"Unique__1": [
+				{
+					"min": 60,
+					"max": 60
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_projectile_speed_+%": {
+			"Unique__1": [
+				{
+					"min": 80,
+					"max": 80
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_effect_duration_+%": {
+			"Unique__1": [
+				{
+					"min": 80,
+					"max": 80
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_soul_gain_prevention_duration_+%": {
+			"Unique__1": [
+				{
+					"min": -30,
+					"max": -30
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_extra_damage_rolls": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_socketed_vaal_skills_aura_effect_+%": {
+			"Unique__1": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
 		"map_random_area_prophecy": {
 			"": [
 				{
@@ -118941,6 +120548,12 @@
 				{
 					"min": 2,
 					"max": 2
+				}
+			],
+			"Vaal": [
+				{
+					"min": 3,
+					"max": 3
 				}
 			]
 		},
@@ -120791,6 +122404,18 @@
 					"max": 6
 				}
 			],
+			"JunMasterVeiledDamagePerPowerCharge1h_": [
+				{
+					"min": 5,
+					"max": 6
+				}
+			],
+			"JunMasterVeiledDamagePerPowerCharge2h": [
+				{
+					"min": 7,
+					"max": 8
+				}
+			],
 			"SynthesisImplicitDamagePerPowerChargeMinor1___": [
 				{
 					"min": 2,
@@ -121164,6 +122789,62 @@
 				}
 			],
 			"ScarabBreaches4": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"1": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"2": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"3__": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"5": [
 				{
 					"min": 1,
 					"max": 1
@@ -122202,98 +123883,6 @@
 				}
 			]
 		},
-		"base_cooldown_speed_+%": {
-			"GlobalUnique__1": [
-				{
-					"min": 15,
-					"max": 20
-				}
-			],
-			"IncreasedBootsUber1": [
-				{
-					"min": 10,
-					"max": 15
-				}
-			],
-			"IncreasedUber1": [
-				{
-					"min": 10,
-					"max": 15
-				}
-			],
-			"IncreasedUber2_": [
-				{
-					"min": 16,
-					"max": 20
-				}
-			],
-			"JunMaster2Global1": [
-				{
-					"min": 6,
-					"max": 8
-				}
-			],
-			"JunMaster2Global2": [
-				{
-					"min": 9,
-					"max": 12
-				}
-			],
-			"JunMasterGlobal1": [
-				{
-					"min": 6,
-					"max": 8
-				}
-			],
-			"JunMasterGlobal2": [
-				{
-					"min": 9,
-					"max": 12
-				}
-			],
-			"Influence1": [
-				{
-					"min": 6,
-					"max": 10
-				}
-			],
-			"Influence2": [
-				{
-					"min": 11,
-					"max": 15
-				}
-			],
-			"HighInfluence1": [
-				{
-					"min": 10,
-					"max": 15
-				}
-			],
-			"HighInfluence2": [
-				{
-					"min": 16,
-					"max": 20
-				}
-			],
-			"IncreasedBootsUberMaven_": [
-				{
-					"min": 16,
-					"max": 20
-				}
-			],
-			"InfluenceMaven_": [
-				{
-					"min": 16,
-					"max": 20
-				}
-			],
-			"Monster___": [
-				{
-					"min": 50,
-					"max": 50
-				}
-			]
-		},
 		"debuff_time_passed_+%": {
 			"PassedUnique__1": [
 				{
@@ -122409,8 +123998,8 @@
 			],
 			"1": [
 				{
-					"min": 6,
-					"max": 10
+					"min": 10,
+					"max": 15
 				}
 			]
 		},
@@ -125500,6 +127089,54 @@
 				}
 			]
 		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_socketed_gems_supported_by_level_x_bloodthirst": {
+			"SupportedByBloodthirst_": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_socketed_gems_supported_by_level_x_fragility": {
+			"SupportedByFragility_": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_socketed_gems_supported_by_level_x_lifetap": {
+			"SupportedByLifetap": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
 		"local_socketed_skill_gem_level_+1_per_x_player_levels": {
 			"Unique__1": [
 				{
@@ -125574,6 +127211,12 @@
 					"min": 10,
 					"max": 14
 				}
+			],
+			"AbyssJewel2": [
+				{
+					"min": 15,
+					"max": 18
+				}
 			]
 		},
 		"damage_over_time_+%_while_wielding_two_handed_weapon": {
@@ -125581,6 +127224,12 @@
 				{
 					"min": 10,
 					"max": 14
+				}
+			],
+			"AbyssJewel2": [
+				{
+					"min": 15,
+					"max": 18
 				}
 			]
 		},
@@ -125590,129 +127239,135 @@
 					"min": 10,
 					"max": 14
 				}
+			],
+			"AbyssJewel2_": [
+				{
+					"min": 15,
+					"max": 18
+				}
 			]
 		},
 		"minion_global_minimum_added_fire_damage minion_global_maximum_added_fire_damage": {
 			"AbyssJewel1": [
 				{
-					"min": 1,
-					"max": 2
+					"min": 2,
+					"max": 4
 				},
 				{
-					"min": 3,
-					"max": 5
+					"min": 5,
+					"max": 7
 				}
 			],
 			"AbyssJewel2": [
 				{
-					"min": 3,
-					"max": 5
-				},
-				{
 					"min": 7,
 					"max": 9
+				},
+				{
+					"min": 11,
+					"max": 13
 				}
 			],
 			"AbyssJewel3": [
 				{
-					"min": 6,
-					"max": 8
-				},
-				{
 					"min": 10,
 					"max": 12
+				},
+				{
+					"min": 14,
+					"max": 16
 				}
 			],
 			"AbyssJewel4_": [
 				{
-					"min": 9,
-					"max": 11
-				},
-				{
 					"min": 13,
 					"max": 15
+				},
+				{
+					"min": 17,
+					"max": 21
 				}
 			],
 			"AbyssJewel5": [
 				{
-					"min": 12,
-					"max": 14
-				},
-				{
 					"min": 16,
 					"max": 18
+				},
+				{
+					"min": 22,
+					"max": 24
 				}
 			],
 			"AbyssJewel6_": [
 				{
-					"min": 15,
-					"max": 17
+					"min": 19,
+					"max": 25
 				},
 				{
-					"min": 22,
-					"max": 26
+					"min": 26,
+					"max": 34
 				}
 			]
 		},
 		"minion_global_minimum_added_cold_damage minion_global_maximum_added_cold_damage": {
 			"AbyssJewel1": [
 				{
-					"min": 1,
-					"max": 2
+					"min": 2,
+					"max": 4
 				},
 				{
-					"min": 3,
-					"max": 5
+					"min": 5,
+					"max": 7
 				}
 			],
 			"AbyssJewel2": [
 				{
-					"min": 3,
-					"max": 5
-				},
-				{
 					"min": 7,
 					"max": 9
+				},
+				{
+					"min": 11,
+					"max": 13
 				}
 			],
 			"AbyssJewel3": [
 				{
-					"min": 6,
-					"max": 8
-				},
-				{
 					"min": 10,
 					"max": 12
+				},
+				{
+					"min": 14,
+					"max": 16
 				}
 			],
 			"AbyssJewel4": [
 				{
-					"min": 9,
-					"max": 11
-				},
-				{
 					"min": 13,
 					"max": 15
+				},
+				{
+					"min": 17,
+					"max": 21
 				}
 			],
 			"AbyssJewel5": [
 				{
-					"min": 12,
-					"max": 14
-				},
-				{
 					"min": 16,
 					"max": 18
+				},
+				{
+					"min": 22,
+					"max": 24
 				}
 			],
 			"AbyssJewel6_": [
 				{
-					"min": 15,
-					"max": 17
+					"min": 19,
+					"max": 25
 				},
 				{
-					"min": 22,
-					"max": 26
+					"min": 26,
+					"max": 34
 				}
 			],
 			"Unique__1": [
@@ -125733,8 +127388,8 @@
 					"max": 1
 				},
 				{
-					"min": 3,
-					"max": 5
+					"min": 6,
+					"max": 10
 				}
 			],
 			"AbyssJewel2": [
@@ -125743,8 +127398,8 @@
 					"max": 2
 				},
 				{
-					"min": 8,
-					"max": 12
+					"min": 17,
+					"max": 21
 				}
 			],
 			"AbyssJewel3_": [
@@ -125753,38 +127408,38 @@
 					"max": 3
 				},
 				{
-					"min": 13,
-					"max": 17
+					"min": 22,
+					"max": 26
 				}
 			],
 			"AbyssJewel4": [
 				{
-					"min": 2,
-					"max": 5
+					"min": 1,
+					"max": 4
 				},
 				{
-					"min": 18,
-					"max": 22
+					"min": 29,
+					"max": 33
 				}
 			],
 			"AbyssJewel5": [
 				{
-					"min": 2,
-					"max": 6
+					"min": 1,
+					"max": 5
 				},
 				{
-					"min": 23,
-					"max": 29
+					"min": 34,
+					"max": 36
 				}
 			],
 			"AbyssJewel6": [
 				{
-					"min": 3,
-					"max": 9
+					"min": 1,
+					"max": 6
 				},
 				{
-					"min": 30,
-					"max": 36
+					"min": 43,
+					"max": 51
 				}
 			]
 		},
@@ -127084,6 +128739,16 @@
 					"min": 7,
 					"max": 8
 				}
+			],
+			"AbyssAddedPhysicalDamageWithWandsJewel5": [
+				{
+					"min": 7,
+					"max": 8
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
 			]
 		},
 		"attack_minimum_added_physical_damage_with_daggers attack_maximum_added_physical_damage_with_daggers": {
@@ -127125,6 +128790,16 @@
 				{
 					"min": 7,
 					"max": 8
+				}
+			],
+			"AbyssAddedPhysicalDamageWithDaggersJewel5_": [
+				{
+					"min": 7,
+					"max": 8
+				},
+				{
+					"min": 9,
+					"max": 10
 				}
 			]
 		},
@@ -127168,6 +128843,16 @@
 					"min": 7,
 					"max": 8
 				}
+			],
+			"AbyssAddedPhysicalDamageWithClawsJewel5": [
+				{
+					"min": 7,
+					"max": 8
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
 			]
 		},
 		"attack_minimum_added_physical_damage_with_swords attack_maximum_added_physical_damage_with_swords": {
@@ -127209,6 +128894,16 @@
 				{
 					"min": 7,
 					"max": 8
+				}
+			],
+			"AbyssAddedPhysicalDamageWithSwordsJewel5": [
+				{
+					"min": 7,
+					"max": 8
+				},
+				{
+					"min": 9,
+					"max": 10
 				}
 			]
 		},
@@ -127252,6 +128947,16 @@
 					"min": 7,
 					"max": 8
 				}
+			],
+			"AbyssAddedPhysicalDamageWithAxesJewel5_": [
+				{
+					"min": 7,
+					"max": 8
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
 			]
 		},
 		"attack_minimum_added_physical_damage_with_maces attack_maximum_added_physical_damage_with_maces": {
@@ -127294,6 +128999,16 @@
 					"min": 7,
 					"max": 8
 				}
+			],
+			"AbyssAddedPhysicalDamageWithMacesJewel5": [
+				{
+					"min": 7,
+					"max": 8
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
 			]
 		},
 		"attack_minimum_added_physical_damage_with_staves attack_maximum_added_physical_damage_with_staves": {
@@ -127335,6 +129050,16 @@
 				{
 					"min": 7,
 					"max": 8
+				}
+			],
+			"AbyssAddedPhysicalDamageWithStavesJewel5_": [
+				{
+					"min": 7,
+					"max": 8
+				},
+				{
+					"min": 9,
+					"max": 10
 				}
 			]
 		},
@@ -128640,43 +130365,199 @@
 				}
 			]
 		},
+		"attack_minimum_added_chaos_damage_with_daggers attack_maximum_added_chaos_damage_with_daggers": {
+			"AbyssAddedChaosDamageWithDaggersJewel1": [
+				{
+					"min": 4,
+					"max": 5
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"AbyssAddedChaosDamageWithDaggersJewel2_": [
+				{
+					"min": 6,
+					"max": 7
+				},
+				{
+					"min": 11,
+					"max": 13
+				}
+			],
+			"AbyssAddedChaosDamageWithDaggersJewel3__": [
+				{
+					"min": 8,
+					"max": 9
+				},
+				{
+					"min": 14,
+					"max": 16
+				}
+			],
+			"AbyssAddedChaosDamageWithDaggersJewel4": [
+				{
+					"min": 10,
+					"max": 11
+				},
+				{
+					"min": 17,
+					"max": 20
+				}
+			],
+			"AbyssAddedChaosDamageWithDaggersJewel5": [
+				{
+					"min": 12,
+					"max": 13
+				},
+				{
+					"min": 21,
+					"max": 24
+				}
+			]
+		},
+		"attack_minimum_added_chaos_damage_with_bows attack_maximum_added_chaos_damage_with_bows": {
+			"AbyssAddedChaosDamageWithBowsJewel1_": [
+				{
+					"min": 4,
+					"max": 5
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"AbyssAddedChaosDamageWithBowsJewel2": [
+				{
+					"min": 6,
+					"max": 7
+				},
+				{
+					"min": 11,
+					"max": 13
+				}
+			],
+			"AbyssAddedChaosDamageWithBowsJewel3": [
+				{
+					"min": 8,
+					"max": 9
+				},
+				{
+					"min": 14,
+					"max": 16
+				}
+			],
+			"AbyssAddedChaosDamageWithBowsJewel4": [
+				{
+					"min": 10,
+					"max": 11
+				},
+				{
+					"min": 17,
+					"max": 20
+				}
+			],
+			"AbyssAddedChaosDamageWithBowsJewel5": [
+				{
+					"min": 12,
+					"max": 13
+				},
+				{
+					"min": 21,
+					"max": 24
+				}
+			]
+		},
+		"attack_minimum_added_chaos_damage_with_claws attack_maximum_added_chaos_damage_with_claws": {
+			"AbyssAddedChaosDamageWithClawsJewel1": [
+				{
+					"min": 4,
+					"max": 5
+				},
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"AbyssAddedChaosDamageWithClawsJewel2": [
+				{
+					"min": 6,
+					"max": 7
+				},
+				{
+					"min": 11,
+					"max": 13
+				}
+			],
+			"AbyssAddedChaosDamageWithClawsJewel3_": [
+				{
+					"min": 8,
+					"max": 9
+				},
+				{
+					"min": 14,
+					"max": 16
+				}
+			],
+			"AbyssAddedChaosDamageWithClawsJewel4": [
+				{
+					"min": 10,
+					"max": 11
+				},
+				{
+					"min": 17,
+					"max": 20
+				}
+			],
+			"AbyssAddedChaosDamageWithClawsJewel5_": [
+				{
+					"min": 12,
+					"max": 13
+				},
+				{
+					"min": 21,
+					"max": 24
+				}
+			]
+		},
 		"minion_life_regeneration_rate_per_second": {
 			"AbyssFlatJewel1": [
 				{
-					"min": 2,
-					"max": 4
+					"min": 11,
+					"max": 15
 				}
 			],
 			"AbyssFlatJewel2": [
 				{
-					"min": 5,
-					"max": 8
+					"min": 16,
+					"max": 20
 				}
 			],
 			"AbyssFlatJewel3": [
 				{
-					"min": 9,
-					"max": 12
+					"min": 21,
+					"max": 30
 				}
 			]
 		},
 		"energy_shield_regeneration_rate_per_second": {
 			"AbyssFlatJewel1": [
 				{
-					"min": 2,
-					"max": 4
+					"min": 9,
+					"max": 12
 				}
 			],
 			"AbyssFlatJewel2": [
 				{
-					"min": 5,
-					"max": 8
+					"min": 13,
+					"max": 16
 				}
 			],
 			"AbyssFlatJewel3": [
 				{
-					"min": 9,
-					"max": 12
+					"min": 17,
+					"max": 20
 				}
 			]
 		},
@@ -128941,14 +130822,14 @@
 		"base_avoid_poison_%": {
 			"AbyssAvoidPoisonJewel1__": [
 				{
-					"min": 6,
-					"max": 8
+					"min": 12,
+					"max": 16
 				}
 			],
 			"AbyssAvoidPoisonJewel2__": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 17,
+					"max": 20
 				}
 			],
 			"DelveArmourAvoidPoison1": [
@@ -129003,14 +130884,14 @@
 		"base_avoid_bleed_%": {
 			"AbyssAvoidBleedingJewel1": [
 				{
-					"min": 6,
-					"max": 8
+					"min": 12,
+					"max": 16
 				}
 			],
 			"AbyssAvoidBleedingJewel2": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 17,
+					"max": 20
 				}
 			],
 			"Unique__1": [
@@ -129117,6 +130998,104 @@
 				{
 					"min": 456,
 					"max": 624
+				}
+			]
+		},
+		"impale_debuff_effect_+%": {
+			"Abyss1_": [
+				{
+					"min": 3,
+					"max": 4
+				}
+			],
+			"Abyss2_": [
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
+			"WeaponInfluence1__": [
+				{
+					"min": 7,
+					"max": 9
+				}
+			],
+			"WeaponInfluence2_": [
+				{
+					"min": 10,
+					"max": 12
+				}
+			],
+			"WeaponInfluence3": [
+				{
+					"min": 13,
+					"max": 15
+				}
+			],
+			"TwoHandWeaponInfluence1": [
+				{
+					"min": 14,
+					"max": 16
+				}
+			],
+			"TwoHandWeaponInfluence2": [
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"TwoHandWeaponInfluence3": [
+				{
+					"min": 20,
+					"max": 22
+				}
+			],
+			"Essence1": [
+				{
+					"min": 7,
+					"max": 9
+				}
+			],
+			"Essence2__": [
+				{
+					"min": 10,
+					"max": 12
+				}
+			],
+			"Essence3": [
+				{
+					"min": 13,
+					"max": 15
+				}
+			],
+			"TwoHandEssence1": [
+				{
+					"min": 14,
+					"max": 16
+				}
+			],
+			"TwoHandEssence2_": [
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"TwoHandEssence3_": [
+				{
+					"min": 20,
+					"max": 22
+				}
+			],
+			"Unique__1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"Unique__2": [
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
@@ -129417,6 +131396,104 @@
 				{
 					"min": 23,
 					"max": 25
+				}
+			]
+		},
+		"curse_effect_on_self_+%_while_on_consecrated_ground": {
+			"AbyssSelfCurseEffectOnConsecratedGroundJewel1__": [
+				{
+					"min": -15,
+					"max": -10
+				}
+			],
+			"EnchantmentConsecratedGround": [
+				{
+					"min": -30,
+					"max": -30
+				}
+			]
+		},
+		"avoid_elemental_ailments_%_while_affected_by_elusive": {
+			"AbyssAvoidElementalAilmentsWhileElusiveJewel1": [
+				{
+					"min": 8,
+					"max": 10
+				}
+			],
+			"EnchantmentElusive": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"enemies_you_hinder_have_life_regeneration_rate_+%": {
+			"AbyssHinderedEnemiesLifeRegenerationRateJewel1": [
+				{
+					"min": -20,
+					"max": -15
+				}
+			],
+			"EnchantmentHinder": [
+				{
+					"min": -50,
+					"max": -50
+				}
+			]
+		},
+		"enemies_you_blind_have_critical_strike_chance_+%": {
+			"AbyssBlindedEnemiesCriticalStrikeChanceJewel1": [
+				{
+					"min": -20,
+					"max": -15
+				}
+			],
+			"EnchantmentBlind": [
+				{
+					"min": -30,
+					"max": -30
+				}
+			]
+		},
+		"enemies_you_wither_have_all_resistances_%": {
+			"AbyssWitheredEnemiesAllResistanceJewel1___": [
+				{
+					"min": -2,
+					"max": -2
+				}
+			],
+			"EnchantmentWither_": [
+				{
+					"min": -6,
+					"max": -6
+				}
+			]
+		},
+		"enemies_you_maim_have_damage_taken_over_time_+%": {
+			"AbyssMaimedEnemiesDamageOverTimeJewel1": [
+				{
+					"min": 4,
+					"max": 5
+				}
+			],
+			"EnchantmentMaim": [
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"enemies_you_intimidate_have_stun_duration_on_self_+%": {
+			"AbyssIntimidatedEnemiesStunDurationJewel1": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"EnchantmentIntimidate": [
+				{
+					"min": 20,
+					"max": 20
 				}
 			]
 		},
@@ -129763,6 +131840,30 @@
 			]
 		},
 		"chaos_damage_resistance_%_per_poison_stack": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"damage_+%_per_poison_up_to_75%": {
+			"Unique__1_": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"movement_speed_+%_per_poison_up_to_50%": {
+			"Unique__1_": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			]
+		},
+		"travel_skills_poison_reflected_to_self_up_to_5_poisons": {
 			"Unique__1": [
 				{
 					"min": 1,
@@ -132085,6 +134186,12 @@
 					"max": 8
 				}
 			],
+			"JunMasterVeiledChanceToNotConsumeFlaskCharges": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
 			"FlaskChanceToNotConsumeChargesInfluence1": [
 				{
 					"min": 6,
@@ -133713,6 +135820,52 @@
 				{
 					"min": 60,
 					"max": 60
+				}
+			]
+		},
+		"local_bleeding_ailment_dot_multiplier_+": {
+			"LocalBleedDamageOverTimeMultiplierUber1___": [
+				{
+					"min": 37,
+					"max": 42
+				}
+			],
+			"LocalBleedDamageOverTimeMultiplierUber2": [
+				{
+					"min": 43,
+					"max": 50
+				}
+			],
+			"LocalBleedDamageOverTimeMultiplierUber3": [
+				{
+					"min": 51,
+					"max": 59
+				}
+			],
+			"LocalBleedDamageOverTimeMultiplierUnique__1": [
+				{
+					"min": 25,
+					"max": 35
+				}
+			]
+		},
+		"local_poison_dot_multiplier_+": {
+			"LocalOverTimeMultiplierUber1__": [
+				{
+					"min": 37,
+					"max": 42
+				}
+			],
+			"LocalOverTimeMultiplierUber2__": [
+				{
+					"min": 43,
+					"max": 50
+				}
+			],
+			"LocalOverTimeMultiplierUber3": [
+				{
+					"min": 51,
+					"max": 59
 				}
 			]
 		},
@@ -137303,8 +139456,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137317,8 +139470,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137331,8 +139484,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137345,8 +139498,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137359,8 +139512,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137373,8 +139526,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137387,8 +139540,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137401,8 +139554,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137415,8 +139568,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137429,8 +139582,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137443,8 +139596,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137457,8 +139610,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137471,8 +139624,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137485,8 +139638,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137499,8 +139652,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137513,8 +139666,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137527,8 +139680,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137541,8 +139694,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137557,8 +139710,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137585,8 +139738,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137613,8 +139766,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137641,8 +139794,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137665,8 +139818,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137689,8 +139842,8 @@
 					"max": 70
 				},
 				{
-					"min": 750,
-					"max": 750
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 500,
@@ -137733,12 +139886,12 @@
 					"max": 150
 				},
 				{
-					"min": 2000,
-					"max": 2000
+					"min": 500,
+					"max": 500
 				},
 				{
-					"min": 2250,
-					"max": 2250
+					"min": 500,
+					"max": 500
 				}
 			]
 		},
@@ -138453,8 +140606,8 @@
 		"energy_shield_regeneration_rate_per_minute_per_poison_stack": {
 			"EnergyShieldRegenPerPoisonUnique__1": [
 				{
-					"min": 3000,
-					"max": 3000
+					"min": 4800,
+					"max": 4800
 				}
 			]
 		},
@@ -139195,18 +141348,6 @@
 					"max": 60
 				}
 			],
-			"4": [
-				{
-					"min": 15,
-					"max": 15
-				}
-			],
-			"10": [
-				{
-					"min": 25,
-					"max": 25
-				}
-			],
 			"": [
 				{
 					"min": 10,
@@ -139321,20 +141462,20 @@
 		"map_monsters_life_+%": {
 			"IncursionMonsterLife1": [
 				{
-					"min": 10,
-					"max": 10
-				}
-			],
-			"IncursionMonsterLife2": [
-				{
 					"min": 20,
 					"max": 20
 				}
 			],
+			"IncursionMonsterLife2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			],
 			"IncursionMonsterLife3": [
 				{
-					"min": 30,
-					"max": 30
+					"min": 60,
+					"max": 60
 				}
 			],
 			"CustomLeagueMonsterLife1": [
@@ -139386,7 +141527,7 @@
 				}
 			]
 		},
-		"map_normal_monster_life_regeneration_rate_per_minute_% map_magic_monster_life_regeneration_rate_per_minute_% map_rare_monster_life_regeneration_rate_per_minute_% map_non_unique_monster_life_regeneration_rate_per_minute_%": {
+		"map_normal_monster_life_regeneration_rate_per_minute_% map_magic_monster_life_regeneration_rate_per_minute_% map_rare_monster_life_regeneration_rate_per_minute_% map_non_unique_monster_life_regeneration_rate_per_minute_% map_incursion_boss_chance_to_drop_healing_item_%": {
 			"1": [
 				{
 					"min": 240,
@@ -139403,6 +141544,10 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 33,
+					"max": 33
 				}
 			],
 			"2": [
@@ -139421,6 +141566,10 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 66,
+					"max": 66
 				}
 			],
 			"3": [
@@ -139439,6 +141588,10 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -139640,6 +141793,34 @@
 				}
 			]
 		},
+		"map_monsters_curse_effect_on_self_+%_final": {
+			"1_": [
+				{
+					"min": -20,
+					"max": -20
+				}
+			],
+			"2___": [
+				{
+					"min": -40,
+					"max": -40
+				}
+			],
+			"3_": [
+				{
+					"min": -60,
+					"max": -60
+				}
+			]
+		},
+		"map_monsters_poison_on_hit": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"map_incursion_tormented_spirit_random_possess": {
 			"1": [
 				{
@@ -139653,6 +141834,26 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"map_storm_buff_duration_+%": {
+			"1__": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			],
+			"2": [
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"3": [
+				{
+					"min": 200,
+					"max": 200
 				}
 			]
 		},
@@ -139801,6 +142002,282 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"incursion_map_contains_additional_packs_of_fire_monsters map_incursion_boss_chance_to_drop_fire_item_%": {
+			"1": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 33,
+					"max": 33
+				}
+			],
+			"2__": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 66,
+					"max": 66
+				}
+			],
+			"3": [
+				{
+					"min": 40,
+					"max": 40
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"incursion_map_contains_additional_packs_of_lightning_monsters map_incursion_boss_chance_to_drop_lightning_item_%": {
+			"1___": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 33,
+					"max": 33
+				}
+			],
+			"2": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 66,
+					"max": 66
+				}
+			],
+			"3": [
+				{
+					"min": 40,
+					"max": 40
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"incursion_map_contains_additional_packs_of_minion_monsters map_incursion_boss_chance_to_drop_minion_item_%": {
+			"1": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 33,
+					"max": 33
+				}
+			],
+			"2": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 66,
+					"max": 66
+				}
+			],
+			"3_": [
+				{
+					"min": 40,
+					"max": 40
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_trap_vial_%": {
+			"1": [
+				{
+					"min": 265,
+					"max": 265
+				}
+			],
+			"2": [
+				{
+					"min": 539,
+					"max": 539
+				}
+			],
+			"3": [
+				{
+					"min": 804,
+					"max": 804
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_healing_vial_%": {
+			"1": [
+				{
+					"min": 557,
+					"max": 557
+				}
+			],
+			"2_": [
+				{
+					"min": 1131,
+					"max": 1131
+				}
+			],
+			"3__": [
+				{
+					"min": 1689,
+					"max": 1689
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_poison_vial_%": {
+			"1": [
+				{
+					"min": 66,
+					"max": 66
+				}
+			],
+			"2": [
+				{
+					"min": 135,
+					"max": 135
+				}
+			],
+			"3": [
+				{
+					"min": 201,
+					"max": 201
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_lightning_vial_%": {
+			"1_": [
+				{
+					"min": 557,
+					"max": 557
+				}
+			],
+			"2_": [
+				{
+					"min": 1131,
+					"max": 1131
+				}
+			],
+			"3": [
+				{
+					"min": 1689,
+					"max": 1689
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_fire_vial_%": {
+			"1": [
+				{
+					"min": 557,
+					"max": 557
+				}
+			],
+			"2": [
+				{
+					"min": 1131,
+					"max": 1131
+				}
+			],
+			"3": [
+				{
+					"min": 1689,
+					"max": 1689
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_minion_vial_%": {
+			"1": [
+				{
+					"min": 332,
+					"max": 332
+				}
+			],
+			"2": [
+				{
+					"min": 674,
+					"max": 674
+				}
+			],
+			"3": [
+				{
+					"min": 1005,
+					"max": 1005
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_flask_vial_%": {
+			"1": [
+				{
+					"min": 7,
+					"max": 7
+				}
+			],
+			"2": [
+				{
+					"min": 13,
+					"max": 13
+				}
+			],
+			"3": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_jewel_vial_%": {
+			"1": [
+				{
+					"min": 929,
+					"max": 929
+				}
+			],
+			"2": [
+				{
+					"min": 1886,
+					"max": 1886
+				}
+			],
+			"3": [
+				{
+					"min": 2815,
+					"max": 2815
+				}
+			]
+		},
+		"map_incursion_boss_chance_to_drop_amulet_vial_%": {
+			"1_": [
+				{
+					"min": 7,
+					"max": 7
+				}
+			],
+			"2": [
+				{
+					"min": 13,
+					"max": 13
+				}
+			],
+			"3__": [
+				{
+					"min": 20,
+					"max": 20
 				}
 			]
 		},
@@ -140157,6 +142634,18 @@
 					"max": 6
 				}
 			],
+			"JunMasterVeiledDamagePerEnduranceCharge1h": [
+				{
+					"min": 5,
+					"max": 6
+				}
+			],
+			"JunMasterVeiledDamagePerEnduranceCharge2h": [
+				{
+					"min": 7,
+					"max": 8
+				}
+			],
 			"SynthesisImplicitDamagePerEnduranceChargeMinor1": [
 				{
 					"min": 2,
@@ -140241,6 +142730,18 @@
 				{
 					"min": 5,
 					"max": 6
+				}
+			],
+			"JunMasterVeiledDamagePerFrenzyCharge1h": [
+				{
+					"min": 5,
+					"max": 6
+				}
+			],
+			"JunMasterVeiledDamagePerFrenzyCharge2h__": [
+				{
+					"min": 7,
+					"max": 8
 				}
 			],
 			"SynthesisImplicitDamagePerFrenzyChargeMinor1_": [
@@ -140610,6 +143111,14 @@
 				}
 			]
 		},
+		"evasion_and_physical_damage_reduction_rating_+%": {
+			"GlobalUnique__1_": [
+				{
+					"min": 30,
+					"max": 60
+				}
+			]
+		},
 		"base_stun_recovery_+% local_display_nearby_enemies_stun_and_block_recovery_+%": {
 			"NearbyEnemiesReducedStunRecoveryUnique__1": [
 				{
@@ -140962,6 +143471,18 @@
 				}
 			],
 			"JunMasterChance1h3_": [
+				{
+					"min": 6,
+					"max": 7
+				}
+			],
+			"JunMasterVeiledChance2h_": [
+				{
+					"min": 12,
+					"max": 14
+				}
+			],
+			"JunMasterVeiledChance1h": [
 				{
 					"min": 6,
 					"max": 7
@@ -142526,125 +145047,205 @@
 				}
 			]
 		},
-		"veiled_mod_type": {
+		"veiled_mod_type veiled_mod_seed": {
 			"": [
 				{
 					"min": 1,
 					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Leo": [
 				{
 					"min": 3,
 					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Catarina": [
 				{
 					"min": 4,
 					"max": 4
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Elreon": [
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Vorici_": [
 				{
 					"min": 6,
 					"max": 6
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Haku": [
 				{
 					"min": 7,
 					"max": 7
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Tora": [
 				{
 					"min": 8,
 					"max": 8
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Vagan": [
 				{
 					"min": 9,
 					"max": 9
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Brinerot_": [
 				{
 					"min": 10,
 					"max": 10
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"It": [
 				{
 					"min": 11,
 					"max": 11
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Gravicius": [
 				{
 					"min": 12,
 					"max": 12
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Keema_": [
 				{
 					"min": 13,
 					"max": 13
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Rin": [
 				{
 					"min": 14,
 					"max": 14
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"": [
 				{
 					"min": 2,
 					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Janus_": [
 				{
 					"min": 15,
 					"max": 15
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Hillock": [
 				{
 					"min": 16,
 					"max": 16
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Jorgin": [
 				{
 					"min": 17,
 					"max": 17
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Cameria__": [
 				{
 					"min": 18,
 					"max": 18
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Aislin__": [
 				{
 					"min": 19,
 					"max": 19
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			],
 			"Riker": [
 				{
 					"min": 20,
 					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 30000
 				}
 			]
 		},
@@ -142718,6 +145319,16 @@
 					"min": 18,
 					"max": 20
 				}
+			],
+			"JunMasterVeiledLocalIncreasedPhysicalDamageAndImpaleCrafted": [
+				{
+					"min": 120,
+					"max": 139
+				},
+				{
+					"min": 21,
+					"max": 25
+				}
 			]
 		},
 		"local_physical_damage_+% local_chance_to_bleed_on_hit_%": {
@@ -142789,6 +145400,16 @@
 				{
 					"min": 18,
 					"max": 20
+				}
+			],
+			"JunMasterVeiledLocalIncreasedPhysicalDamageAndBleedChanceCrafted_": [
+				{
+					"min": 120,
+					"max": 139
+				},
+				{
+					"min": 21,
+					"max": 25
 				}
 			]
 		},
@@ -142862,6 +145483,16 @@
 					"min": 18,
 					"max": 20
 				}
+			],
+			"JunMasterVeiledLocalIncreasedPhysicalDamageAndBlindChanceCrafted_": [
+				{
+					"min": 120,
+					"max": 139
+				},
+				{
+					"min": 21,
+					"max": 25
+				}
 			]
 		},
 		"local_physical_damage_+% local_poison_on_hit_%": {
@@ -142934,25 +145565,35 @@
 					"min": 18,
 					"max": 20
 				}
+			],
+			"JunMasterVeiledLocalIncreasedPhysicalDamageAndPoisonChanceCrafted_": [
+				{
+					"min": 120,
+					"max": 139
+				},
+				{
+					"min": 21,
+					"max": 25
+				}
 			]
 		},
 		"local_chaos_penetration_%": {
 			"JunMaster21": [
 				{
-					"min": 5,
-					"max": 6
+					"min": 6,
+					"max": 7
 				}
 			],
 			"JunMaster22": [
 				{
-					"min": 7,
-					"max": 8
+					"min": 8,
+					"max": 10
 				}
 			],
 			"JunMaster23_": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 11,
+					"max": 13
 				}
 			],
 			"JunMaster1": [
@@ -142968,6 +145609,12 @@
 				}
 			],
 			"JunMaster3": [
+				{
+					"min": 14,
+					"max": 16
+				}
+			],
+			"JunMasterVeiled__": [
 				{
 					"min": 14,
 					"max": 16
@@ -143052,6 +145699,16 @@
 					"min": 10,
 					"max": 12
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 17,
+					"max": 20
+				},
+				{
+					"min": 14,
+					"max": 16
+				}
 			]
 		},
 		"projectile_damage_+% base_projectile_speed_+%": {
@@ -143113,6 +145770,16 @@
 				{
 					"min": 17,
 					"max": 20
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 17,
+					"max": 20
+				},
+				{
+					"min": 23,
+					"max": 25
 				}
 			]
 		},
@@ -143176,6 +145843,16 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiledMeleeDamageAndMeleeRange": [
+				{
+					"min": 17,
+					"max": 20
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
 			]
 		},
 		"fire_damage_+% base_chance_to_ignite_%": {
@@ -143185,8 +145862,8 @@
 					"max": 41
 				},
 				{
-					"min": 7,
-					"max": 7
+					"min": 13,
+					"max": 15
 				}
 			],
 			"JunMaster2FireDamageAndChanceToIgnite1h2": [
@@ -143195,8 +145872,8 @@
 					"max": 50
 				},
 				{
-					"min": 8,
-					"max": 9
+					"min": 16,
+					"max": 17
 				}
 			],
 			"JunMaster2FireDamageAndChanceToIgnite1h3": [
@@ -143205,8 +145882,8 @@
 					"max": 60
 				},
 				{
-					"min": 10,
-					"max": 11
+					"min": 18,
+					"max": 20
 				}
 			],
 			"JunMaster2FireDamageAndChanceToIgnite2h1": [
@@ -143215,8 +145892,8 @@
 					"max": 64
 				},
 				{
-					"min": 15,
-					"max": 17
+					"min": 21,
+					"max": 24
 				}
 			],
 			"JunMaster2FireDamageAndChanceToIgnite2h2": [
@@ -143225,8 +145902,8 @@
 					"max": 72
 				},
 				{
-					"min": 18,
-					"max": 20
+					"min": 25,
+					"max": 28
 				}
 			],
 			"JunMaster2FireDamageAndChanceToIgnite2h3": [
@@ -143235,8 +145912,8 @@
 					"max": 80
 				},
 				{
-					"min": 21,
-					"max": 23
+					"min": 29,
+					"max": 34
 				}
 			],
 			"JunMasterFireDamageAndChanceToIgnite1h1___": [
@@ -143318,6 +145995,26 @@
 					"min": 21,
 					"max": 23
 				}
+			],
+			"JunMasterVeiledFireDamageAndChanceToIgnite1h": [
+				{
+					"min": 70,
+					"max": 79
+				},
+				{
+					"min": 21,
+					"max": 23
+				}
+			],
+			"JunMasterVeiledFireDamageAndChanceToIgnite2h": [
+				{
+					"min": 100,
+					"max": 109
+				},
+				{
+					"min": 35,
+					"max": 40
+				}
 			]
 		},
 		"cold_damage_+% base_chance_to_freeze_%": {
@@ -143327,8 +146024,8 @@
 					"max": 41
 				},
 				{
-					"min": 7,
-					"max": 7
+					"min": 13,
+					"max": 15
 				}
 			],
 			"JunMaster2ColdDamageAndBaseChanceToFreeze1h2__": [
@@ -143337,8 +146034,8 @@
 					"max": 50
 				},
 				{
-					"min": 8,
-					"max": 9
+					"min": 16,
+					"max": 17
 				}
 			],
 			"JunMaster2ColdDamageAndBaseChanceToFreeze1h3": [
@@ -143347,8 +146044,8 @@
 					"max": 60
 				},
 				{
-					"min": 10,
-					"max": 11
+					"min": 18,
+					"max": 20
 				}
 			],
 			"JunMaster2ColdDamageAndBaseChanceToFreeze2h1": [
@@ -143357,8 +146054,8 @@
 					"max": 64
 				},
 				{
-					"min": 15,
-					"max": 17
+					"min": 21,
+					"max": 24
 				}
 			],
 			"JunMaster2ColdDamageAndBaseChanceToFreeze2h2": [
@@ -143367,8 +146064,8 @@
 					"max": 72
 				},
 				{
-					"min": 18,
-					"max": 20
+					"min": 25,
+					"max": 28
 				}
 			],
 			"JunMaster2ColdDamageAndBaseChanceToFreeze2h3_": [
@@ -143377,8 +146074,8 @@
 					"max": 80
 				},
 				{
-					"min": 21,
-					"max": 23
+					"min": 29,
+					"max": 34
 				}
 			],
 			"JunMasterColdDamageAndBaseChanceToFreeze1h1_": [
@@ -143460,6 +146157,26 @@
 					"min": 21,
 					"max": 23
 				}
+			],
+			"JunMasterVeiledColdDamageAndBaseChanceToFreeze1h": [
+				{
+					"min": 70,
+					"max": 79
+				},
+				{
+					"min": 21,
+					"max": 23
+				}
+			],
+			"JunMasterVeiledColdDamageAndBaseChanceToFreeze2h__": [
+				{
+					"min": 100,
+					"max": 109
+				},
+				{
+					"min": 35,
+					"max": 40
+				}
 			]
 		},
 		"lightning_damage_+% base_chance_to_shock_%": {
@@ -143469,8 +146186,8 @@
 					"max": 41
 				},
 				{
-					"min": 7,
-					"max": 7
+					"min": 13,
+					"max": 15
 				}
 			],
 			"JunMaster2LightningDamageAndChanceToShock1h2": [
@@ -143479,8 +146196,8 @@
 					"max": 50
 				},
 				{
-					"min": 8,
-					"max": 9
+					"min": 16,
+					"max": 17
 				}
 			],
 			"JunMaster2LightningDamageAndChanceToShock1h3": [
@@ -143489,8 +146206,8 @@
 					"max": 60
 				},
 				{
-					"min": 10,
-					"max": 11
+					"min": 18,
+					"max": 20
 				}
 			],
 			"JunMaster2LightningDamageAndChanceToShock2h1": [
@@ -143499,8 +146216,8 @@
 					"max": 64
 				},
 				{
-					"min": 15,
-					"max": 17
+					"min": 21,
+					"max": 24
 				}
 			],
 			"JunMaster2LightningDamageAndChanceToShock2h2": [
@@ -143509,8 +146226,8 @@
 					"max": 72
 				},
 				{
-					"min": 18,
-					"max": 20
+					"min": 25,
+					"max": 28
 				}
 			],
 			"JunMaster2LightningDamageAndChanceToShock2h3": [
@@ -143519,8 +146236,8 @@
 					"max": 80
 				},
 				{
-					"min": 21,
-					"max": 23
+					"min": 29,
+					"max": 34
 				}
 			],
 			"JunMasterLightningDamageAndChanceToShock1h1": [
@@ -143601,6 +146318,26 @@
 				{
 					"min": 21,
 					"max": 23
+				}
+			],
+			"JunMasterVeiledLightningDamageAndChanceToShock1h_": [
+				{
+					"min": 70,
+					"max": 79
+				},
+				{
+					"min": 21,
+					"max": 23
+				}
+			],
+			"JunMasterVeiledLightningDamageAndChanceToShock2h": [
+				{
+					"min": 100,
+					"max": 109
+				},
+				{
+					"min": 35,
+					"max": 40
 				}
 			]
 		},
@@ -143744,6 +146481,26 @@
 					"min": 21,
 					"max": 23
 				}
+			],
+			"JunMasterVeiledChaosDamageAndChaosSkillDuration1h": [
+				{
+					"min": 60,
+					"max": 69
+				},
+				{
+					"min": 13,
+					"max": 15
+				}
+			],
+			"JunMasterVeiledChaosDamageAndChaosSkillDuration2h_": [
+				{
+					"min": 90,
+					"max": 99
+				},
+				{
+					"min": 26,
+					"max": 30
+				}
 			]
 		},
 		"spell_damage_+% mana_regeneration_rate_+%": {
@@ -143885,6 +146642,26 @@
 				{
 					"min": 26,
 					"max": 30
+				}
+			],
+			"JunMasterVeiledSpellDamageAndManaRegenerationRate1h": [
+				{
+					"min": 70,
+					"max": 79
+				},
+				{
+					"min": 18,
+					"max": 20
+				}
+			],
+			"JunMasterVeiledSpellDamageAndManaRegenerationRate2h": [
+				{
+					"min": 100,
+					"max": 109
+				},
+				{
+					"min": 36,
+					"max": 40
 				}
 			]
 		},
@@ -144028,25 +146805,45 @@
 					"min": 39,
 					"max": 45
 				}
+			],
+			"JunMasterVeiledMinionDamageAndMinionMaximumLife1h": [
+				{
+					"min": 34,
+					"max": 38
+				},
+				{
+					"min": 34,
+					"max": 38
+				}
+			],
+			"JunMasterVeiledMinionDamageAndMinionMaximumLife2h__": [
+				{
+					"min": 50,
+					"max": 59
+				},
+				{
+					"min": 50,
+					"max": 59
+				}
 			]
 		},
 		"chaos_dot_multiplier_+": {
 			"JunMaster2ChaosNonAilment2h1": [
 				{
-					"min": 28,
-					"max": 30
+					"min": 25,
+					"max": 27
 				}
 			],
 			"JunMaster2ChaosNonAilment2h2": [
 				{
-					"min": 31,
-					"max": 35
+					"min": 28,
+					"max": 30
 				}
 			],
 			"JunMaster2ChaosNonAilment2h3__": [
 				{
-					"min": 36,
-					"max": 40
+					"min": 31,
+					"max": 35
 				}
 			],
 			"JunMaster2ChaosNonAilment1h1": [
@@ -144113,6 +146910,18 @@
 				{
 					"min": 17,
 					"max": 20
+				}
+			],
+			"JunMasterVeiledChaosNonAilment2h": [
+				{
+					"min": 44,
+					"max": 48
+				}
+			],
+			"JunMasterVeiledChaosNonAilment1h": [
+				{
+					"min": 24,
+					"max": 28
 				}
 			],
 			"ChaosNonAilment2h1": [
@@ -144247,18 +147056,6 @@
 					"max": 16
 				}
 			],
-			"ChaosQuiverInfluence1__": [
-				{
-					"min": 16,
-					"max": 20
-				}
-			],
-			"ChaosQuiverInfluence2": [
-				{
-					"min": 21,
-					"max": 25
-				}
-			],
 			"ChaosNonAilmentUberMaven": [
 				{
 					"min": 17,
@@ -144272,23 +147069,175 @@
 				}
 			]
 		},
-		"cold_dot_multiplier_+": {
-			"JunMaster2Cold2h1_": [
+		"physical_dot_multiplier_+": {
+			"JunMaster2Physical2h1": [
+				{
+					"min": 25,
+					"max": 27
+				}
+			],
+			"JunMaster2Physical2h2": [
 				{
 					"min": 28,
 					"max": 30
 				}
 			],
-			"JunMaster2Cold2h2": [
+			"JunMaster2Physical2h3____": [
 				{
 					"min": 31,
 					"max": 35
 				}
 			],
-			"JunMaster2Cold2h3": [
+			"JunMaster2Physical1h1": [
+				{
+					"min": 14,
+					"max": 15
+				}
+			],
+			"JunMaster2Physical1h2__": [
+				{
+					"min": 16,
+					"max": 17
+				}
+			],
+			"JunMaster2Physical1h3__": [
+				{
+					"min": 18,
+					"max": 20
+				}
+			],
+			"JunMasterVeiledPhysical2h_": [
+				{
+					"min": 44,
+					"max": 48
+				}
+			],
+			"JunMasterVeiledPhysical1h": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"Physical2h1": [
+				{
+					"min": 26,
+					"max": 35
+				}
+			],
+			"Physical2h2_": [
 				{
 					"min": 36,
-					"max": 40
+					"max": 45
+				}
+			],
+			"Physical2h3": [
+				{
+					"min": 46,
+					"max": 55
+				}
+			],
+			"Physical2h4": [
+				{
+					"min": 56,
+					"max": 65
+				}
+			],
+			"Physical2h5": [
+				{
+					"min": 66,
+					"max": 75
+				}
+			],
+			"Physical1h1": [
+				{
+					"min": 14,
+					"max": 18
+				}
+			],
+			"Physical1h2_": [
+				{
+					"min": 19,
+					"max": 23
+				}
+			],
+			"Physical1h3": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"Physical1h4_": [
+				{
+					"min": 29,
+					"max": 33
+				}
+			],
+			"Physical1h5": [
+				{
+					"min": 34,
+					"max": 38
+				}
+			],
+			"PhysicalUber1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			],
+			"PhysicalUber2__": [
+				{
+					"min": 13,
+					"max": 16
+				}
+			],
+			"JewelPhysical1": [
+				{
+					"min": 3,
+					"max": 4
+				}
+			],
+			"PhysicalInfluence1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			],
+			"PhysicalInfluence2": [
+				{
+					"min": 13,
+					"max": 16
+				}
+			],
+			"PhysicalUberMaven_": [
+				{
+					"min": 17,
+					"max": 24
+				}
+			],
+			"PhysicalInfluenceMaven": [
+				{
+					"min": 17,
+					"max": 23
+				}
+			]
+		},
+		"cold_dot_multiplier_+": {
+			"JunMaster2Cold2h1_": [
+				{
+					"min": 25,
+					"max": 27
+				}
+			],
+			"JunMaster2Cold2h2": [
+				{
+					"min": 28,
+					"max": 30
+				}
+			],
+			"JunMaster2Cold2h3": [
+				{
+					"min": 31,
+					"max": 35
 				}
 			],
 			"JunMaster2Cold1h1": [
@@ -144355,6 +147304,18 @@
 				{
 					"min": 17,
 					"max": 20
+				}
+			],
+			"JunMasterVeiledCold2h_": [
+				{
+					"min": 44,
+					"max": 48
+				}
+			],
+			"JunMasterVeiledCold1h": [
+				{
+					"min": 24,
+					"max": 28
 				}
 			],
 			"Cold2h1_": [
@@ -144511,20 +147472,20 @@
 		"fire_dot_multiplier_+": {
 			"JunMaster2Fire2h1": [
 				{
-					"min": 28,
-					"max": 30
+					"min": 25,
+					"max": 27
 				}
 			],
 			"JunMaster2Fire2h2": [
 				{
-					"min": 31,
-					"max": 35
+					"min": 28,
+					"max": 30
 				}
 			],
 			"JunMaster2Fire2h3": [
 				{
-					"min": 36,
-					"max": 40
+					"min": 31,
+					"max": 35
 				}
 			],
 			"JunMaster2Fire1h1": [
@@ -144543,6 +147504,18 @@
 				{
 					"min": 18,
 					"max": 20
+				}
+			],
+			"JunMasterVeiledFire2h_": [
+				{
+					"min": 44,
+					"max": 48
+				}
+			],
+			"JunMasterVeiledFire1h": [
+				{
+					"min": 24,
+					"max": 28
 				}
 			],
 			"Fire2h1": [
@@ -144651,18 +147624,6 @@
 				{
 					"min": 13,
 					"max": 16
-				}
-			],
-			"FireQuiverInfluence1": [
-				{
-					"min": 16,
-					"max": 20
-				}
-			],
-			"FireQuiverInfluence2": [
-				{
-					"min": 21,
-					"max": 25
 				}
 			],
 			"FireUberMaven": [
@@ -144808,6 +147769,36 @@
 					"min": 24,
 					"max": 28
 				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndEvasionAndLife": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndEvasionAndLifeMed": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 19,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndEvasionAndLifeHigh": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 23,
+					"max": 26
+				}
 			]
 		},
 		"local_armour_and_energy_shield_+% base_maximum_life": {
@@ -144939,6 +147930,36 @@
 				{
 					"min": 24,
 					"max": 28
+				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndEnergyShieldAndLife": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndEnergyShieldAndLifeMed": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 19,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndEnergyShieldAndLifeHigh": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 23,
+					"max": 26
 				}
 			]
 		},
@@ -145072,6 +148093,36 @@
 					"min": 24,
 					"max": 28
 				}
+			],
+			"JunMasterVeiledLocalIncreasedEvasionAndEnergyShieldAndLife": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"JunMasterVeiledLocalIncreasedEvasionAndEnergyShieldAndLifeMed": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 19,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledLocalIncreasedEvasionAndEnergyShieldAndLifeHigh": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 23,
+					"max": 26
+				}
 			]
 		},
 		"local_physical_damage_reduction_rating_+% base_maximum_life": {
@@ -145203,6 +148254,36 @@
 				{
 					"min": 24,
 					"max": 28
+				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndLife_": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndLifeMed___": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 19,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledLocalIncreasedArmourAndLifeHigh": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 23,
+					"max": 26
 				}
 			]
 		},
@@ -145336,6 +148417,36 @@
 					"min": 24,
 					"max": 28
 				}
+			],
+			"JunMasterVeiledLocalIncreasedEvasionAndLife__": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"JunMasterVeiledLocalIncreasedEvasionAndLifeMed___": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 19,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledLocalIncreasedEvasionAndLifeHigh_": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 23,
+					"max": 26
+				}
 			]
 		},
 		"local_energy_shield_+% base_maximum_life": {
@@ -145468,6 +148579,36 @@
 					"min": 24,
 					"max": 28
 				}
+			],
+			"JunMasterVeiledLocalIncreasedEnergyShieldAndLife_": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"JunMasterVeiledLocalIncreasedEnergyShieldAndLifeMed": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 19,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledLocalIncreasedEnergyShieldAndLifeHigh": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 23,
+					"max": 26
+				}
 			]
 		},
 		"local_armour_and_evasion_and_energy_shield_+% base_maximum_life": {
@@ -145599,6 +148740,36 @@
 				{
 					"min": 24,
 					"max": 28
+				}
+			],
+			"JunMasterVeiledLocalIncreasedDefencesAndLife": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 17,
+					"max": 19
+				}
+			],
+			"JunMasterVeiledLocalIncreasedDefencesAndLifeMed": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 19,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledLocalIncreasedDefencesAndLifeHigh__": [
+				{
+					"min": 24,
+					"max": 28
+				},
+				{
+					"min": 23,
+					"max": 26
 				}
 			]
 		},
@@ -145758,6 +148929,16 @@
 					"min": 5,
 					"max": 5
 				}
+			],
+			"JunMasterVeiledManaAndManaCostPercent": [
+				{
+					"min": 51,
+					"max": 55
+				},
+				{
+					"min": 6,
+					"max": 7
+				}
 			]
 		},
 		"base_maximum_mana damage_taken_goes_to_mana_%": {
@@ -145819,6 +149000,16 @@
 				{
 					"min": 6,
 					"max": 6
+				}
+			],
+			"JunMasterVeiledManaAndDamageTakenGoesToManaPercent": [
+				{
+					"min": 51,
+					"max": 55
+				},
+				{
+					"min": 7,
+					"max": 8
 				}
 			]
 		},
@@ -145882,6 +149073,16 @@
 					"min": 6,
 					"max": 9
 				}
+			],
+			"JunMasterVeiledAndIfNotHitRecently": [
+				{
+					"min": 25,
+					"max": 30
+				},
+				{
+					"min": 10,
+					"max": 12
+				}
 			]
 		},
 		"base_movement_velocity_+% chance_to_gain_onslaught_on_kill_%": {
@@ -145944,6 +149145,16 @@
 					"min": 8,
 					"max": 12
 				}
+			],
+			"JunMasterVeiledAndOnslaughtOnKill": [
+				{
+					"min": 25,
+					"max": 30
+				},
+				{
+					"min": 13,
+					"max": 16
+				}
 			]
 		},
 		"base_movement_velocity_+% base_avoid_chill_%": {
@@ -146001,6 +149212,16 @@
 				{
 					"min": 17,
 					"max": 20
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"JunMasterVeiledAndCannotBeChilled__": [
+				{
+					"min": 25,
+					"max": 30
 				},
 				{
 					"min": 100,
@@ -146078,6 +149299,16 @@
 					"min": 21,
 					"max": 25
 				}
+			],
+			"JunMasterVeiledArmourAndEnergyShield": [
+				{
+					"min": 365,
+					"max": 400
+				},
+				{
+					"min": 31,
+					"max": 35
+				}
 			]
 		},
 		"base_evasion_rating base_maximum_energy_shield": {
@@ -146150,6 +149381,16 @@
 					"min": 21,
 					"max": 25
 				}
+			],
+			"JunMasterVeiledEvasionRatingAndEnergyShield": [
+				{
+					"min": 365,
+					"max": 400
+				},
+				{
+					"min": 31,
+					"max": 35
+				}
 			]
 		},
 		"flask_effect_+% charges_gained_+%": {
@@ -146192,6 +149433,16 @@
 					"min": -33,
 					"max": -33
 				}
+			],
+			"JunMasterVeiledAndFlaskChargesGained": [
+				{
+					"min": 15,
+					"max": 18
+				},
+				{
+					"min": -33,
+					"max": -33
+				}
 			]
 		},
 		"avoid_elemental_damage_chance_%_during_soul_gain_prevention": {
@@ -146217,6 +149468,12 @@
 				{
 					"min": 8,
 					"max": 9
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 10,
+					"max": 12
 				}
 			]
 		},
@@ -146262,6 +149519,12 @@
 					"min": 2001,
 					"max": 3000
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 3201,
+					"max": 4000
+				}
 			]
 		},
 		"gain_onslaught_during_soul_gain_prevention": {
@@ -146272,6 +149535,12 @@
 				}
 			],
 			"JunMaster1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"JunMasterVeiled": [
 				{
 					"min": 1,
 					"max": 1
@@ -146314,6 +149583,12 @@
 					"min": 51,
 					"max": 60
 				}
+			],
+			"JunMasterVeiled_": [
+				{
+					"min": 71,
+					"max": 80
+				}
 			]
 		},
 		"base_skill_area_of_effect_+% local_socketed_area_of_effect_gem_level_+": {
@@ -146335,6 +149610,16 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 8,
+					"max": 10
+				},
+				{
+					"min": 2,
+					"max": 2
 				}
 			]
 		},
@@ -146358,6 +149643,16 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
 			]
 		},
 		"melee_range_+ local_socketed_melee_gem_level_+": {
@@ -146379,6 +149674,16 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
 				}
 			]
 		},
@@ -146466,6 +149771,18 @@
 					"min": 39,
 					"max": 45
 				}
+			],
+			"JunMasterVeiled1h": [
+				{
+					"min": 36,
+					"max": 40
+				}
+			],
+			"JunMasterVeiled2h": [
+				{
+					"min": 54,
+					"max": 60
+				}
 			]
 		},
 		"attack_speed_+%_if_rare_or_unique_enemy_nearby": {
@@ -146552,25 +149869,37 @@
 					"min": 20,
 					"max": 22
 				}
+			],
+			"JunMasterVeiled1h": [
+				{
+					"min": 12,
+					"max": 15
+				}
+			],
+			"JunMasterVeiled2h": [
+				{
+					"min": 27,
+					"max": 30
+				}
 			]
 		},
 		"energy_shield_regeneration_rate_per_minute_if_rare_or_unique_enemy_nearby": {
 			"JunMaster21": [
 				{
-					"min": 3600,
-					"max": 3600
-				}
-			],
-			"JunMaster22_": [
-				{
 					"min": 5400,
 					"max": 5400
 				}
 			],
-			"JunMaster23_": [
+			"JunMaster22_": [
 				{
 					"min": 7200,
 					"max": 7200
+				}
+			],
+			"JunMaster23_": [
+				{
+					"min": 9000,
+					"max": 9000
 				}
 			],
 			"JunMaster1": [
@@ -146595,6 +149924,12 @@
 				{
 					"min": 7200,
 					"max": 7200
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 12000,
+					"max": 12000
 				}
 			]
 		},
@@ -146668,6 +150003,16 @@
 					"min": 13,
 					"max": 14
 				}
+			],
+			"JunMasterVeiledCriticalChanceAndGainFrenzyChargeOnCriticalStrikePercent": [
+				{
+					"min": 6,
+					"max": 7
+				},
+				{
+					"min": 18,
+					"max": 20
+				}
 			]
 		},
 		"elemental_damage_+%_if_have_crit_recently critical_strike_chance_+%": {
@@ -146739,6 +150084,16 @@
 				{
 					"min": 15,
 					"max": 16
+				}
+			],
+			"JunMasterVeiledCriticalChanceAndElementalDamagePercentIfHaveCritRecently": [
+				{
+					"min": 27,
+					"max": 30
+				},
+				{
+					"min": 20,
+					"max": 22
 				}
 			]
 		},
@@ -146840,13 +150195,27 @@
 					"min": 15,
 					"max": 16
 				}
+			],
+			"JunMasterVeiledCriticalChanceAndAddedChaosDamageIfHaveCritRecently_": [
+				{
+					"min": 22,
+					"max": 25
+				},
+				{
+					"min": 28,
+					"max": 32
+				},
+				{
+					"min": 20,
+					"max": 22
+				}
 			]
 		},
 		"base_maximum_life base_mana_regeneration_rate_per_minute": {
 			"JunMaster2BaseLifeAndManaRegen1": [
 				{
-					"min": 26,
-					"max": 30
+					"min": 28,
+					"max": 33
 				},
 				{
 					"min": 120,
@@ -146855,8 +150224,8 @@
 			],
 			"JunMaster2BaseLifeAndManaRegen2_": [
 				{
-					"min": 31,
-					"max": 35
+					"min": 34,
+					"max": 40
 				},
 				{
 					"min": 180,
@@ -146865,20 +150234,30 @@
 			],
 			"JunMaster2BaseLifeAndManaRegen3": [
 				{
-					"min": 36,
-					"max": 40
+					"min": 41,
+					"max": 45
 				},
 				{
 					"min": 240,
 					"max": 240
+				}
+			],
+			"JunMasterVeiledBaseLifeAndManaRegen_": [
+				{
+					"min": 55,
+					"max": 60
+				},
+				{
+					"min": 320,
+					"max": 320
 				}
 			]
 		},
 		"base_maximum_mana base_life_regeneration_rate_per_minute": {
 			"JunMaster2BaseManaAndLifeRegen1": [
 				{
-					"min": 26,
-					"max": 30
+					"min": 28,
+					"max": 33
 				},
 				{
 					"min": 900,
@@ -146887,8 +150266,8 @@
 			],
 			"JunMaster2BaseManaAndLifeRegen2": [
 				{
-					"min": 31,
-					"max": 35
+					"min": 34,
+					"max": 40
 				},
 				{
 					"min": 1200,
@@ -146897,32 +150276,42 @@
 			],
 			"JunMaster2BaseManaAndLifeRegen3": [
 				{
-					"min": 36,
-					"max": 40
+					"min": 41,
+					"max": 45
 				},
 				{
 					"min": 1500,
 					"max": 1500
+				}
+			],
+			"JunMasterVeiledBaseManaAndLifeRegen__": [
+				{
+					"min": 55,
+					"max": 60
+				},
+				{
+					"min": 2000,
+					"max": 2000
 				}
 			]
 		},
 		"sigil_target_search_range_+%": {
 			"JunMaster21": [
 				{
-					"min": 7,
-					"max": 8
+					"min": 11,
+					"max": 13
 				}
 			],
 			"JunMaster22_": [
 				{
-					"min": 9,
-					"max": 10
+					"min": 14,
+					"max": 16
 				}
 			],
 			"JunMaster23_": [
 				{
-					"min": 11,
-					"max": 12
+					"min": 17,
+					"max": 20
 				}
 			],
 			"JunMaster1": [
@@ -146941,6 +150330,12 @@
 				{
 					"min": 11,
 					"max": 12
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 25,
+					"max": 28
 				}
 			],
 			"SynthesisImplicit1_": [
@@ -147064,6 +150459,42 @@
 					"min": 13,
 					"max": 16
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 14,
+					"max": 16
+				},
+				{
+					"min": 20,
+					"max": 22
+				},
+				{
+					"min": 14,
+					"max": 16
+				},
+				{
+					"min": 20,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledQuiver_": [
+				{
+					"min": 9,
+					"max": 10
+				},
+				{
+					"min": 13,
+					"max": 14
+				},
+				{
+					"min": 9,
+					"max": 10
+				},
+				{
+					"min": 13,
+					"max": 14
+				}
 			]
 		},
 		"global_minimum_added_fire_damage global_maximum_added_fire_damage global_minimum_added_lightning_damage global_maximum_added_lightning_damage": {
@@ -147173,6 +150604,42 @@
 				{
 					"min": 19,
 					"max": 24
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 14,
+					"max": 16
+				},
+				{
+					"min": 20,
+					"max": 22
+				},
+				{
+					"min": 14,
+					"max": 16
+				},
+				{
+					"min": 20,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledQuiver_": [
+				{
+					"min": 9,
+					"max": 10
+				},
+				{
+					"min": 13,
+					"max": 14
+				},
+				{
+					"min": 9,
+					"max": 10
+				},
+				{
+					"min": 13,
+					"max": 14
 				}
 			]
 		},
@@ -147284,6 +150751,42 @@
 					"min": 19,
 					"max": 24
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 14,
+					"max": 16
+				},
+				{
+					"min": 20,
+					"max": 22
+				},
+				{
+					"min": 14,
+					"max": 16
+				},
+				{
+					"min": 20,
+					"max": 22
+				}
+			],
+			"JunMasterVeiledQuiver": [
+				{
+					"min": 9,
+					"max": 10
+				},
+				{
+					"min": 13,
+					"max": 14
+				},
+				{
+					"min": 9,
+					"max": 10
+				},
+				{
+					"min": 13,
+					"max": 14
+				}
 			]
 		},
 		"extra_critical_rolls_during_focus grant_focus_skill": {
@@ -147378,6 +150881,16 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiled_": [
+				{
+					"min": 30,
+					"max": 32
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"additional_physical_damage_reduction_%_during_focus grant_focus_skill": {
@@ -147445,6 +150958,16 @@
 				{
 					"min": 11,
 					"max": 12
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"JunMasterVeiled_": [
+				{
+					"min": 13,
+					"max": 15
 				},
 				{
 					"min": 1,
@@ -147534,6 +151057,16 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 90,
+					"max": 90
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"restore_energy_shield_and_mana_when_you_focus_% grant_focus_skill": {
@@ -147601,6 +151134,16 @@
 				{
 					"min": 29,
 					"max": 31
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 37,
+					"max": 40
 				},
 				{
 					"min": 1,
@@ -147728,6 +151271,26 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiled2h_": [
+				{
+					"min": 36,
+					"max": 40
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"JunMasterVeiled1h": [
+				{
+					"min": 18,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"attack_and_cast_speed_+%_while_focused grant_focus_skill": {
@@ -147785,6 +151348,16 @@
 				{
 					"min": 29,
 					"max": 36
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"JunMasterVeiled_": [
+				{
+					"min": 45,
+					"max": 50
 				},
 				{
 					"min": 1,
@@ -147852,6 +151425,16 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiled_": [
+				{
+					"min": 161,
+					"max": 180
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"immune_to_status_ailments_while_focused grant_focus_skill": {
@@ -147873,6 +151456,26 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"focus_cooldown_speed_+%": {
+			"JunMaster2Focus1_": [
+				{
+					"min": 21,
+					"max": 25
+				}
+			],
+			"JunMasterVeiledFocus_": [
+				{
+					"min": 31,
+					"max": 35
+				}
+			],
+			"FocusUnique__1_": [
+				{
+					"min": 30,
+					"max": 50
 				}
 			]
 		},
@@ -147904,13 +151507,27 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiledLifeLeechFromAnyDamageAndVaalPactWhileFocused": [
+				{
+					"min": 1500,
+					"max": 1500
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"fortify_effect_+%_while_focused grant_focus_skill": {
 			"JunMaster21_": [
 				{
-					"min": 80,
-					"max": 80
+					"min": 60,
+					"max": 60
 				},
 				{
 					"min": 1,
@@ -147919,8 +151536,8 @@
 			],
 			"JunMaster22": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 75,
+					"max": 75
 				},
 				{
 					"min": 1,
@@ -147929,8 +151546,8 @@
 			],
 			"JunMaster23": [
 				{
-					"min": 120,
-					"max": 120
+					"min": 90,
+					"max": 90
 				},
 				{
 					"min": 1,
@@ -147939,8 +151556,8 @@
 			],
 			"JunMaster1": [
 				{
-					"min": 80,
-					"max": 80
+					"min": 60,
+					"max": 60
 				},
 				{
 					"min": 1,
@@ -147949,8 +151566,8 @@
 			],
 			"JunMaster2": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 75,
+					"max": 75
 				},
 				{
 					"min": 1,
@@ -147958,6 +151575,16 @@
 				}
 			],
 			"JunMaster3": [
+				{
+					"min": 90,
+					"max": 90
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"JunMasterVeiled_": [
 				{
 					"min": 120,
 					"max": 120
@@ -148010,6 +151637,16 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 28,
+					"max": 32
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"minions_recover_%_maximum_life_when_you_focus grant_focus_skill": {
@@ -148046,6 +151683,16 @@
 				}
 			],
 			"JunMaster1": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"JunMasterVeiled": [
 				{
 					"min": 1,
 					"max": 1
@@ -148096,25 +151743,37 @@
 					"min": -3,
 					"max": -3
 				}
+			],
+			"JunMasterVeiledReduceGlobalFlatManaCostChannelling_": [
+				{
+					"min": -4,
+					"max": -4
+				}
 			]
 		},
 		"skill_mana_cost_+_with_non_channelling_skills": {
 			"JunMaster2ReduceGlobalFlatManaCostNonChannelling1": [
 				{
-					"min": -5,
+					"min": -4,
 					"max": -4
 				}
 			],
 			"JunMaster2ReduceGlobalFlatManaCostNonChannelling2": [
 				{
-					"min": -7,
-					"max": -6
+					"min": -5,
+					"max": -5
 				}
 			],
 			"JunMaster2ReduceGlobalFlatManaCostNonChannelling3": [
 				{
-					"min": -9,
-					"max": -8
+					"min": -7,
+					"max": -6
+				}
+			],
+			"JunMasterVeiledReduceGlobalFlatManaCostNonChannelling": [
+				{
+					"min": -10,
+					"max": -9
 				}
 			],
 			"ManaCostTotalNonChannelledUnique__1__": [
@@ -148165,6 +151824,12 @@
 				{
 					"min": 7,
 					"max": 8
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 9,
+					"max": 10
 				}
 			],
 			"SynthesisImplicitGemQuality1": [
@@ -148388,6 +152053,34 @@
 					"min": 40,
 					"max": 40
 				}
+			],
+			"JunMasterVeiledBleedOnHitGained1h": [
+				{
+					"min": 12,
+					"max": 14
+				},
+				{
+					"min": 18,
+					"max": 20
+				},
+				{
+					"min": 40,
+					"max": 40
+				}
+			],
+			"JunMasterVeiledBleedOnHitGained2h": [
+				{
+					"min": 17,
+					"max": 20
+				},
+				{
+					"min": 26,
+					"max": 28
+				},
+				{
+					"min": 40,
+					"max": 40
+				}
 			]
 		},
 		"rare_or_unique_monster_dropped_item_rarity_+%": {
@@ -148431,6 +152124,12 @@
 				{
 					"min": 41,
 					"max": 45
+				}
+			],
+			"JunMasterVeiledItemRarityFromRareAndUniqueEnemies_": [
+				{
+					"min": 55,
+					"max": 60
 				}
 			]
 		},
@@ -148504,6 +152203,16 @@
 					"min": 14,
 					"max": 16
 				}
+			],
+			"JunMasterVeiledCriticalMultiplierOnShatter_": [
+				{
+					"min": 27,
+					"max": 30
+				},
+				{
+					"min": 20,
+					"max": 22
+				}
 			]
 		},
 		"chaos_damage_+% physical_damage_+%": {
@@ -148575,6 +152284,16 @@
 				{
 					"min": 14,
 					"max": 16
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 18,
+					"max": 20
+				},
+				{
+					"min": 20,
+					"max": 22
 				}
 			]
 		},
@@ -148648,6 +152367,16 @@
 					"min": 14,
 					"max": 16
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 18,
+					"max": 20
+				},
+				{
+					"min": 20,
+					"max": 22
+				}
 			]
 		},
 		"local_flask_life_regeneration_per_minute_%_during_flask_effect": {
@@ -148658,6 +152387,12 @@
 				}
 			],
 			"JunMaster1": [
+				{
+					"min": 180,
+					"max": 180
+				}
+			],
+			"JunMasterVeiled": [
 				{
 					"min": 180,
 					"max": 180
@@ -148684,6 +152419,16 @@
 					"min": 8,
 					"max": 12
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
 			]
 		},
 		"local_flask_item_found_rarity_+%_during_flask_effect": {
@@ -148694,6 +152439,12 @@
 				}
 			],
 			"JunMaster1": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
+			"JunMasterVeiled": [
 				{
 					"min": 20,
 					"max": 30
@@ -148712,6 +152463,12 @@
 					"min": 60,
 					"max": 80
 				}
+			],
+			"JunMasterVeiled_": [
+				{
+					"min": 60,
+					"max": 80
+				}
 			]
 		},
 		"local_flask_life_leech_on_damage_taken_%_permyriad_during_flask_effect": {
@@ -148722,6 +152479,12 @@
 				}
 			],
 			"JunMaster1": [
+				{
+					"min": 1500,
+					"max": 1500
+				}
+			],
+			"JunMasterVeiled": [
 				{
 					"min": 1500,
 					"max": 1500
@@ -148768,6 +152531,26 @@
 					"min": 13,
 					"max": 18
 				}
+			],
+			"JunMasterVeiledLocalAttackSpeedAndLocalItemQuality": [
+				{
+					"min": 18,
+					"max": 22
+				},
+				{
+					"min": 13,
+					"max": 18
+				}
+			],
+			"JunMasterVeiledLocalAttackSpeedAndLocalItemQualityRangedWeapon": [
+				{
+					"min": 12,
+					"max": 15
+				},
+				{
+					"min": 13,
+					"max": 18
+				}
 			]
 		},
 		"local_critical_strike_chance_+% local_item_quality_+": {
@@ -148805,6 +152588,16 @@
 				{
 					"min": 21,
 					"max": 25
+				},
+				{
+					"min": 13,
+					"max": 18
+				}
+			],
+			"JunMasterVeiledLocalCriticalStrikeChanceAndLocalItemQuality": [
+				{
+					"min": 28,
+					"max": 32
 				},
 				{
 					"min": 13,
@@ -148882,6 +152675,16 @@
 					"min": 16,
 					"max": 18
 				}
+			],
+			"JunMasterVeiledLocalAccuracyRatingAndLocalItemQuality": [
+				{
+					"min": 311,
+					"max": 350
+				},
+				{
+					"min": 16,
+					"max": 18
+				}
 			]
 		},
 		"local_attack_speed_+% local_display_trigger_level_1_blood_rage_on_kill_chance_%": {
@@ -148923,6 +152726,26 @@
 				{
 					"min": 10,
 					"max": 10
+				}
+			],
+			"JunMasterVeiledLocalAttackSpeedAndLocalDisplayTriggerLevel1BloodRageOnKillChance_": [
+				{
+					"min": 18,
+					"max": 22
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
+			"JunMasterVeiledLocalAttackSpeedAndLocalDisplayTriggerLevel1BloodRageOnKillChanceRangedWeapon": [
+				{
+					"min": 12,
+					"max": 15
+				},
+				{
+					"min": 15,
+					"max": 15
 				}
 			]
 		},
@@ -149046,6 +152869,26 @@
 					"min": 10,
 					"max": 10
 				}
+			],
+			"JunMasterVeiledCastSpeedAndGainArcaneSurgeOnKillChance1h__": [
+				{
+					"min": 15,
+					"max": 18
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
+			"JunMasterVeiledCastSpeedAndGainArcaneSurgeOnKillChance2h_": [
+				{
+					"min": 21,
+					"max": 25
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"trigger_socketed_spell_on_skill_use_%": {
@@ -149099,6 +152942,12 @@
 					"max": 15
 				}
 			],
+			"JunMasterVeiled": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
 			"Unique__1__": [
 				{
 					"min": 20,
@@ -149142,6 +152991,12 @@
 					"min": 13,
 					"max": 15
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 16,
+					"max": 20
+				}
 			]
 		},
 		"cold_and_chaos_damage_resistance_%": {
@@ -149179,6 +153034,12 @@
 				{
 					"min": 13,
 					"max": 15
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 16,
+					"max": 20
 				}
 			]
 		},
@@ -149237,6 +153098,16 @@
 				{
 					"min": 21,
 					"max": 25
+				},
+				{
+					"min": 15,
+					"max": 18
+				}
+			],
+			"JunMasterVeiledAndLocalItemQuality": [
+				{
+					"min": 31,
+					"max": 35
 				},
 				{
 					"min": 15,
@@ -149304,6 +153175,16 @@
 					"min": 15,
 					"max": 18
 				}
+			],
+			"JunMasterVeiledAndLocalItemQuality": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 15,
+					"max": 18
+				}
 			]
 		},
 		"additional_intelligence local_item_quality_+": {
@@ -149366,6 +153247,16 @@
 					"min": 15,
 					"max": 18
 				}
+			],
+			"JunMasterVeiledAndLocalItemQuality": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 15,
+					"max": 18
+				}
 			]
 		},
 		"life_regeneration_rate_per_minute_%_while_using_flask": {
@@ -149404,17 +153295,23 @@
 					"min": 120,
 					"max": 120
 				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 180,
+					"max": 180
+				}
 			]
 		},
 		"avoid_all_elemental_status_% base_avoid_stun_%": {
 			"JunMaster21__": [
 				{
-					"min": 25,
-					"max": 35
+					"min": 20,
+					"max": 30
 				},
 				{
-					"min": 25,
-					"max": 35
+					"min": 20,
+					"max": 30
 				}
 			],
 			"JunMaster1": [
@@ -149425,6 +153322,16 @@
 				{
 					"min": 25,
 					"max": 35
+				}
+			],
+			"JunMasterVeiled": [
+				{
+					"min": 35,
+					"max": 45
+				},
+				{
+					"min": 35,
+					"max": 45
 				}
 			]
 		},
@@ -149457,6 +153364,206 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"base_minimum_endurance_charges endurance_charge_on_kill_%": {
+			"JunMasterVeiled_": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 3,
+					"max": 4
+				}
+			]
+		},
+		"base_minimum_power_charges add_power_charge_on_kill_%_chance": {
+			"JunMasterVeiled": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 3,
+					"max": 4
+				}
+			]
+		},
+		"base_minimum_frenzy_charges add_frenzy_charge_on_kill_%_chance": {
+			"JunMasterVeiled___": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 3,
+					"max": 4
+				}
+			]
+		},
+		"base_number_of_zombies_allowed base_number_of_skeletons_allowed minion_maximum_life_+%": {
+			"JunMasterVeiledMaximumZombieAndSkeleton": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 8,
+					"max": 10
+				}
+			]
+		},
+		"extra_critical_rolls_during_focus grant_focus_skill focus_cooldown_speed_+%": {
+			"JunMasterVeiled": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 8
+				}
+			]
+		},
+		"shock_nearby_enemies_for_x_ms_when_you_focus grant_focus_skill focus_cooldown_speed_+%": {
+			"JunMasterVeiled": [
+				{
+					"min": 4000,
+					"max": 4000
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 8
+				}
+			]
+		},
+		"immune_to_status_ailments_while_focused grant_focus_skill focus_cooldown_speed_+%": {
+			"JunMasterVeiled": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 8
+				}
+			]
+		},
+		"trigger_socketed_spells_when_you_focus_% grant_focus_skill focus_cooldown_speed_+%": {
+			"JunMasterVeiled": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 8
+				}
+			]
+		},
+		"minions_recover_%_maximum_life_when_you_focus grant_focus_skill focus_cooldown_speed_+%": {
+			"JunMasterVeiled_": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 8
+				}
+			]
+		},
+		"skills_cost_no_mana_while_focused grant_focus_skill focus_cooldown_speed_+%": {
+			"JunMasterVeiled": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 8
+				}
+			]
+		},
+		"local_socketed_support_gem_level_+ local_socketed_support_gem_quality_+": {
+			"JunMasterVeiledLocalIncreaseSocketedSupportGemLevel": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 5,
+					"max": 8
+				}
+			],
+			"LocalIncreaseSocketedSupportGemLevelUberMaven___": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 10
+				}
+			],
+			"SocketedSupportGemLevelInfluenceMaven": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 10
+				}
+			]
+		},
+		"base_avoid_freeze_% base_avoid_chill_%": {
+			"JunMasterVeiled_": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 20,
+					"max": 30
+				}
+			]
+		},
+		"local_weapon_trigger_socketed_spell_on_skill_use_display_cooldown_ms": {
+			"JunMasterVeiledTriggerSocketedSpellOnSkillUse_": [
+				{
+					"min": 4000,
+					"max": 4000
 				}
 			]
 		},
@@ -149506,6 +153613,30 @@
 					"min": 31,
 					"max": 35
 				}
+			],
+			"Essence1": [
+				{
+					"min": 15,
+					"max": 20
+				}
+			],
+			"Essence2": [
+				{
+					"min": 21,
+					"max": 25
+				}
+			],
+			"Essence3": [
+				{
+					"min": 26,
+					"max": 30
+				}
+			],
+			"Essence4_": [
+				{
+					"min": 31,
+					"max": 35
+				}
 			]
 		},
 		"shocked_chilled_effect_on_self_+%": {
@@ -149535,14 +153666,6 @@
 				{
 					"min": 1,
 					"max": 1
-				}
-			]
-		},
-		"focus_cooldown_speed_+%": {
-			"FocusUnique__1_": [
-				{
-					"min": 30,
-					"max": 50
 				}
 			]
 		},
@@ -149747,14 +153870,6 @@
 				{
 					"min": 1,
 					"max": 1
-				}
-			]
-		},
-		"unique_gain_onslaught_when_hit_duration_ms": {
-			"BetrayalUpgradeMonsterOnslaughtOnHit": [
-				{
-					"min": 5000,
-					"max": 5000
 				}
 			]
 		},
@@ -150144,62 +154259,6 @@
 				}
 			]
 		},
-		"physical_dot_multiplier_+": {
-			"PhysicalUber1": [
-				{
-					"min": 8,
-					"max": 12
-				}
-			],
-			"PhysicalUber2__": [
-				{
-					"min": 13,
-					"max": 16
-				}
-			],
-			"JewelPhysical1": [
-				{
-					"min": 3,
-					"max": 4
-				}
-			],
-			"PhysicalInfluence1": [
-				{
-					"min": 8,
-					"max": 12
-				}
-			],
-			"PhysicalInfluence2": [
-				{
-					"min": 13,
-					"max": 16
-				}
-			],
-			"PhysicalQuiverInfluence1__": [
-				{
-					"min": 16,
-					"max": 20
-				}
-			],
-			"PhysicalQuiverInfluence2": [
-				{
-					"min": 21,
-					"max": 25
-				}
-			],
-			"PhysicalUberMaven_": [
-				{
-					"min": 17,
-					"max": 24
-				}
-			],
-			"PhysicalInfluenceMaven": [
-				{
-					"min": 17,
-					"max": 23
-				}
-			]
-		},
 		"dot_multiplier_+": {
 			"1h1": [
 				{
@@ -150235,6 +154294,32 @@
 				{
 					"min": 31,
 					"max": 35
+				}
+			],
+			"Essence1_": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			]
+		},
+		"damage_over_time_multiplier_+_with_attacks": {
+			"WithAttacks1h1": [
+				{
+					"min": 7,
+					"max": 11
+				}
+			],
+			"WithAttacks1h2___": [
+				{
+					"min": 12,
+					"max": 15
+				}
+			],
+			"WithAttacks1h3": [
+				{
+					"min": 16,
+					"max": 18
 				}
 			]
 		},
@@ -150863,6 +154948,154 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"map_blight_league map_num_extra_blights_ map_blight_up_to_X_additional_bosses map_blight_lane_additional_chests map_blight_chest_%_chance_for_additional_drop map_extra_content_weighting": {
+			"ScarabBlight1": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"ScarabBlight2_": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"ScarabBlight3": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"ScarabBlight4": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"map_num_extra_abysses map_abyss_monster_spawn_amount_+%": {
+			"ScarabAbyss1": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"ScarabAbyss2_": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			],
+			"ScarabAbyss3_": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			],
+			"ScarabAbyss4": [
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -151974,6 +156207,32 @@
 				}
 			]
 		},
+		"explode_enemies_for_10%_life_as_physical_on_kill_chance_%": {
+			"SynthesisImplicitExplosionChance1_": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
+			"SynthesisImplicitExplosionChance2__": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"HolyPhysicalExplosionChanceInfluence1": [
+				{
+					"min": 11,
+					"max": 20
+				}
+			],
+			"HolyPhysicalExplosionChanceInfluence2_": [
+				{
+					"min": 21,
+					"max": 30
+				}
+			]
+		},
 		"attacks_intimidate_on_hit_%": {
 			"SynthesisImplicit1": [
 				{
@@ -152451,6 +156710,22 @@
 				{
 					"min": 15,
 					"max": 15
+				}
+			]
+		},
+		"local_unique_vinktars_flask_shock_proliferation_radius_during_flask_effect": {
+			"DuringFlaskEffectUnique__1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_unique_vinktars_flask_shock_effect_+%_during_flask_effect": {
+			"DuringFlaskEffectUnique__1__": [
+				{
+					"min": 25,
+					"max": 40
 				}
 			]
 		},
@@ -156912,16 +161187,6 @@
 					"min": 20,
 					"max": 20
 				}
-			],
-			"6b": [
-				{
-					"min": 5,
-					"max": 5
-				},
-				{
-					"min": 40,
-					"max": 40
-				}
 			]
 		},
 		"map_pack_size_+% map_blight_tower_cost_+%": {
@@ -156936,15 +161201,43 @@
 				}
 			]
 		},
-		"map_pack_size_+% blighted_map_chest_reward_lucky_count": {
+		"map_pack_size_+% map_experience_gain_+%": {
+			"4": [
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"map_pack_size_+% map_blight_encounter_spawn_rate_+% map_blighted_map_encounter_duration_-_sec": {
 			"5": [
 				{
 					"min": 5,
 					"max": 5
 				},
 				{
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"map_pack_size_+% blighted_map_chest_reward_lucky_count": {
+			"6": [
+				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			],
 			"8": [
@@ -156957,7 +161250,7 @@
 					"max": 10
 				}
 			],
-			"11": [
+			"10": [
 				{
 					"min": 5,
 					"max": 5
@@ -156968,27 +161261,27 @@
 				}
 			]
 		},
-		"map_pack_size_+% map_experience_gain_+%": {
-			"6": [
+		"map_pack_size_+% map_blight_up_to_X_additional_bosses": {
+			"6b": [
 				{
 					"min": 5,
 					"max": 5
 				},
 				{
-					"min": 15,
-					"max": 15
+					"min": 3,
+					"max": 3
 				}
 			]
 		},
-		"map_pack_size_+% map_item_drop_quantity_+%": {
+		"map_pack_size_+% map_blight_lane_additional_chest_chance_%": {
 			"7_": [
 				{
 					"min": 5,
 					"max": 5
 				},
 				{
-					"min": 30,
-					"max": 30
+					"min": 20,
+					"max": 20
 				}
 			]
 		},
@@ -156999,8 +161292,8 @@
 					"max": 5
 				},
 				{
-					"min": 10,
-					"max": 10
+					"min": 6,
+					"max": 6
 				}
 			],
 			"12": [
@@ -157011,6 +161304,18 @@
 				{
 					"min": 25,
 					"max": 25
+				}
+			]
+		},
+		"map_pack_size_+% map_item_drop_quantity_+%": {
+			"11": [
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 65,
+					"max": 65
 				}
 			]
 		},
@@ -157031,6 +161336,44 @@
 				{
 					"min": 31,
 					"max": 31
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sextant_uses_remaining map_blight_league map_num_extra_blights_ map_extra_content_weighting": {
+			"": [
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Maven": [
+				{
+					"min": 15,
+					"max": 15
 				},
 				{
 					"min": 1,
@@ -157239,6 +161582,14 @@
 				{
 					"min": 5,
 					"max": 5
+				}
+			]
+		},
+		"local_item_allow_modification_while_corrupted": {
+			"ModifyableWhileCorruptedUnique__1": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -157556,6 +161907,18 @@
 				}
 			]
 		},
+		"boss_maximum_life_+%_final doedre_aura_damage_+%_final": {
+			"MetamorphosisItemisedBossDifficult": [
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
 		"jewellery_elemental_quality": {
 			"JewelleryElementalQuality": [
 				{
@@ -157606,6 +161969,30 @@
 		},
 		"jewellery_attribute_quality": {
 			"JewelleryAttributeQuality": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"jewellery_physical_chaos_quality": {
+			"JewelleryPhysicalChaosQuality": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"jewellery_speed_quality": {
+			"JewellerySpeedQuality_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"jewellery_critical_quality": {
+			"JewelleryCriticalQuality": [
 				{
 					"min": 1,
 					"max": 1
@@ -158038,18 +162425,6 @@
 				}
 			]
 		},
-		"dummy_stat_display_nothing local_display_nearby_enemies_are_blinded": {
-			"Influence1_": [
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 1,
-					"max": 1
-				}
-			]
-		},
 		"guardian_gain_life_regeneration_per_minute_%_for_1_second_every_10_seconds": {
 			"Influence1": [
 				{
@@ -158123,6 +162498,48 @@
 				{
 					"min": 8,
 					"max": 10
+				}
+			]
+		},
+		"chaos_damage_over_time_multiplier_+_with_attacks": {
+			"ChaosQuiverInfluence1__": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
+			"ChaosQuiverInfluence2": [
+				{
+					"min": 21,
+					"max": 25
+				}
+			]
+		},
+		"physical_damage_over_time_multiplier_+_with_attacks": {
+			"PhysicalQuiverInfluence1__": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
+			"PhysicalQuiverInfluence2": [
+				{
+					"min": 21,
+					"max": 25
+				}
+			]
+		},
+		"fire_damage_over_time_multiplier_+_with_attacks": {
+			"FireQuiverInfluence1": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
+			"FireQuiverInfluence2": [
+				{
+					"min": 21,
+					"max": 25
 				}
 			]
 		},
@@ -159424,53 +163841,103 @@
 				}
 			]
 		},
-		"impale_debuff_effect_+%": {
-			"WeaponInfluence1__": [
+		"physical_damage_over_time_+%": {
+			"BleedingDamagePrefixInfluence1": [
 				{
-					"min": 7,
-					"max": 9
+					"min": 60,
+					"max": 69
 				}
 			],
-			"WeaponInfluence2_": [
+			"BleedingDamagePrefixInfluence2": [
 				{
-					"min": 10,
-					"max": 12
+					"min": 70,
+					"max": 79
 				}
 			],
-			"WeaponInfluence3": [
+			"BleedingDamagePrefixInfluence3_": [
 				{
-					"min": 13,
-					"max": 15
+					"min": 80,
+					"max": 89
 				}
 			],
-			"TwoHandWeaponInfluence1": [
+			"BleedingDamagePrefixInfluence4": [
 				{
-					"min": 14,
-					"max": 16
+					"min": 90,
+					"max": 94
 				}
 			],
-			"TwoHandWeaponInfluence2": [
+			"BleedingDamagePrefixTwoHandInfluence1": [
 				{
-					"min": 17,
-					"max": 19
+					"min": 100,
+					"max": 109
 				}
 			],
-			"TwoHandWeaponInfluence3": [
+			"BleedingDamagePrefixTwoHandInfluence2": [
 				{
-					"min": 20,
-					"max": 22
+					"min": 110,
+					"max": 119
 				}
 			],
-			"Unique__1": [
+			"BleedingDamagePrefixTwoHandInfluence3": [
 				{
-					"min": 20,
-					"max": 20
+					"min": 120,
+					"max": 129
 				}
 			],
-			"Unique__2": [
+			"BleedingDamagePrefixTwoHandInfluence4": [
 				{
-					"min": 5,
-					"max": 5
+					"min": 130,
+					"max": 134
+				}
+			]
+		},
+		"chaos_damage_over_time_+%": {
+			"PoisonDamagePrefixInfluence1__": [
+				{
+					"min": 60,
+					"max": 69
+				}
+			],
+			"PoisonDamagePrefixInfluence2__": [
+				{
+					"min": 70,
+					"max": 79
+				}
+			],
+			"PoisonDamagePrefixInfluence3": [
+				{
+					"min": 80,
+					"max": 89
+				}
+			],
+			"PoisonDamagePrefixInfluence4": [
+				{
+					"min": 90,
+					"max": 94
+				}
+			],
+			"PoisonDamagePrefixTwoHandInfluence1": [
+				{
+					"min": 100,
+					"max": 109
+				}
+			],
+			"PoisonDamagePrefixTwoHandInfluence2__": [
+				{
+					"min": 110,
+					"max": 119
+				}
+			],
+			"PoisonDamagePrefixTwoHandInfluence3": [
+				{
+					"min": 120,
+					"max": 129
+				}
+			],
+			"PoisonDamagePrefixTwoHandInfluence4_": [
+				{
+					"min": 130,
+					"max": 134
 				}
 			]
 		},
@@ -159817,6 +164284,36 @@
 				{
 					"min": 33,
 					"max": 33
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sextant_uses_remaining map_affliction_league map_spawn_affliction_mirror": {
+			"": [
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Maven": [
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 1,
+					"max": 1
 				},
 				{
 					"min": 1,
@@ -161387,6 +165884,22 @@
 			]
 		},
 		"local_affliction_notable_compound_injury": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_affliction_notable_blood_artist": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_affliction_notable_phlebotomist": {
 			"": [
 				{
 					"min": 1,
@@ -164948,15 +169461,45 @@
 				}
 			]
 		},
-		"map_item_drop_quantity_+% map_set_league_category map_heist_league": {
+		"map_item_drop_quantity_+% map_set_league_category map_heist_league map_spawn_x_additional_heist_smugglers_caches map_extra_content_weighting": {
 			"MapCrafted": [
 				{
 					"min": 0,
 					"max": 0
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 35,
+					"max": 35
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sextant_uses_remaining map_spawn_heist_smugglers_cache": {
+			"": [
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Maven_": [
+				{
+					"min": 15,
+					"max": 15
 				},
 				{
 					"min": 1,
@@ -164972,7 +169515,7 @@
 				}
 			]
 		},
-		"map_harvest_league map_set_league_category map_extra_content_weighting": {
+		"map_harvest_league map_set_league_category map_extra_content_weighting map_chance_for_area_%_to_contain_harvest": {
 			"MapCrafted": [
 				{
 					"min": 1,
@@ -164981,6 +169524,48 @@
 				{
 					"min": 34,
 					"max": 34
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"sextant_uses_remaining map_harvest_league map_chance_for_area_%_to_contain_harvest map_extra_content_weighting": {
+			"": [
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Maven__": [
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
 				},
 				{
 					"min": 1,
@@ -165292,7 +169877,7 @@
 			"Unique__1": [
 				{
 					"min": 1,
-					"max": 134
+					"max": 137
 				},
 				{
 					"min": 15,
@@ -165302,7 +169887,7 @@
 			"Unique__3": [
 				{
 					"min": 1,
-					"max": 134
+					"max": 137
 				},
 				{
 					"min": 1,
@@ -165314,7 +169899,7 @@
 			"Unique__2": [
 				{
 					"min": 1,
-					"max": 134
+					"max": 137
 				},
 				{
 					"min": 15,
@@ -165324,7 +169909,7 @@
 			"Unique__4_": [
 				{
 					"min": 1,
-					"max": 134
+					"max": 137
 				},
 				{
 					"min": 25,
@@ -165414,6 +169999,14 @@
 		},
 		"damage_from_hits_always_and_only_bypasses_energy_shield_when_not_blocked": {
 			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_no_energy_shield": {
+			"NoEnergyShieldUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -165928,35 +170521,11 @@
 				}
 			]
 		},
-		"avoid_elemental_ailments_%_while_affected_by_elusive": {
-			"EnchantmentElusive": [
-				{
-					"min": 20,
-					"max": 20
-				}
-			]
-		},
-		"curse_effect_on_self_+%_while_on_consecrated_ground": {
-			"EnchantmentConsecratedGround": [
-				{
-					"min": -30,
-					"max": -30
-				}
-			]
-		},
 		"accuracy_rating_+%_during_onslaught": {
 			"EnchantmentOnslaught_": [
 				{
 					"min": 30,
 					"max": 30
-				}
-			]
-		},
-		"enemies_you_hinder_have_life_regeneration_rate_+%": {
-			"EnchantmentHinder": [
-				{
-					"min": -50,
-					"max": -50
 				}
 			]
 		},
@@ -165968,43 +170537,11 @@
 				}
 			]
 		},
-		"enemies_you_maim_have_damage_taken_over_time_+%": {
-			"EnchantmentMaim": [
-				{
-					"min": 8,
-					"max": 8
-				}
-			]
-		},
 		"belt_enchant_enemies_you_taunt_have_area_damage_+%_final": {
 			"EnchantmentTaunt": [
 				{
 					"min": -5,
 					"max": -5
-				}
-			]
-		},
-		"enemies_you_wither_have_all_resistances_%": {
-			"EnchantmentWither_": [
-				{
-					"min": -6,
-					"max": -6
-				}
-			]
-		},
-		"enemies_you_blind_have_critical_strike_chance_+%": {
-			"EnchantmentBlind": [
-				{
-					"min": -30,
-					"max": -30
-				}
-			]
-		},
-		"enemies_you_intimidate_have_stun_duration_on_self_+%": {
-			"EnchantmentIntimidate": [
-				{
-					"min": 20,
-					"max": 20
 				}
 			]
 		},
@@ -176638,14 +181175,6 @@
 				}
 			]
 		},
-		"curse_maximum_doom": {
-			"Unique__1___": [
-				{
-					"min": 15,
-					"max": 15
-				}
-			]
-		},
 		"damage_+%_against_enemies_marked_by_you": {
 			"DamageAgainstMarkedEnemiesUnique__1": [
 				{
@@ -179862,6 +184391,38 @@
 				}
 			]
 		},
+		"local_display_trigger_level_X_atziri_storm_call": {
+			"UniqueStaffTriggerAtziriStormCall__1____": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_trigger_level_X_atziri_flameblast": {
+			"UniqueStaffTriggerAtziriStormFlameblast__1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_grants_level_X_queens_demand_skill": {
+			"UniqueStaffGrantQueensDemand___": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_grants_skill_blood_sacrament_level": {
+			"UniqueWandGrantsBloodSacrament__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"base_immune_to_chill": {
 			"Unique__1": [
 				{
@@ -180578,6 +185139,14 @@
 				}
 			]
 		},
+		"zero_chaos_resistance": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"elemental_damage_+%_during_flask_effect": {
 			"Unique__1": [
 				{
@@ -180591,6 +185160,18 @@
 				{
 					"min": 50,
 					"max": 50
+				}
+			]
+		},
+		"minimum_added_fire_damage_per_100_lowest_of_max_life_mana maximum_added_fire_damage_per_100_lowest_of_max_life_mana": {
+			"Unique__1": [
+				{
+					"min": 3,
+					"max": 4
+				},
+				{
+					"min": 7,
+					"max": 8
 				}
 			]
 		},
@@ -181514,8 +186095,22 @@
 				}
 			]
 		},
-		"map_ritual_league": {
-			"Map": [
+		"sextant_uses_remaining map_area_contains_rituals": {
+			"": [
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Maven": [
+				{
+					"min": 15,
+					"max": 15
+				},
 				{
 					"min": 1,
 					"max": 1
@@ -181603,14 +186198,6 @@
 				{
 					"min": 20,
 					"max": 20
-				}
-			]
-		},
-		"local_bleeding_ailment_dot_multiplier_+": {
-			"LocalBleedDamageOverTimeMultiplierUnique__1": [
-				{
-					"min": 25,
-					"max": 35
 				}
 			]
 		},
@@ -184244,6 +188831,66 @@
 				}
 			]
 		},
+		"map_ritual_tribute_+%": {
+			"1_": [
+				{
+					"min": 3,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 5,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 7,
+					"max": 8
+				}
+			],
+			"Maven": [
+				{
+					"min": 15,
+					"max": 20
+				}
+			]
+		},
+		"map_ritual_rewards_reroll_cost_+%_final": {
+			"1": [
+				{
+					"min": -6,
+					"max": -5
+				}
+			],
+			"2": [
+				{
+					"min": -8,
+					"max": -7
+				}
+			],
+			"3______": [
+				{
+					"min": -10,
+					"max": -9
+				}
+			],
+			"Maven_": [
+				{
+					"min": -24,
+					"max": -20
+				}
+			]
+		},
+		"map_ritual_encounter_count_override": {
+			"_": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
 		"map_currency_fusing_drops_full_stack_permillage_chance": {
 			"WatchstoneStackFusing1_": [
 				{
@@ -185890,28 +190537,6 @@
 				}
 			]
 		},
-		"local_socketed_support_gem_level_+ local_socketed_support_gem_quality_+": {
-			"LocalIncreaseSocketedSupportGemLevelUberMaven___": [
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 5,
-					"max": 10
-				}
-			],
-			"SocketedSupportGemLevelInfluenceMaven": [
-				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 5,
-					"max": 10
-				}
-			]
-		},
 		"physical_damage_taken_%_as_fire fire_damage_taken_goes_to_life_over_4_seconds_%": {
 			"PhysicalDamageTakenAsFirePercentUberMaven": [
 				{
@@ -186171,6 +190796,18 @@
 				{
 					"min": 5,
 					"max": 5
+				},
+				{
+					"min": 8,
+					"max": 12
+				}
+			]
+		},
+		"explode_enemies_for_10%_life_as_physical_on_kill_chance_% base_skill_area_of_effect_+%": {
+			"HolyPhysicalExplosionChanceInfluenceMaven": [
+				{
+					"min": 31,
+					"max": 35
 				},
 				{
 					"min": 8,
@@ -187322,6 +191959,46 @@
 				}
 			]
 		},
+		"projecitle_chance_to_be_able_to_chain_from_terrain_%_per_ranged_abyss_jewel_up_to_20%": {
+			"Unique__1__": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
+		"main_hand_critical_strike_chance_+%_per_melee_abyss_jewel_up_to_+100%": {
+			"Unique__1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"off_hand_critical_strike_multiplier_+_per_melee_abyss_jewel_up_to_+50": {
+			"Unique__1__": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			]
+		},
+		"minion_damage_over_time_multiplier_+_per_minion_abyss_jewel_up_to_+30": {
+			"Unique__1": [
+				{
+					"min": 6,
+					"max": 6
+				}
+			]
+		},
+		"arcane_surge_effect_on_self_+%_per_caster_abyss_jewel_up_to_+40%": {
+			"Unique__1": [
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
 		"base_actor_scale_+% base_movement_velocity_+% attack_and_cast_speed_+% non_chaos_damage_to_add_as_chaos_damage_% damage_+% display_monster_sirus_influenced": {
 			"": [
 				{
@@ -187329,12 +192006,12 @@
 					"max": 20
 				},
 				{
-					"min": 30,
-					"max": 30
+					"min": 10,
+					"max": 10
 				},
 				{
-					"min": 30,
-					"max": 30
+					"min": 10,
+					"max": 10
 				},
 				{
 					"min": 5,
@@ -187355,6 +192032,322 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"map_ultimatum_league": {
+			"Map_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"map_atlas_exile_boss map_contains_citadel": {
+			"MapContainsAtlasExile__": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"reflect_curses reflect_shocks reflect_chill_and_freeze_%_chance": {
+			"UltimatumReflectAilmentsCurses": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"local_display_grants_skill_call_of_steel": {
+			"GrantsCallOfSteelSkillUnique__1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"unveiled_mod_effect_+%": {
+			"Unique__1": [
+				{
+					"min": 60,
+					"max": 90
+				}
+			]
+		},
+		"local_hits_with_this_weapon_freeze_as_though_damage_+%_final": {
+			"Unique__1": [
+				{
+					"min": 150,
+					"max": 200
+				}
+			]
+		},
+		"local_hits_with_this_weapon_shock_as_though_damage_+%_final": {
+			"Unique__1": [
+				{
+					"min": 150,
+					"max": 200
+				}
+			]
+		},
+		"local_ignite_damage_+%_final_with_this_weapon": {
+			"Unique__1": [
+				{
+					"min": 50,
+					"max": 75
+				}
+			]
+		},
+		"chance_to_throw_4_additional_traps_%": {
+			"Unique__1": [
+				{
+					"min": 4,
+					"max": 6
+				}
+			]
+		},
+		"gain_maximum_power_charges_on_vaal_skill_use": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"gain_frenzy_power_endurance_charges_on_vaal_skill_use": {
+			"Unique__1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"you_count_as_full_life_while_affected_by_vulnerability": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"vaal_attack_rage_cost_instead_of_souls_per_use": {
+			"Unique__1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"cannot_gain_rage_during_soul_gain_prevention": {
+			"Unique__1__": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_display_socketed_gems_supported_by_level_x_rage": {
+			"SupportedByRageUnique__1__": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"base_rage_cost_+%": {
+			"ReducedUnique__1": [
+				{
+					"min": -25,
+					"max": -10
+				}
+			]
+		},
+		"maximum_life_+%_and_fire_resistance_-%": {
+			"Unique__1": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"maximum_mana_+%_and_cold_resistance_-%": {
+			"Unique__1": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"maximum_energy_shield_+%_and_lightning_resistance_-%": {
+			"Unique__1": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"vaal_skill_soul_gain_preventation_duration_+%": {
+			"Unique__1__": [
+				{
+					"min": -8,
+					"max": -6
+				}
+			]
+		},
+		"extra_critical_rolls_while_on_low_life": {
+			"Unique__1___": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"monster_allies_cannot_take_damage_pulse_owner": {
+			"NemesisAlliesTakeNoDamagePulse_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"ultimatum_monster_damage_+%_final": {
+			"UltimatumWave2_-": [
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"UltimatumWave3": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"UltimatumWave4": [
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"UltimatumWave5__": [
+				{
+					"min": 9,
+					"max": 9
+				}
+			],
+			"UltimatumWave6": [
+				{
+					"min": 12,
+					"max": 12
+				}
+			],
+			"UltimatumWave7": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
+			"UltimatumWave8__": [
+				{
+					"min": 18,
+					"max": 18
+				}
+			],
+			"UltimatumWave9": [
+				{
+					"min": 21,
+					"max": 21
+				}
+			]
+		},
+		"ultimatum_monster_life_+%_final": {
+			"UltimatumWave2MonsterLife": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"UltimatumWave3MonsterLife___": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			],
+			"UltimatumWave4MonsterLife_": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			],
+			"UltimatumWave5MonsterLife": [
+				{
+					"min": 70,
+					"max": 70
+				}
+			],
+			"UltimatumWave6MonsterLife": [
+				{
+					"min": 90,
+					"max": 90
+				}
+			],
+			"UltimatumWave7MonsterLife": [
+				{
+					"min": 120,
+					"max": 120
+				}
+			],
+			"UltimatumWave8MonsterLife": [
+				{
+					"min": 160,
+					"max": 160
+				}
+			],
+			"UltimatumWave9MonsterLife_": [
+				{
+					"min": 200,
+					"max": 200
+				}
+			]
+		},
+		"map_spawn_extra_torment_spirits": {
+			"IncursionTempleAdditionaledSpirit1": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"IncursionTempleAdditionaledSpirit2": [
+				{
+					"min": 5,
+					"max": 5
+				}
+			]
+		},
+		"map_breach_time_passed_+%": {
+			"1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"2": [
+				{
+					"min": 50,
+					"max": 50
 				}
 			]
 		}
