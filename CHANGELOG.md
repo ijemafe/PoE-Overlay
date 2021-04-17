@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.11 (2021-04-17)
+
+- Updated assets to support 3.14.0 (Ultimatum League)
+- Updated how influence mods are sent to the trade API
+- Updated the Item Rarity Parser to take the new 'Item Class' into account
+- Added support for Bulk Exchange price-lookups when price-checking bulk-exchangable items
+
 ## 0.7.10 (2021-03-06)
 
 - Pseudo grouping no longer removes Stats from Unique Items

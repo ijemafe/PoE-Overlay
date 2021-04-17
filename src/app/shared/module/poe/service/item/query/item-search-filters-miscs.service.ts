@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Query } from '@data/poe'
-import { Item, ItemProperties, ItemSearchFiltersService, Language } from '@shared/module/poe/type'
+import { Item, ItemProperties, ItemSearchFiltersService, Language, StatType } from '@shared/module/poe/type'
 
 @Injectable({
   providedIn: 'root',
@@ -98,34 +98,37 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
     }
 
     if (item.influences.shaper) {
-      query.filters.misc_filters.filters.shaper_item = {
-        option: `${!!item.influences.shaper}`,
-      }
-    }
-    if (item.influences.crusader) {
-      query.filters.misc_filters.filters.crusader_item = {
-        option: `${!!item.influences.crusader}`,
-      }
-    }
-    if (item.influences.hunter) {
-      query.filters.misc_filters.filters.hunter_item = {
-        option: `${!!item.influences.hunter}`,
-      }
+      this.addPseudoStatToAndGroup(query, 'pseudo_has_shaper_influence')
     }
     if (item.influences.elder) {
-      query.filters.misc_filters.filters.elder_item = {
-        option: `${!!item.influences.elder}`,
-      }
+      this.addPseudoStatToAndGroup(query, 'pseudo_has_elder_influence')
+    }
+    if (item.influences.crusader) {
+      this.addPseudoStatToAndGroup(query, 'pseudo_has_crusader_influence')
+    }
+    if (item.influences.hunter) {
+      this.addPseudoStatToAndGroup(query, 'pseudo_has_hunter_influence')
     }
     if (item.influences.redeemer) {
-      query.filters.misc_filters.filters.redeemer_item = {
-        option: `${!!item.influences.redeemer}`,
-      }
+      this.addPseudoStatToAndGroup(query, 'pseudo_has_redeemer_influence')
     }
     if (item.influences.warlord) {
-      query.filters.misc_filters.filters.warlord_item = {
-        option: `${!!item.influences.warlord}`,
-      }
+      this.addPseudoStatToAndGroup(query, 'pseudo_has_warlord_influence')
     }
+  }
+
+  private addPseudoStatToAndGroup(query: Query, statID: string): void {
+    let andStatGroup = query.stats.find((stat) => stat.type == 'and')
+    if (!andStatGroup) {
+      andStatGroup = {
+        type: 'and',
+        filters: []
+      }
+      query.stats.push(andStatGroup)
+    }
+    andStatGroup.filters.push({
+      disabled: false,
+      id: `${StatType.Pseudo}.${statID}`
+    })
   }
 }

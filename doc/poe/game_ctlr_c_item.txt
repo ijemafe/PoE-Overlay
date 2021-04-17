@@ -1,3 +1,4 @@
+Item Class: **UNSET**
 Rarity: Unique
 Thousand Ribbons
 Simple Robe
@@ -32,6 +33,7 @@ And was born again
 Note: ~price 1 chaos
 
 
+Item Class: **UNSET**
 Rarity: Unique
 Sire of Shards
 Serpentine Staff
@@ -64,6 +66,7 @@ Socketed Gems fire Projectiles in a circle
 That which was broken may yet break.
 
 
+Item Class: **UNSET**
 Rarity: Rare
 Victory Corona
 Steel Circlet
@@ -84,6 +87,8 @@ Item Level: 47
 +6% to Fire Resistance
 +7% to Lightning Resistance
 
+
+Item Class: **UNSET**
 Rarity: Normal
 Mortal Hope
 --------
@@ -92,6 +97,7 @@ Look to our Queen, for she will lead us from the darkness.
 Can be used in a personal Map Device.
 
 
+Item Class: **UNSET**
 Rarity: Gem
 Righteous Fire
 --------
@@ -141,6 +147,7 @@ Corrupted
 
 
 
+Item Class: **UNSET**
 Rarity: Magic
 Hallowed Mana Flask of Heat
 --------
@@ -159,6 +166,7 @@ Removes Freeze and Chill on use
 Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.
 
 
+Item Class: **UNSET**
 Rarity: Currency
 Scorched Fossil
 --------
@@ -172,6 +180,7 @@ Place in a Resonator to influence item crafting.
 Note: ~price 1 chaos
 
 
+Item Class: **UNSET**
 Rarity: Normal
 Sapphire Flask
 --------
@@ -188,6 +197,8 @@ Item Level: 29
 --------
 Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.
 
+
+Item Class: **UNSET**
 Rarity: Normal
 Sacrifice at Noon
 --------
@@ -196,6 +207,7 @@ The light without pales in comparison to the light within.
 Can be used in a personal Map Device.
 
 
+Item Class: **UNSET**
 Rarity: Gem
 Spell Totem Support
 --------
@@ -218,6 +230,8 @@ Spells Cast by Totem have 30% less Cast Speed
 --------
 This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Survival Instincts
 Viridian Jewel
@@ -233,6 +247,8 @@ Observe and master your surroundings.
 --------
 Place into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.
 
+
+Item Class: **UNSET**
 Rarity: Divination Card
 The Catalyst
 --------
@@ -242,6 +258,8 @@ Vaal Orb
 --------
 Simple actions can lead the world to an early grave. 
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Onslaught Hand
 Goathide Gloves
@@ -266,6 +284,8 @@ Trigger Word of Fury on Hit
 6% increased Rarity of Items found
 +1 Mana gained on Kill
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Corpse Lash
 Leather Belt
@@ -283,6 +303,8 @@ Item Level: 45
 11% increased Stun and Block Recovery
 +21% to Lightning Resistance (crafted)
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Watcher's Eye
 Prismatic Jewel
@@ -303,6 +325,8 @@ and one by one, they became a part of it.
 --------
 Place into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.
 
+
+Item Class: **UNSET**
 Rarity: Normal
 Fragment of the Chimera
 --------
@@ -311,6 +335,8 @@ nothingness and equilibrium of eternity.
 --------
 Can be used in a personal Map Device.
 
+
+Item Class: **UNSET**
 Rarity: Normal
 Gilded Bestiary Scarab
 --------
@@ -322,6 +348,8 @@ back their favoured son. The gift of their Visions will pass to another.
 --------
 Can be used in a personal Map Device to add modifiers to a Map.
 
+
+Item Class: **UNSET**
 Rarity: Normal
 Fire from the Sky
 --------
@@ -331,6 +359,8 @@ You will discover an area with an Infernal Tempest
 --------
 Right-click to add this prophecy to your character.
 
+
+Item Class: **UNSET**
 Rarity: Unique
 War Among the Stars
 Ivory Watchstone
@@ -344,6 +374,8 @@ Area contains 6 additional packs of Shaper Creations
 Conflict begets only suffering.
 For some, that is by design.
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Hephaeus, The Hammer's Brain
 --------
@@ -359,6 +391,8 @@ Combine this with four other different samples in Tane's Laboratory.
 --------
 Note: ~price 1 alch
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Crimsonraker
 Corrupted Arach
@@ -378,6 +412,7 @@ Uses Viper Strike
 Right-click to add this to your bestiary.
 
 
+Item Class: **UNSET**
 Rarity: Rare
 Crimsongrowl
 Granite Eater
@@ -396,6 +431,8 @@ Extra Life
 --------
 Right-click to add this to your bestiary.
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Rift Blast
 Long Bow
@@ -415,6 +452,8 @@ Adds 1 to 4 Fire Damage
 --------
 Fractured Item
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Mutewind Whispersteps
 Serpentscale Boots
@@ -447,6 +486,8 @@ It is our duty to keep it so.
 --------
 Note: ~price 1 jew
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Grim Gnarl
 Searching Eye Jewel
@@ -466,6 +507,8 @@ Place into an Abyssal Socket on an Item or into an allocated Jewel Socket on the
 --------
 Note: ~price 1 chrom
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Death's Oath
 Astral Plate
@@ -496,6 +539,8 @@ My dear Isildria must depart.
 --------
 Corrupted
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Irresistable Temptation
 Ivory Watchstone
@@ -513,6 +558,7 @@ Nothing is more alluring than mystery.
 
 
 
+Item Class: **UNSET**
 Rarity: Unique
 Irresistable Temptation
 Ivory Watchstone
@@ -523,6 +569,8 @@ Adds 10 to 17 Cold Damage to Wand Attacks
 --------
 Nothing is more alluring than mystery.
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Circle of Guilt
 Synthesised Iron Ring
@@ -545,6 +593,8 @@ I accept my guilt without shame. It is my gift to humanity.
 --------
 Synthesised Item
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Forbidden Remnant
 Blighted Port Map
@@ -570,6 +620,8 @@ Players have 30% reduced Chance to Block
 --------
 Travel to this Map by using it in a personal Map Device. Maps can only be used once.
 
+
+Item Class: **UNSET**
 Rarity: Normal
 Graveyard Map
 --------
@@ -579,6 +631,8 @@ Item Level: 69
 --------
 Travel to this Map by using it in a personal Map Device. Maps can only be used once.
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Terror Cradle
 Conservatory Map
@@ -602,6 +656,7 @@ Note: ~b/o 1 jew
 
 
 
+Item Class: **UNSET**
 Rarity: Unique
 Hrimnor's Resolve
 Samite Helmet
@@ -625,6 +680,8 @@ Cannot be Chilled or Frozen if you have used a Fire Skill Recently
 Hrimnor's presence was as cold as ice,
 but his heart burned for vengeance.
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Crest of Perandus
 Pine Buckler
@@ -654,6 +711,7 @@ Regenerate 6.1 Life per second
 Note: ~price 1 jew
 
 
+Item Class: **UNSET**
 Rarity: Unique
 Brawn
 Crimson Jewel
@@ -678,6 +736,8 @@ Place into an allocated Jewel Socket on the Passive Skill Tree. Right click to r
 --------
 Corrupted
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Onslaught Grip
 Sorcerer Gloves
@@ -695,6 +755,7 @@ Item Level: 84
 +35 to maximum Energy Shield
 
 
+Item Class: **UNSET**
 Rarity: Rare
 Damnation Song
 Imperial Bow
@@ -721,6 +782,7 @@ Gain 10% of Physical Damage as Extra Chaos Damage
 +27 to Accuracy Rating
 
 
+Item Class: **UNSET**
 Rarity: Rare
 Damnation March
 Titan Greaves
@@ -742,6 +804,8 @@ Regenerate 3 Life per second
 +41% to Lightning Resistance
 30% increased Movement Speed
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Demon Lash
 Heavy Belt
@@ -764,6 +828,8 @@ Regenerate 11 Life per second (crafted)
 --------
 Redeemer Item
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Whispering Sphere
 Ghastly Eye Jewel
@@ -785,6 +851,8 @@ Place into an Abyssal Socket on an Item or into an allocated Jewel Socket on the
 --------
 Corrupted
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Foe Lash
 Stygian Vise
@@ -804,6 +872,8 @@ Has 1 Abyssal Socket (implicit)
 +85 to maximum Life
 +10% to Cold and Chaos Resistances (crafted)
 
+
+Item Class: **UNSET**
 Rarity: Normal
 The Corrupt
 --------
@@ -815,6 +885,8 @@ Right-click to add this prophecy to your character.
 --------
 Note: ~b/o 1 p
 
+
+Item Class: **UNSET**
 Rarity: Currency
 Exalted Orb
 --------
@@ -825,6 +897,8 @@ Enchants a rare item with a new random modifier
 Right click this item then left click a rare item to apply it. Rare items can have up to six random modifiers. The item's Catalyst quality increases the chance of applying a modifier which matches the quality type. Removes 20% Quality applied by Catalysts on use.
 Shift click to unstack.
 
+
+Item Class: **UNSET**
 Rarity: Currency
 Orb of Alchemy
 --------
@@ -837,6 +911,8 @@ Shift click to unstack.
 --------
 Note: ~price 2 chance
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Yriel's Fostering
 Exquisite Leather
@@ -865,6 +941,8 @@ Protect it and it will not fight.
 Ferocity must be learned, not taught.
 It is suffering that forges the greatest warriors.
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Foe Bane
 Vaal Greatsword
@@ -898,6 +976,8 @@ Attacks with this Weapon Penetrate 5% Cold Resistance
 Redeemer Item
 --------
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Voltaxic Rift
 Spine Bow
@@ -930,6 +1010,7 @@ rained down. Metal withered and flesh melted before its
 arcane power. There was no escape, no shelter. Only despair.
 
 
+Item Class: **UNSET**
 Rarity: Rare
 Haunted Shelter
 Pit of the Chimera Map
@@ -946,6 +1027,8 @@ Area is influenced by The Shaper (implicit)
 --------
 Corrupted
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Maelström Hold
 Unset Ring
@@ -966,6 +1049,8 @@ Has 1 Socket (implicit)
 +25% to Cold Resistance
 +25 to maximum Life (crafted)
 
+
+Item Class: **UNSET**
 Rarity: Currency
 Primitive Chaotic Resonator
 --------
@@ -978,6 +1063,8 @@ Reforges a rare item with new random modifiers
 --------
 All sockets must be filled with Fossils before this item can be used.
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Morbid Trap
 Acid Caverns Map
@@ -1003,6 +1090,8 @@ Monsters have a 20% chance to cause Elemental Ailments on Hit
 --------
 Travel to this Map by using it in a personal Map Device. Maps can only be used once.
 
+
+Item Class: **UNSET**
 Rarity: Currency
 Clear Oil
 --------
@@ -1013,6 +1102,8 @@ Shift click to unstack.
 --------
 Note: ~price 1 jew
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Sallazzang's Brain
 --------
@@ -1030,6 +1121,8 @@ Combine this with four other different samples in Tane's Laboratory.
 --------
 Note: ~price 1 alt
 
+
+Item Class: **UNSET**
 Rarity: Unique
 <<set:MS>><<set:M>><<set:S>>The Saviour
 Legion Sword
@@ -1062,6 +1155,8 @@ one man sinks forever into darkness,
 one man rises into light.
 But which one am I?
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Woe Veil
 Siege Helmet
@@ -1087,6 +1182,8 @@ Nearby Enemies have -9% to Chaos Resistance
 20% increased Armour (crafted)
 +16 to maximum Life (crafted)
 
+
+Item Class: **UNSET**
 Rarity: Rare
 Woe Veil
 Siege Helmet
@@ -1107,6 +1204,7 @@ Scourge Arrow creates an additional spore pod at Maximum Stages
 --------
 Nearby Enemies have -9% to Chaos Resistance
 
+Item Class: **UNSET**
 Rarity: Unique
 The Saviour
 Legion Sword
@@ -1115,6 +1213,7 @@ Critical Strike Chance: 5.40% (augmented)
 --------
 8% increased Critical Strike Chance
 
+Item Class: **UNSET**
 Rarity: Rare
 Foe Bane
 Vaal Greatsword
@@ -1135,6 +1234,7 @@ Sockets: R-R
 --------
 Adds 58 to 109 Fire Damage
 
+Item Class: **UNSET**
 Rarity: Magic
 Seething Sanctified Life Flask of Grounding
 --------
@@ -1159,6 +1259,7 @@ Note: ~price 1 chance
 
 
 
+Item Class: **UNSET**
 Rarity: Magic
 Waterways Map of Vulnerability
 --------
@@ -1174,6 +1275,7 @@ Players are Cursed with Vulnerability
 --------
 Travel to this Map by using it in a personal Map Device. Maps can only be used once.
 
+Item Class: **UNSET**
 Rarity: Rare
 Silk Gloves
 --------
@@ -1194,6 +1296,7 @@ Adds 5 to 10 Physical Damage to Attacks
 +400 to Accuracy Rating
 9% increased Rarity of Items found
 
+Item Class: **UNSET**
 Rarity: Magic
 Strong-Willed Fingerless Silk Gloves
 --------
@@ -1211,6 +1314,7 @@ Item Level: 78
 --------
 29% increased Energy Shield
 
+Item Class: **UNSET**
 Rarity: Unique
 Oni-Goroshi
 Charan's Sword
@@ -1240,6 +1344,7 @@ She said: Every single time, Charan. And still...you'll bathe me, and you'll dri
 --------
 Note: ~price 180 chaos
 
+Item Class: **UNSET**
 Rarity: Gem
 Icicle Mine
 --------
@@ -1268,6 +1373,7 @@ Each Mine applies 10% increased Critical Strike Chance to Hits against Enemies n
 --------
 Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.
 
+Item Class: **UNSET**
 Rarity: Normal
 Superior Thorn Rapier
 --------

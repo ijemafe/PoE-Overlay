@@ -50,6 +50,7 @@ describe('ItemPricePredictionService', () => {
   it('should return items', (done) => {
     const requestedItem: Item = {
       source:
+        'Item Class: ** UNSET **\n' +
         'Rarity: Rare\n' +
         'Victory Corona\n' +
         'Steel Circlet\n' +

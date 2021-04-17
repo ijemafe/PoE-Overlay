@@ -168,24 +168,6 @@
                     "min": 45,
                     "max": 46
                 },
-                "shaper_item": {
-                    "option": "false"
-                },
-                "elder_item": {
-                    "option": "false"
-                },
-                "crusader_item": {
-                    "option": "false"
-                },
-                "redeemer_item": {
-                    "option": "false"
-                },
-                "hunter_item": {
-                    "option": "false"
-                },
-                "warlord_item": {
-                    "option": "false"
-                },
                 "fractured_item": {
                     "option": "true"
                 },

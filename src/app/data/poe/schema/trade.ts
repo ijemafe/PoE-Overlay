@@ -192,12 +192,6 @@ export interface MiscFilters {
   gem_level?: FilterValueOption
   gem_level_progress?: FilterValueOption
   gem_alternate_quality?: FilterOption
-  shaper_item?: FilterOption
-  elder_item?: FilterOption
-  crusader_item?: FilterOption
-  redeemer_item?: FilterOption
-  hunter_item?: FilterOption
-  warlord_item?: FilterOption
   fractured_item?: FilterOption
   synthesised_item?: FilterOption
   alternate_art?: FilterOption
