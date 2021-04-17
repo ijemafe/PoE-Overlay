@@ -57,6 +57,7 @@ const args = process.argv.slice(1)
 console.info('App args', args)
 
 const serve = args.some((val) => val === '--serve')
+const debug = args.some((val) => val === '--dev')
 
 let win: BrowserWindow = null
 let tray: Tray = null
@@ -360,6 +361,28 @@ function createTray(): Tray {
       label: 'Ignore Mouse Events',
       type: 'normal',
       click: () => win.setIgnoreMouseEvents(true),
+    })
+  }
+  if (debug || serve) {
+    items.splice(1, 0, {
+      label: 'Open Dev Tools',
+      type: 'normal',
+      click: () => {
+        if (win.webContents.isDevToolsOpened()) {
+          win.webContents.closeDevTools()
+          for (const child in childs) {
+            childs[child].webContents.closeDevTools()
+          }
+        } else {
+          win.webContents.openDevTools({ mode: 'undocked' })
+          for (const child in childs) {
+            childs[child].webContents.openDevTools({ mode: 'undocked' })
+          }
+
+          // Electron bug workaround: this must be triggered after the devtools loaded
+          win.setIgnoreMouseEvents(true, { forward: true })
+        }
+      },
     })
   }
 
