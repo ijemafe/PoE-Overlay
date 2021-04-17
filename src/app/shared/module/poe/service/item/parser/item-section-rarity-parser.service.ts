@@ -29,7 +29,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
   public section = ItemSection.Rartiy
 
   public parse(item: ExportedItem, target: Item): Section {
-    const phrase = `${this.clientString.translate('ItemDisplayStringRarity')}: `
+    const phrase = `${this.clientString.translate('ItemDisplayStringClass')}: `
 
     const raritySection = item.sections.find((x) => x.content.indexOf(phrase) === 0)
     if (!raritySection) {
@@ -37,9 +37,10 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     }
 
     const lines = raritySection.lines
+    const rarityPhrase = `${this.clientString.translate('ItemDisplayStringRarity')}: `
 
     const rarities = this.getRarities()
-    const rarityValue = lines[0].slice(phrase.length).trim()
+    const rarityValue = lines[1].slice(rarityPhrase.length).trim()
 
     const rarity = rarities.find((x) => x.key === rarityValue)
     if (!rarity) {
@@ -49,14 +50,14 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     target.rarity = rarity.value
 
     switch (lines.length) {
-      case 2:
-        target.type = lines[1].replace(/<<[^>>]*>>/g, '')
+      case 3:
+        target.type = lines[2].replace(/<<[^>>]*>>/g, '')
         target.typeId = this.baseItemTypesService.search(target.type)
         break
-      case 3:
-        target.name = lines[1].replace(/<<[^>>]*>>/g, '')
+      case 4:
+        target.name = lines[2].replace(/<<[^>>]*>>/g, '')
         target.nameId = this.wordService.search(target.name)
-        target.type = lines[2].replace(/<<[^>>]*>>/g, '')
+        target.type = lines[3].replace(/<<[^>>]*>>/g, '')
         target.typeId = this.baseItemTypesService.search(target.type)
         break
       default:
