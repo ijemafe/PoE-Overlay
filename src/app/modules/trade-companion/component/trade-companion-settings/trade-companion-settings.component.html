@@ -6,8 +6,14 @@
       </mat-slide-toggle>
     </div>
     <div class="col-3" style="font-size: 12px;">
-      {{ 'trade-companion.window-bounds' | translate }}: {{ settings.tradeCompanionBounds.x }}, {{ settings.tradeCompanionBounds.y }} ({{ settings.tradeCompanionBounds.width }}x{{ settings.tradeCompanionBounds.height }})
-      <br/>
+      {{ 'trade-companion.window-bounds' | translate }}:
+      <ng-container *nfIf="settings.tradeCompanionBounds; else unsetBoundsTemplate">
+        {{ settings.tradeCompanionBounds.x }}, {{ settings.tradeCompanionBounds.y }} ({{ settings.tradeCompanionBounds.width }}x{{ settings.tradeCompanionBounds.height }})
+      </ng-container>
+      <ng-template #unsetBoundsTemplate>
+        <i>unset</i>
+      </ng-template>
+      <br />
       <button mat-raised-button (click)="onResetTradeCompanionBoundsClick()">
         {{ 'trade-companion.reset' | translate }}
       </button>
