@@ -1,3 +1,5 @@
+
+Item Class: **UNSET**
 Rarity: Rare
 Gale Creed
 Large Cluster Jewel
@@ -15,6 +17,7 @@ Place into an allocated Large Jewel Socket on the Passive Skill Tree. Added pass
 --------
 Note: ~price 1 alch
 
+Item Class: **UNSET**
 Rarity: Unique
 First Piece of the Arcane
 Legion Sword Piece
@@ -23,6 +26,8 @@ Item Level: 74
 --------
 This item will transform when correctly arranged with other items.
 
+
+Item Class: **UNSET**
 Rarity: Unique
 Samite Helmet
 --------

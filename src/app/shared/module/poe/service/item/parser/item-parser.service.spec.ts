@@ -24,7 +24,8 @@ describe('ItemParserService', () => {
   const items: string[][] = [
     [
       'Sapphire Flask',
-      'Rarity: Normal\n' +
+      'Item Class: ** UNSET **\n' +
+        'Rarity: Normal\n' +
         'Sapphire Flask\n' +
         '--------\n' +
         'Lasts 4.00 Seconds\n' +
@@ -42,7 +43,8 @@ describe('ItemParserService', () => {
     ],
     [
       'Thousand Ribbons Simple Robe',
-      'Rarity: Unique\n' +
+      'Item Class: ** UNSET **\n' +
+        'Rarity: Unique\n' +
         'Thousand Ribbons\n' +
         'Simple Robe\n' +
         '--------\n' +
