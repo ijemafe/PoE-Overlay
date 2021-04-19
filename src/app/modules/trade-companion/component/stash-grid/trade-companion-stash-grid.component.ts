@@ -55,6 +55,7 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy {
       } else {
         this.visible = false
         if (this.escapeSubscription) {
+          this.shortcutService.remove('escape')
           this.escapeSubscription.unsubscribe()
           this.escapeSubscription = null
         }
