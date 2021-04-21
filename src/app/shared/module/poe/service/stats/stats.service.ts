@@ -12,6 +12,7 @@ export interface StatsSearchResult {
 
 export interface StatsSearchOptions {
   monsterSample?: boolean
+  ultimatum?: boolean
   map?: boolean
   base_chance_to_poison_on_hit__?: boolean
   local_minimum_added_physical_damagelocal_maximum_added_physical_damage?: boolean
@@ -285,6 +286,9 @@ export class StatsService {
     }
     if (options.monsterSample) {
       explicitsSearch.types.push(StatType.Monster)
+    }
+    if (options.ultimatum) {
+      explicitsSearch.types.push(StatType.Ultimatum)
     }
     texts.forEach((text, index) => {
       const section: StatsSectionText = {

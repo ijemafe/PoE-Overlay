@@ -94,6 +94,7 @@ export class MapSettingsComponent implements UserSettingsComponent {
       StatType.Enchant,
       StatType.Fractured,
       StatType.Monster,
+      StatType.Ultimatum,
     ]
     types.forEach((type) => {
       const stats = this.statsProvider.provide(type)

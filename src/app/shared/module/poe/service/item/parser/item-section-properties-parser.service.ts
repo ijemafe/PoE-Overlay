@@ -24,8 +24,10 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
   public section = ItemSection.Properties
 
   public parse(item: ExportedItem, target: Item): Section {
-    if (target.rarity === ItemRarity.DivinationCard) {
-      return null
+    switch (target.rarity) {
+      case ItemRarity.DivinationCard:
+      case ItemRarity.Currency:
+        return null
     }
 
     const phrases = this.getPhrases()

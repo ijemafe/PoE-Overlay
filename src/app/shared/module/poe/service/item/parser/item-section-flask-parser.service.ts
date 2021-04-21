@@ -23,7 +23,7 @@ export class ItemSectionFlaskParserService implements ItemSectionParserService {
     )
 
     const flaskSection = item.sections.find(
-      (x) => x.content.split('\n').findIndex((y) => phrase.test(y)) !== -1
+      (x) => x.lines.findIndex((y) => phrase.test(y)) !== -1
     )
     if (!flaskSection) {
       return null

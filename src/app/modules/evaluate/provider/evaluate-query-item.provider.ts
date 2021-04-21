@@ -58,6 +58,13 @@ export class EvaluateQueryItemProvider {
       }
     }
 
+    if (settings.evaluateQueryDefaultUltimatum) {
+      const ultimatum = item.properties?.ultimatum
+      if (ultimatum) {
+        queryItem.properties.ultimatum = ultimatum
+      }
+    }
+
     if (settings.evaluateQueryDefaultAttack) {
       queryItem.damage = item.damage
 

@@ -8,6 +8,7 @@ export enum StatType {
   Veiled = 'veiled',
   Monster = 'monster',
   Delve = 'delve',
+  Ultimatum = 'ultimatum',
 }
 
 export interface Stat {

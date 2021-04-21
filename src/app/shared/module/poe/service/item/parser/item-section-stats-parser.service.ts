@@ -43,6 +43,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
   private createOptions(item: Item): StatsSearchOptions {
     const options: StatsSearchOptions = {
       monsterSample: item.category === ItemCategory.MonsterSample,
+      ultimatum: item.typeId === 'ItemisedTrial',
       map: item.category === ItemCategory.Map,
     }
     if (!item.properties) {

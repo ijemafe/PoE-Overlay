@@ -163,6 +163,7 @@ export interface ItemProperties {
   prophecyText?: string
   durability?: ItemValueProperty
   storedExperience?: ItemValueProperty
+  ultimatum?: ItemPropertiesUltimatum
 }
 
 export interface ItemProperty {
@@ -229,6 +230,28 @@ export interface ItemsMap {
   items: Item[]
 }
 
+export enum UltimatumChallengeType {
+  Exterminate = 'Exterminate',
+  Survive = 'Survival',
+  ProtectAltar = 'Defense',
+  StandStoneCircles = 'Conquer',
+}
+
+export enum UltimatumRewardType {
+  Currency = 'DoubleCurrency',
+  DivCards = 'DoubleDivCards',
+  MirroredRare = 'MirrorRare',
+  UniqueItem = 'ExchangeUnique',
+}
+
+export interface ItemPropertiesUltimatum {
+  challengeType?: UltimatumChallengeType
+  rewardType?: UltimatumRewardType
+  requiredItem?: string
+  requiredItemAmount?: ItemValue
+  rewardUnique?: string
+}
+
 export interface ExportedItem {
   sections: Section[]
 }
@@ -253,6 +276,7 @@ export enum ItemSection {
   Flask,
   Prophecy,
   Experience,
+  Ultimatum,
 }
 
 export interface ItemSectionParserService {

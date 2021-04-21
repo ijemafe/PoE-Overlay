@@ -8,6 +8,7 @@ import { ItemSearchFiltersRequirementsService } from './item-search-filters-requ
 import { ItemSearchFiltersSocketService } from './item-search-filters-socket.service'
 import { ItemSearchFiltersStatsService } from './item-search-filters-stats.service'
 import { ItemSearchFiltersTypeService } from './item-search-filters-type.service'
+import { ItemSearchFiltersUltimatumService } from './item-search-filters-ultimatum.service'
 import { ItemSearchFiltersWeaponService } from './item-search-filters-weapon.service'
 
 @Injectable({
@@ -24,7 +25,8 @@ export class ItemSearchQueryService {
     filtersRequirementsService: ItemSearchFiltersRequirementsService,
     filtersMiscsService: ItemSearchFiltersMiscsService,
     filtersMapService: ItemSearchFiltersMapService,
-    filtersStatsService: ItemSearchFiltersStatsService
+    filtersStatsService: ItemSearchFiltersStatsService,
+    filtersUltimatumService: ItemSearchFiltersUltimatumService,
   ) {
     this.filters = [
       filtersTypeService,
@@ -32,6 +34,7 @@ export class ItemSearchQueryService {
       filtersWeaponService,
       filtersArmourService,
       filtersRequirementsService,
+      filtersUltimatumService,
       filtersMiscsService,
       filtersMapService,
       filtersStatsService,

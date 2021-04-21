@@ -202,24 +202,20 @@
               + {{ displayWithStat(settings.evaluatePropertyMaxRange) }}%
             </span>
             <span>#</span>
-            <mat-slider
-              min="0"
-              max="50"
-              step="1"
-              tickInterval="10"
-              invert
-              [displayWith]="displayWithStat"
-              [(value)]="settings.evaluatePropertyMinRange"
-            >
+            <mat-slider min="0"
+                        max="50"
+                        step="1"
+                        tickInterval="10"
+                        invert
+                        [displayWith]="displayWithStat"
+                        [(value)]="settings.evaluatePropertyMinRange">
             </mat-slider>
-            <mat-slider
-              min="0"
-              max="50"
-              step="1"
-              tickInterval="10"
-              [displayWith]="displayWithStat"
-              [(value)]="settings.evaluatePropertyMaxRange"
-            >
+            <mat-slider min="0"
+                        max="50"
+                        step="1"
+                        tickInterval="10"
+                        [displayWith]="displayWithStat"
+                        [(value)]="settings.evaluatePropertyMaxRange">
             </mat-slider>
             <span>#</span>
             <ng-template #single>
@@ -230,42 +226,36 @@
           </div>
 
           <div class="toggle">
-            <mat-slide-toggle
-              [checked]="settings.evaluateQueryDefaultAttack"
-              (change)="settings.evaluateQueryDefaultAttack = $event.checked"
-            >
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultAttack"
+                              (change)="settings.evaluateQueryDefaultAttack = $event.checked">
               {{ 'evaluate.search.attack' | translate }}
             </mat-slide-toggle>
-            <mat-slide-toggle
-              [checked]="settings.evaluateQueryDefaultDefense"
-              (change)="settings.evaluateQueryDefaultDefense = $event.checked"
-            >
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultDefense"
+                              (change)="settings.evaluateQueryDefaultDefense = $event.checked">
               {{ 'evaluate.search.defense' | translate }}
             </mat-slide-toggle>
-            <mat-slide-toggle
-              [checked]="settings.evaluateQueryNormalizeQuality"
-              (change)="settings.evaluateQueryNormalizeQuality = $event.checked"
-            >
+            <mat-slide-toggle [checked]="settings.evaluateQueryNormalizeQuality"
+                              (change)="settings.evaluateQueryNormalizeQuality = $event.checked">
               {{ 'evaluate.search.normalize-quality' | translate }}
             </mat-slide-toggle>
           </div>
           <div class="toggle">
-            <mat-slide-toggle
-              [checked]="settings.evaluateQueryDefaultItemLevel"
-              (change)="settings.evaluateQueryDefaultItemLevel = $event.checked"
-            >
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultItemLevel"
+                              (change)="settings.evaluateQueryDefaultItemLevel = $event.checked">
               {{ 'evaluate.search.item-level' | translate }}
             </mat-slide-toggle>
-            <mat-slide-toggle
-              [checked]="settings.evaluateQueryDefaultType"
-              (change)="settings.evaluateQueryDefaultType = $event.checked"
-            >
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultType"
+                              (change)="settings.evaluateQueryDefaultType = $event.checked">
               {{ 'evaluate.search.item-type' | translate }}
             </mat-slide-toggle>
-            <mat-slide-toggle
-              [checked]="settings.evaluateQueryDefaultMiscs"
-              (change)="settings.evaluateQueryDefaultMiscs = $event.checked"
-            >
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultUltimatum"
+                              (change)="settings.evaluateQueryDefaultUltimatum = $event.checked">
+              {{ 'evaluate.search.ultimatum' | translate }}
+            </mat-slide-toggle>
+          </div>
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
+                              (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
               {{ 'evaluate.search.gem' | translate }}
             </mat-slide-toggle>
           </div>

@@ -6,17 +6,16 @@
       </div>
       <app-item-frame-annointment *ngIf="showAnnointmentOils && isAnnointmentStat(stat.id)" [item]="item" [itemStat]="stat" [language]="language">
       </app-item-frame-annointment>
-      <app-item-frame-separator
-        [item]="item"
-        *ngIf="
+      <app-item-frame-separator [item]="item"
+                                *ngIf="
           last &&
           (groups.implicit ||
             groups.fractured ||
             groups.explicit ||
             groups.monster ||
+            groups.ultimatum ||
             groups.crafted)
-        "
-      >
+        ">
       </app-item-frame-separator>
     </ng-container>
   </ng-container>
@@ -25,10 +24,8 @@
       <div class="purpel">
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
-      <app-item-frame-separator
-        [item]="item"
-        *ngIf="last && (groups.fractured || groups.explicit || groups.monster || groups.crafted)"
-      >
+      <app-item-frame-separator [item]="item"
+                                *ngIf="last && (groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.crafted)">
       </app-item-frame-separator>
     </ng-container>
   </ng-container>
@@ -53,6 +50,13 @@
       </div>
     </ng-container>
   </ng-container>
+  <ng-container *ngIf="groups.ultimatum">
+    <ng-container *ngFor="let stat of groups.ultimatum">
+      <div class="purpel">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
   <ng-container *ngIf="groups.crafted">
     <ng-container *ngFor="let stat of groups.crafted">
       <div class="blue">
@@ -60,7 +64,7 @@
       </div>
     </ng-container>
   </ng-container>
-  <ng-container *ngIf="groups.fractured || groups.explicit || groups.monster || groups.crafted">
+  <ng-container *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.crafted">
     <app-item-frame-separator [item]="item" *ngIf="groups.pseudo"> </app-item-frame-separator>
   </ng-container>
   <ng-container *ngIf="groups.pseudo">

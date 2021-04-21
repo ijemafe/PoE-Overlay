@@ -78,6 +78,10 @@ label {
     &.monster {
       background-color: $monster;
     }
+
+    &.ultimatum {
+      background-color: $ultimatum;
+    }
   }
 }
 
