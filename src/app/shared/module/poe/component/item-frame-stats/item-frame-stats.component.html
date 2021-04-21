@@ -36,6 +36,13 @@
       </div>
     </ng-container>
   </ng-container>
+  <ng-container *ngIf="groups.ultimatum">
+    <ng-container *ngFor="let stat of groups.ultimatum">
+      <div class="purpel">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
   <ng-container *ngIf="groups.explicit">
     <ng-container *ngFor="let stat of groups.explicit">
       <div class="purpel">
@@ -45,13 +52,6 @@
   </ng-container>
   <ng-container *ngIf="groups.monster">
     <ng-container *ngFor="let stat of groups.monster">
-      <div class="purpel">
-        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
-      </div>
-    </ng-container>
-  </ng-container>
-  <ng-container *ngIf="groups.ultimatum">
-    <ng-container *ngFor="let stat of groups.ultimatum">
       <div class="purpel">
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
