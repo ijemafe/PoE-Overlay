@@ -10,6 +10,8 @@ import {
 } from '@shared/module/poe/type'
 import { BaseItemTypesService } from '../../base-item-types/base-item-types.service'
 import { ClientStringService } from '../../client-string/client-string.service'
+import { UltimatumStringService } from '../../ultimatum/ultimatum-string.service'
+import { WordService } from '../../word/word.service'
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +20,8 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
   constructor(
     private readonly clientString: ClientStringService,
     private readonly baseItemTypesService: BaseItemTypesService,
+    private readonly wordService: WordService,
+    private readonly ultimatumStringService: UltimatumStringService,
   ) { }
 
   public optional = true
@@ -43,24 +47,27 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
     const lines = ultimatumSection.lines
 
     // Challange Type
-    const challengeTypes = this.getChallengeTypes()
+    const challengeTypes = this.ultimatumStringService.getChallengeTypes()
     const challengeTypeValue = lines[0].slice(challengeTypePhrase.length).trim()
 
     const challengeType = challengeTypes.find((x) => x.key === challengeTypeValue)
     if (!challengeType) {
+      target.properties.ultimatum = undefined
       return null
     }
+    ultimatum.challengeType = challengeType.value
 
     // Reward Type
     const rewardTypePhrase = this.clientString.translate('UltimatumItemisedTrialReward').replace('{0}', '')
     const rewardLine = lines[3]
-    const rewardTypes = this.getRewardTypes()
+    const rewardTypes = this.ultimatumStringService.getRewardTypes()
     const rewardTypeValue = rewardLine.slice(rewardTypePhrase.length).trim()
 
     const rewardType = rewardTypes.find((x) => x.key === rewardTypeValue)
     if (!rewardType) {
-      ultimatum.rewardUnique = this.baseItemTypesService.search(rewardLine.replace(/<<[^>>]*>>/g, ''))
+      ultimatum.rewardUnique = this.wordService.search(rewardTypeValue.replace(/<<[^>>]*>>/g, ''))
       if (!ultimatum.rewardUnique) {
+        target.properties.ultimatum = undefined
         return null
       }
       ultimatum.rewardType = UltimatumRewardType.UniqueItem
@@ -85,54 +92,10 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
         min: +sacrificeAmount,
         max: +sacrificeAmount,
       }
-    } else {
-      ultimatum.requiredItem = sacrificeValue
+    } else if (ultimatum.rewardType === UltimatumRewardType.UniqueItem) {
+      ultimatum.requiredItem = this.wordService.search(sacrificeValue)
     }
 
     return ultimatumSection
-  }
-
-  private getChallengeTypes(): {
-    key: string
-    value: UltimatumChallengeType
-  }[] {
-    return [
-      {
-        key: this.clientString.translate('BasicWavesVaal'),
-        value: UltimatumChallengeType.Exterminate,
-      },
-      {
-        key: this.clientString.translate('TimedSurvivalWavesVaal').substring(0, this.clientString.translate('TimedSurvivalWavesVaal').indexOf("\r\n")),
-        value: UltimatumChallengeType.Survive,
-      },
-      {
-        key: this.clientString.translate('DefenseVaal'),
-        value: UltimatumChallengeType.ProtectAltar,
-      },
-      {
-        key: this.clientString.translate('CaptureVaal'),
-        value: UltimatumChallengeType.StandStoneCircles,
-      },
-    ]
-  }
-
-  private getRewardTypes(): {
-    key: string
-    value: UltimatumRewardType
-  }[] {
-    return [
-      {
-        key: this.clientString.translate('CurrencyChaos5'),
-        value: UltimatumRewardType.Currency,
-      },
-      {
-        key: this.clientString.translate('DoubleDivinationCards1'),
-        value: UltimatumRewardType.DivCards,
-      },
-      {
-        key: this.clientString.translate('MirrorRare1'),
-        value: UltimatumRewardType.MirroredRare,
-      },
-    ]
   }
 }

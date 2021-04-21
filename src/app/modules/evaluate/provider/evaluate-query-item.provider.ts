@@ -29,6 +29,7 @@ export class EvaluateQueryItemProvider {
       stats: [],
       properties: {
         qualityType: (item.properties || {}).qualityType,
+        ultimatum: {},
       },
       requirements: {},
       sockets: new Array((item.sockets || []).length).fill({}),

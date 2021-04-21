@@ -33,14 +33,20 @@ export class ItemSearchFiltersUltimatumService implements ItemSearchFiltersServi
       }
       if (ultimatum.rewardType === UltimatumRewardType.UniqueItem && ultimatum.rewardUnique) {
         ultimatumFilters.ultimatum_output = {
-          option: this.itemNameService.getType(ultimatum.rewardUnique, language)
+          option: this.itemNameService.getName(ultimatum.rewardUnique, language)
         }
       }
-    }
 
-    if (ultimatum.requiredItem) {
-      ultimatumFilters.ultimatum_input = {
-        option: this.itemNameService.getType(ultimatum.requiredItem, language)
+      if (ultimatum.requiredItem) {
+        let requiredItem
+        if (ultimatum.rewardType === UltimatumRewardType.UniqueItem) {
+          requiredItem = this.itemNameService.getName(ultimatum.requiredItem, language)
+        } else {
+          requiredItem = this.itemNameService.getType(ultimatum.requiredItem, language)
+        }
+        ultimatumFilters.ultimatum_input = {
+          option: requiredItem
+        }
       }
     }
   }
