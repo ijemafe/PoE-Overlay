@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { EnumValues } from '@app/class';
 import { ShortcutService } from '@app/service/input';
 import { Rectangle, VisibleFlag } from '@app/type';
@@ -6,13 +6,15 @@ import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade
 import { StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeCompanionStashGridOptions, TradeCompanionUserSettings } from '@shared/module/poe/type/trade-companion.type';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
+const stashGridCompRef = 'stash-grid'
+
 @Component({
   selector: 'app-trade-companion-stash-grid',
   templateUrl: './trade-companion-stash-grid.component.html',
   styleUrls: ['./trade-companion-stash-grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TradeCompanionStashGridComponent implements OnInit, OnDestroy {
+export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public settings: TradeCompanionUserSettings
 
@@ -41,27 +43,21 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy {
         const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
         this.cellArray = this.createArray(cellCount)
         this.gridBounds = stashGridOptions.gridBounds ?? this.settings.stashGridBounds[stashGridOptions.gridType] ?? { x: 16, y: 134, width: 624, height: 624 }
-        if (this.escapeSubscription) {
-          this.escapeSubscription.unsubscribe()
-        }
-        // This'll override the ESC option for the settings menu. Probably settings should re-bind theirs after control is returned to it.
-        this.escapeSubscription = this.shortcutService
-          .add(
-            'escape',
-            false,
-            VisibleFlag.Game, VisibleFlag.Overlay, VisibleFlag.Browser
-          )
-          .subscribe(() => this.cancelChanges())
+        this.enableShortcuts()
       } else {
         this.visible = false
-        if (this.escapeSubscription) {
-          this.shortcutService.remove('escape')
-          this.escapeSubscription.unsubscribe()
-          this.escapeSubscription = null
-        }
+        this.disableShortcuts()
       }
       this.stashGridOptions$.next(stashGridOptions)
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.visible) {
+      this.enableShortcuts()
+    } else {
+      this.disableShortcuts()
+    }
   }
 
   ngOnDestroy(): void {
@@ -98,6 +94,30 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy {
     stashGridOptions.gridType = ((stashGridOptions.gridType + 1) % this.stashGridTypes.keys.length)
     stashGridOptions.gridBounds = null
     this.stashGridService.stashGridOptions$.next(stashGridOptions)
+  }
+
+  private enableShortcuts(): void {
+    if (!this.escapeSubscription) {
+      const clearShortcut = () => {
+        this.escapeSubscription?.unsubscribe()
+        this.escapeSubscription = null
+      }
+
+      this.escapeSubscription = this.shortcutService
+        .add(
+          'escape',
+          stashGridCompRef,
+          false,
+          VisibleFlag.Game, VisibleFlag.Overlay
+        )
+        .subscribe(() => this.cancelChanges(), clearShortcut, clearShortcut)
+    }
+
+    this.shortcutService.enableAllByRef(stashGridCompRef)
+  }
+
+  private disableShortcuts(): void {
+    this.shortcutService.disableAllByRef(stashGridCompRef)
   }
 
   private createArray(n: number): number[] {

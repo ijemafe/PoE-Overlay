@@ -16,6 +16,8 @@ export interface Dialog {
   type: DialogType
 }
 
+const dialogServiceRef = 'dialog-service'
+
 @Injectable({
   providedIn: 'root',
 })
@@ -29,33 +31,46 @@ export class DialogRefService {
   constructor(private readonly shortcutService: ShortcutService) {}
 
   public register(): void {
-    this.escapeSubscription = this.shortcutService
-      .add(
-        'escape',
-        false,
-        VisibleFlag.Game | VisibleFlag.Dialog,
-        VisibleFlag.Overlay | VisibleFlag.Dialog,
-        VisibleFlag.Browser
-      )
-      .subscribe(() => this.close())
+    if (!this.escapeSubscription) {
+      const clearShortcut = () => {
+        this.escapeSubscription?.unsubscribe()
+        this.escapeSubscription = null
+      }
 
-    this.spaceSubscription = this.shortcutService
-      .add(
-        'space',
-        false,
-        VisibleFlag.Game | VisibleFlag.Dialog,
-        VisibleFlag.Overlay | VisibleFlag.Dialog
-      )
-      .subscribe(() => this.closeAll())
+      this.escapeSubscription = this.shortcutService
+        .add(
+          'escape',
+          dialogServiceRef,
+          false,
+          VisibleFlag.Game | VisibleFlag.Dialog,
+          VisibleFlag.Overlay | VisibleFlag.Dialog,
+          VisibleFlag.Browser
+        )
+        .subscribe(() => this.close(), clearShortcut, clearShortcut)
+    }
+
+    if (!this.spaceSubscription) {
+      const clearShortcut = () => {
+        this.spaceSubscription?.unsubscribe()
+        this.spaceSubscription = null
+      }
+
+      this.spaceSubscription = this.shortcutService
+        .add(
+          'space',
+          dialogServiceRef,
+          false,
+          VisibleFlag.Game | VisibleFlag.Dialog,
+          VisibleFlag.Overlay | VisibleFlag.Dialog
+        )
+        .subscribe(() => this.closeAll(), clearShortcut, clearShortcut)
+    }
+
+    this.shortcutService.enableAllByRef(dialogServiceRef)
   }
 
   public reset(): void {
-    if (this.escapeSubscription) {
-      this.escapeSubscription.unsubscribe()
-    }
-    if (this.spaceSubscription) {
-      this.spaceSubscription.unsubscribe()
-    }
+    this.shortcutService.disableAllByRef(dialogServiceRef)
     this.closeAll()
   }
 

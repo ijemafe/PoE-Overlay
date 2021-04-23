@@ -64,11 +64,11 @@ export class StashService {
 
     this.keyboard.setKeyboardDelay(15)
     return of(null).pipe(
-      tap(() => this.shortcut.disable('CmdOrCtrl + F')),
+      tap(() => this.shortcut.disableAllByAccelerator('CmdOrCtrl + F')),
       tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_F, ['control'])),
       delay(175),
       tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control'])),
-      tap(() => this.shortcut.enable('CmdOrCtrl + F')),
+      tap(() => this.shortcut.enableAllByAccelerator('CmdOrCtrl + F')),
       delay(75),
       tap(() => this.clipboard.writeText(text))
     )

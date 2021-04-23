@@ -1,7 +1,6 @@
 import {
     ChangeDetectionStrategy,
     Component,
-    ComponentFactoryResolver,
     HostListener,
     Inject,
     OnDestroy,
@@ -21,6 +20,8 @@ import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operator
 import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
 import { UserSettingsService } from '../../service'
 import { UserSettings } from '../../type'
+
+const overlayCompRef = 'overlay-component'
 
 @Component({
   selector: 'app-overlay',
@@ -165,7 +166,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private reset(): void {
     this.dialogRef.reset()
-    this.shortcut.reset()
+    this.shortcut.removeAllByRef(overlayCompRef)
   }
 
   private register(settings: UserSettings): void {
@@ -182,7 +183,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       features.forEach((feature) => {
         if (feature.accelerator) {
           this.shortcut
-            .add(feature.accelerator, !!feature.passive, VisibleFlag.Game, VisibleFlag.Overlay)
+            .add(feature.accelerator, overlayCompRef, !!feature.passive, VisibleFlag.Game, VisibleFlag.Overlay)
             .subscribe(() => {
               mod.run(feature.name, settings)
             })
@@ -194,12 +195,12 @@ export class OverlayComponent implements OnInit, OnDestroy {
   private registerSettings(settings: UserSettings): void {
     if (settings.openUserSettingsKeybinding) {
       this.shortcut
-        .add(settings.openUserSettingsKeybinding, false, VisibleFlag.Game, VisibleFlag.Overlay)
+        .add(settings.openUserSettingsKeybinding, overlayCompRef, false, VisibleFlag.Game, VisibleFlag.Overlay)
         .subscribe(() => this.openUserSettings())
     }
     if (settings.exitAppKeybinding) {
       this.shortcut
-        .add(settings.exitAppKeybinding, false, VisibleFlag.Game, VisibleFlag.Overlay)
+        .add(settings.exitAppKeybinding, overlayCompRef, false, VisibleFlag.Game, VisibleFlag.Overlay)
         .subscribe(() => this.app.quit())
     }
   }
