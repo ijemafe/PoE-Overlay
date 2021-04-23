@@ -4,6 +4,10 @@
   ::-webkit-scrollbar {
     display: none;
   }
+
+  body *::-webkit-scrollbar {
+    display: block;
+  }
 }
 
 .game-overlay {
