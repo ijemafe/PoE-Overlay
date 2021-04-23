@@ -21,6 +21,7 @@ import { StatTransformPipe } from './pipe/stat-transform.pipe'
 import { WordPipe } from './pipe/word.pipe'
 import { ItemFrameValueInputComponent } from './component/item-frame-value-input/item-frame-value-input.component'
 import { ItemFrameAnnointmentComponent } from './component/item-frame-annointment/item-frame-annointment.component'
+import { ItemFramePropertiesUltimatumComponent } from './component/item-frame-properties-ultimatum/item-frame-properties-ultimatum.component'
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ItemFrameAnnointmentComponent } from './component/item-frame-annointmen
     ItemFrameSeparatorComponent,
     ItemFrameInfluencesComponent,
     ItemFramePropertiesComponent,
+    ItemFramePropertiesUltimatumComponent,
     ItemFrameSocketsComponent,
     ItemFrameLevelRequirementsComponent,
     ItemFrameStatsComponent,

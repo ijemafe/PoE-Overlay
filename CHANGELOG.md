@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.12 (2021-04-23)
+
+- Updated assets to support 3.14.0b
+- Fixed an issue when price-checking 'Misc Map Items'
+- Added price-checking support for Inscribed Ultimatum filters (Challenge Type, Reward Type, etc...)
+- Added price-checking support for Ultimatum stats (Ruin, Choking Miasma, etc...)
+
 ## 0.7.11 (2021-04-17)
 
 - Updated assets to support 3.14.0 (Ultimatum League)

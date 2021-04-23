@@ -29,6 +29,7 @@ export class EvaluateQueryItemProvider {
       stats: [],
       properties: {
         qualityType: (item.properties || {}).qualityType,
+        ultimatum: {},
       },
       requirements: {},
       sockets: new Array((item.sockets || []).length).fill({}),
@@ -55,6 +56,13 @@ export class EvaluateQueryItemProvider {
         if (item.rarity === ItemRarity.Gem || prop.qualityType > 0) {
           queryItem.properties.quality = prop.quality
         }
+      }
+    }
+
+    if (settings.evaluateQueryDefaultUltimatum) {
+      const ultimatum = item.properties?.ultimatum
+      if (ultimatum) {
+        queryItem.properties.ultimatum = ultimatum
       }
     }
 

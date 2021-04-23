@@ -9,6 +9,7 @@ import {
   monster,
   pseudo,
   veiled,
+  ultimatum,
 } from '../../../../../assets/poe/stats-local.json'
 import { StatLocalMap, StatType } from '../type'
 
@@ -36,6 +37,8 @@ export class StatsLocalProvider {
         return monster
       case StatType.Delve:
         return delve
+      case StatType.Ultimatum:
+        return ultimatum
     }
   }
 }

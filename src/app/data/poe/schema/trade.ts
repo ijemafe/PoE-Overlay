@@ -100,6 +100,7 @@ export enum TradeStatsResultLabel {
   Veiled = 'Veiled',
   Monster = 'Monster',
   Delve = 'Delve',
+  Ultimatum = 'Ultimatum',
 }
 
 export interface TradeStatsResultResultEntry {
@@ -186,6 +187,13 @@ export interface MapFilters {
   map_series?: FilterOption
 }
 
+export interface UltimatumFilters {
+  ultimatum_challenge?: FilterOption
+  ultimatum_reward?: FilterOption
+  ultimatum_input?: FilterOption
+  ultimatum_output?: FilterOption
+}
+
 export interface MiscFilters {
   quality?: FilterValueOption
   ilvl?: FilterValueOption
@@ -224,6 +232,7 @@ export interface Filters {
   socket_filters?: FilterGroup<SocketFilters>
   req_filters?: FilterGroup<ReqFilters>
   map_filters?: FilterGroup<MapFilters>
+  ultimatum_filters?: FilterGroup<UltimatumFilters>
   misc_filters?: FilterGroup<MiscFilters>
   trade_filters?: TradeFilterGroup
 }

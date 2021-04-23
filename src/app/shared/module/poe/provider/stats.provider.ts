@@ -9,6 +9,7 @@ import {
   monster,
   pseudo,
   veiled,
+  ultimatum,
 } from '../../../../../assets/poe/stats.json'
 import { StatMap, StatType } from '../type'
 
@@ -36,6 +37,8 @@ export class StatsProvider {
         return monster
       case StatType.Delve:
         return delve
+      case StatType.Ultimatum:
+        return ultimatum;
     }
   }
 }

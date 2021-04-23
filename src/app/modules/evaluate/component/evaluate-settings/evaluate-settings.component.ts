@@ -30,6 +30,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateTranslatedKeybinding: string
   evaluateQueryDefaultItemLevel: boolean
   evaluateQueryDefaultLinks: number
+  evaluateQueryDefaultUltimatum: boolean
   evaluateQueryDefaultMiscs: boolean
   evaluateQueryDefaultType: boolean
   evaluateQueryDefaultAttack: boolean
@@ -173,6 +174,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
       StatType.Enchant,
       StatType.Fractured,
       StatType.Monster,
+      StatType.Ultimatum,
     ]
     types.forEach((type) => {
       const stats = this.statsProvider.provide(type)
