@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Query } from '@data/poe'
 import { Item, ItemSearchFiltersService, Language, UltimatumRewardType } from '@shared/module/poe/type'
-import { ItemService } from '../..'
+import { ItemService } from '../item.service'
 
 @Injectable({
   providedIn: 'root',
