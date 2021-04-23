@@ -250,6 +250,12 @@ function createWindow(): BrowserWindow {
   win.on('closed', () => {
     win = null
   })
+
+  if (serve) {
+    // Electron bug workaround: this must be triggered after the devtools loaded
+    win.setIgnoreMouseEvents(true, { forward: true })
+  }
+
   return win
 }
 
@@ -299,9 +305,6 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
     })
     self.loadURL('http://localhost:4200' + route)
     self.webContents.openDevTools({ mode: 'undocked' })
-
-    // Electron bug workaround: this must be triggered after the devtools loaded
-    win.setIgnoreMouseEvents(true, { forward: true })
   } else {
     const appUrl = url.format({
       pathname: path.join(__dirname, 'dist/index.html'),
