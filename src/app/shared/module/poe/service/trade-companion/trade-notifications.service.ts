@@ -132,11 +132,21 @@ export class TradeNotificationsService {
     const playerName = whisperMatch[11]
     const currencyID = whisperMatch[14]
     const offerItemID = whisperMatch[16]
+    const fullWhisper = `@${playerName} ${whisperMatch[12]}`
+    const whisperTime = moment(whisperMatch[1], logLineDateFormat)
+    const notificationType = whisperMatch[7] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing
+    const notification = this.notifications.find((x) => x.type === notificationType && x.text === fullWhisper)
+    if (notification) {
+      // Repeated whisper -> Reset timer
+      notification.time = whisperTime
+      this.notificationAddedOrChanged.emit(notification)
+      return
+    }
     forkJoin([this.currencyService.searchByNameType(currencyID), this.currencyService.searchByNameType(offerItemID)]).subscribe((currencies) => {
       const notification: TradeNotification = {
-        text: `@${playerName} ${whisperMatch[12]}`,
-        type: whisperMatch[7] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing,
-        time: moment(whisperMatch[1], logLineDateFormat),
+        text: fullWhisper,
+        type: notificationType,
+        time: whisperTime,
         playerName: playerName,
         item: {
           amount: +whisperMatch[13],
@@ -163,11 +173,21 @@ export class TradeNotificationsService {
   private parseItemTradeWhisper(whisperMatch: RegExpMatchArray): void {
     const currencyID = whisperMatch[15]
     const playerName = whisperMatch[11]
+    const fullWhisper = `@${playerName} ${whisperMatch[12]}`
+    const whisperTime = moment(whisperMatch[1], logLineDateFormat)
+    const notificationType = whisperMatch[7] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing
+    const notification = this.notifications.find((x) => x.type === notificationType && x.text === fullWhisper)
+    if (notification) {
+      // Repeated whisper -> Reset timer
+      notification.time = whisperTime
+      this.notificationAddedOrChanged.emit(notification)
+      return
+    }
     this.currencyService.searchById(currencyID).subscribe((currency) => {
       const notification: TradeNotification = {
-        text: `@${playerName} ${whisperMatch[12]}`,
-        type: whisperMatch[7] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing,
-        time: moment(whisperMatch[1], logLineDateFormat),
+        text: fullWhisper,
+        type: notificationType,
+        time: whisperTime,
         playerName: playerName,
         item: whisperMatch[13],
         price: {
