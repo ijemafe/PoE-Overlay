@@ -5,6 +5,7 @@
      [ardBounds]="settings.tradeCompanionBounds || gameBounds"
      [ardAppliedBounds.width]="false"
      [ardAppliedBounds.height]="false"
+     [ardExtendDragArea]="true"
      [ardInteractionsDisabled]="locked"
      (ardResizeDragEnd)="onResizeDragEnd($event)"
      [class.movable]="!locked">

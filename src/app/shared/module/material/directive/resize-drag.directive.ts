@@ -23,6 +23,7 @@ interface AppliedBounds {
 export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
   private element: HTMLElement
   private resizeAnchorContainer: HTMLElement
+  private dragAreaExtension: HTMLElement
 
   private status: Status = Status.OFF;
 
@@ -40,6 +41,9 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
 
   @Input('ardAllowResize')
   public allowResize: boolean
+
+  @Input('ardExtendDragArea')
+  public extendDragArea: boolean
 
   @Input('ardBounds')
   public bounds: Rectangle
@@ -156,6 +160,20 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
       this.element.append(this.resizeAnchorContainer)
     }
 
+    if (this.extendDragArea && !this.dragAreaExtension) {
+      this.dragAreaExtension = document.createElement('div')
+      this.dragAreaExtension.style['display'] = 'none'
+      this.dragAreaExtension.style['position'] = 'fixed'
+      this.dragAreaExtension.style['left'] = '0px'
+      this.dragAreaExtension.style['top'] = '0px'
+      this.dragAreaExtension.style['width'] = '500px'
+      this.dragAreaExtension.style['height'] = '500px'
+      this.dragAreaExtension.style['transform'] = 'translate3d(-50%, -50%, 0)'
+      this.dragAreaExtension.classList.add('interactable')
+
+      this.element.append(this.dragAreaExtension)
+    }
+
     this.applyBounds()
   }
 
@@ -165,19 +183,16 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     }
 
     if (this.appliedBounds.x) this.element.style['left'] = `${this.bounds.x}px`
+
     if (this.appliedBounds.y) this.element.style['top'] = `${this.bounds.y}px`
 
     const width = `${this.bounds.width}px`
     if (this.appliedBounds.width) this.element.style['width'] = width
-    if (this.resizeAnchorContainer) {
-      this.resizeAnchorContainer.style['width'] = width
-    }
+    if (this.resizeAnchorContainer) this.resizeAnchorContainer.style['width'] = width
 
     const height = `${this.bounds.height}px`
     if (this.appliedBounds.height) this.element.style['height'] = height
-    if (this.resizeAnchorContainer) {
-      this.resizeAnchorContainer.style['height'] = height
-    }
+    if (this.resizeAnchorContainer) this.resizeAnchorContainer.style['height'] = height
   }
 
   private onMousedown = (event: MouseEvent) => {
@@ -211,6 +226,8 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     const oldStatus = this.status
     this.status = Status.OFF
 
+    if (this.dragAreaExtension) this.dragAreaExtension.style['display'] = 'none'
+
     switch (oldStatus) {
       case Status.MOVING:
       case Status.RESIZING:
@@ -236,6 +253,7 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
       case Status.RESIZE:
         if (Math.abs(delta.x) + Math.abs(delta.y) >= this.resizeDragThreshold) {
           this.status++
+          if (this.dragAreaExtension) this.dragAreaExtension.style['display'] = 'block'
         } else {
           return
         }
@@ -251,6 +269,11 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
         this.bounds.width = this.mouseDownBounds.width + delta.x
         this.bounds.height = this.mouseDownBounds.height + delta.y
         break
+    }
+
+    if (this.dragAreaExtension) {
+      this.dragAreaExtension.style['left'] = `${event.clientX}px`
+      this.dragAreaExtension.style['top'] = `${event.clientY}px`
     }
 
     this.applyBounds()
