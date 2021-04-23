@@ -283,6 +283,7 @@ ipcMain.on('open-route', (event, route) => {
 
       childs[route].once('closed', () => {
         childs[route] = null
+        win.moveTop()
         event.reply('open-route-reply', 'close')
       })
 

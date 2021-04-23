@@ -70,6 +70,7 @@ export class BrowserService {
       win.once('closed', () => {
         parent.setEnabled(true)
         this.dialogRef.remove(dialog)
+        parent.moveTop()
       })
       win.once('ready-to-show', () => {
         win.webContents.zoomFactor = parent.webContents.zoomFactor
