@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.13 (2021-04-24)
+
+- Fixed an issue when price-checking currencies
+- Fixed circular dependency issue
+
 ## 0.7.12 (2021-04-23)
 
 - Updated assets to support 3.14.0b

@@ -27,7 +27,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
       case ItemRarity.Unique:
         break
       case ItemRarity.Currency:
-        if (target.properties.ultimatum) {
+        if (target.properties?.ultimatum) {
           break
         }
         return null
