@@ -149,7 +149,14 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
     this.commandService.command(`@${this.notification.playerName} ${tradeOption.whisperMessage}`)
     if (tradeOption.kickAfterWhisper) {
       timer(550).subscribe(() => {
-        this.kickFromParty()
+        switch (this.notification.type) {
+          case TradeNotificationType.Incoming:
+            this.kickFromParty()
+            break
+          case TradeNotificationType.Outgoing:
+            this.leaveParty()
+            break
+        }
         if (tradeOption.dismissNotification) {
           this.dismiss()
         }
