@@ -53,16 +53,16 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     setInterval(() => {
       const diff = moment.duration(moment().diff(this.notification.time))
-      const minutes = Math.floor(diff.asMinutes())
+      const minutes = Math.floor(diff.minutes())
       if (minutes > 0) {
-        const hours = Math.floor(diff.asHours())
+        const hours = Math.floor(diff.hours())
         if (hours > 0) {
           this.elapsedTime = `${hours}h ${minutes}m`
         } else {
           this.elapsedTime = `${minutes}m`
         }
       } else {
-        const seconds = Math.floor(diff.asSeconds())
+        const seconds = Math.floor(diff.seconds())
         this.elapsedTime = `${seconds}s`
       }
       this.ref.markForCheck()
