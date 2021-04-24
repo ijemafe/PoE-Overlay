@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 import { CommandService } from '@modules/command/service/command.service';
+import { TranslateService } from '@ngx-translate/core';
 import { SnackBarService } from '@shared/module/material/service';
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service';
 import { CurrencyAmount, StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeCompanionOption, TradeCompanionUserSettings, TradeNotification, TradeNotificationType } from '@shared/module/poe/type/trade-companion.type';
 import moment from 'moment';
 import { timer } from 'rxjs';
-import { delay } from 'rxjs/operators';
 
 const tooltipDefaultOptions: MatTooltipDefaultOptions = {
   showDelay: 1000,
@@ -47,6 +47,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
     private readonly snackbar: SnackBarService,
     private readonly commandService: CommandService,
     private readonly ref: ChangeDetectorRef,
+    private readonly translate: TranslateService,
   ) {
   }
 
@@ -57,13 +58,13 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
       if (minutes > 0) {
         const hours = Math.floor(diff.hours())
         if (hours > 0) {
-          this.elapsedTime = `${hours}h ${minutes}m`
+          this.elapsedTime = this.translate.instant('trade-companion.trade-notification.elapsed-minutes', { hours: hours, minutes: minutes })
         } else {
-          this.elapsedTime = `${minutes}m`
+          this.elapsedTime = this.translate.instant('trade-companion.trade-notification.elapsed-minutes', { minutes: minutes })
         }
       } else {
         const seconds = Math.floor(diff.seconds())
-        this.elapsedTime = `${seconds}s`
+        this.elapsedTime = this.translate.instant('trade-companion.trade-notification.elapsed-seconds', { seconds: seconds })
       }
       this.ref.markForCheck()
     }, 1000)

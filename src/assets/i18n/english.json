@@ -263,22 +263,56 @@
     "general": "General",
     "general-trade-options": "General Trade Options",
     "grid-overlay": "Stash Grid Overlay",
-    "highlight-item": "Highlight Item",
     "incoming-trade-options": "Incoming Trade Options",
     "max-visible-notifications": "Max. visible Notifications",
     "name": "Trade Companion",
     "outgoing-trade-options": "Outgoing Trade Options",
     "reset": "Reset",
-    "show-grid": "Show Stash Grid",
-    "show-grid-description": "Show stash grid during an incoming trade",
-    "show-grid-drop-shadow": "Grid Drop Shadow",
+    "show-and-highlight-item": "Show & Highlight on Trade",
+    "show-and-highlight-item-description": "Show the stash grid and highlight the item when clicking the trade button on an incoming trade notification",
+    "stash-grid": {
+      "cancel": "Cancel",
+      "close": "Close",
+      "save": "Save",
+      "tab": "Tab",
+      "toggle": "Toggle"
+    },
+    "trade-notification": {
+      "ask-if-still-interested": "Ask if still interested",
+      "collapse": "Collapse",
+      "dismiss": "Dismiss",
+      "elapsed-hours-minutes": "{{hours}}h {{minutes}}m",
+      "elapsed-minutes": "{{minutes}}m",
+      "elapsed-seconds": "{{seconds}}s",
+      "expand": "Expand",
+      "go-to-player-hideout": "Go to Player Hideout",
+      "incoming-trade": "Incoming Trade",
+      "invite-to-party": "Invite to Party",
+      "kick-from-party": "Kick from Party",
+      "leave-party": "Leave Party",
+      "outgoing-trade": "Outgoing Trade",
+      "repeat-trade-whisper": "Repeat trade whisper",
+      "request-trade": "Request Trade",
+      "who-is": "Who is?",
+      "whisper-player": "Whisper Player"
+    },
+    "trade-notification-panel": {
+      "disable": "Disable Trade Companion",
+      "drag-handle": "Drag this handle to move the Trade Companion",
+      "locked": "Locked - Click to unlock",
+      "settings": "Open Settings",
+      "unlocked": "Unlocked - Click to lock",
+      "unlock-to-move": "Locked - Unlock to allow moving of the Trade Companion"
+    },
     "trade-option": {
       "add": "Add Trade Option",
       "button": "Button Label",
       "dismiss": "Dismiss Notification",
       "kick": "Kick",
+      "leave": "Leave",
       "whisper": "Whisper Message"
     },
+    "unset": "unset",
     "window-bounds": "Window Bounds"
   }
 }

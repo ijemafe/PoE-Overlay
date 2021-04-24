@@ -7,11 +7,11 @@
     </div>
     <div class="col-3" style="font-size: 12px;">
       {{ 'trade-companion.window-bounds' | translate }}:
-      <ng-container *nfIf="settings.tradeCompanionBounds; else unsetBoundsTemplate">
+      <ng-container *ngIf="settings.tradeCompanionBounds; else unsetBoundsTemplate">
         {{ settings.tradeCompanionBounds.x }}, {{ settings.tradeCompanionBounds.y }} ({{ settings.tradeCompanionBounds.width }}x{{ settings.tradeCompanionBounds.height }})
       </ng-container>
       <ng-template #unsetBoundsTemplate>
-        <i>unset</i>
+        <i>{{ 'trade-companion.unset' | translate }}</i>
       </ng-template>
       <br />
       <button mat-raised-button (click)="onResetTradeCompanionBoundsClick()">
@@ -41,18 +41,8 @@
 <app-card [title]="'trade-companion.grid-overlay' | translate">
   <div class="row">
     <div class="col-4">
-      <mat-slide-toggle [title]="'trade-companion.show-grid-description' | translate" [checked]="settings.showStashGridOnTrade" (change)="settings.showStashGridOnTrade = $event.checked">
-        {{ 'trade-companion.show-grid' | translate }}
-      </mat-slide-toggle>
-    </div>
-    <div class="col-4">
-      <mat-slide-toggle [checked]="settings.highlightItemOnTrade" (change)="settings.highlightItemOnTrade = $event.checked">
-        {{ 'trade-companion.highlight-item' | translate }}
-      </mat-slide-toggle>
-    </div>
-    <div class="col-4">
-      <mat-slide-toggle [checked]="settings.showStashGridDropShadow" (change)="settings.showStashGridDropShadow = $event.checked">
-        {{ 'trade-companion.show-grid-drop-shadow' | translate }}
+      <mat-slide-toggle [checked]="settings.showStashGridOnTrade" (change)="settings.showStashGridOnTrade = $event.checked" matTooltip="{{ 'trade-companion.show-and-highlight-item-description' | translate }}">
+        {{ 'trade-companion.show-and-highlight-item' | translate }}
       </mat-slide-toggle>
     </div>
   </div>
@@ -91,6 +81,7 @@
   tradeOptionsTemplate;
   context: {
     title: 'incoming-trade-options',
+    kickOrLeaveKey: 'kick',
     tradeOptions: settings.incomingTradeOptions,
     addClick: onAddIncomingTradeOptionClick.bind(this),
     removeClick: onRemoveIncomingTradeOptionClick.bind(this)
@@ -101,6 +92,7 @@
   tradeOptionsTemplate;
   context: {
     title: 'outgoing-trade-options',
+    kickOrLeaveKey: 'leave',
     tradeOptions: settings.outgoingTradeOptions,
     addClick: onAddOutgoingTradeOptionClick.bind(this),
     removeClick: onRemoveOutgoingTradeOptionClick.bind(this)
@@ -109,7 +101,7 @@
 </ng-container>
 
 <!-- Templates -->
-<ng-template #tradeOptionsTemplate let-title="title" let-tradeOptions="tradeOptions" let-addClick="addClick" let-removeClick="removeClick">
+<ng-template #tradeOptionsTemplate let-title="title" let-kickOrLeaveKey="kickOrLeaveKey" let-tradeOptions="tradeOptions" let-addClick="addClick" let-removeClick="removeClick">
   <app-card [title]="('trade-companion.' + title) | translate" class="trade-options">
     <div class="row">
       <div class="col-md-6 col-lg-4" *ngFor="let tradeOption of tradeOptions; let index = index">
@@ -136,7 +128,7 @@
           <div class="row">
             <div class="col-4">
               <mat-slide-toggle [checked]="tradeOption.kickAfterWhisper" (change)="tradeOption.kickAfterWhisper = $event.checked">
-                {{ 'trade-companion.trade-option.kick' | translate }}
+                {{ 'trade-companion.trade-option.' + kickOrLeaveKey | translate }}
               </mat-slide-toggle>
             </div>
             <div class="col-8 text-right">

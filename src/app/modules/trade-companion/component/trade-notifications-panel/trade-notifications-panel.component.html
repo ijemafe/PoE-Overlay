@@ -10,10 +10,10 @@
      (ardResizeDragEnd)="onResizeDragEnd($event)"
      [class.movable]="!locked">
   <div class="header">
-    <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ locked ? 'Locked - Click to unlock' : 'Unlocked - Click to lock' }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
-    <mat-icon [class.movable]="!locked" matTooltip="{{ locked ? 'Locked - Unlock to allow moving of the Trade Companion' : 'Drag this handle to move the Trade Companion' }}">open_with</mat-icon>
-    <mat-icon class="clickable" (click)="openSettings.emit()" matTooltip="Open Settings">settings</mat-icon>
-    <mat-icon class="clickable" (click)="close()" matTooltip="Disable Trade Companion">power_settings_new</mat-icon>
+    <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'locked' : 'unlocked') | translate }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
+    <mat-icon [class.movable]="!locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'unlock-to-move' : 'drag-handle') | translate }}">open_with</mat-icon>
+    <mat-icon class="clickable" (click)="openSettings.emit()" matTooltip="{{ 'trade-companion.trade-notification-panel.settings' | translate }}">settings</mat-icon>
+    <mat-icon class="clickable" (click)="close()" matTooltip="{{ 'trade-companion.trade-notification-panel.disable' | translate }}">power_settings_new</mat-icon>
   </div>
   <div class="notifications">
     <ng-container *ngFor="let notification of notifications; let index=index">
