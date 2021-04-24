@@ -5,7 +5,6 @@
     display: grid;
     grid-gap: 0px;
     outline: 1px solid yellow;
-    cursor: move;
 
     &.editMode {
       background-color: rgb(0, 0, 0, 0.01);

@@ -4,8 +4,10 @@
          appResizeDrag
          [ardBounds]="gridBounds"
          [ardAppliedBounds.height]="false"
+         [ardExtendDragArea]="true"
          [ardInteractionsDisabled]="!options.editMode"
-         [ardAllowResize]="options.editMode">
+         [ardAllowResize]="options.editMode"
+         (ardResizeDrag)="onResizeDrag($event)">
       <div class="grid"
            [style.height.px]="gridBounds.height"
            [class.interactable]="options.editMode"

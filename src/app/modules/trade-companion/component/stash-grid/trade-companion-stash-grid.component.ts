@@ -69,6 +69,10 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnCh
     }
   }
 
+  public onResizeDrag(bounds: Rectangle): void {
+    // Here as a dummy to enforce bound updates
+  }
+
   public intersectsHighlightBounds(colIndex: number, rowIndex: number) {
     const highlightLocation = this.stashGridOptions$.value.highlightLocation
     if (highlightLocation) {
