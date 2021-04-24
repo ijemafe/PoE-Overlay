@@ -77,8 +77,6 @@ export class TradeCompanionModule implements FeatureModule {
         ],
       stashGrids: new Map(),
       showStashGridOnTrade: true,
-      highlightItemOnTrade: true,
-      showStashGridDropShadow: true
     }
     return {
       name: 'trade-companion.name',
