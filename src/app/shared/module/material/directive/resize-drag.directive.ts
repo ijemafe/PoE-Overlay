@@ -249,8 +249,6 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
       this.status = Status.MOVE
     }
 
-    if (this.dragAreaExtension) this.dragAreaExtension.style['display'] = 'block'
-
     this.resizeDragBegin.emit(this.bounds)
   }
 
@@ -285,6 +283,8 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
       y: event.clientY - this.mouseDownPosition.y,
     }
 
+    if (this.dragAreaExtension) this.dragAreaExtension.style['display'] = 'block'
+
     switch (this.status) {
       case Status.MOVE:
       case Status.RESIZE:
@@ -317,6 +317,9 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
   }
 
   private overlaps(element: HTMLElement, point: Point): boolean {
+    if (!element) {
+      return false
+    }
     const elementBounds = element.getBoundingClientRect()
     if (point.x >= elementBounds.left && point.x <= elementBounds.right &&
       point.y >= elementBounds.top && point.y < elementBounds.bottom) {
