@@ -14,7 +14,7 @@ After installing those three libraries you can simply execute ```npm install```.
 
 With ```npm start```, you'll start up the dev server as normal.
 
-Building a production .deb and .appImage package needs to be done via ```npm run electron:linux```.
+Starting with version 0.7.11 building a production .deb and .appImage package exceeds the default memory limit of npm, needs to be done via ```NODE_OPTIONS=--max_old_space_size=4096 npm run electron:linux```.
 
 ## Notes:
  
