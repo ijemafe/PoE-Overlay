@@ -51,6 +51,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
         case ItemRarity.Magic:
         case ItemRarity.Rare:
         case ItemRarity.Unique:
+        case ItemRarity.UniqueRelic:
         case ItemRarity.NonUnique:
           props.weaponPhysicalDamage = this.parseValueProperty(
             line,

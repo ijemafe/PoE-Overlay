@@ -50,7 +50,7 @@ export class ItemCategoryValuesProvider {
   ): Observable<ItemCategoryValues> {
     switch (category) {
       case ItemCategory.Map: {
-        if (rarity === ItemRarity.Unique) {
+        if (rarity === ItemRarity.Unique || rarity === ItemRarity.UniqueRelic) {
           const key = `${leagueId}_${ItemCategory.Map}_${ItemRarity.Unique}`
           return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueMap))
         } else {
@@ -122,13 +122,13 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.JewelBase:
       case ItemCategory.JewelAbyss:
       case ItemCategory.JewelCluster:
-        if (rarity === ItemRarity.Unique) {
+        if (rarity === ItemRarity.Unique || rarity === ItemRarity.UniqueRelic) {
           const key = `${leagueId}_${ItemCategory.Jewel}`
           return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueJewel))
         }
         return of({ values: [] })
       case ItemCategory.Flask:
-        if (rarity === ItemRarity.Unique) {
+        if (rarity === ItemRarity.Unique || rarity === ItemRarity.UniqueRelic) {
           const key = `${leagueId}_${ItemCategory.Flask}`
           return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueFlask))
         }
@@ -152,7 +152,7 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.WeaponTwoSword:
       case ItemCategory.WeaponWand:
       case ItemCategory.WeaponRod:
-        if (rarity === ItemRarity.Unique) {
+        if (rarity === ItemRarity.Unique || rarity === ItemRarity.UniqueRelic) {
           const key = `${leagueId}_${ItemCategory.Weapon}`
           return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueWeapon))
         }
@@ -164,7 +164,7 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.ArmourHelmet:
       case ItemCategory.ArmourShield:
       case ItemCategory.ArmourQuiver:
-        if (rarity === ItemRarity.Unique) {
+        if (rarity === ItemRarity.Unique || rarity === ItemRarity.UniqueRelic) {
           const key = `${leagueId}_${ItemCategory.Armour}`
           return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueArmour))
         }
@@ -173,7 +173,7 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.AccessoryAmulet:
       case ItemCategory.AccessoryBelt:
       case ItemCategory.AccessoryRing:
-        if (rarity === ItemRarity.Unique) {
+        if (rarity === ItemRarity.Unique || rarity === ItemRarity.UniqueRelic) {
           const key = `${leagueId}_${ItemCategory.Accessory}`
           return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.UniqueAccessory))
         }

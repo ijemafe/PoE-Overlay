@@ -222,7 +222,7 @@ export class ItemExchangeRateService {
         if (item.typeId && !item.nameId) {
           results = results.filter((x) => filterName(x, type))
         } else {
-          results = results.filter((x) => filterName(x, name) && x.type === type && !x.relic)
+          results = results.filter((x) => filterName(x, name) && x.type === type && ((!item.relic && !x.relic) || (x.relic === item.relic)))
         }
         // Apply generic filters
         results = results.filter(

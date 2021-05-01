@@ -15,6 +15,7 @@ export interface Item {
   unidentified?: boolean
   veiled?: boolean
   blighted?: boolean
+  relic?: boolean
   damage?: ItemWeaponDamage
   sockets?: ItemSocket[]
   properties?: ItemProperties
@@ -42,6 +43,7 @@ export enum ItemRarity {
   Magic = 'magic',
   Rare = 'rare',
   Unique = 'unique',
+  UniqueRelic = 'uniquefoil',
   Currency = 'currency',
   Gem = 'gem',
   DivinationCard = 'divinationcard',
@@ -277,6 +279,7 @@ export enum ItemSection {
   Prophecy,
   Experience,
   Ultimatum,
+  Relic,
 }
 
 export interface ItemSectionParserService {

@@ -24,6 +24,7 @@ export class EvaluateQueryItemProvider {
       unidentified: item.unidentified,
       veiled: item.veiled,
       blighted: item.blighted,
+      relic: item.relic,
       influences: item.influences || {},
       damage: {},
       stats: [],
@@ -107,7 +108,7 @@ export class EvaluateQueryItemProvider {
     }
 
     if (item.stats) {
-      if (item.rarity === ItemRarity.Unique && settings.evaluateQueryDefaultStatsUnique) {
+      if ((item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) && settings.evaluateQueryDefaultStatsUnique) {
         queryItem.stats = item.stats
       } else {
         queryItem.stats = item.stats.map((stat) => {

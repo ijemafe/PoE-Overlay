@@ -82,7 +82,8 @@ export class ItemFrameComponent implements OnInit {
     this.state = !!(
       this.item.corrupted !== undefined ||
       this.item.veiled !== undefined ||
-      this.item.unidentified !== undefined
+      this.item.unidentified !== undefined ||
+      this.item.relic !== undefined
     )
     this.influences = !!this.item.influences
 
