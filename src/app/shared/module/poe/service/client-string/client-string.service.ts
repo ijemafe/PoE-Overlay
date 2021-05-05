@@ -19,14 +19,20 @@ export class ClientStringService {
     return map[id] || `untranslated: '${id}' for language: '${Language[language]}'`
   }
 
-  public translateMultiple(idRegex: RegExp, language?: Language): string[] {
+  public translateMultiple(idRegex: RegExp, language?: Language): {
+    id: string,
+    translation: string,
+  }[] {
     language = language || this.context.get().language
 
     const map = this.clientStringProvider.provide(language)
-    const translations: string[] = []
+    const translations: {
+      id: string,
+      translation: string,
+    }[] = []
     for (const id in map) {
       if (idRegex.test(id)) {
-        translations.push(map[id])
+        translations.push({ id: id, translation: map[id] })
       }
     }
     return translations

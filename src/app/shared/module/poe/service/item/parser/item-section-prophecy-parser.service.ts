@@ -27,19 +27,19 @@ export class ItemSectionProphecyParserService implements ItemSectionParserServic
     const phrases = this.clientString.translateMultiple(new RegExp('^Prophecy(?!(Tab|Popup))'))
 
     const prophecySection = item.sections.find(
-      (section) => phrases.findIndex((phrase) => section.content.indexOf(phrase) !== -1) !== -1
+      (section) => phrases.findIndex((phrase) => section.content.indexOf(phrase.translation) !== -1) !== -1
     )
     if (!prophecySection) {
       return null
     }
 
-    const prophecyText = phrases.find((phrase) => prophecySection.content.indexOf(phrase) !== -1)
+    const prophecyText = phrases.find((phrase) => prophecySection.content.indexOf(phrase.translation) !== -1)
 
     if (!target.properties) {
       target.properties = {}
     }
 
-    target.properties.prophecyText = prophecyText
+    target.properties.prophecyText = prophecyText.translation
 
     return prophecySection
   }

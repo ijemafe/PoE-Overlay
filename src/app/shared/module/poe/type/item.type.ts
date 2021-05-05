@@ -166,6 +166,7 @@ export interface ItemProperties {
   durability?: ItemValueProperty
   storedExperience?: ItemValueProperty
   ultimatum?: ItemPropertiesUltimatum
+  incursion?: ItemPropertiesIncursion
 }
 
 export interface ItemProperty {
@@ -254,6 +255,11 @@ export interface ItemPropertiesUltimatum {
   rewardUnique?: string
 }
 
+export interface ItemPropertiesIncursion {
+  openRooms: string[]
+  closedRooms: string[]
+}
+
 export interface ExportedItem {
   sections: Section[]
 }
@@ -280,6 +286,7 @@ export enum ItemSection {
   Experience,
   Ultimatum,
   Relic,
+  Incursion,
 }
 
 export interface ItemSectionParserService {
