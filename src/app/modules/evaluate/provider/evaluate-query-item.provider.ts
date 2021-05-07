@@ -67,6 +67,35 @@ export class EvaluateQueryItemProvider {
       }
     }
 
+    if (settings.evaluateQueryDefaultIncursionOpenRooms) {
+      const openRooms = item.properties?.incursion?.openRooms
+      if (openRooms) {
+        const incursion = queryItem.properties.incursion
+        if (!incursion) {
+          queryItem.properties.incursion = {
+            openRooms: openRooms,
+            closedRooms: [],
+          }
+        } else {
+          incursion.openRooms = openRooms
+        }
+      }
+    }
+    if (settings.evaluateQueryDefaultIncursionClosedRooms) {
+      const closedRooms = item.properties?.incursion?.closedRooms
+      if (closedRooms) {
+        const incursion = queryItem.properties.incursion
+        if (!incursion) {
+          queryItem.properties.incursion = {
+            openRooms: [],
+            closedRooms: closedRooms,
+          }
+        } else {
+          incursion.closedRooms = closedRooms
+        }
+      }
+    }
+
     if (settings.evaluateQueryDefaultAttack) {
       queryItem.damage = item.damage
 

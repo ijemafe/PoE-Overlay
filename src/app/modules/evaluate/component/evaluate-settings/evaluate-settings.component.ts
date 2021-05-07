@@ -31,6 +31,8 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultItemLevel: boolean
   evaluateQueryDefaultLinks: number
   evaluateQueryDefaultUltimatum: boolean
+  evaluateQueryDefaultIncursionOpenRooms: boolean
+  evaluateQueryDefaultIncursionClosedRooms: boolean
   evaluateQueryDefaultMiscs: boolean
   evaluateQueryDefaultType: boolean
   evaluateQueryDefaultAttack: boolean
