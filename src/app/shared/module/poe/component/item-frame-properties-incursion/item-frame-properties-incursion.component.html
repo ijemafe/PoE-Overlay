@@ -1,0 +1,24 @@
+<ng-container *ngIf="item.properties.incursion.openRooms.length > 0">
+  <div>
+    {{ 'ItemDescriptionIncursionAccessibleRooms' | clientString: language }}
+  </div>
+  <ng-container *ngFor="let room of item.properties.incursion.openRooms">
+    <app-item-frame-query [(property)]="queryItem.properties.incursion.openRooms[room]" [value]="room">
+      <div class="white">
+        {{ room | clientString: language }}
+      </div>
+    </app-item-frame-query>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="item.properties.incursion.closedRooms.length > 0">
+  <div>
+    {{ 'ItemDescriptionIncursionInaccessibleRooms' | clientString: language }}
+  </div>
+  <ng-container *ngFor="let room of item.properties.incursion.closedRooms">
+    <app-item-frame-query [(property)]="queryItem.properties.incursion.closedRooms[room]" [value]="room">
+      <div class="white">
+        {{ room | clientString: language }}
+      </div>
+    </app-item-frame-query>
+  </ng-container>
+</ng-container>

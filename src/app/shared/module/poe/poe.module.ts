@@ -22,6 +22,7 @@ import { WordPipe } from './pipe/word.pipe'
 import { ItemFrameValueInputComponent } from './component/item-frame-value-input/item-frame-value-input.component'
 import { ItemFrameAnnointmentComponent } from './component/item-frame-annointment/item-frame-annointment.component'
 import { ItemFramePropertiesUltimatumComponent } from './component/item-frame-properties-ultimatum/item-frame-properties-ultimatum.component'
+import { ItemFramePropertiesIncursionComponent } from './component/item-frame-properties-incursion/item-frame-properties-incursion.component'
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ItemFramePropertiesUltimatumComponent } from './component/item-frame-pr
     ItemFrameInfluencesComponent,
     ItemFramePropertiesComponent,
     ItemFramePropertiesUltimatumComponent,
+    ItemFramePropertiesIncursionComponent,
     ItemFrameSocketsComponent,
     ItemFrameLevelRequirementsComponent,
     ItemFrameStatsComponent,
