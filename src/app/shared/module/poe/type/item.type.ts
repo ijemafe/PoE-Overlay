@@ -256,8 +256,13 @@ export interface ItemPropertiesUltimatum {
 }
 
 export interface ItemPropertiesIncursion {
-  openRooms: string[]
-  closedRooms: string[]
+  openRooms: ItemPropertiesIncursionRoom[]
+  closedRooms: ItemPropertiesIncursionRoom[]
+}
+
+export interface ItemPropertiesIncursionRoom {
+  name: string
+  stat: ItemStat
 }
 
 export interface ExportedItem {

@@ -254,14 +254,6 @@
             </mat-slide-toggle>
           </div>
           <div class="toggle">
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultIncursionOpenRooms"
-                              (change)="settings.evaluateQueryDefaultIncursionOpenRooms = $event.checked">
-              {{ 'evaluate.search.incursion.open' | translate }}
-            </mat-slide-toggle>
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultIncursionClosedRooms"
-                              (change)="settings.evaluateQueryDefaultIncursionClosedRooms = $event.checked">
-              {{ 'evaluate.search.incursion.closed' | translate }}
-            </mat-slide-toggle>
             <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
                               (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
               {{ 'evaluate.search.gem' | translate }}

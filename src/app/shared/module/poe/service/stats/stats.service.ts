@@ -141,10 +141,11 @@ export class StatsService {
     return results
   }
 
-  public searchExactInType(statLines: string[], statTypesToSearch: StatType[], language?: Language): ItemStat[] {
+  public searchExactInType(text: string, statTypesToSearch: StatType[], language?: Language): ItemStat {
     language = language || this.context.get().language
 
-    const results: ItemStat[] = []
+    let result: ItemStat
+
     for (const type of statTypesToSearch) {
       const stats = this.statsProvider.provide(type)
       for (const tradeId in stats) {
@@ -155,6 +156,9 @@ export class StatsService {
         const stat = stats[tradeId]
         const statDescs = stat.text[language]
         statDescs.forEach((statDesc, statDescIndex) => {
+          if (result) {
+            return
+          }
           const predicate = Object.getOwnPropertyNames(statDesc)[0]
           const regex = statDesc[predicate]
           if (regex.length <= 0) {
@@ -163,31 +167,29 @@ export class StatsService {
 
           const key = `${type}_${tradeId}_${statDescIndex}`
           const expr = this.cache[key] || (this.cache[key] = new RegExp(regex, 'm'))
-          for (const line of statLines) {
-            const test = expr.exec(line)
+          const test = expr.exec(text)
 
-            if (!test) {
-              continue
-            }
+          if (!test) {
+            return
+          }
 
-            results.push({
-              id: stat.id,
-              mod: stat.mod,
-              option: stat.option,
-              negated: stat.negated,
-              predicateIndex: statDescIndex,
-              predicate: predicate,
-              type,
-              tradeId,
-              values: test.slice(1).map((x) => ({ text: x })),
-              indistinguishable: undefined,
-            })
+          result = {
+            id: stat.id,
+            mod: stat.mod,
+            option: stat.option,
+            negated: stat.negated,
+            predicateIndex: statDescIndex,
+            predicate: predicate,
+            type,
+            tradeId,
+            values: test.slice(1).map((x) => ({ text: x })),
+            indistinguishable: undefined,
           }
         })
       }
     }
 
-    return results
+    return result
   }
 
   private executeSearch(

@@ -1,18 +1,12 @@
 import { Injectable } from '@angular/core'
 import { Query, StatsFilter } from '@data/poe'
-import { Item, ItemSearchFiltersService, Language, StatType } from '@shared/module/poe/type'
-import { ClientStringService } from '../../client-string/client-string.service'
-import { StatsService } from '../../stats/stats.service'
+import { Item, ItemPropertiesIncursionRoom, ItemSearchFiltersService, Language } from '@shared/module/poe/type'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemSearchFiltersIncursionService implements ItemSearchFiltersService {
-  constructor(
-    private readonly clientString: ClientStringService,
-    private readonly statsService: StatsService,
-  ) {
-  }
+  constructor() { }
 
   public add(item: Item, language: Language, query: Query): void {
     if (!item.properties || !item.properties.incursion) {
@@ -33,11 +27,10 @@ export class ItemSearchFiltersIncursionService implements ItemSearchFiltersServi
     }
   }
 
-  private searchTradeStats(rooms: string[], roomOption: string): StatsFilter[] {
-    const roomStats = this.statsService.searchExactInType(rooms.map((x) => `Has Room: ${this.clientString.translate(x, Language.English)}`), [StatType.Pseudo], Language.English)
-    return roomStats.map((x) => {
+  private searchTradeStats(rooms: ItemPropertiesIncursionRoom[], roomOption: string): StatsFilter[] {
+    return rooms.filter((x) => x).map((x) => {
       const statFilter: StatsFilter = {
-        id: x.tradeId,
+        id: `${x.stat.type}.${x.stat.tradeId}`,
         value: {
           option: roomOption,
         },

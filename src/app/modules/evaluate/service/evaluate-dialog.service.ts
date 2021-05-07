@@ -84,7 +84,24 @@ export class EvaluateDialogService {
       if (item.properties) {
         Object.getOwnPropertyNames(item.properties).forEach((key) => {
           if (item.properties[key]) {
-            height += DIALOG_LINE_HEIGHT
+            switch (key) {
+              case 'ultimatum':
+                height += DIALOG_LINE_HEIGHT * 2
+                if (item.properties.ultimatum.requiredItem) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                break
+              case 'incursion':
+                const incursion = item.properties.incursion
+                height += DIALOG_LINE_HEIGHT * (incursion.openRooms.length + incursion.closedRooms.length)
+                if (incursion.openRooms.length > 0 && incursion.closedRooms.length > 0) {
+                  height += DIALOG_DIVIDER_HEIGHT
+                }
+                break
+              default:
+                height += DIALOG_LINE_HEIGHT
+                break
+            }
           }
         })
       }

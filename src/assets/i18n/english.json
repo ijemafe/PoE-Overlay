@@ -99,10 +99,6 @@
       "defense": "Defense",
       "filter": "Filter",
       "gem": "Gem Level, Map Tier & Quality",
-      "incursion": {
-        "closed": "Incursion Closed Rooms",
-        "open": "Incursion Open Rooms"
-      },
       "item-default-links": "Item Link",
       "item-level": "Item Level",
       "item-links": {

@@ -47,8 +47,6 @@ export class EvaluateModule implements FeatureModule {
       evaluateQueryDefaultItemLevel: true,
       evaluateQueryDefaultLinks: 5,
       evaluateQueryDefaultUltimatum: true,
-      evaluateQueryDefaultIncursionOpenRooms: true,
-      evaluateQueryDefaultIncursionClosedRooms: false,
       evaluateQueryDefaultMiscs: true,
       evaluateQueryDefaultType: false,
       evaluateQueryDefaultAttack: true,

@@ -67,32 +67,23 @@ export class EvaluateQueryItemProvider {
       }
     }
 
-    if (settings.evaluateQueryDefaultIncursionOpenRooms) {
-      const openRooms = item.properties?.incursion?.openRooms
-      if (openRooms) {
-        const incursion = queryItem.properties.incursion
-        if (!incursion) {
-          queryItem.properties.incursion = {
-            openRooms: openRooms,
-            closedRooms: [],
-          }
-        } else {
-          incursion.openRooms = openRooms
-        }
-      }
-    }
-    if (settings.evaluateQueryDefaultIncursionClosedRooms) {
-      const closedRooms = item.properties?.incursion?.closedRooms
-      if (closedRooms) {
-        const incursion = queryItem.properties.incursion
-        if (!incursion) {
-          queryItem.properties.incursion = {
-            openRooms: [],
-            closedRooms: closedRooms,
-          }
-        } else {
-          incursion.closedRooms = closedRooms
-        }
+
+    queryItem.stats = item.stats.map((stat) => {
+      const key = `${stat.type}.${stat.tradeId}`
+      return settings.evaluateQueryDefaultStats[key] ? stat : undefined
+    })
+
+    const incursion = item.properties?.incursion
+    if (incursion) {
+      queryItem.properties.incursion = {
+        openRooms: incursion.openRooms.map((room) => {
+          const key = `${room.stat.type}.${room.stat.tradeId}`
+          return settings.evaluateQueryDefaultStats[key] ? room : undefined
+        }),
+        closedRooms: incursion.closedRooms.map((room) => {
+          const key = `${room.stat.type}.${room.stat.tradeId}`
+          return settings.evaluateQueryDefaultStats[key] ? room : undefined
+        }),
       }
     }
 
