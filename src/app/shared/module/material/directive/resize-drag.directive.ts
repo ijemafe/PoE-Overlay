@@ -225,17 +225,7 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
 
     this.mouseDownPosition = point
     this.mouseDownBounds = { ...this.bounds }
-    /*const elementBounds = this.element.getBoundingClientRect()
-    const offsetReverse = {
-      x: elementBounds.right - event.clientX,
-      y: elementBounds.bottom - event.clientY,
-    }
 
-    if (offsetReverse.x < this.resizeWidth || offsetReverse.y < this.resizeWidth) {
-      this.status = Status.RESIZE
-    } else {
-      this.status = Status.MOVE
-    }*/
     if (this.overlaps(this.resizeAnchorWidth, point)) {
       this.status = Status.RESIZE
       this.resizeDir = ResizeDir.WIDTH
