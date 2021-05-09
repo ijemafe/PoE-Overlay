@@ -161,7 +161,7 @@ export class StatsService {
           }
           const predicate = Object.getOwnPropertyNames(statDesc)[0]
           const regex = statDesc[predicate]
-          if (regex.length <= 0) {
+          if (!regex.length) {
             return
           }
 
@@ -213,7 +213,7 @@ export class StatsService {
         statDescs.forEach((statDesc, statDescIndex) => {
           const predicate = Object.getOwnPropertyNames(statDesc)[0]
           const regex = statDesc[predicate]
-          if (regex.length <= 0) {
+          if (!regex.length) {
             return
           }
 
