@@ -67,12 +67,6 @@ export class EvaluateQueryItemProvider {
       }
     }
 
-
-    queryItem.stats = item.stats.map((stat) => {
-      const key = `${stat.type}.${stat.tradeId}`
-      return settings.evaluateQueryDefaultStats[key] ? stat : undefined
-    })
-
     const incursion = item.properties?.incursion
     if (incursion) {
       queryItem.properties.incursion = {
