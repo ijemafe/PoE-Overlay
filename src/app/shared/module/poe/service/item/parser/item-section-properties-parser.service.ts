@@ -26,7 +26,6 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
   public parse(item: ExportedItem, target: Item): Section {
     switch (target.rarity) {
       case ItemRarity.DivinationCard:
-      case ItemRarity.Currency:
         return null
     }
 
