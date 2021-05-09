@@ -5,7 +5,7 @@
   <ng-container *ngFor="let room of item.properties.incursion.openRooms; let index = index">
     <div class="white">
       <app-item-frame-query [(property)]="queryItem.properties.incursion.openRooms[index]" [value]="room">
-        {{ room.name }}
+        {{ room.name }}{{ getLocalizedTier(room) }}
       </app-item-frame-query>
     </div>
   </ng-container>
@@ -18,7 +18,7 @@
   <ng-container *ngFor="let room of item.properties.incursion.closedRooms; let index = index">
     <div class="white">
       <app-item-frame-query [(property)]="queryItem.properties.incursion.closedRooms[index]" [value]="room">
-        {{ room.name }}
+        {{ room.name }}{{ getLocalizedTier(room) }}
       </app-item-frame-query>
     </div>
   </ng-container>

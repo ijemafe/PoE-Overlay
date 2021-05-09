@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Item, Language } from '../../type'
+import { ClientStringService } from '../../service/client-string/client-string.service'
+import { Item, ItemPropertiesIncursionRoom, Language } from '../../type'
 
 @Component({
   selector: 'app-item-frame-properties-incursion',
@@ -17,5 +18,17 @@ export class ItemFramePropertiesIncursionComponent {
   @Input()
   public language: Language
 
-  constructor() { }
+  constructor(
+    private readonly clientString: ClientStringService
+  ) {
+  }
+
+  public getLocalizedTier(room: ItemPropertiesIncursionRoom): string
+  {
+    const mod = room.stat.mod
+    if (!mod || mod.length == 0) {
+      return ''
+    }
+    return ` ${this.clientString.translate('IncursionRoomPopupTier', this.language).replace('{0}', mod.replace('tier', '').trim())}`
+  }
 }
