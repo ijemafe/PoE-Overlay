@@ -75,3 +75,24 @@ export interface TradeItemLocation {
   tabName: string,
   bounds: Rectangle,
 }
+
+export interface TradeRegexes {
+  all: string
+  joinedArea: {
+    [language: string]: string
+  }
+  leftArea: {
+    [language: string]: string
+  }
+  whisper: string
+  tradeItemPrice: {
+    [language: string]: string
+  }
+  tradeItemNoPrice: {
+    [language: string]: string
+  }
+  tradeBulk: {
+    [language: string]: string
+  }
+  tradeMap: string
+}

@@ -4,24 +4,36 @@ import { IpcMain, IpcMainEvent, IpcRenderer } from 'electron';
 import moment from 'moment';
 import { forkJoin } from 'rxjs';
 import { GameLogService } from '../../../../../core/service/game-log.service';
+import { TradeRegexesProvider } from '../../provider/trade-regexes.provider';
+import { Language } from '../../type';
 import { ExampleNotificationType, TradeNotification, TradeNotificationType } from '../../type/trade-companion.type';
 import { CurrencyService } from '../currency/currency.service';
-
-const regItemTradeOffer = /^(.+) (.+) (.+) (.+) (.+) (.+) @(From|To) ((<(.*)> )?(.+))\: (Hi, I would like to buy your (.+) listed for ([0-9\.]+) (.+) in (.+) \(stash tab "(.+)"; position: left ([0-9]+), top ([0-9]+)\)(.*)){1}/i;
-const regCurrencyTradeOffer = /^(.+) (.+) (.+) (.+) (.+) (.+) @(From|To) ((<(.*)> )?(.+))\: (Hi, I'd like to buy your ([0-9\.]+) (.+) for my ([0-9\.]+) (.+) in (.+)\.(.*)){1}/i;
-const regPlayerJoinedArea = /(.+) (.+) has joined the area./i;
-const regPlayerLeftArea = /(.+) (.+) has left the area./i;
 
 const logLineDateFormat = 'YYYY/MM/DD HH:mm:ss'
 const fromToPlaceholder = '{fromto}'
 
 const AddExampleTradeNotificationKey = 'trade-notification-add-example'
 
+interface TradeRegexes {
+  whisper: RegExp
+  itemTradeOffer: LangRegExp[]
+  currencyTradeOffer: LangRegExp[]
+  playerJoinedArea: LangRegExp[]
+  playerLeftArea: LangRegExp[]
+}
+
+interface LangRegExp {
+  language: Language
+  regex: RegExp
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class TradeNotificationsService {
   public readonly notificationAddedOrChanged = new EventEmitter<TradeNotification>()
+
+  private readonly tradeRegexes: TradeRegexes
 
   private ipcMain: IpcMain
   private ipcRenderer: IpcRenderer
@@ -34,10 +46,49 @@ export class TradeNotificationsService {
     electronProvider: ElectronProvider,
     private readonly gameLogService: GameLogService,
     private readonly currencyService: CurrencyService,
+    tradeRegexesProvider: TradeRegexesProvider,
   ) {
     this.ipcMain = electronProvider.provideIpcMain()
     this.ipcRenderer = electronProvider.provideIpcRenderer()
     this.gameLogService.logLineAdded.subscribe((logLine: string) => this.onLogLineAdded(logLine))
+
+    // Init regexes
+    const tradeRegexStrings = tradeRegexesProvider.provide()
+    this.tradeRegexes = {
+      whisper: new RegExp(tradeRegexStrings.all + tradeRegexStrings.whisper, 'i'),
+      itemTradeOffer: [],
+      currencyTradeOffer: [],
+      playerJoinedArea: [],
+      playerLeftArea: [],
+    }
+    for (const key in tradeRegexStrings.tradeItemPrice) {
+      const regex = tradeRegexStrings.tradeItemPrice[key]
+      this.tradeRegexes.itemTradeOffer.push({
+        language: Language[key],
+        regex: new RegExp(regex, 'i'),
+      })
+    }
+    for (const key in tradeRegexStrings.tradeBulk) {
+      const regex = tradeRegexStrings.tradeBulk[key]
+      this.tradeRegexes.currencyTradeOffer.push({
+        language: Language[key],
+        regex: new RegExp(regex, 'i'),
+      })
+    }
+    for (const key in tradeRegexStrings.joinedArea) {
+      const regex = tradeRegexStrings.joinedArea[key]
+      this.tradeRegexes.playerJoinedArea.push({
+        language: Language[key],
+        regex: new RegExp(tradeRegexStrings.all + regex, 'i'),
+      })
+    }
+    for (const key in tradeRegexStrings.leftArea) {
+      const regex = tradeRegexStrings.leftArea[key]
+      this.tradeRegexes.playerLeftArea.push({
+        language: Language[key],
+        regex: new RegExp(tradeRegexStrings.all + regex, 'i'),
+      })
+    }
   }
 
   /**
@@ -74,33 +125,41 @@ export class TradeNotificationsService {
   }
 
   private onLogLineAdded(logLine: string): void {
-    const itemTradeOfferMatch = logLine.match(regItemTradeOffer)
-    if (itemTradeOfferMatch) {
-      this.parseItemTradeWhisper(itemTradeOfferMatch)
-      return
-    }
+    if (this.tradeRegexes.whisper.test(logLine)) {
+      const whisperMatch = this.tradeRegexes.whisper.exec(logLine)
+      const whisperMessage = whisperMatch.groups.message
+      for (const langRegex of this.tradeRegexes.itemTradeOffer) {
+        if (langRegex.regex.test(whisperMessage)) {
+          this.parseItemTradeWhisper(whisperMatch, langRegex.regex.exec(whisperMessage), langRegex.language)
+          return
+        }
+      }
 
-    const currencyTradeOfferMatch = logLine.match(regCurrencyTradeOffer)
-    if (currencyTradeOfferMatch) {
-      this.parseCurrencyTradeWhisper(currencyTradeOfferMatch)
-      return
-    }
+      for (const langRegex of this.tradeRegexes.currencyTradeOffer) {
+        if (langRegex.regex.test(whisperMessage)) {
+          this.parseCurrencyTradeWhisper(whisperMatch, langRegex.regex.exec(whisperMessage), langRegex.language)
+          return
+        }
+      }
+    } else {
+      for (const langRegex of this.tradeRegexes.playerJoinedArea) {
+        if (langRegex.regex.test(logLine)) {
+          this.parsePlayerJoinedArea(langRegex.regex.exec(logLine))
+          return
+        }
+      }
 
-    const playerJoinedAreaMatch = logLine.match(regPlayerJoinedArea)
-    if (playerJoinedAreaMatch) {
-      this.parsePlayerJoinedArea(playerJoinedAreaMatch)
-      return
-    }
-
-    const playerLeftAreaMatch = logLine.match(regPlayerLeftArea)
-    if (playerLeftAreaMatch) {
-      this.parsePlayerLeftArea(playerLeftAreaMatch)
-      return
+      for (const langRegex of this.tradeRegexes.playerLeftArea) {
+        if (langRegex.regex.test(logLine)) {
+          this.parsePlayerLeftArea(langRegex.regex.exec(logLine))
+          return
+        }
+      }
     }
   }
 
   private parsePlayerJoinedArea(whisperMatch: RegExpMatchArray): void {
-    const playerName = whisperMatch[2]
+    const playerName = whisperMatch.groups.player
     const notification = this.notifications.find((notification) =>
       notification.type === TradeNotificationType.Incoming &&
       notification.playerName === playerName &&
@@ -114,7 +173,7 @@ export class TradeNotificationsService {
   }
 
   private parsePlayerLeftArea(whisperMatch: RegExpMatchArray): void {
-    const playerName = whisperMatch[2]
+    const playerName = whisperMatch.groups.player
     const notification = this.notifications.find((notification) =>
       notification.type === TradeNotificationType.Incoming &&
       notification.playerName === playerName &&
@@ -128,13 +187,15 @@ export class TradeNotificationsService {
     }
   }
 
-  private parseCurrencyTradeWhisper(whisperMatch: RegExpMatchArray): void {
-    const playerName = whisperMatch[11]
-    const currencyID = whisperMatch[14]
-    const offerItemID = whisperMatch[16]
-    const fullWhisper = `@${playerName} ${whisperMatch[12]}`
-    const whisperTime = moment(whisperMatch[1], logLineDateFormat)
-    const notificationType = whisperMatch[7] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing
+  private parseCurrencyTradeWhisper(whisperMatch: RegExpMatchArray, tradeMatch: RegExpMatchArray, tradeLanguage: Language): void {
+    const whisperGroups = whisperMatch.groups
+    const tradeGroups = tradeMatch.groups
+    const playerName = whisperGroups.player
+    const currencyID = tradeGroups.name
+    const offerItemID = tradeGroups.currency
+    const fullWhisper = `@${playerName} ${whisperGroups.message}`
+    const whisperTime = moment(whisperGroups.timestamp, logLineDateFormat)
+    const notificationType = whisperGroups.from ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing
     const notification = this.notifications.find((x) => x.type === notificationType && x.text === fullWhisper)
     if (notification) {
       // Repeated whisper -> Reset timer
@@ -142,14 +203,14 @@ export class TradeNotificationsService {
       this.notificationAddedOrChanged.emit(notification)
       return
     }
-    forkJoin([this.currencyService.searchByNameType(currencyID), this.currencyService.searchByNameType(offerItemID)]).subscribe((currencies) => {
+    forkJoin([this.currencyService.searchByNameType(currencyID, tradeLanguage), this.currencyService.searchByNameType(offerItemID, tradeLanguage)]).subscribe((currencies) => {
       const notification: TradeNotification = {
         text: fullWhisper,
         type: notificationType,
         time: whisperTime,
         playerName: playerName,
         item: {
-          amount: +whisperMatch[13],
+          amount: +tradeGroups.count,
           currency: currencies[0] || {
             id: currencyID,
             nameType: currencyID,
@@ -157,25 +218,27 @@ export class TradeNotificationsService {
           }
         },
         price: {
-          amount: +whisperMatch[15],
+          amount: +tradeGroups.price,
           currency: currencies[1] || {
             id: offerItemID,
             nameType: offerItemID,
             image: null,
           },
         },
-        offer: whisperMatch[18],
+        offer: tradeGroups.message,
       }
       this.addNotification(notification)
     })
   }
 
-  private parseItemTradeWhisper(whisperMatch: RegExpMatchArray): void {
-    const currencyID = whisperMatch[15]
-    const playerName = whisperMatch[11]
-    const fullWhisper = `@${playerName} ${whisperMatch[12]}`
-    const whisperTime = moment(whisperMatch[1], logLineDateFormat)
-    const notificationType = whisperMatch[7] === 'From' ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing
+  private parseItemTradeWhisper(whisperMatch: RegExpMatchArray, tradeMatch: RegExpMatchArray, tradeLanguage: Language): void {
+    const whisperGroups = whisperMatch.groups
+    const tradeGroups = tradeMatch.groups
+    const currencyID = tradeGroups.currency
+    const playerName = whisperGroups.player
+    const fullWhisper = `@${playerName} ${whisperGroups.message}`
+    const whisperTime = moment(whisperGroups.timestamp, logLineDateFormat)
+    const notificationType = whisperGroups.from ? TradeNotificationType.Incoming : TradeNotificationType.Outgoing
     const notification = this.notifications.find((x) => x.type === notificationType && x.text === fullWhisper)
     if (notification) {
       // Repeated whisper -> Reset timer
@@ -183,15 +246,15 @@ export class TradeNotificationsService {
       this.notificationAddedOrChanged.emit(notification)
       return
     }
-    this.currencyService.searchById(currencyID).subscribe((currency) => {
+    this.currencyService.searchById(currencyID, tradeLanguage).subscribe((currency) => {
       const notification: TradeNotification = {
         text: fullWhisper,
         type: notificationType,
         time: whisperTime,
         playerName: playerName,
-        item: whisperMatch[13],
+        item: tradeGroups.name,
         price: {
-          amount: +whisperMatch[14],
+          amount: +tradeGroups.price,
           currency: currency || {
             id: currencyID,
             nameType: currencyID,
@@ -199,15 +262,15 @@ export class TradeNotificationsService {
           },
         },
         itemLocation: {
-          tabName: whisperMatch[17],
+          tabName: tradeGroups.stash,
           bounds: {
-            x: +whisperMatch[18],
-            y: +whisperMatch[19],
+            x: +tradeGroups.left,
+            y: +tradeGroups.top,
             width: 1,
             height: 1,
           }
         },
-        offer: whisperMatch[20],
+        offer: tradeGroups.message,
       }
       this.addNotification(notification)
     })

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { CurrenciesProvider } from '@shared/module/poe/provider'
 import { Currency, Language } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
-import { map, shareReplay } from 'rxjs/operators'
+import { flatMap, map, shareReplay } from 'rxjs/operators'
 import { TradeStaticResultId } from '../../../../../data/poe'
 import { ContextService } from '../context.service'
 
@@ -27,28 +27,38 @@ export class CurrencyService {
     return this.currenciesProvider.provide(language, TradeStaticResultId.Currency)
   }
 
-  public searchById(id: string, language?: Language): Observable<Currency> {
-    language = language || this.context.get().language
+  public searchById(id: string, searchLanguage?: Language, resultLanguage?: Language): Observable<Currency> {
+    searchLanguage = searchLanguage || this.context.get().language
+    resultLanguage = resultLanguage || this.context.get().language
 
-    const key = this.getCacheKey(id, language)
+    const key = this.getCacheKey(id, searchLanguage)
     if (!this.cache$[key]) {
-      this.cache$[key] = this.searchByPredicate(language, (x) => x.id === id).pipe(
+      this.cache$[key] = this.searchByPredicate(searchLanguage, (x) => x.id === id).pipe(
         shareReplay(CACHE_SIZE)
       )
     }
-    return this.cache$[key]
+    const result = this.cache$[key]
+    if (searchLanguage === resultLanguage) {
+      return result
+    }
+    return result.pipe(flatMap(currency => this.searchById(currency.id, resultLanguage)))
   }
 
-  public searchByNameType(nameType: string, language?: Language): Observable<Currency> {
-    language = language || this.context.get().language
+  public searchByNameType(nameType: string, searchLanguage?: Language, resultLanguage?: Language): Observable<Currency> {
+    searchLanguage = searchLanguage || this.context.get().language
+    resultLanguage = resultLanguage || this.context.get().language
 
-    const key = this.getCacheKey(nameType, language)
+    const key = this.getCacheKey(nameType, searchLanguage)
     if (!this.cache$[key]) {
-      this.cache$[key] = this.searchByPredicate(language, (x) => x.nameType === nameType).pipe(
+      this.cache$[key] = this.searchByPredicate(searchLanguage, (x) => x.nameType === nameType).pipe(
         shareReplay(CACHE_SIZE)
       )
     }
-    return this.cache$[key]
+    const result = this.cache$[key]
+    if (searchLanguage === resultLanguage) {
+      return result
+    }
+    return result.pipe(flatMap(currency => this.searchById(currency.id, resultLanguage)))
   }
 
   private getCacheKey(id: string, language: Language): string {
