@@ -123,8 +123,15 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
   }
 
   public askStillInterested(): void {
+    let item: string
+    if (this.notification.itemLocation) {
+      item = <string>this.notification.item
+    } else {
+      const currencyAmount = <CurrencyAmount>this.notification.item
+      item = `${currencyAmount.amount} ${currencyAmount.currency.nameType}`
+    }
     // TODO: Translate?
-    this.commandService.command(`@${this.notification.playerName} Hi, are you still interested in ${this.notification.item} for ${this.notification.price.amount} ${this.notification.price.currency.nameType}?`)
+    this.commandService.command(`@${this.notification.playerName} Hi, are you still interested in ${item} for ${this.notification.price.amount} ${this.notification.price.currency.nameType}?`)
   }
 
   public highlightItem(): void {
