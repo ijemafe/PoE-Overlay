@@ -91,7 +91,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
 
   public leaveParty(): void {
     // TODO: use `/kick [playerName]` where [playerName] is your own character name, which we should allow the user to input in their settings.
-    this.snackbar.warning('[TraceCompanion] Missing Feature: Leave Party')
+    this.snackbar.warning('[TradeCompanion] Missing Feature: Leave Party')
   }
 
   public inviteToParty(): void {
