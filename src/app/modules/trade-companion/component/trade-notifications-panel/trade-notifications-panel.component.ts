@@ -87,9 +87,6 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
     }
   }
 
-  public toggleGrid(): void {
-  }
-
   public close(): void {
     this.closeClick$.next()
   }

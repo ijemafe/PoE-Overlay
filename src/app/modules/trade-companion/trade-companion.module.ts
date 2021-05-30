@@ -86,12 +86,11 @@ export class TradeCompanionModule implements FeatureModule {
   }
 
   public getFeatures(settings: TradeCompanionUserSettings): Feature[] {
-    return [{
-      name: 'stash-grid',
-      accelerator: undefined,
-    }]
+    // No specific features of the Trade Companion support short-cuts atm.
+    return []
   }
 
   public run(feature: string, settings: TradeCompanionUserSettings): void {
+    // Nothing specific has to run for this feature
   }
 }
