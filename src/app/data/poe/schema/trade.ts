@@ -181,10 +181,29 @@ export interface MapFilters {
   map_packsize?: FilterValueOption
   map_iiq?: FilterValueOption
   map_iir?: FilterValueOption
-  map_shaped?: FilterOption
-  map_elder?: FilterOption
+  area_level?: FilterValueOption
   map_blighted?: FilterOption
+  map_region?: FilterOption
   map_series?: FilterOption
+}
+
+export interface HeistFilters {
+  heist_wings?: FilterValueOption,
+  heist_max_wings?: FilterValueOption,
+  heist_escape_routes?: FilterValueOption,
+  heist_max_escape_routes?: FilterValueOption,
+  heist_reward_rooms?: FilterValueOption,
+  heist_max_reward_rooms?: FilterValueOption,
+  heist_objective_value?: FilterOption
+  heist_lockpicking?: FilterValueOption,
+  heist_brute_force?: FilterValueOption,
+  heist_perception?: FilterValueOption,
+  heist_demolition?: FilterValueOption,
+  heist_counter_thaumaturgy?: FilterValueOption,
+  heist_trap_disarmament?: FilterValueOption,
+  heist_agility?: FilterValueOption,
+  heist_deception?: FilterValueOption,
+  heist_engineering?: FilterValueOption,
 }
 
 export interface UltimatumFilters {
@@ -232,6 +251,7 @@ export interface Filters {
   socket_filters?: FilterGroup<SocketFilters>
   req_filters?: FilterGroup<ReqFilters>
   map_filters?: FilterGroup<MapFilters>
+  heist_filters?: FilterGroup<HeistFilters>
   ultimatum_filters?: FilterGroup<UltimatumFilters>
   misc_filters?: FilterGroup<MiscFilters>
   trade_filters?: TradeFilterGroup

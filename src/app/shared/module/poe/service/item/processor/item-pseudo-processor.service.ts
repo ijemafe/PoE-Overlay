@@ -40,6 +40,7 @@ export class ItemPseudoProcessorService {
             if (
               stat.type !== StatType.Pseudo && // Never remove pseudo stats
               item.rarity !== ItemRarity.Unique && // Never remove stats from unique items
+              item.rarity !== ItemRarity.UniqueRelic && // Never remove stats from unique relic items
               stat.type !== StatType.Fractured && // Never remove fractured stats
               // Never remove synthesized implicit stats
               (!item.influences || !item.influences.synthesized || stat.type !== StatType.Implicit)

@@ -11,6 +11,7 @@ import {
   ItemValue,
 } from '@shared/module/poe/type'
 import { ClientStringService } from '../../client-string/client-string.service'
+import { ItemParserUtils } from './item-parser.utils'
 
 const AUGMENTED_PHRASE = ' (augmented)'
 
@@ -26,7 +27,6 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
   public parse(item: ExportedItem, target: Item): Section {
     switch (target.rarity) {
       case ItemRarity.DivinationCard:
-      case ItemRarity.Currency:
         return null
     }
 
@@ -51,13 +51,15 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
         case ItemRarity.Magic:
         case ItemRarity.Rare:
         case ItemRarity.Unique:
+        case ItemRarity.UniqueRelic:
         case ItemRarity.NonUnique:
           props.weaponPhysicalDamage = this.parseValueProperty(
             line,
             phrases[0],
             props.weaponPhysicalDamage
           )
-          props.weaponElementalDamage = this.parseValueProperty(
+          // Elemental damage can contain multiple damage values (fire/cold/lightning/etc...)
+          props.weaponElementalDamage = this.parseValueProperties(
             line,
             phrases[1],
             props.weaponElementalDamage
@@ -130,6 +132,28 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
     return property
   }
 
+  private parseValueProperties(
+    line: string,
+    phrase: string,
+    prop: ItemValueProperty[],
+    numDecimals: number = 0
+  ): ItemValueProperty[] {
+    if (line.indexOf(phrase) !== 0) {
+      return prop
+    }
+    return line
+      .slice(phrase.length)
+      .split(',')
+      .map((t) => {
+        const [text, augmented] = this.parseText(t.trim())
+        const property: ItemValueProperty = {
+          augmented,
+          value: ItemParserUtils.parseItemValue(text, numDecimals),
+        }
+        return property
+      })
+  }
+
   private parseValueProperty(
     line: string,
     phrase: string,
@@ -140,41 +164,24 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
     if (!text) {
       return prop
     }
-    let itemValue: ItemValue
-    if (text.indexOf('/') !== -1) {
-      const splitted = text.split('/')
-      itemValue = {
-        text,
-        value: this.parseNumber(splitted[0], numDecimals),
-        min: this.parseNumber(splitted[0], numDecimals),
-        max: this.parseNumber(splitted[1], numDecimals),
-      }
-    } else {
-      itemValue = {
-        text,
-        value: this.parseNumber(text, numDecimals),
-      }
-    }
     const property: ItemValueProperty = {
       augmented,
-      value: itemValue,
+      value: ItemParserUtils.parseItemValue(text, numDecimals),
     }
     return property
-  }
-
-  private parseNumber(text: string, numDecimals: number): number {
-    return +text.split(/[\+%,\. ]+/).join('') / Math.pow(10, numDecimals)
   }
 
   private parsePhrase(line: string, phrase: string): [string, boolean] {
     if (line.indexOf(phrase) !== 0) {
       return ['', false]
     }
-    let text = line.slice(phrase.length)
+    return this.parseText(line.slice(phrase.length))
+  }
+
+  private parseText(line: string): [string, boolean] {
     const max = this.clientString.translate('ItemDisplaySkillGemMaxLevel').replace('{0}', '')
-    text = text.replace(max, '')
-    const augmented = text.indexOf(AUGMENTED_PHRASE) !== -1
-    text = text.replace(AUGMENTED_PHRASE, '')
+    const augmented = line.indexOf(AUGMENTED_PHRASE) !== -1
+    const text = line.replace(max, '').replace(AUGMENTED_PHRASE, '')
     return [text, augmented]
   }
 

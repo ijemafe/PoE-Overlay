@@ -1,6 +1,6 @@
 # Dockerfile for Linux build automation.
 # 
-# Run with 'docker build -o release .' from the repo root.
+# Run with 'DOCKER_BUILDKIT=1 docker build -o release .' from the repo root.
 # 
 # Demonstrates developing PoE-Overlay on Linux and produces testable Linux
 # builds. Each step will be cached independently, so subsequent builds will be
@@ -35,6 +35,8 @@ COPY electron $codedir/electron
 COPY img $codedir/img
 COPY src $codedir/src
 
+# Since 0.7.11 npm default memory restriction is too small to build the overlay
+ENV NODE_OPTIONS=--max_old_space_size=4096
 # Install NodeJS dependencies/modules.
 RUN npm install
 

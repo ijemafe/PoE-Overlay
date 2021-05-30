@@ -69,19 +69,27 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.AccessoryBelt:
       case ItemCategory.AccessoryRing:
       case ItemCategory.AccessoryTrinket:
-        if (item.rarity === ItemRarity.Unique) {
-          query.filters.type_filters.filters.rarity = {
-            option: ItemRarity.Unique,
-          }
-        } else {
-          query.filters.type_filters.filters.rarity = {
-            option: ItemRarity.NonUnique,
-          }
+        switch (item.rarity) {
+          case ItemRarity.Unique:
+            query.filters.type_filters.filters.rarity = {
+              option: item.rarity,
+            }
+            break
+          case ItemRarity.UniqueRelic:
+            query.filters.type_filters.filters.rarity = {
+              option: item.relic ? item.rarity : ItemRarity.Unique,
+            }
+            break
+          default:
+            query.filters.type_filters.filters.rarity = {
+              option: ItemRarity.NonUnique,
+            }
 
-          if (query.name) {
-            query.term = `${query.name.option || ''} ${query.type.option || ''}`.trim()
-            query.name = query.type = undefined
-          }
+            if (query.name) {
+              query.term = `${query.name.option || ''} ${query.type.option || ''}`.trim()
+              query.name = query.type = undefined
+            }
+            break
         }
         query.filters.type_filters.filters.category = {
           option: item.category,
@@ -100,8 +108,22 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.MonsterBeast:
       // watchstones
       case ItemCategory.Watchstone:
-        query.filters.type_filters.filters.rarity = {
-          option: item.rarity === ItemRarity.Unique ? ItemRarity.Unique : ItemRarity.NonUnique,
+        switch (item.rarity) {
+          case ItemRarity.Unique:
+            query.filters.type_filters.filters.rarity = {
+              option: item.rarity,
+            }
+            break
+          case ItemRarity.UniqueRelic:
+            query.filters.type_filters.filters.rarity = {
+              option: item.relic ? item.rarity : ItemRarity.Unique,
+            }
+            break
+          default:
+            query.filters.type_filters.filters.rarity = {
+              option: ItemRarity.NonUnique,
+            }
+            break
         }
         query.filters.type_filters.filters.category = {
           option: item.category,
@@ -150,7 +172,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
         query.filters.type_filters.filters.category = {
           option: item.category,
         }
-        if (item.rarity === ItemRarity.Unique) {
+        if (item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) {
           query.name = undefined
         }
         break

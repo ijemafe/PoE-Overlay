@@ -40,5 +40,18 @@ export class ItemSearchFiltersMapService implements ItemSearchFiltersService {
         min: prop.mapPacksize.value.value,
       }
     }
+
+    if (prop.areaLevel) {
+      query.filters.map_filters.filters.area_level = {
+        min: prop.areaLevel.value.min,
+        max: prop.areaLevel.value.max,
+      }
+    }
+
+    if (item.blighted) {
+      query.filters.map_filters.filters.map_blighted = {
+        option: 'true',
+      }
+    }
   }
 }

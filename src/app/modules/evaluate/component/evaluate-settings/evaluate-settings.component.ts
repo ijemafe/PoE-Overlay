@@ -31,6 +31,9 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultItemLevel: boolean
   evaluateQueryDefaultLinks: number
   evaluateQueryDefaultUltimatum: boolean
+  evaluateQueryDefaultHeistRequiredLevels: boolean
+  evaluateQueryDefaultHeistContracts: boolean
+  evaluateQueryDefaultHeistBlueprints: boolean
   evaluateQueryDefaultMiscs: boolean
   evaluateQueryDefaultType: boolean
   evaluateQueryDefaultAttack: boolean
@@ -164,6 +167,23 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
           selected: !!this.settings.evaluateQueryDefaultStats[key],
         }
         items.push(item)
+      } else {
+        const englishStat = pseudo.text[Language.English]
+        if (englishStat) {
+          const statDesc = englishStat[0]
+          const regex = statDesc[Object.getOwnPropertyNames(statDesc)[0]]
+          // Incursion Pseudos
+          if (regex.startsWith('^Has Room:')) {
+            const key = `${StatType.Pseudo}.${tradeId}`
+            const item: StatSelectListItem = {
+              key,
+              type: StatType.Pseudo,
+              text: this.statsService.translate(pseudo, 0, this.settings.language),
+              selected: !!this.settings.evaluateQueryDefaultStats[key],
+            }
+            items.push(item)
+          }
+        }
       }
     })
 

@@ -13,3 +13,8 @@
     <div class="unidentified">{{ 'ItemPopupUnidentified' | clientString: language }}</div>
   </app-item-frame-query>
 </ng-container>
+<ng-container *ngIf="item.relic !== undefined">
+  <app-item-frame-query [(property)]="queryItem.relic" [value]="item.relic">
+    <div class="relic">{{ 'ItemPopupRelicUnique' | clientString: language }}</div>
+  </app-item-frame-query>
+</ng-container>

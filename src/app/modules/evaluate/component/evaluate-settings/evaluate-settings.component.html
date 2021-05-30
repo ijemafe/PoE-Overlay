@@ -254,6 +254,20 @@
             </mat-slide-toggle>
           </div>
           <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistRequiredLevels"
+                              (change)="settings.evaluateQueryDefaultHeistRequiredLevels = $event.checked">
+              {{ 'evaluate.search.heist.req-lvls' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistContracts"
+                              (change)="settings.evaluateQueryDefaultHeistContracts = $event.checked">
+              {{ 'evaluate.search.heist.contract' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistBlueprints"
+                              (change)="settings.evaluateQueryDefaultHeistBlueprints = $event.checked">
+              {{ 'evaluate.search.heist.blueprint' | translate }}
+            </mat-slide-toggle>
+          </div>
+          <div class="toggle">
             <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
                               (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
               {{ 'evaluate.search.gem' | translate }}

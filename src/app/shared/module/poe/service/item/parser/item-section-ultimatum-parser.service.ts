@@ -12,6 +12,7 @@ import { BaseItemTypesService } from '../../base-item-types/base-item-types.serv
 import { ClientStringService } from '../../client-string/client-string.service'
 import { UltimatumStringService } from '../../ultimatum/ultimatum-string.service'
 import { WordService } from '../../word/word.service'
+import { ItemParserUtils } from './item-parser.utils'
 
 @Injectable({
   providedIn: 'root',
@@ -42,7 +43,8 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
       target.properties.ultimatum = {}
     }
 
-    const ultimatum = target.properties.ultimatum
+    const props = target.properties
+    const ultimatum = props.ultimatum
 
     const lines = ultimatumSection.lines
 
@@ -94,6 +96,13 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
       }
     } else if (ultimatum.rewardType === UltimatumRewardType.UniqueItem) {
       ultimatum.requiredItem = this.wordService.search(sacrificeValue)
+    }
+
+    // Area Level
+    const areaLevelPhrase = `${this.clientString.translate('UltimatumItemisedTrialLevel')}: `
+    props.areaLevel = {
+      value: ItemParserUtils.parseItemValue(lines[1].slice(areaLevelPhrase.length).trim(), 0),
+      augmented: false,
     }
 
     return ultimatumSection

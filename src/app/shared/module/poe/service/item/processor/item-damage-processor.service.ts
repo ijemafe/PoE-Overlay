@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Item, ItemProperties, ItemValue, ItemValueProperty } from '@shared/module/poe/type'
+import { ItemParserUtils } from '../parser/item-parser.utils'
 
 @Injectable({
   providedIn: 'root',
@@ -80,11 +81,11 @@ export class ItemDamageProcessorService {
 
   private calculateElementalDps(properties: ItemProperties): ItemValue {
     const { weaponElementalDamage, weaponAttacksPerSecond } = properties
-    if (!weaponElementalDamage) {
+    if (!weaponElementalDamage || weaponElementalDamage.length == 0) {
       return undefined
     }
 
-    const damage = this.sum(weaponElementalDamage)
+    const damage = weaponElementalDamage.reduce((damage, prop) => this.sum(prop, damage), 0)
     const dps = this.addAps(weaponAttacksPerSecond, damage)
 
     const value: ItemValue = {
@@ -119,7 +120,7 @@ export class ItemDamageProcessorService {
   private sum(prop: ItemValueProperty, sum: number = 0): number {
     return prop.value.text
       .split('-')
-      .map((x) => +x.replace('%', ''))
+      .map((x) => ItemParserUtils.parseNumber(x, 0))
       .reduce((a, b) => a + b, sum)
   }
 }

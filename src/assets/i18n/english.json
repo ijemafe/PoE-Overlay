@@ -99,6 +99,11 @@
       "defense": "Defense",
       "filter": "Filter",
       "gem": "Gem Level, Map Tier & Quality",
+      "heist": {
+        "blueprint": "Heist Blueprint Properties",
+        "contract": "Heist Contract Properties",
+        "req-lvls": "Heist Required Levels"
+      },
       "item-default-links": "Item Link",
       "item-level": "Item Level",
       "item-links": {

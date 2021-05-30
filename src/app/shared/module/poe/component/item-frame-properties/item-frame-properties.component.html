@@ -189,7 +189,20 @@
     <ng-container *ngSwitchCase="'ultimatum'">
       <app-item-frame-properties-ultimatum [item]="item" [queryItem]="queryItem" [language]="language"></app-item-frame-properties-ultimatum>
     </ng-container>
-  </div>
+    <ng-container *ngSwitchCase="'incursion'">
+      <app-item-frame-properties-incursion [item]="item" [queryItem]="queryItem" [language]="language"></app-item-frame-properties-incursion>
+    </ng-container>
+    <ng-container *ngSwitchCase="'heist'">
+      <app-item-frame-properties-heist [item]="item" [queryItem]="queryItem" [language]="language" [minRange]="minRange" [maxRange]="maxRange"></app-item-frame-properties-heist>
+    </ng-container>
+    <ng-container *ngSwitchCase="'areaLevel'">
+      <ng-container *ngTemplateOutlet="
+          value;
+          context: { prop: prop, name: property, key: 'ItemDisplayHeistContractLevel', range: false }
+        ">
+      </ng-container>
+    </ng-container>
+</div>
 </ng-container>
 
 <ng-template #damage let-name="name" let-prop="prop">

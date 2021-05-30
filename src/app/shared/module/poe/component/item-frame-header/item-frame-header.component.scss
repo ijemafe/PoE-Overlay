@@ -73,6 +73,22 @@
     }
   }
 
+  &.uniquefoil {
+    background: url(../../../../../../assets/poe/item/header-relic-left.png) top left no-repeat,
+      url(../../../../../../assets/poe/item/header-relic-right.png) top right no-repeat,
+      url(../../../../../../assets/poe/item/header-relic-middle.png) top center repeat-x;
+
+    &.double {
+      background: url(../../../../../../assets/poe/item/header-double-relic-left.png) top left no-repeat,
+      url(../../../../../../assets/poe/item/header-double-relic-right.png) top right no-repeat,
+      url(../../../../../../assets/poe/item/header-double-relic-middle.png) top center repeat-x;
+    }
+
+    > .name {
+      color: $green;
+    }
+  }
+
   &.currency {
     background: url(../../../../../../assets/poe/item/header-currency-left.png) top left no-repeat,
       url(../../../../../../assets/poe/item/header-currency-right.png) top right no-repeat,

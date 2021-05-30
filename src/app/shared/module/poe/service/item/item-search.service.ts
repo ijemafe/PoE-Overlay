@@ -70,8 +70,8 @@ export class ItemSearchService {
       case ItemCategory.MapFragment:
       case ItemCategory.MapScarab:
       case ItemCategory.Card:
-        if (currency) {
-          return this.exchange(requestedItem, options, currency)
+        if (currency && !requestedItem.properties?.storedExperience) {
+            return this.exchange(requestedItem, options, currency)
         }
         break
     }

@@ -7,53 +7,65 @@ import { delay, flatMap, retryWhen } from 'rxjs/operators'
 import { ItemOverviewResponse } from '../schema/item-overview'
 
 export enum ItemOverviewType {
-  Seed = 'Seed',
-  Invitation = 'Invitation',
-  DeliriumOrb = 'DeliriumOrb',
-  Watchstone = 'Watchstone',
-  Oil = 'Oil',
-  Incubator = 'Incubator',
-  Fossil = 'Fossil',
-  Scarab = 'Scarab',
-  Resonator = 'Resonator',
-  Essence = 'Essence',
+  // General
   DivinationCard = 'DivinationCard',
   Prophecy = 'Prophecy',
-  SkillGem = 'SkillGem',
-  UniqueMap = 'UniqueMap',
-  Map = 'Map',
-  UniqueJewel = 'UniqueJewel',
-  UniqueFlask = 'UniqueFlask',
+  Oil = 'Oil',
+  Incubator = 'Incubator',
+  // Equipment & Gems
   UniqueWeapon = 'UniqueWeapon',
   UniqueArmour = 'UniqueArmour',
   UniqueAccessory = 'UniqueAccessory',
+  UniqueFlask = 'UniqueFlask',
+  UniqueJewel = 'UniqueJewel',
+  SkillGem = 'SkillGem',
+  // Atlas
+  Map = 'Map',
+  BlightedMap = 'BlightedMap',
+  UniqueMap = 'UniqueMap',
+  DeliriumOrb = 'DeliriumOrb',
+  Invitation = 'Invitation',
+  Scarab = 'Scarab',
+  Watchstone = 'Watchstone',
+  // Crafting
+  Fossil = 'Fossil',
+  Resonator = 'Resonator',
   Beast = 'Beast',
+  Essence = 'Essence',
   Vial = 'Vial',
+  // Deprecated (Harvest League)
+  Seed = 'Seed',
 }
 
 const PATH_TYPE_MAP = {
-  [ItemOverviewType.Seed]: 'seeds',
-  [ItemOverviewType.Invitation]: 'invitations',
-  [ItemOverviewType.DeliriumOrb]: 'delirium-orbs',
-  [ItemOverviewType.Watchstone]: 'watchstones',
-  [ItemOverviewType.Oil]: 'oils',
-  [ItemOverviewType.Incubator]: 'incubators',
-  [ItemOverviewType.Fossil]: 'fossils',
-  [ItemOverviewType.Scarab]: 'scarabs',
-  [ItemOverviewType.Resonator]: 'resonators',
-  [ItemOverviewType.Essence]: 'essences',
+  // General
   [ItemOverviewType.DivinationCard]: 'divinationcards',
   [ItemOverviewType.Prophecy]: 'prophecies',
-  [ItemOverviewType.SkillGem]: 'skill-gems',
-  [ItemOverviewType.UniqueMap]: 'unique-maps',
-  [ItemOverviewType.Map]: 'maps',
-  [ItemOverviewType.UniqueJewel]: 'unique-jewels',
-  [ItemOverviewType.UniqueFlask]: 'unique-flaks',
+  [ItemOverviewType.Oil]: 'oils',
+  [ItemOverviewType.Incubator]: 'incubators',
+  // Equipment & Gems
   [ItemOverviewType.UniqueWeapon]: 'unique-weapons',
   [ItemOverviewType.UniqueArmour]: 'unique-armours',
   [ItemOverviewType.UniqueAccessory]: 'unique-accessories',
+  [ItemOverviewType.UniqueFlask]: 'unique-flaks',
+  [ItemOverviewType.UniqueJewel]: 'unique-jewels',
+  [ItemOverviewType.SkillGem]: 'skill-gems',
+  // Atlas
+  [ItemOverviewType.Map]: 'maps',
+  [ItemOverviewType.BlightedMap]: 'blighted-maps',
+  [ItemOverviewType.UniqueMap]: 'unique-maps',
+  [ItemOverviewType.DeliriumOrb]: 'delirium-orbs',
+  [ItemOverviewType.Invitation]: 'invitations',
+  [ItemOverviewType.Scarab]: 'scarabs',
+  [ItemOverviewType.Watchstone]: 'watchstones',
+  // Crafting
+  [ItemOverviewType.Fossil]: 'fossils',
+  [ItemOverviewType.Resonator]: 'resonators',
   [ItemOverviewType.Beast]: 'beats',
+  [ItemOverviewType.Essence]: 'essences',
   [ItemOverviewType.Vial]: 'vials',
+  // Deprecated (Harvest League)
+  [ItemOverviewType.Seed]: 'seeds',
 }
 
 const RETRY_COUNT = 3

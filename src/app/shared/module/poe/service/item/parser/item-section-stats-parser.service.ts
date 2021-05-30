@@ -25,6 +25,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
       case ItemRarity.Magic:
       case ItemRarity.Rare:
       case ItemRarity.Unique:
+      case ItemRarity.UniqueRelic:
         break
       case ItemRarity.Currency:
         if (target.properties?.ultimatum) {
@@ -56,15 +57,17 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
     }
 
     if (item.properties.weaponPhysicalDamage) {
-      options.local_minimum_added_physical_damagelocal_maximum_added_physical_damage = true
+      options.local_minimum_added_physical_damage_local_maximum_added_physical_damage = true
+      options.local_mana_leech_from_physical_damage_permyriad = true
+      options.local_life_leech_from_physical_damage_permyriad = true
     }
-    if (item.properties.weaponElementalDamage) {
-      options.local_minimum_added_fire_damagelocal_maximum_added_fire_damage = true
-      options.local_minimum_added_cold_damagelocal_maximum_added_cold_damage = true
-      options.local_minimum_added_lightning_damagelocal_maximum_added_lightning_damage = true
+    if (item.properties.weaponElementalDamage && item.properties.weaponElementalDamage.length > 0) {
+      options.local_minimum_added_fire_damage_local_maximum_added_fire_damage = true
+      options.local_minimum_added_cold_damage_local_maximum_added_cold_damage = true
+      options.local_minimum_added_lightning_damage_local_maximum_added_lightning_damage = true
     }
     if (item.properties.weaponChaosDamage) {
-      options.local_minimum_added_chaos_damagelocal_maximum_added_chaos_damage = true
+      options.local_minimum_added_chaos_damage_local_maximum_added_chaos_damage = true
     }
 
     if (item.properties.weaponAttacksPerSecond) {
@@ -72,29 +75,29 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
     }
 
     if (item.properties.armourEvasionRating) {
-      options.base_evasion_rating = true
+      options.local_base_evasion_rating = true
       options.local_evasion_rating___ = true
     }
 
     if (item.properties.armourArmour) {
-      options.base_physical_damage_reduction_rating = true
+      options.local_base_physical_damage_reduction_rating = true
       options.local_physical_damage_reduction_rating___ = true
     }
 
     if (item.properties.armourEnergyShield) {
-      options.base_maximum_energy_shield = true
+      options.local_energy_shield = true
     }
 
     if (
       item.properties.weaponAttacksPerSecond ||
       item.properties.weaponChaosDamage ||
       item.properties.weaponCriticalStrikeChance ||
-      item.properties.weaponElementalDamage ||
+      (item.properties.weaponElementalDamage && item.properties.weaponElementalDamage.length > 0) ||
       item.properties.weaponPhysicalDamage ||
       item.properties.weaponRange
     ) {
       options.local_accuracy_rating = true
-      options.base_chance_to_poison_on_hit__ = true
+      options.local_poison_on_hit__ = true
     }
 
     return options

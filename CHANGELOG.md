@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.14 (2021-05-09)
+
+- Added support for Itemised Incursions (Chronicle of Atzoatl) ([#210](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/210))
+- Added support for Relic/foil Unique items ([#205](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/205))
+- Fixed an issue with missing 'stack-size' (and other properties) when evaluating Currencies ([#209](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/209))
+
 ## 0.7.13 (2021-04-24)
 
 - Fixed an issue when price-checking currencies

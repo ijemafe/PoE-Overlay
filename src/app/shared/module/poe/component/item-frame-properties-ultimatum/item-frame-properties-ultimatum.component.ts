@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { ItemService } from '../../service'
-import { ClientStringService } from '../../service/client-string/client-string.service'
 import { UltimatumStringService } from '../../service/ultimatum/ultimatum-string.service'
 import { Item, Language, UltimatumRewardType } from '../../type'
 

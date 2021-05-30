@@ -109426,8 +109426,8 @@
 		"corrupted_blood_on_hit_%_average_damage_to_deal_per_minute_per_stack maim_on_hit_%_with_at_least_3_stacks_of_corrupted_blood corrupted_blood_on_hit_duration": {
 			"RigwaldWolfFormCorruptedBloodAndMaim": [
 				{
-					"min": 3000,
-					"max": 3000
+					"min": 600,
+					"max": 600
 				},
 				{
 					"min": 100,
@@ -141614,6 +141614,18 @@
 					"max": 100
 				}
 			],
+			"CustomLeagueMonsterAreaOfEffect1": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			],
+			"CustomLeagueMonsterAreaOfEffect2": [
+				{
+					"min": 70,
+					"max": 70
+				}
+			],
 			"MapSimulacrumAreaOfEffect1____": [
 				{
 					"min": 40,
@@ -152426,8 +152438,8 @@
 					"max": 50
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 8,
+					"max": 12
 				}
 			]
 		},
@@ -191999,7 +192011,7 @@
 				}
 			]
 		},
-		"base_actor_scale_+% base_movement_velocity_+% attack_and_cast_speed_+% non_chaos_damage_to_add_as_chaos_damage_% damage_+% display_monster_sirus_influenced": {
+		"base_actor_scale_+% base_movement_velocity_+% attack_and_cast_speed_+% non_chaos_damage_to_add_as_chaos_damage_% damage_+%": {
 			"": [
 				{
 					"min": 20,
@@ -192020,10 +192032,6 @@
 				{
 					"min": 20,
 					"max": 20
-				},
-				{
-					"min": 1,
-					"max": 1
 				}
 			]
 		},

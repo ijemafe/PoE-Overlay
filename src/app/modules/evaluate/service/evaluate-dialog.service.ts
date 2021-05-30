@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { DialogService } from '@app/service/dialog'
 import { Point } from '@app/type'
 import { StatsService } from '@shared/module/poe/service'
-import { Item, Language, StatType } from '@shared/module/poe/type'
+import { Item, ItemCategory, Language, StatType } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
 import { DialogSpawnPosition } from 'src/app/layout/type'
 import {
@@ -84,7 +84,40 @@ export class EvaluateDialogService {
       if (item.properties) {
         Object.getOwnPropertyNames(item.properties).forEach((key) => {
           if (item.properties[key]) {
-            height += DIALOG_LINE_HEIGHT
+            switch (key) {
+              case 'ultimatum':
+                height += DIALOG_LINE_HEIGHT * 2
+                if (item.properties.ultimatum.requiredItem) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                break
+              case 'incursion':
+                const incursion = item.properties.incursion
+                height += DIALOG_LINE_HEIGHT * (incursion.openRooms.length + incursion.closedRooms.length)
+                if (incursion.openRooms.length > 0 && incursion.closedRooms.length > 0) {
+                  height += DIALOG_DIVIDER_HEIGHT
+                }
+                break
+              case 'heist':
+                const heist = item.properties.heist
+                height += (DIALOG_LINE_HEIGHT * heist.requiredSkills.length)
+                if (heist.objectiveName) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                if (heist.wingsRevealed) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                if (heist.escapeRoutes) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                if (heist.rewardRooms) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                break
+              default:
+                height += DIALOG_LINE_HEIGHT
+                break
+            }
           }
         })
       }
@@ -143,11 +176,14 @@ export class EvaluateDialogService {
       }
     }
 
-    if (item.veiled || item.corrupted) {
+    if (item.veiled || item.corrupted || item.relic) {
       if (item.veiled) {
         height += DIALOG_LINE_HEIGHT
       }
       if (item.corrupted) {
+        height += DIALOG_LINE_HEIGHT
+      }
+      if (item.relic) {
         height += DIALOG_LINE_HEIGHT
       }
       height += DIALOG_DIVIDER_HEIGHT

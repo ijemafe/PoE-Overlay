@@ -14,19 +14,22 @@ export interface StatsSearchOptions {
   monsterSample?: boolean
   ultimatum?: boolean
   map?: boolean
-  base_chance_to_poison_on_hit__?: boolean
-  local_minimum_added_physical_damagelocal_maximum_added_physical_damage?: boolean
-  local_minimum_added_fire_damagelocal_maximum_added_fire_damage?: boolean
-  local_minimum_added_cold_damagelocal_maximum_added_cold_damage?: boolean
-  local_minimum_added_lightning_damagelocal_maximum_added_lightning_damage?: boolean
-  local_minimum_added_chaos_damagelocal_maximum_added_chaos_damage?: boolean
+  // The options below must match the ones used in stats-local.json
+  local_poison_on_hit__?: boolean
+  local_minimum_added_physical_damage_local_maximum_added_physical_damage?: boolean
+  local_minimum_added_fire_damage_local_maximum_added_fire_damage?: boolean
+  local_minimum_added_cold_damage_local_maximum_added_cold_damage?: boolean
+  local_minimum_added_lightning_damage_local_maximum_added_lightning_damage?: boolean
+  local_minimum_added_chaos_damage_local_maximum_added_chaos_damage?: boolean
   local_attack_speed___?: boolean
-  base_physical_damage_reduction_rating?: boolean
+  local_base_physical_damage_reduction_rating?: boolean
   local_physical_damage_reduction_rating___?: boolean
-  base_evasion_rating?: boolean
+  local_base_evasion_rating?: boolean
   local_evasion_rating___?: boolean
-  base_maximum_energy_shield?: boolean
+  local_energy_shield?: boolean
   local_accuracy_rating?: boolean
+  local_mana_leech_from_physical_damage_permyriad?: boolean
+  local_life_leech_from_physical_damage_permyriad?: boolean
 }
 
 interface StatsSectionText {
@@ -71,9 +74,10 @@ export class StatsService {
       .slice(1, regex.length - 1)
       .split(VALUE_PLACEHOLDER)
       .map((part) =>
-        part
-          .replace(REVERSE_REGEX, (value) => value.replace('\\', ''))
-          .replace(TYPE_PLACEHOLDER_REGEX, '')
+        part.split("\n").map(p => 
+          p.replace(REVERSE_REGEX, (value) => value.replace('\\', ''))
+            .replace(TYPE_PLACEHOLDER_REGEX, '')
+        ).join("\n")
       )
       .join('#')
   }
@@ -105,9 +109,10 @@ export class StatsService {
       .slice(1, result.length - 1)
       .split(VALUE_PLACEHOLDER)
       .map((part) =>
-        part
-          .replace(REVERSE_REGEX, (value) => value.replace('\\', ''))
-          .replace(TYPE_PLACEHOLDER_REGEX, '')
+        part.split("\n").map(p =>
+          p.replace(REVERSE_REGEX, (value) => value.replace('\\', ''))
+            .replace(TYPE_PLACEHOLDER_REGEX, '')
+        ).join("\n")
       )
   }
 
@@ -141,6 +146,57 @@ export class StatsService {
     return results
   }
 
+  public searchExactInType(text: string, statTypesToSearch: StatType[], language?: Language): ItemStat {
+    language = language || this.context.get().language
+
+    let result: ItemStat
+
+    for (const type of statTypesToSearch) {
+      const stats = this.statsProvider.provide(type)
+      for (const tradeId in stats) {
+        if (!stats.hasOwnProperty(tradeId)) {
+          continue
+        }
+
+        const stat = stats[tradeId]
+        const statDescs = stat.text[language]
+        statDescs.forEach((statDesc, statDescIndex) => {
+          if (result) {
+            return
+          }
+          const predicate = Object.getOwnPropertyNames(statDesc)[0]
+          const regex = statDesc[predicate]
+          if (!regex.length) {
+            return
+          }
+
+          const key = `${type}_${tradeId}_${statDescIndex}`
+          const expr = this.cache[key] || (this.cache[key] = new RegExp(regex, 'm'))
+          const test = expr.exec(text)
+
+          if (!test) {
+            return
+          }
+
+          result = {
+            id: stat.id,
+            mod: stat.mod,
+            option: stat.option,
+            negated: stat.negated,
+            predicateIndex: statDescIndex,
+            predicate: predicate,
+            type,
+            tradeId,
+            values: test.slice(1).map((x) => ({ text: x })),
+            indistinguishable: undefined,
+          }
+        })
+      }
+    }
+
+    return result
+  }
+
   private executeSearch(
     search: StatsSectionsSearch,
     options: StatsSearchOptions,
@@ -162,7 +218,7 @@ export class StatsService {
         statDescs.forEach((statDesc, statDescIndex) => {
           const predicate = Object.getOwnPropertyNames(statDesc)[0]
           const regex = statDesc[predicate]
-          if (regex.length <= 0) {
+          if (!regex.length) {
             return
           }
 
@@ -183,7 +239,7 @@ export class StatsService {
             }
 
             const getKey = (id: string) => {
-              return id.split(' ').join('').split('%').join('_').split('+').join('_')
+              return id.split(' ').join('_').split('%').join('_').split('+').join('_')
             }
 
             const indistinguishable = indistinguishables[tradeId]
