@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
+import { Point } from 'electron'
 import { ItemCategory, Language } from '../../type'
-import { BaseItemCategoriesService } from '../base-item-categories/base-item-categories.service'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { WordService } from '../word/word.service'
@@ -12,7 +12,6 @@ export class ItemService {
   constructor(
     private readonly context: ContextService,
     private readonly baseItemTypesService: BaseItemTypesService,
-    private readonly baseItemCategoriesService: BaseItemCategoriesService,
     private readonly wordService: WordService
   ) {}
 
@@ -34,9 +33,5 @@ export class ItemService {
 
     const type = typeId ? this.baseItemTypesService.translate(typeId, language) : ''
     return type
-  }
-
-  public getCategory(typeId: string): ItemCategory {
-    return this.baseItemCategoriesService.get(typeId)
   }
 }

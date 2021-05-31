@@ -6,7 +6,8 @@ import { forkJoin } from 'rxjs';
 import { GameLogService } from '../../../../../core/service/game-log.service';
 import { TradeRegexesProvider } from '../../provider/trade-regexes.provider';
 import { Language } from '../../type';
-import { ExampleNotificationType, TradeNotification, TradeNotificationType } from '../../type/trade-companion.type';
+import { ExampleNotificationType, MAX_STASH_SIZE, TradeNotification, TradeNotificationType } from '../../type/trade-companion.type';
+import { BaseItemTypesService } from '../base-item-types/base-item-types.service';
 import { CurrencyService } from '../currency/currency.service';
 
 const logLineDateFormat = 'YYYY/MM/DD HH:mm:ss'
@@ -44,9 +45,10 @@ export class TradeNotificationsService {
 
   constructor(
     electronProvider: ElectronProvider,
+    tradeRegexesProvider: TradeRegexesProvider,
     private readonly gameLogService: GameLogService,
     private readonly currencyService: CurrencyService,
-    tradeRegexesProvider: TradeRegexesProvider,
+    private readonly baseItemTypesService: BaseItemTypesService
   ) {
     this.ipcMain = electronProvider.provideIpcMain()
     this.ipcRenderer = electronProvider.provideIpcRenderer()
@@ -247,12 +249,14 @@ export class TradeNotificationsService {
       return
     }
     this.currencyService.searchById(currencyID, tradeLanguage).subscribe((currency) => {
+      const itemName = tradeGroups.name
+      const baseItemType = this.baseItemTypesService.get(this.baseItemTypesService.search(itemName, tradeLanguage))
       const notification: TradeNotification = {
         text: fullWhisper,
         type: notificationType,
         time: whisperTime,
         playerName: playerName,
-        item: tradeGroups.name,
+        item: itemName,
         price: {
           amount: +tradeGroups.price,
           currency: currency || {
@@ -264,16 +268,20 @@ export class TradeNotificationsService {
         itemLocation: {
           tabName: tradeGroups.stash,
           bounds: {
-            x: +tradeGroups.left,
-            y: +tradeGroups.top,
-            width: 1,
-            height: 1,
+            x: this.clamp(+tradeGroups.left, 1, MAX_STASH_SIZE),
+            y: this.clamp(+tradeGroups.top, 1, MAX_STASH_SIZE),
+            width: baseItemType?.width ?? 1,
+            height: baseItemType?.height ?? 1,
           }
         },
         offer: tradeGroups.message,
       }
       this.addNotification(notification)
     })
+  }
+
+  private clamp(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max)
   }
 
   private onAddExampleNotification(event: IpcMainEvent, exampleNotificationType: ExampleNotificationType) {

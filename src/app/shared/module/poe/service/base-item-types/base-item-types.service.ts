@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { BaseItemTypesProvider } from '../../provider'
-import { Language } from '../../type'
+import { BaseItemType, Language } from '../../type'
 import { ContextService } from '../context.service'
 
 @Injectable({
@@ -12,9 +12,6 @@ export class BaseItemTypesService {
       [key: string]: RegExp
     }
   } = {}
-  private keys: {
-    [language: string]: string[]
-  } = {}
 
   constructor(
     private readonly context: ContextService,
@@ -24,8 +21,7 @@ export class BaseItemTypesService {
   public translate(id: string, language?: Language): string {
     language = language || this.context.get().language
 
-    const map = this.baseItemTypeProvider.provide(language)
-    const name = map[id]
+    const name = this.get(id).names[language]
     if (!name) {
       return `untranslated: '${id}' for language: '${Language[language]}'`
     }
@@ -34,39 +30,37 @@ export class BaseItemTypesService {
     return name.replace(/\\[.*+?^${}()|[\]\\]/g, (value) => value.replace('\\', ''))
   }
 
+  public get(id: string): BaseItemType {
+    return this.baseItemTypeProvider.provideBaseItemType(id)
+  }
+
   public search(name: string, language?: Language): string {
     language = language || this.context.get().language
 
-    const map = this.baseItemTypeProvider.provide(language)
+    const names = this.baseItemTypeProvider.provideNames(language)
 
     const nameKey = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const hashKey = map[nameKey]
-    if (hashKey) {
-      return hashKey
+    const id = names[nameKey]
+    if (id) {
+      return id
     }
 
     if (!this.cache[language]) {
       this.cache[language] = {}
     }
 
-    if (!this.keys[language]) {
-      this.keys[language] = Object.getOwnPropertyNames(map).filter((key) => key[0] !== `\\`)
-    }
-
     const cache = this.cache[language]
-    const keys = this.keys[language]
 
     let maxScore = Number.MIN_VALUE
-    let maxKey
-    for (const key of keys) {
-      const expr =
-        cache[key] ||
-        (cache[key] = new RegExp('(?<=[\\s,.:;"\']|^)' + map[key] + '(?=[\\s,.:;"\']|$)'))
+    let maxId
+    for (const otherName in names) {
+      const id = names[otherName]
+      const expr = cache[id] || (cache[id] = new RegExp('(?<=[\\s,.:;"\']|^)' + otherName + '(?=[\\s,.:;"\']|$)', ''))
       const match = expr.exec(name)
       if (match) {
-        let score = map[key].split(' ').length * 10
+        let score = otherName.split(' ').length * 10
 
-        const len = map[key].length
+        const len = otherName.length
         const pos = name.length / 2 - Math.abs(name.length / 2 - (match.index + len / 2))
 
         score += pos
@@ -74,10 +68,10 @@ export class BaseItemTypesService {
 
         if (score > maxScore) {
           maxScore = score
-          maxKey = key
+          maxId = id
         }
       }
     }
-    return maxKey
+    return maxId
   }
 }

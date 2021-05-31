@@ -1,7 +1,6 @@
-import { UserSettings } from 'src/app/layout/type';
 import { Rectangle } from '@app/type';
+import { UserSettings } from 'src/app/layout/type';
 import { Currency } from './currency.type';
-import { Point } from 'electron';
 
 export type EnumDictionary<T extends string | symbol | number, U> = {
   [K in T]: U;
@@ -37,6 +36,8 @@ export interface TradeCompanionStashGridOptions {
   gridBounds?: Rectangle
   highlightLocation?: TradeItemLocation
 }
+
+export const MAX_STASH_SIZE = 24
 
 export const STASH_TAB_CELL_COUNT_MAP = {
   [StashGridType.Normal]: 12,

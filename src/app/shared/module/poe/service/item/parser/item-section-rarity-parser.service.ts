@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core'
 import {
-  ExportedItem,
-  Item,
-  ItemCategory,
-  ItemRarity,
-  ItemSection,
-  ItemSectionParserService,
-  Section,
-  ItemGemQualityType,
+    ExportedItem,
+    Item,
+    ItemCategory,
+    ItemGemQualityType, ItemRarity,
+    ItemSection,
+    ItemSectionParserService,
+    Section
 } from '../../../type'
-import { BaseItemCategoriesService } from '../../base-item-categories/base-item-categories.service'
 import { BaseItemTypesService } from '../../base-item-types/base-item-types.service'
 import { ClientStringService } from '../../client-string/client-string.service'
 import { WordService } from '../../word/word.service'
@@ -21,7 +19,6 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
   constructor(
     private readonly clientString: ClientStringService,
     private readonly baseItemTypesService: BaseItemTypesService,
-    private readonly baseItemCategoriesService: BaseItemCategoriesService,
     private readonly wordService: WordService
   ) {}
 
@@ -94,7 +91,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       (x) => x.content.indexOf(metamorphSamplePhrase) === 0
     )
     if (!metamorphSample) {
-      target.category = this.baseItemCategoriesService.get(target.typeId)
+      target.category = this.baseItemTypesService.get(target.typeId).category
     } else {
       target.category = ItemCategory.MonsterSample
 
