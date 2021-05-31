@@ -273,8 +273,8 @@
     "name": "Trade Companion",
     "outgoing-trade-options": "Outgoing Trade Options",
     "reset": "Reset",
-    "show-and-highlight-item": "Show & Highlight on Trade",
-    "show-and-highlight-item-description": "Show the stash grid and highlight the item when clicking the trade button on an incoming trade notification",
+    "show-and-highlight-item": "Show & Highlight on Invite",
+    "show-and-highlight-item-description": "Show the stash grid and highlight the item when clicking the invite button on an incoming trade notification",
     "stash-grid": {
       "cancel": "Cancel",
       "close": "Close",

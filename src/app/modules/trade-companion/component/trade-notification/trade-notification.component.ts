@@ -79,6 +79,10 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
 
   public dismiss(): void {
     this.dismissNotification.emit(this.notification)
+    if (this.showingStashGrid) {
+      // Toggle item highlighting
+      this.highlightItem()
+    }
   }
 
   public toggleCollapsed(): void {
@@ -96,6 +100,9 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
 
   public inviteToParty(): void {
     this.commandService.command(`/invite ${this.notification.playerName}`)
+    if (this.settings.showStashGridOnInvite && !this.showingStashGrid && this.notification.type === TradeNotificationType.Incoming) {
+      this.highlightItem()
+    }
   }
 
   public kickFromParty(): void {
@@ -105,9 +112,6 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
 
   public requestTrade(): void {
     this.commandService.command(`/tradewith ${this.notification.playerName}`)
-    if (this.settings.showStashGridOnTrade && !this.showingStashGrid && this.notification.type === TradeNotificationType.Incoming) {
-      this.highlightItem()
-    }
   }
 
   public whois(): void {

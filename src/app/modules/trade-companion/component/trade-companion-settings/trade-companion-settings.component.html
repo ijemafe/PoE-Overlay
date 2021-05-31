@@ -41,7 +41,7 @@
 <app-card [title]="'trade-companion.grid-overlay' | translate">
   <div class="row">
     <div class="col-4">
-      <mat-slide-toggle [checked]="settings.showStashGridOnTrade" (change)="settings.showStashGridOnTrade = $event.checked" matTooltip="{{ 'trade-companion.show-and-highlight-item-description' | translate }}">
+      <mat-slide-toggle [checked]="settings.showStashGridOnInvite" (change)="settings.showStashGridOnInvite = $event.checked" matTooltip="{{ 'trade-companion.show-and-highlight-item-description' | translate }}">
         {{ 'trade-companion.show-and-highlight-item' | translate }}
       </mat-slide-toggle>
     </div>

@@ -15,7 +15,7 @@ export interface TradeCompanionUserSettings extends UserSettings {
   outgoingTradeOptions: TradeCompanionOption[]
   stashGridBounds: Rectangle[]
   stashGrids: Map<string, StashGridType>
-  showStashGridOnTrade: boolean
+  showStashGridOnInvite: boolean
 }
 
 export interface TradeCompanionOption {
