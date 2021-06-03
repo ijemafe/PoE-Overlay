@@ -18,7 +18,9 @@ export class BaseItemTypesProvider {
       const baseItemType = this.provideBaseItemType(key)
       for (const language in baseItemType.names) {
         const name = baseItemType.names[language]
-        this.baseItemTypeNames[+language][name] = key
+        if (!this.baseItemTypeNames[+language][name]) {
+          this.baseItemTypeNames[+language][name] = key
+        }
       }
     }
   }
