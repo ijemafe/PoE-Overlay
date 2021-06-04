@@ -162,31 +162,27 @@ export class TradeNotificationsService {
 
   private parsePlayerJoinedArea(whisperMatch: RegExpMatchArray): void {
     const playerName = whisperMatch.groups.player
-    const notification = this.notifications.find((notification) =>
-      notification.type === TradeNotificationType.Incoming &&
+    this.notifications.filter((notification) =>
       notification.playerName === playerName &&
       !notification.playerInHideout &&
       !notification.playerLeftHideout
-    )
-    if (notification) {
+    ).forEach((notification) => {
       notification.playerInHideout = true
       this.notificationAddedOrChanged.emit(notification)
-    }
+    })
   }
 
   private parsePlayerLeftArea(whisperMatch: RegExpMatchArray): void {
     const playerName = whisperMatch.groups.player
-    const notification = this.notifications.find((notification) =>
-      notification.type === TradeNotificationType.Incoming &&
+    this.notifications.filter((notification) =>
       notification.playerName === playerName &&
       notification.playerInHideout &&
       !notification.playerLeftHideout
-    )
-    if (notification) {
+    ).forEach((notification) => {
       notification.playerInHideout = false
       notification.playerLeftHideout = true
       this.notificationAddedOrChanged.emit(notification)
-    }
+    })
   }
 
   private parseCurrencyTradeWhisper(whisperMatch: RegExpMatchArray, tradeMatch: RegExpMatchArray, tradeLanguage: Language): void {
