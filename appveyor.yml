@@ -1,0 +1,31 @@
+version: 1.0.{build}
+image:
+  - Visual Studio 2017
+platform:
+  - x64
+environment:
+  NODE_OPTIONS: --max-old-space-size=7168
+  NODE_ENV: development
+branches:
+  only:
+  - master
+cache:
+  - node_modules
+  - '%USERPROFILE%\.electron'
+init:
+  - git config --global core.autocrlf input
+install:
+  - echo "* Running Install..."
+  - ps: Install-Product node 12 x64
+  - npm install npm -g
+  - npm -v
+  - npm install
+  - npm run electron:rebuild
+build_script:
+  - echo "* Running Build..."
+  - node_modules/.bin/tsc -p tsconfig.serve.json
+  - node_modules/.bin/ng build -c production
+  - node_modules/.bin/electron-builder build --windows --publish never
+artifacts:
+  - path: 'release\*.*'
+test: off
