@@ -10,4 +10,5 @@ export interface UserSettingsFeature {
   name: string
   component: Type<UserSettingsComponent>
   defaultSettings: UserSettings
+  visualPriority: number
 }

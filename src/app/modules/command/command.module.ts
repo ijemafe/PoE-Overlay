@@ -31,6 +31,7 @@ export class CommandModule implements FeatureModule {
       name: 'command.name',
       component: CommandSettingsComponent,
       defaultSettings,
+      visualPriority: 20,
     }
   }
 

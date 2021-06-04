@@ -82,7 +82,7 @@ export class UserSettingsComponent implements OnInit {
       const { language, leagueId } = settings
       this.context.init({ language, leagueId }).subscribe(() => {
         this.settings = settings
-        this.features = this.settingsService.features()
+        this.features = [...this.settingsService.features()].sort((a, b) => b.visualPriority - a.visualPriority)
 
         this.init$.next(true)
       })

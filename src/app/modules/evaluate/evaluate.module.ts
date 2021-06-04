@@ -90,6 +90,7 @@ export class EvaluateModule implements FeatureModule {
       name: 'evaluate.name',
       component: EvaluateSettingsComponent,
       defaultSettings,
+      visualPriority: 100,
     }
   }
 

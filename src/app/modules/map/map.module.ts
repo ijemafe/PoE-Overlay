@@ -46,6 +46,7 @@ export class MapModule implements FeatureModule {
       name: 'map.name',
       component: MapSettingsComponent,
       defaultSettings,
+      visualPriority: 30,
     }
   }
 

@@ -34,6 +34,7 @@ export class MiscModule implements FeatureModule {
       name: 'misc.name',
       component: MiscSettingsComponent,
       defaultSettings,
+      visualPriority: 0,
     }
   }
 

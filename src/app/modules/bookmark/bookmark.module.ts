@@ -36,6 +36,7 @@ export class BookmarkModule implements FeatureModule {
       name: 'bookmark.name',
       component: BookmarkSettingsComponent,
       defaultSettings,
+      visualPriority: 10,
     }
   }
 

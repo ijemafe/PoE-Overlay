@@ -82,6 +82,7 @@ export class TradeCompanionModule implements FeatureModule {
       name: 'trade-companion.name',
       component: TradeCompanionSettingsComponent,
       defaultSettings,
+      visualPriority: 90,
     }
   }
 
