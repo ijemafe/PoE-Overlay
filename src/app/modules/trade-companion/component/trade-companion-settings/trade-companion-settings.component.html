@@ -68,6 +68,11 @@
         </mat-select>
       </mat-form-field>
     </div>
+    <div class="col-4">
+      <mat-slide-toggle [checked]="settings.reversedNotificationDirection" (change)="settings.reversedNotificationDirection = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-direction-description' | translate }}">
+        {{ 'trade-companion.reversed-notification-direction' | translate }}
+      </mat-slide-toggle>
+    </div>
   </div>
   <div class="row">
     <div class="col-2" *ngFor="let exampleNotificationType of exampleNotificationTypes.keys">

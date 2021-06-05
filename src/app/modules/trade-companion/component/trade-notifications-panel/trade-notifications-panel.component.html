@@ -3,13 +3,17 @@
      [style.opacity]="settings.tradeCompanionOpacity"
      appResizeDrag
      [ardBounds]="settings.tradeCompanionBounds || gameBounds"
+     [ardReversePosition.y]="settings.reversedNotificationDirection"
+     [ardOffset.y]="calcOffsetY()"
      [ardAppliedBounds.width]="false"
      [ardAppliedBounds.height]="false"
      [ardExtendDragArea]="true"
      [ardInteractionsDisabled]="locked"
      (ardResizeDragEnd)="onResizeDragEnd($event)"
-     [class.movable]="!locked">
-  <div class="header">
+     [class.movable]="!locked"
+     [class.reversed]="settings.reversedNotificationDirection"
+     >
+  <div class="header" #header>
     <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'locked' : 'unlocked') | translate }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
     <mat-icon [class.movable]="!locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'unlock-to-move' : 'drag-handle') | translate }}">open_with</mat-icon>
     <mat-icon class="clickable" (click)="openSettings.emit()" matTooltip="{{ 'trade-companion.trade-notification-panel.settings' | translate }}">settings</mat-icon>

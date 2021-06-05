@@ -88,6 +88,18 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     this.appliedBounds.height = val
   }
 
+  @Input('ardReversePosition.x')
+  public reversePositionX: boolean
+
+  @Input('ardReversePosition.y')
+  public reversePositionY: boolean
+
+  @Input('ardOffset.x')
+  public offsetPositionX = 0
+
+  @Input('ardOffset.y')
+  public offsetPositionY = 0
+
   @Output('ardResizeDrag')
   public resizeDrag = new EventEmitter<Rectangle>()
 
@@ -198,9 +210,29 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
       return
     }
 
-    if (this.appliedBounds.x) this.element.style['left'] = `${this.bounds.x}px`
+    if (this.appliedBounds.x) {
+      const posX = this.bounds.x + this.offsetPositionX
+      if (this.reversePositionX) {
+        const right = this.element.offsetParent.scrollWidth - posX
+        this.element.style['right'] = `${right}px`
+        this.element.style.removeProperty('left')
+      } else {
+        this.element.style['left'] = `${posX}px`
+        this.element.style.removeProperty('right')
+      }
+    }
 
-    if (this.appliedBounds.y) this.element.style['top'] = `${this.bounds.y}px`
+    if (this.appliedBounds.y) {
+      const posY = this.bounds.y + this.offsetPositionY
+      if (this.reversePositionY) {
+        const bottom = this.element.offsetParent.scrollHeight - posY
+        this.element.style['bottom'] = `${bottom}px`
+        this.element.style.removeProperty('top')
+      } else {
+        this.element.style['top'] = `${posY}px`
+        this.element.style.removeProperty('bottom')
+      }
+    }
 
     const width = `${this.bounds.width}px`
     if (this.appliedBounds.width) this.element.style['width'] = width

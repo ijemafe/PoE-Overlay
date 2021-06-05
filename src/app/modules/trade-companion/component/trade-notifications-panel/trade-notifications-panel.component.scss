@@ -1,6 +1,12 @@
+.panel.reversed {
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+
 .panel {
-  display: inline-block;
-  position: relative;
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
 
   .header {
     color: #F0F0F0;
@@ -21,5 +27,14 @@
     .movable {
       cursor: move;
     }
+  }
+
+  .notifications {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .notifications.reversed {
+    flex-direction: column-reverse;
   }
 }

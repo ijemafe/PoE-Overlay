@@ -273,6 +273,8 @@
     "name": "Trade Companion",
     "outgoing-trade-options": "Outgoing Trade Options",
     "reset": "Reset",
+    "reversed-notification-direction": "Reversed Direction",
+    "reversed-notification-direction-description": "Reverse the notification direction to be upwards.",
     "show-and-highlight-item": "Show & Highlight on Invite",
     "show-and-highlight-item-description": "Show the stash grid and highlight the item when clicking the invite button on an incoming trade notification",
     "stash-grid": {

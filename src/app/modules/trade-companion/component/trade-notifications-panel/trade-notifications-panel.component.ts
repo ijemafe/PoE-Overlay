@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service';
 import { TradeCompanionUserSettings, TradeNotification } from '@shared/module/poe/type/trade-companion.type';
 import { Rectangle } from 'electron';
@@ -22,6 +22,9 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
 
   @Output()
   public openSettings = new EventEmitter<void>()
+
+  @ViewChild('header')
+  public headerRef: ElementRef<HTMLDivElement>
 
   public locked = true
 
@@ -74,6 +77,13 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
     this.logLineAddedSub.unsubscribe()
   }
 
+  public calcOffsetY(): number {
+    if (!this.headerRef || !this.settings.reversedNotificationDirection) {
+      return 0
+    }
+    return this.headerRef.nativeElement.offsetHeight
+  }
+
   public onResizeDragEnd(bounds: Rectangle): void {
     const offset = 50
     let windowBounds = this.windowService.getWindowBounds()
@@ -94,6 +104,7 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
   public onDismissNotification(notification: TradeNotification): void {
     this.notifications = this.notifications.filter((tn) => tn !== notification)
     this.tradeNotificationsService.dismissNotification(notification)
+    this.ref.markForCheck();
   }
 
   private intersects(a: Rectangle, b: Rectangle): boolean {

@@ -16,6 +16,7 @@ export interface TradeCompanionUserSettings extends UserSettings {
   stashGridBounds: Rectangle[]
   stashGrids: Map<string, StashGridType>
   showStashGridOnInvite: boolean
+  reversedNotificationDirection: boolean
 }
 
 export interface TradeCompanionOption {
