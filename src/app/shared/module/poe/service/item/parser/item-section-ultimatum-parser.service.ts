@@ -102,7 +102,7 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
     )
     const sacrificeQuantityMatches = sacrificeQuantityRegex.exec(sacrificeValue)
     if (sacrificeQuantityMatches) {
-      ultimatum.requiredItem = this.baseItemTypesService.search(sacrificeQuantityMatches[1].trim())
+      ultimatum.requiredItem = this.baseItemTypesService.searchId(sacrificeQuantityMatches[1].trim())
       const sacrificeAmount = sacrificeQuantityMatches[2]
       ultimatum.requiredItemAmount = {
         text: sacrificeAmount,

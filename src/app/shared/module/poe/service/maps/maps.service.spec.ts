@@ -12,7 +12,7 @@ describe('MapsService', () => {
   }))
 
   it('should get map', () => {
-    const map = sut.get('MapAtlasQuay')
+    const map = sut.get('MapWorldsPort')
     expect(map).toBeTruthy()
   })
 })

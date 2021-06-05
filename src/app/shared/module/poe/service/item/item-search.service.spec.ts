@@ -94,7 +94,7 @@ describe('ItemSearchService', () => {
 
   it('should return items', (done) => {
     const requestedItem: Item = {
-      typeId: baseItemTypesService.search('Topaz Ring', 1),
+      typeId: baseItemTypesService.searchId('Topaz Ring', 1),
     }
     tradeServiceSpy.search.and.returnValue(of(mockSearchResult))
     tradeServiceSpy.exchange.and.returnValue(of(mockSearchResult))
@@ -112,7 +112,7 @@ describe('ItemSearchService', () => {
 
   it('should list items from search', (done) => {
     const requestedItem: Item = {
-      typeId: baseItemTypesService.search('Topaz Ring', 1),
+      typeId: baseItemTypesService.searchId('Topaz Ring', 1),
     }
     tradeServiceSpy.search.and.returnValue(of(mockSearchResult))
     tradeServiceSpy.exchange.and.returnValue(of(mockSearchResult))

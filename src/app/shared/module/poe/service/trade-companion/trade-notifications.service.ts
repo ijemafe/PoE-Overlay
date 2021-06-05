@@ -5,7 +5,7 @@ import moment from 'moment'
 import { forkJoin } from 'rxjs'
 import { GameLogService } from '../../../../../core/service/game-log.service'
 import { TradeRegexesProvider } from '../../provider/trade-regexes.provider'
-import { Language } from '../../type'
+import { Currency, ItemCategory, Language } from '../../type'
 import {
   ExampleNotificationType,
   MAX_STASH_SIZE,
@@ -13,12 +13,30 @@ import {
   TradeNotificationType,
 } from '../../type/trade-companion.type'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
+import { ClientStringService } from '../client-string/client-string.service'
 import { CurrencyService } from '../currency/currency.service'
+import { WordService } from '../word/word.service'
 
 const logLineDateFormat = 'YYYY/MM/DD HH:mm:ss'
 const fromToPlaceholder = '{fromto}'
 
 const AddExampleTradeNotificationKey = 'trade-notification-add-example'
+
+const MapGenerationId = 10
+
+const MapTierRegexes: LangRegExp[] = [
+  { language: Language.English, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
+  { language: Language.Portuguese, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
+  { language: Language.Russian, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
+  { language: Language.Thai, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
+  { language: Language.German, regex: new RegExp("\\(Lvl (?<tier>\\S+)\\)") },
+  { language: Language.French, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
+  { language: Language.Spanish, regex: new RegExp("\\(G(?<tier>\\S+)\\)") },
+  { language: Language.Korean, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
+  { language: Language.TraditionalChinese, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
+]
+
+const TierlessMaps = ['MapWorldsChimera', 'MapWorldsHydra', 'MapWorldsMinotaur', 'MapWorldsPhoenix']
 
 interface TradeRegexes {
   whisper: RegExp
@@ -53,7 +71,8 @@ export class TradeNotificationsService {
     tradeRegexesProvider: TradeRegexesProvider,
     private readonly gameLogService: GameLogService,
     private readonly currencyService: CurrencyService,
-    private readonly baseItemTypesService: BaseItemTypesService
+    private readonly baseItemTypesService: BaseItemTypesService,
+    private readonly clientString: ClientStringService,
   ) {
     this.ipcMain = electronProvider.provideIpcMain()
     this.ipcRenderer = electronProvider.provideIpcRenderer()
@@ -236,6 +255,19 @@ export class TradeNotificationsService {
       this.currencyService.searchByNameType(currencyID, tradeLanguage),
       this.currencyService.searchByNameType(offerItemID, tradeLanguage),
     ]).subscribe((currencies) => {
+      const currency = currencies[0] || {
+        id: currencyID,
+        nameType: currencyID,
+        image: null,
+      }
+      const offerCurrency = currencies[1] || {
+        id: offerItemID,
+        nameType: offerItemID,
+        image: null,
+      }
+      currency.image = currency.image || this.getImageUrl(currencyID, tradeLanguage)
+      offerCurrency.image = offerCurrency.image || this.getImageUrl(offerItemID, tradeLanguage)
+
       const notification: TradeNotification = {
         text: fullWhisper,
         type: notificationType,
@@ -243,19 +275,11 @@ export class TradeNotificationsService {
         playerName,
         item: {
           amount: +tradeGroups.count,
-          currency: currencies[0] || {
-            id: currencyID,
-            nameType: currencyID,
-            image: null,
-          },
+          currency: currency,
         },
         price: {
           amount: +tradeGroups.price,
-          currency: currencies[1] || {
-            id: offerItemID,
-            nameType: offerItemID,
-            image: null,
-          },
+          currency: offerCurrency,
         },
         offer: tradeGroups.message,
       }
@@ -287,10 +311,14 @@ export class TradeNotificationsService {
       return
     }
     this.currencyService.searchById(currencyID, tradeLanguage).subscribe((currency) => {
+      currency = currency || {
+        id: currencyID,
+        nameType: currencyID,
+        image: null,
+      }
+      currency.image = currency.image || this.getImageUrl(currencyID, tradeLanguage)
       const itemName = tradeGroups.name
-      const baseItemType = this.baseItemTypesService.get(
-        this.baseItemTypesService.search(itemName, tradeLanguage)
-      )
+      const baseItemType = this.baseItemTypesService.search(itemName, tradeLanguage).baseItemType
       const notification: TradeNotification = {
         text: fullWhisper,
         type: notificationType,
@@ -299,11 +327,7 @@ export class TradeNotificationsService {
         item: itemName,
         price: {
           amount: +tradeGroups.price,
-          currency: currency || {
-            id: currencyID,
-            nameType: currencyID,
-            image: null,
-          },
+          currency: currency,
         },
         itemLocation: {
           tabName: tradeGroups.stash,
@@ -322,6 +346,44 @@ export class TradeNotificationsService {
 
   private clamp(value: number, min: number, max: number) {
     return Math.min(Math.max(value, min), max)
+  }
+
+  private getImageUrl(item: string, language: Language): string {
+    const result = this.baseItemTypesService.search(item, language)
+    const baseItemType = result?.baseItemType
+    if (!baseItemType) {
+      return null
+    }
+    switch (baseItemType.category) {
+      case ItemCategory.Card:
+        return '/image/Art/2DItems/Divination/InventoryIcon.png?w=1&h=1&scale=1'
+      case ItemCategory.Prophecy:
+        return '/image/Art/2DItems/Currency/ProphecyOrbRed.png?w=1&h=1&scale=1'
+      case ItemCategory.Map:
+        if (!baseItemType.artName) {
+          return null
+        }
+
+        // Check for map tier
+        const tierRegex = MapTierRegexes.find((x) => x.language === language)?.regex
+        const tierMatch = tierRegex?.exec(item)
+        let tier = tierMatch?.groups?.tier ?? 0
+        if (TierlessMaps.indexOf(result.id) !== -1) {
+          tier = 0
+        }
+
+        // Check for blighted map
+        let blighted = ''
+        const blightedMapItemNameDisplay = this.clientString
+          .translate('InfectedMap')
+          .replace('{0}', baseItemType.names[language])
+        if (item.startsWith(blightedMapItemNameDisplay)) {
+          blighted = '&mb=1'
+        }
+
+        return `/image/${baseItemType.artName}.png?w=1&h=1&scale=1&mn=${MapGenerationId}&mt=${tier}${blighted}`
+    }
+    return null
   }
 
   private onAddExampleNotification(

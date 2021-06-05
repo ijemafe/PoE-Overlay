@@ -90,7 +90,7 @@ describe('ItemSearchAnalyzeService', () => {
 
   it('should return items', (done) => {
     const requestedItem: Item = {
-      typeId: baseItemTypesService.search('Topaz Ring'),
+      typeId: baseItemTypesService.searchId('Topaz Ring'),
     }
     itemSearchServiceSpy.searchOrExchange.and.returnValue(of(mockSearchResult))
     itemSearchServiceSpy.list.and.returnValue(of(mockListResult))
