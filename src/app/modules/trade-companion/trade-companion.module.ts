@@ -18,20 +18,17 @@ import { TradeNotificationPanelComponent } from './component/trade-notifications
     TradeNotificationPanelComponent,
   ],
   imports: [SharedModule],
-  exports: [
-    TradeCompanionStashGridComponent,
-    TradeNotificationPanelComponent
-  ],
+  exports: [TradeCompanionStashGridComponent, TradeNotificationPanelComponent],
 })
 export class TradeCompanionModule implements FeatureModule {
-  constructor() { }
+  constructor() {}
 
   public getSettings(): UserSettingsFeature {
     const maxVisibileTradeNotifications = 8
     const defaultSettings: TradeCompanionUserSettings = {
       tradeCompanionEnabled: false,
       tradeCompanionOpacity: 1.0,
-      maxVisibileTradeNotifications: maxVisibileTradeNotifications,
+      maxVisibileTradeNotifications,
       incomingTradeOptions: [
         {
           buttonLabel: '1m',
@@ -60,21 +57,20 @@ export class TradeCompanionModule implements FeatureModule {
           dismissNotification: true,
         },
       ],
-      stashGridBounds:
-        [
-          {
-            x: 16,
-            y: 134,
-            width: 624,//12*52px
-            height: 624,
-          },
-          {
-            x: 16,
-            y: 134,
-            width: 624,//24*26px
-            height: 624,
-          }
-        ],
+      stashGridBounds: [
+        {
+          x: 16,
+          y: 134,
+          width: 624, // 12*52px
+          height: 624,
+        },
+        {
+          x: 16,
+          y: 134,
+          width: 624, // 24*26px
+          height: 624,
+        },
+      ],
       stashGrids: new Map(),
       showStashGridOnInvite: true,
       reversedNotificationDirection: false,

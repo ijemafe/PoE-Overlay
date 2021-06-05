@@ -27,7 +27,11 @@ export class CurrencyService {
     return this.currenciesProvider.provide(language, TradeStaticResultId.Currency)
   }
 
-  public searchById(id: string, searchLanguage?: Language, resultLanguage?: Language): Observable<Currency> {
+  public searchById(
+    id: string,
+    searchLanguage?: Language,
+    resultLanguage?: Language
+  ): Observable<Currency> {
     searchLanguage = searchLanguage || this.context.get().language
     resultLanguage = resultLanguage || this.context.get().language
 
@@ -41,24 +45,29 @@ export class CurrencyService {
     if (searchLanguage === resultLanguage) {
       return result
     }
-    return result.pipe(flatMap(currency => this.searchById(currency.id, resultLanguage)))
+    return result.pipe(flatMap((currency) => this.searchById(currency.id, resultLanguage)))
   }
 
-  public searchByNameType(nameType: string, searchLanguage?: Language, resultLanguage?: Language): Observable<Currency> {
+  public searchByNameType(
+    nameType: string,
+    searchLanguage?: Language,
+    resultLanguage?: Language
+  ): Observable<Currency> {
     searchLanguage = searchLanguage || this.context.get().language
     resultLanguage = resultLanguage || this.context.get().language
 
     const key = this.getCacheKey(nameType, searchLanguage)
     if (!this.cache$[key]) {
-      this.cache$[key] = this.searchByPredicate(searchLanguage, (x) => x.nameType === nameType).pipe(
-        shareReplay(CACHE_SIZE)
-      )
+      this.cache$[key] = this.searchByPredicate(
+        searchLanguage,
+        (x) => x.nameType === nameType
+      ).pipe(shareReplay(CACHE_SIZE))
     }
     const result = this.cache$[key]
     if (searchLanguage === resultLanguage) {
       return result
     }
-    return result.pipe(flatMap(currency => this.searchById(currency.id, resultLanguage)))
+    return result.pipe(flatMap((currency) => this.searchById(currency.id, resultLanguage)))
   }
 
   private getCacheKey(id: string, language: Language): string {

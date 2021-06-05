@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core'
 import { FilterValueOption, Query } from '@data/poe'
-import { HeistJob, HeistObjectiveValue, Item, ItemSearchFiltersService, Language } from '@shared/module/poe/type'
+import {
+  HeistJob,
+  HeistObjectiveValue,
+  Item,
+  ItemSearchFiltersService,
+  Language,
+} from '@shared/module/poe/type'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemSearchFiltersHeistService implements ItemSearchFiltersService {
-  constructor() { }
+  constructor() {}
 
   public add(item: Item, language: Language, query: Query): void {
     if (!item.properties || !item.properties.heist) {

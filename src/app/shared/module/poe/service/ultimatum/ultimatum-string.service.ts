@@ -19,7 +19,7 @@ export class UltimatumStringService {
   private challengeTypes: ChallengesDict
   private rewardTypes: RewardsDict
 
-  constructor(private readonly clientString: ClientStringService) { }
+  constructor(private readonly clientString: ClientStringService) {}
 
   public getChallengeTypes(): ChallengesDict {
     if (!this.challengeTypes) {
@@ -29,7 +29,9 @@ export class UltimatumStringService {
           value: UltimatumChallengeType.Exterminate,
         },
         {
-          key: this.clientString.translate('TimedSurvivalWavesVaal').substring(0, this.clientString.translate('TimedSurvivalWavesVaal').indexOf("\r\n")),
+          key: this.clientString
+            .translate('TimedSurvivalWavesVaal')
+            .substring(0, this.clientString.translate('TimedSurvivalWavesVaal').indexOf('\r\n')),
           value: UltimatumChallengeType.Survive,
         },
         {

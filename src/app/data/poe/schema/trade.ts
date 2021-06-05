@@ -188,22 +188,22 @@ export interface MapFilters {
 }
 
 export interface HeistFilters {
-  heist_wings?: FilterValueOption,
-  heist_max_wings?: FilterValueOption,
-  heist_escape_routes?: FilterValueOption,
-  heist_max_escape_routes?: FilterValueOption,
-  heist_reward_rooms?: FilterValueOption,
-  heist_max_reward_rooms?: FilterValueOption,
+  heist_wings?: FilterValueOption
+  heist_max_wings?: FilterValueOption
+  heist_escape_routes?: FilterValueOption
+  heist_max_escape_routes?: FilterValueOption
+  heist_reward_rooms?: FilterValueOption
+  heist_max_reward_rooms?: FilterValueOption
   heist_objective_value?: FilterOption
-  heist_lockpicking?: FilterValueOption,
-  heist_brute_force?: FilterValueOption,
-  heist_perception?: FilterValueOption,
-  heist_demolition?: FilterValueOption,
-  heist_counter_thaumaturgy?: FilterValueOption,
-  heist_trap_disarmament?: FilterValueOption,
-  heist_agility?: FilterValueOption,
-  heist_deception?: FilterValueOption,
-  heist_engineering?: FilterValueOption,
+  heist_lockpicking?: FilterValueOption
+  heist_brute_force?: FilterValueOption
+  heist_perception?: FilterValueOption
+  heist_demolition?: FilterValueOption
+  heist_counter_thaumaturgy?: FilterValueOption
+  heist_trap_disarmament?: FilterValueOption
+  heist_agility?: FilterValueOption
+  heist_deception?: FilterValueOption
+  heist_engineering?: FilterValueOption
 }
 
 export interface UltimatumFilters {

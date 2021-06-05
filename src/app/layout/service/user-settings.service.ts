@@ -63,10 +63,14 @@ export class UserSettingsService {
     )
   }
 
-  public update<TUserSettings extends UserSettings>(updateFn: (settings: TUserSettings) => UserSettings): Observable<TUserSettings> {
+  public update<TUserSettings extends UserSettings>(
+    updateFn: (settings: TUserSettings) => UserSettings
+  ): Observable<TUserSettings> {
     return this.userSettingsStorageService.get().pipe(
-      flatMap((settings) => this.userSettingsStorageService.save(updateFn(<TUserSettings>settings))),
-      map((settings) => <TUserSettings>settings)
+      flatMap((settings) =>
+        this.userSettingsStorageService.save(updateFn(settings as TUserSettings))
+      ),
+      map((settings) => settings as TUserSettings)
     )
   }
 }

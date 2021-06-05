@@ -32,8 +32,8 @@ export class EvaluateQueryItemProvider {
         qualityType: (item.properties || {}).qualityType,
         ultimatum: {},
         heist: {
-          requiredSkills: []
-        }
+          requiredSkills: [],
+        },
       },
       requirements: {},
       sockets: new Array((item.sockets || []).length).fill({}),
@@ -144,7 +144,10 @@ export class EvaluateQueryItemProvider {
     }
 
     if (item.stats) {
-      if ((item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) && settings.evaluateQueryDefaultStatsUnique) {
+      if (
+        (item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) &&
+        settings.evaluateQueryDefaultStatsUnique
+      ) {
         queryItem.stats = item.stats
       } else {
         queryItem.stats = item.stats.map((stat) => {

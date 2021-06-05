@@ -22,16 +22,20 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
     private readonly clientString: ClientStringService,
     private readonly baseItemTypesService: BaseItemTypesService,
     private readonly wordService: WordService,
-    private readonly ultimatumStringService: UltimatumStringService,
-  ) { }
+    private readonly ultimatumStringService: UltimatumStringService
+  ) {}
 
   public optional = true
   public section = ItemSection.Ultimatum
 
   public parse(item: ExportedItem, target: Item): Section {
-    const challengeTypePhrase = `${this.clientString.translate('UltimatumItemisedTrialEncounter')}: `
+    const challengeTypePhrase = `${this.clientString.translate(
+      'UltimatumItemisedTrialEncounter'
+    )}: `
 
-    const ultimatumSection = item.sections.find((x) => x.content.indexOf(challengeTypePhrase) !== -1)
+    const ultimatumSection = item.sections.find(
+      (x) => x.content.indexOf(challengeTypePhrase) !== -1
+    )
     if (!ultimatumSection) {
       return null
     }
@@ -60,7 +64,9 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
     ultimatum.challengeType = challengeType.value
 
     // Reward Type
-    const rewardTypePhrase = this.clientString.translate('UltimatumItemisedTrialReward').replace('{0}', '')
+    const rewardTypePhrase = this.clientString
+      .translate('UltimatumItemisedTrialReward')
+      .replace('{0}', '')
     const rewardLine = lines[3]
     const rewardTypes = this.ultimatumStringService.getRewardTypes()
     const rewardTypeValue = rewardLine.slice(rewardTypePhrase.length).trim()
@@ -78,12 +84,22 @@ export class ItemSectionUltimatumParserService implements ItemSectionParserServi
     }
 
     // Required Sacrifice
-    const sacrificeQuantityPhrase = this.clientString.translate('UltimatumItemisedTrialItemRequirementQuantity')
-    const sacrificeQuantitySuffix = sacrificeQuantityPhrase.slice(sacrificeQuantityPhrase.indexOf('{1}') + 3)
+    const sacrificeQuantityPhrase = this.clientString.translate(
+      'UltimatumItemisedTrialItemRequirementQuantity'
+    )
+    const sacrificeQuantitySuffix = sacrificeQuantityPhrase.slice(
+      sacrificeQuantityPhrase.indexOf('{1}') + 3
+    )
     const sacrificeLine = lines[2].replace(sacrificeQuantitySuffix, '').trim()
-    const sacrificePhrase = this.clientString.translate('UltimatumItemisedTrialItemRequirement').replace('{0}', '')
+    const sacrificePhrase = this.clientString
+      .translate('UltimatumItemisedTrialItemRequirement')
+      .replace('{0}', '')
     const sacrificeValue = sacrificeLine.slice(sacrificePhrase.length).trim()
-    const sacrificeQuantityRegex = new RegExp(`(.*)${this.clientString.translate('UltimatumItemisedTrialQuantityFormat').replace('{0}', '(\\S+)')}$`)
+    const sacrificeQuantityRegex = new RegExp(
+      `(.*)${this.clientString
+        .translate('UltimatumItemisedTrialQuantityFormat')
+        .replace('{0}', '(\\S+)')}$`
+    )
     const sacrificeQuantityMatches = sacrificeQuantityRegex.exec(sacrificeValue)
     if (sacrificeQuantityMatches) {
       ultimatum.requiredItem = this.baseItemTypesService.search(sacrificeQuantityMatches[1].trim())

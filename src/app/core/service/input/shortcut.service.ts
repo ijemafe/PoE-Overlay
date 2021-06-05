@@ -15,7 +15,7 @@ export interface Shortcut {
 }
 
 interface ShortcutDict {
-  [accelerator: string]: Shortcut[];
+  [accelerator: string]: Shortcut[]
 }
 
 @Injectable({
@@ -92,7 +92,7 @@ export class ShortcutService {
   public disableAllByAccelerator(accelerator: string): void {
     const shortcuts = this.shortcuts[accelerator]
     if (shortcuts) {
-      shortcuts.forEach((shortcut) => shortcut.disabled = true)
+      shortcuts.forEach((shortcut) => (shortcut.disabled = true))
       this.check(this.lastFlag)
     }
   }
@@ -100,7 +100,7 @@ export class ShortcutService {
   public enableAllByAccelerator(accelerator: string): void {
     const shortcuts = this.shortcuts[accelerator]
     if (shortcuts) {
-      shortcuts.forEach((shortcut) => shortcut.disabled = false)
+      shortcuts.forEach((shortcut) => (shortcut.disabled = false))
       this.check(this.lastFlag)
     }
   }
@@ -161,10 +161,16 @@ export class ShortcutService {
     this.lastFlag = flag
     for (const accelerator in this.shortcuts) {
       const activeShortcut = this.shortcuts[accelerator].find((x) => x.isActive)
-      if (activeShortcut && (activeShortcut.disabled || !activeShortcut.actives.some((filter) => (flag & filter) === filter))) {
+      if (
+        activeShortcut &&
+        (activeShortcut.disabled ||
+          !activeShortcut.actives.some((filter) => (flag & filter) === filter))
+      ) {
         this.unregisterShortcut(activeShortcut)
       }
-      const nextShortcut = this.shortcuts[accelerator].find((x) => !x.disabled && x.actives.some((filter) => (flag & filter) === filter))
+      const nextShortcut = this.shortcuts[accelerator].find(
+        (x) => !x.disabled && x.actives.some((filter) => (flag & filter) === filter)
+      )
       if (nextShortcut) {
         this.registerShortcut(nextShortcut)
       }

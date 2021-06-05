@@ -1,10 +1,10 @@
-import { Rectangle } from '@app/type';
-import { UserSettings } from 'src/app/layout/type';
-import { Currency } from './currency.type';
+import { Rectangle } from '@app/type'
+import { UserSettings } from 'src/app/layout/type'
+import { Currency } from './currency.type'
 
 export type EnumDictionary<T extends string | symbol | number, U> = {
-  [K in T]: U;
-};
+  [K in T]: U
+}
 
 export interface TradeCompanionUserSettings extends UserSettings {
   tradeCompanionEnabled: boolean
@@ -56,26 +56,26 @@ export enum TradeNotificationType {
 }
 
 export interface TradeNotification {
-  text: string,
+  text: string
   type: TradeNotificationType
-  time: moment.Moment,
-  playerName: string,
-  item: string | CurrencyAmount,
-  itemLocation?: TradeItemLocation,
-  price: CurrencyAmount,
-  offer?: string,
-  playerInHideout?: boolean,
-  playerLeftHideout?: boolean,
+  time: moment.Moment
+  playerName: string
+  item: string | CurrencyAmount
+  itemLocation?: TradeItemLocation
+  price: CurrencyAmount
+  offer?: string
+  playerInHideout?: boolean
+  playerLeftHideout?: boolean
 }
 
 export interface CurrencyAmount {
-  amount: number,
-  currency: Currency,
+  amount: number
+  currency: Currency
 }
 
 export interface TradeItemLocation {
-  tabName: string,
-  bounds: Rectangle,
+  tabName: string
+  bounds: Rectangle
 }
 
 export interface TradeRegexes {

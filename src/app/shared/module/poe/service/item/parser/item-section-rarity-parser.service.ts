@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core'
 import {
-    ExportedItem,
-    Item,
-    ItemCategory,
-    ItemGemQualityType, ItemRarity,
-    ItemSection,
-    ItemSectionParserService,
-    Section
+  ExportedItem,
+  Item,
+  ItemCategory,
+  ItemGemQualityType,
+  ItemRarity,
+  ItemSection,
+  ItemSectionParserService,
+  Section,
 } from '../../../type'
 import { BaseItemTypesService } from '../../base-item-types/base-item-types.service'
 import { ClientStringService } from '../../client-string/client-string.service'

@@ -38,7 +38,7 @@ export class StatsProvider {
       case StatType.Delve:
         return delve
       case StatType.Ultimatum:
-        return ultimatum;
+        return ultimatum
     }
   }
 }

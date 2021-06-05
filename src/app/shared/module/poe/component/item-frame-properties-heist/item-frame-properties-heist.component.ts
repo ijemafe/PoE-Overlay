@@ -27,15 +27,19 @@ export class ItemFramePropertiesHeistComponent {
 
   public heistJobs = new EnumValues(HeistJob)
 
-  constructor(
-    private readonly clientString: ClientStringService
-  ) { }
+  constructor(private readonly clientString: ClientStringService) {}
 
   public getHeistObjectiveParts(): string[] {
-    return this.clientString.translate('ItemDisplayHeistContractObjectiveWithValue').replace('{1}', '{0}').split('{0}')
+    return this.clientString
+      .translate('ItemDisplayHeistContractObjectiveWithValue')
+      .replace('{1}', '{0}')
+      .split('{0}')
   }
 
   public getHeistJobParts(): string[] {
-    return this.clientString.translate('ItemDisplayHeistContractJob').replace('{1}', '{0}').split('{0}')
+    return this.clientString
+      .translate('ItemDisplayHeistContractJob')
+      .replace('{1}', '{0}')
+      .split('{0}')
   }
 }

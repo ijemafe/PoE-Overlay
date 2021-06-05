@@ -34,7 +34,9 @@ export class DialogService {
     const displayBounds = this.window.gameBounds.value
     const windowBounds = this.window.getWindowBounds()
 
-    const local = this.window.convertToLocal(point ?? { x: displayBounds.width * 0.5, y: displayBounds.height * 0.5 })
+    const local = this.window.convertToLocal(
+      point ?? { x: displayBounds.width * 0.5, y: displayBounds.height * 0.5 }
+    )
     const scaled = this.window.convertToLocalScaled(local)
 
     const left = Math.max(Math.min(scaled.x - width * 0.5, windowBounds.width - width), 0)

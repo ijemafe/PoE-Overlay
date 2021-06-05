@@ -18,17 +18,15 @@ export class ItemFramePropertiesIncursionComponent {
   @Input()
   public language: Language
 
-  constructor(
-    private readonly clientString: ClientStringService
-  ) {
-  }
+  constructor(private readonly clientString: ClientStringService) {}
 
-  public getLocalizedTier(room: ItemPropertiesIncursionRoom): string
-  {
+  public getLocalizedTier(room: ItemPropertiesIncursionRoom): string {
     const mod = room.stat.mod
     if (!mod || mod.length == 0) {
       return ''
     }
-    return ` ${this.clientString.translate('IncursionRoomPopupTier', this.language).replace('{0}', mod.replace('tier', '').trim())}`
+    return ` ${this.clientString
+      .translate('IncursionRoomPopupTier', this.language)
+      .replace('{0}', mod.replace('tier', '').trim())}`
   }
 }

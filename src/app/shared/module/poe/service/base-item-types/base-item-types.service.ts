@@ -55,7 +55,9 @@ export class BaseItemTypesService {
     let maxId
     for (const otherName in names) {
       const id = names[otherName]
-      const expr = cache[id] || (cache[id] = new RegExp('(?<=[\\s,.:;"\']|^)' + otherName + '(?=[\\s,.:;"\']|$)', ''))
+      const expr =
+        cache[id] ||
+        (cache[id] = new RegExp('(?<=[\\s,.:;"\']|^)' + otherName + '(?=[\\s,.:;"\']|$)', ''))
       const match = expr.exec(name)
       if (match) {
         let score = otherName.split(' ').length * 10

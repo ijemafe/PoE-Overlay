@@ -22,7 +22,9 @@ export class WindowService {
     this.ipcRenderer = electronProvider.provideIpcRenderer()
     this.electronRemote = electronProvider.provideRemote()
     this.window = this.electronRemote.getCurrentWindow()
-    this.gameBounds = new BehaviorSubject<Rectangle>(this.window?.getBounds() ?? { x: 0, y: 0, width: 0, height: 0 })
+    this.gameBounds = new BehaviorSubject<Rectangle>(
+      this.window?.getBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
+    )
   }
 
   public registerEvents(): void {
@@ -39,7 +41,7 @@ export class WindowService {
     this.transparencyMouseFix?.dispose()
     this.transparencyMouseFix = null
 
-    this.window.setIgnoreMouseEvents(ignoreMouse, { forward: ignoreMouse})
+    this.window.setIgnoreMouseEvents(ignoreMouse, { forward: ignoreMouse })
   }
 
   public on(event: any): Observable<void> {
@@ -62,7 +64,12 @@ export class WindowService {
   public getOffsettedGameBounds(): Rectangle {
     const bounds = this.window.getBounds()
     const poeBounds = this.gameBounds.value
-    return { x: poeBounds.x - bounds.x, y: poeBounds.y - bounds.y, width: poeBounds.width, height: poeBounds.height }
+    return {
+      x: poeBounds.x - bounds.x,
+      y: poeBounds.y - bounds.y,
+      width: poeBounds.width,
+      height: poeBounds.height,
+    }
   }
 
   public hide(): void {
@@ -128,9 +135,9 @@ export class WindowService {
     const local = {
       ...point,
     }
-    local.x -= (winBounds.x - poeBounds.x)
+    local.x -= winBounds.x - poeBounds.x
     local.x = Math.min(Math.max(local.x, 0), winBounds.width)
-    local.y -= (winBounds.y - poeBounds.y)
+    local.y -= winBounds.y - poeBounds.y
     local.y = Math.min(Math.max(local.y, 0), winBounds.height)
     return local
   }

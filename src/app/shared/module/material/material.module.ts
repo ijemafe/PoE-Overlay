@@ -73,6 +73,13 @@ import { ResizeDragDirective } from './directive/resize-drag.directive'
     ResizeDragDirective,
     AlphaColorDirective,
   ],
-  declarations: [AcceleratorComponent, SelectListComponent, DragDirective, CardComponent, ResizeDragDirective, AlphaColorDirective],
+  declarations: [
+    AcceleratorComponent,
+    SelectListComponent,
+    DragDirective,
+    CardComponent,
+    ResizeDragDirective,
+    AlphaColorDirective,
+  ],
 })
 export class MaterialModule {}

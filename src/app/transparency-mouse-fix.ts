@@ -1,4 +1,4 @@
-import { BrowserWindow, Remote } from 'electron';
+import { BrowserWindow, Remote } from 'electron'
 import { ElectronProvider } from '@app/provider'
 
 // This class makes it possible to make certain elements clickable and keeping others click-through.
@@ -14,8 +14,8 @@ import { ElectronProvider } from '@app/provider'
 
 export class TransparencyMouseFix {
   private readonly STYLE_ID = 'tmf-css'
-  private readonly SESSION_STORAGE_KEY = 'tmf-reloaded';
-  private readonly SESSION_STORAGE_VALUE = 'true';
+  private readonly SESSION_STORAGE_KEY = 'tmf-reloaded'
+  private readonly SESSION_STORAGE_VALUE = 'true'
 
   private readonly electron: Remote
   private readonly electronWindow: BrowserWindow
@@ -33,7 +33,7 @@ export class TransparencyMouseFix {
     this.electronWindow = this.electron.getCurrentWindow()
     this.htmlWindow = window
 
-    this.scopedOnMouseEvent = event => this.onMouseEvent(event)
+    this.scopedOnMouseEvent = (event) => this.onMouseEvent(event)
     this.scopedManualPoll = () => this.manualMousePoll()
 
     this.registerListeners()
@@ -49,7 +49,7 @@ export class TransparencyMouseFix {
 
     this.htmlWindow.addEventListener('mousemove', this.scopedOnMouseEvent)
     this.htmlWindow.addEventListener('beforeunload', () => this.unregister(this.htmlWindow))
-    let styleSheet = this.htmlWindow.document.createElement('style')
+    const styleSheet = this.htmlWindow.document.createElement('style')
     styleSheet.id = this.STYLE_ID
     styleSheet.innerHTML = `html { pointer-events: none; }`
     this.htmlWindow.document.head.appendChild(styleSheet)
@@ -72,7 +72,7 @@ export class TransparencyMouseFix {
   }
 
   private onMouseEvent(event) {
-    this.log && console.log('tmf.onMouseEvent');
+    this.log && console.log('tmf.onMouseEvent')
 
     if (this.shouldIgnoreMouseEvents(event.target)) {
       if (this.ignoreMouse) return
@@ -103,12 +103,12 @@ export class TransparencyMouseFix {
         if (sessionStorage.getItem(this.SESSION_STORAGE_KEY) !== this.SESSION_STORAGE_VALUE) {
           this.fixPointerEvents = false
         }
-        break;
+        break
 
       case 'darwin':
         // MacOS doesn't have this mouse issue, so there's no need to start polling.
         this.fixPointerEvents = false
-        break;
+        break
     }
 
     if (this.fixPointerEvents) {
@@ -133,10 +133,10 @@ export class TransparencyMouseFix {
 
     // If the cursor is within content bounds, check the element it's hovering,
     //   emulate a MouseMove event with the element as target
-    let { x, y } = this.electron.screen.getCursorScreenPoint()
-    let { x: left, y: top, width, height } = this.electronWindow.getContentBounds()
+    const { x, y } = this.electron.screen.getCursorScreenPoint()
+    const { x: left, y: top, width, height } = this.electronWindow.getContentBounds()
     if (x >= left && x < left + width && y >= top && y < top + height) {
-      let tgt = document.elementFromPoint(x - left, y - top)
+      const tgt = document.elementFromPoint(x - left, y - top)
       // HINT: update classList checks when expanding code
       if (tgt && !this.shouldIgnoreMouseEvents(tgt)) {
         this.onMouseEvent({ target: tgt })

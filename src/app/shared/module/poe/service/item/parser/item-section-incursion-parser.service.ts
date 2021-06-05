@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core'
 import {
-    ExportedItem,
-    Item,
-    ItemSection,
-    ItemSectionParserService,
-    Language,
-    Section,
-    StatType
+  ExportedItem,
+  Item,
+  ItemSection,
+  ItemSectionParserService,
+  Language,
+  Section,
+  StatType,
 } from '@shared/module/poe/type'
 import { ClientStringService } from '../../client-string/client-string.service'
 import { StatsService } from '../../stats/stats.service'
@@ -18,7 +18,7 @@ export class ItemSectionIncursionParserService implements ItemSectionParserServi
   constructor(
     private readonly clientString: ClientStringService,
     private readonly statsService: StatsService
-  ) { }
+  ) {}
 
   public optional = true
   public section = ItemSection.Incursion
@@ -44,7 +44,9 @@ export class ItemSectionIncursionParserService implements ItemSectionParserServi
     const incursion = target.properties.incursion
 
     const phrases = this.clientString.translateMultiple(new RegExp('^IncursionRoom'))
-    const closedRoomPhrase = this.clientString.translate('ItemDescriptionIncursionInaccessibleRooms')
+    const closedRoomPhrase = this.clientString.translate(
+      'ItemDescriptionIncursionInaccessibleRooms'
+    )
 
     let rooms = incursion.openRooms
     for (const line of incursionSection.lines) {
@@ -55,7 +57,11 @@ export class ItemSectionIncursionParserService implements ItemSectionParserServi
       if (matchedPhrase) {
         rooms.push({
           name: matchedPhrase.translation,
-          stat: this.statsService.searchExactInType(`Has Room: ${this.clientString.translate(matchedPhrase.id, Language.English)}`, [StatType.Pseudo], Language.English)
+          stat: this.statsService.searchExactInType(
+            `Has Room: ${this.clientString.translate(matchedPhrase.id, Language.English)}`,
+            [StatType.Pseudo],
+            Language.English
+          ),
         })
       }
     }

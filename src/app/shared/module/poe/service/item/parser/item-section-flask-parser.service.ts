@@ -22,9 +22,7 @@ export class ItemSectionFlaskParserService implements ItemSectionParserService {
       `^${this.clientString.translate('ItemDisplayChargesNCharges').replace('{0}', '(\\S+)')}$`
     )
 
-    const flaskSection = item.sections.find(
-      (x) => x.lines.findIndex((y) => phrase.test(y)) !== -1
-    )
+    const flaskSection = item.sections.find((x) => x.lines.findIndex((y) => phrase.test(y)) !== -1)
     if (!flaskSection) {
       return null
     }

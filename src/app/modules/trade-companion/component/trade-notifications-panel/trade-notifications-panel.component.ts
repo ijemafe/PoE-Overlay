@@ -1,11 +1,25 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
-import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service';
-import { TradeCompanionUserSettings, TradeNotification } from '@shared/module/poe/type/trade-companion.type';
-import { Rectangle } from 'electron';
-import { Subject, Subscription } from 'rxjs';
-import { debounceTime, map } from 'rxjs/operators';
-import { WindowService } from '../../../../core/service';
-import { UserSettingsService } from '../../../../layout/service';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core'
+import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service'
+import {
+  TradeCompanionUserSettings,
+  TradeNotification,
+} from '@shared/module/poe/type/trade-companion.type'
+import { Rectangle } from 'electron'
+import { Subject, Subscription } from 'rxjs'
+import { debounceTime, map } from 'rxjs/operators'
+import { WindowService } from '../../../../core/service'
+import { UserSettingsService } from '../../../../layout/service'
 
 @Component({
   selector: 'app-trade-notifications-panel',
@@ -39,41 +53,50 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
     private readonly ref: ChangeDetectorRef,
     private readonly tradeNotificationsService: TradeNotificationsService,
     private readonly userSettingsService: UserSettingsService,
-    private readonly windowService: WindowService,
-  ) {
-  }
+    private readonly windowService: WindowService
+  ) {}
 
-  ngOnInit(): void {
-    this.logLineAddedSub = this.tradeNotificationsService.notificationAddedOrChanged.subscribe((notification) => {
-      if (this.notifications.indexOf(notification) === -1) {
-        this.notifications.push(notification)
+  public ngOnInit(): void {
+    this.logLineAddedSub = this.tradeNotificationsService.notificationAddedOrChanged.subscribe(
+      (notification) => {
+        if (this.notifications.indexOf(notification) === -1) {
+          this.notifications.push(notification)
+        }
+        this.ref.markForCheck()
       }
-      this.ref.markForCheck()
-    })
-    this.boundsUpdate$.pipe(
-      debounceTime(350),
-      map((bounds) => {
-        this.userSettingsService.update<TradeCompanionUserSettings>((settings) => {
-          settings.tradeCompanionBounds = bounds
-          return settings
-        }).subscribe()
-      })
-    ).subscribe()
-    this.closeClick$.pipe(
-      debounceTime(350),
-      map(() => {
-        this.userSettingsService.update<TradeCompanionUserSettings>((settings) => {
-          settings.tradeCompanionEnabled = false
-          return settings
-        }).subscribe((settings) => {
-          this.settings = settings
-          this.ref.markForCheck()
+    )
+    this.boundsUpdate$
+      .pipe(
+        debounceTime(350),
+        map((bounds) => {
+          this.userSettingsService
+            .update<TradeCompanionUserSettings>((settings) => {
+              settings.tradeCompanionBounds = bounds
+              return settings
+            })
+            .subscribe()
         })
-      })
-    ).subscribe()
+      )
+      .subscribe()
+    this.closeClick$
+      .pipe(
+        debounceTime(350),
+        map(() => {
+          this.userSettingsService
+            .update<TradeCompanionUserSettings>((settings) => {
+              settings.tradeCompanionEnabled = false
+              return settings
+            })
+            .subscribe((settings) => {
+              this.settings = settings
+              this.ref.markForCheck()
+            })
+        })
+      )
+      .subscribe()
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.logLineAddedSub.unsubscribe()
   }
 
@@ -86,7 +109,7 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
 
   public onResizeDragEnd(bounds: Rectangle): void {
     const offset = 50
-    let windowBounds = this.windowService.getWindowBounds()
+    const windowBounds = this.windowService.getWindowBounds()
     windowBounds.x = offset
     windowBounds.y = offset
     windowBounds.width -= offset * 2
@@ -104,11 +127,12 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
   public onDismissNotification(notification: TradeNotification): void {
     this.notifications = this.notifications.filter((tn) => tn !== notification)
     this.tradeNotificationsService.dismissNotification(notification)
-    this.ref.markForCheck();
+    this.ref.markForCheck()
   }
 
   private intersects(a: Rectangle, b: Rectangle): boolean {
-    return (a.x <= (b.x + b.width) && (a.x + a.width) >= b.x) &&
-      (a.y <= (b.y + b.height) && (a.y + a.height) >= b.y)
+    return (
+      a.x <= b.x + b.width && a.x + a.width >= b.x && a.y <= b.y + b.height && a.y + a.height >= b.y
+    )
   }
 }

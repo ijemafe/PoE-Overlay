@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core'
 import { EnumValues } from '@app/class'
 import {
-    ExportedItem,
-
-    HeistJob, HeistObjectiveValue,
-
-    Item,
-    ItemCategory, ItemSection,
-    ItemSectionParserService,
-    ItemValue,
-    ItemValueProperty,
-    Section
+  ExportedItem,
+  HeistJob,
+  HeistObjectiveValue,
+  Item,
+  ItemCategory,
+  ItemSection,
+  ItemSectionParserService,
+  ItemValue,
+  ItemValueProperty,
+  Section,
 } from '@shared/module/poe/type'
 import { ClientStringService } from '../../client-string/client-string.service'
 import { ItemParserUtils } from './item-parser.utils'
@@ -19,7 +19,6 @@ import { ItemParserUtils } from './item-parser.utils'
   providedIn: 'root',
 })
 export class ItemSectionHeistParserService implements ItemSectionParserService {
-
   private readonly heistObjectiveValues = new EnumValues(HeistObjectiveValue)
 
   private readonly heistJobValues = new EnumValues(HeistJob)
@@ -40,7 +39,7 @@ export class ItemSectionHeistParserService implements ItemSectionParserService {
 
     const phrases = this.getPhrases()
 
-    const heistSection = item.sections.find(section => section.content.indexOf(phrases[0]) !== -1)
+    const heistSection = item.sections.find((section) => section.content.indexOf(phrases[0]) !== -1)
     if (!heistSection) {
       return null
     }
@@ -50,7 +49,7 @@ export class ItemSectionHeistParserService implements ItemSectionParserService {
     }
     if (!target.properties.heist) {
       target.properties.heist = {
-        requiredSkills: []
+        requiredSkills: [],
       }
     }
 
@@ -61,17 +60,25 @@ export class ItemSectionHeistParserService implements ItemSectionParserService {
     for (const line of lines) {
       const objectiveName = this.parsePhrase(line, phrases[0])
       if (objectiveName) {
-        const objectiveRegex = new RegExp(this.clientString.translate('ItemDisplayHeistContractObjectiveWithValue').replace('(', '\\(').replace(')', '\\)').replace('{0}', '(.+)').replace('{1}', '(.+)'))
+        const objectiveRegex = new RegExp(
+          this.clientString
+            .translate('ItemDisplayHeistContractObjectiveWithValue')
+            .replace('(', '\\(')
+            .replace(')', '\\)')
+            .replace('{0}', '(.+)')
+            .replace('{1}', '(.+)')
+        )
         const matches = objectiveRegex.exec(line)
         if (matches) {
           heist.objectiveName = matches[1]
           for (const objectiveValue of this.heistObjectiveValues.keys) {
-            if (matches[2] === this.clientString.translate(`HeistObjectiveValue${objectiveValue}`)) {
+            if (
+              matches[2] === this.clientString.translate(`HeistObjectiveValue${objectiveValue}`)
+            ) {
               heist.objectiveValue = objectiveValue
               break
             }
           }
-
         } else {
           heist.objectiveName = objectiveName
         }
@@ -79,13 +86,23 @@ export class ItemSectionHeistParserService implements ItemSectionParserService {
 
       const jobName = this.parsePhrase(line, phrases[1])
       if (jobName) {
-        const jobRegex = new RegExp(this.clientString.translate('ItemDisplayHeistContractJob').replace('(', '\\(').replace(')', '\\)').replace('{0}', '(.+)').replace('{1}', '(.+)'))
+        const jobRegex = new RegExp(
+          this.clientString
+            .translate('ItemDisplayHeistContractJob')
+            .replace('(', '\\(')
+            .replace(')', '\\)')
+            .replace('{0}', '(.+)')
+            .replace('{1}', '(.+)')
+        )
         const matches = jobRegex.exec(line)
         if (matches) {
           for (const job of this.heistJobValues.keys) {
-            if (matches[1] === this.clientString.translate(`HeistJob${this.heistJobValues.values[job]}`)) {
+            if (
+              matches[1] ===
+              this.clientString.translate(`HeistJob${this.heistJobValues.values[job]}`)
+            ) {
               heist.requiredSkills.push({
-                job: job,
+                job,
                 level: ItemParserUtils.parseItemValue(matches[2], 0),
               })
               break

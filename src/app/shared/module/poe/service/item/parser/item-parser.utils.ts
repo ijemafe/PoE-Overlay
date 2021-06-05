@@ -1,4 +1,4 @@
-import { ItemValue } from '../../../type';
+import { ItemValue } from '../../../type'
 
 export abstract class ItemParserUtils {
   public static parseNumber(text: string, numDecimals: number): number {

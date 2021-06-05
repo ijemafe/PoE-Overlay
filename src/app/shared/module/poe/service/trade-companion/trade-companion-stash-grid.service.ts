@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { ElectronProvider } from '@app/provider/electron.provider';
-import { Rectangle } from '@app/type';
-import { IpcMain, IpcRenderer, IpcMainEvent } from 'electron';
-import { BehaviorSubject, Observable, from } from 'rxjs';
-import { TradeCompanionStashGridOptions } from '@shared/module/poe/type/trade-companion.type';
-import { WindowService, GameService } from '@app/service';
+import { Injectable } from '@angular/core'
+import { ElectronProvider } from '@app/provider/electron.provider'
+import { Rectangle } from '@app/type'
+import { IpcMain, IpcRenderer, IpcMainEvent } from 'electron'
+import { BehaviorSubject, Observable, from } from 'rxjs'
+import { TradeCompanionStashGridOptions } from '@shared/module/poe/type/trade-companion.type'
+import { WindowService, GameService } from '@app/service'
 
 const StashGridOptionsKey = 'stash-grid-options'
 const StashGridOptionsReplyKey = 'stash-grid-options-reply'
@@ -14,7 +14,9 @@ const ClosedKey = 'closed'
   providedIn: 'root',
 })
 export class TradeCompanionStashGridService {
-  public stashGridOptions$: BehaviorSubject<TradeCompanionStashGridOptions> = new BehaviorSubject<TradeCompanionStashGridOptions>(undefined);
+  public stashGridOptions$: BehaviorSubject<TradeCompanionStashGridOptions> = new BehaviorSubject<
+    TradeCompanionStashGridOptions
+  >(undefined)
 
   private ipcMain: IpcMain
   private ipcRenderer: IpcRenderer
@@ -25,7 +27,7 @@ export class TradeCompanionStashGridService {
   constructor(
     electronProvider: ElectronProvider,
     private readonly window: WindowService,
-    private readonly game: GameService,
+    private readonly game: GameService
   ) {
     this.ipcMain = electronProvider.provideIpcMain()
     this.ipcRenderer = electronProvider.provideIpcRenderer()
@@ -36,7 +38,8 @@ export class TradeCompanionStashGridService {
    */
   public registerEvents() {
     if (!this.scopedStashGridOptionsEvent) {
-      this.scopedStashGridOptionsEvent = (event, stashGridOptions) => this.onStashGridOptions(event, stashGridOptions)
+      this.scopedStashGridOptionsEvent = (event, stashGridOptions) =>
+        this.onStashGridOptions(event, stashGridOptions)
       this.ipcMain.on(StashGridOptionsKey, this.scopedStashGridOptionsEvent)
     }
   }
@@ -96,11 +99,14 @@ export class TradeCompanionStashGridService {
     if (this.ipcMainEvent) {
       this.stashGridOptions$.next(null)
       this.ipcMainEvent.reply(StashGridOptionsReplyKey, stashGridBounds)
-      this.ipcMainEvent = null;
+      this.ipcMainEvent = null
     }
   }
 
-  private onStashGridOptions(event: IpcMainEvent, stashGridOptions: TradeCompanionStashGridOptions) {
+  private onStashGridOptions(
+    event: IpcMainEvent,
+    stashGridOptions: TradeCompanionStashGridOptions
+  ) {
     this.completeStashGridEdit(null)
     this.ipcMainEvent = event
     this.stashGridOptions$.next(stashGridOptions)

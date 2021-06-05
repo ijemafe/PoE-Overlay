@@ -4,8 +4,8 @@ import { Subject } from 'rxjs'
 import { delay, map, tap, throttleTime } from 'rxjs/operators'
 
 interface Command {
-  text: string,
-  send: boolean,
+  text: string
+  send: boolean
 }
 
 @Injectable({

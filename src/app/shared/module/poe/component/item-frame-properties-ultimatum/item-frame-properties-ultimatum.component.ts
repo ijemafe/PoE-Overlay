@@ -21,11 +21,13 @@ export class ItemFramePropertiesUltimatumComponent {
 
   constructor(
     private readonly ultimatumStringService: UltimatumStringService,
-    private readonly itemService: ItemService,
-  ) { }
+    private readonly itemService: ItemService
+  ) {}
 
   public getChallengeTypeString(): string {
-    return this.ultimatumStringService.getChallengeTypes().find((x) => x.value == this.item.properties.ultimatum.challengeType).key
+    return this.ultimatumStringService
+      .getChallengeTypes()
+      .find((x) => x.value == this.item.properties.ultimatum.challengeType).key
   }
 
   public getSacrificeString(): string {

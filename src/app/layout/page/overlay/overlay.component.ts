@@ -1,10 +1,10 @@
 import {
-    ChangeDetectionStrategy,
-    Component,
-    HostListener,
-    Inject,
-    OnDestroy,
-    OnInit
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  Inject,
+  OnDestroy,
+  OnInit,
 } from '@angular/core'
 import { AppService, AppTranslateService, RendererService, WindowService } from '@app/service'
 import { DialogRefService } from '@app/service/dialog'
@@ -49,7 +49,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService,
     private readonly stashGridService: TradeCompanionStashGridService,
-    private readonly tradeNotificationsService: TradeNotificationsService,
+    private readonly tradeNotificationsService: TradeNotificationsService
   ) {
     this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
     this.window.gameBounds.subscribe((_) => {
@@ -95,7 +95,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       )
       this.reset()
     } else {
-      this.renderer.restore('user-settings');
+      this.renderer.restore('user-settings')
     }
   }
 
@@ -183,7 +183,13 @@ export class OverlayComponent implements OnInit, OnDestroy {
       features.forEach((feature) => {
         if (feature.accelerator) {
           this.shortcut
-            .add(feature.accelerator, overlayCompRef, !!feature.passive, VisibleFlag.Game, VisibleFlag.Overlay)
+            .add(
+              feature.accelerator,
+              overlayCompRef,
+              !!feature.passive,
+              VisibleFlag.Game,
+              VisibleFlag.Overlay
+            )
             .subscribe(() => {
               mod.run(feature.name, settings)
             })
@@ -195,12 +201,24 @@ export class OverlayComponent implements OnInit, OnDestroy {
   private registerSettings(settings: UserSettings): void {
     if (settings.openUserSettingsKeybinding) {
       this.shortcut
-        .add(settings.openUserSettingsKeybinding, overlayCompRef, false, VisibleFlag.Game, VisibleFlag.Overlay)
+        .add(
+          settings.openUserSettingsKeybinding,
+          overlayCompRef,
+          false,
+          VisibleFlag.Game,
+          VisibleFlag.Overlay
+        )
         .subscribe(() => this.openUserSettings())
     }
     if (settings.exitAppKeybinding) {
       this.shortcut
-        .add(settings.exitAppKeybinding, overlayCompRef, false, VisibleFlag.Game, VisibleFlag.Overlay)
+        .add(
+          settings.exitAppKeybinding,
+          overlayCompRef,
+          false,
+          VisibleFlag.Game,
+          VisibleFlag.Overlay
+        )
         .subscribe(() => this.app.quit())
     }
   }

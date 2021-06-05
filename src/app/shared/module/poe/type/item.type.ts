@@ -271,9 +271,9 @@ export interface ItemPropertiesHeist {
   requiredSkills: HeistSkillLevel[]
   objectiveName?: string
   objectiveValue?: HeistObjectiveValue
-  wingsRevealed?: ItemValue,
-  escapeRoutes?: ItemValue,
-  rewardRooms?: ItemValue,
+  wingsRevealed?: ItemValue
+  escapeRoutes?: ItemValue
+  rewardRooms?: ItemValue
 }
 
 export enum HeistObjectiveValue {

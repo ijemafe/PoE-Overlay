@@ -71,7 +71,7 @@ export class ItemSearchService {
       case ItemCategory.MapScarab:
       case ItemCategory.Card:
         if (currency && !requestedItem.properties?.storedExperience) {
-            return this.exchange(requestedItem, options, currency)
+          return this.exchange(requestedItem, options, currency)
         }
         break
     }

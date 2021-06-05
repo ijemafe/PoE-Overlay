@@ -74,10 +74,14 @@ export class StatsService {
       .slice(1, regex.length - 1)
       .split(VALUE_PLACEHOLDER)
       .map((part) =>
-        part.split("\n").map(p => 
-          p.replace(REVERSE_REGEX, (value) => value.replace('\\', ''))
-            .replace(TYPE_PLACEHOLDER_REGEX, '')
-        ).join("\n")
+        part
+          .split('\n')
+          .map((p) =>
+            p
+              .replace(REVERSE_REGEX, (value) => value.replace('\\', ''))
+              .replace(TYPE_PLACEHOLDER_REGEX, '')
+          )
+          .join('\n')
       )
       .join('#')
   }
@@ -109,10 +113,14 @@ export class StatsService {
       .slice(1, result.length - 1)
       .split(VALUE_PLACEHOLDER)
       .map((part) =>
-        part.split("\n").map(p =>
-          p.replace(REVERSE_REGEX, (value) => value.replace('\\', ''))
-            .replace(TYPE_PLACEHOLDER_REGEX, '')
-        ).join("\n")
+        part
+          .split('\n')
+          .map((p) =>
+            p
+              .replace(REVERSE_REGEX, (value) => value.replace('\\', ''))
+              .replace(TYPE_PLACEHOLDER_REGEX, '')
+          )
+          .join('\n')
       )
   }
 
@@ -146,7 +154,11 @@ export class StatsService {
     return results
   }
 
-  public searchExactInType(text: string, statTypesToSearch: StatType[], language?: Language): ItemStat {
+  public searchExactInType(
+    text: string,
+    statTypesToSearch: StatType[],
+    language?: Language
+  ): ItemStat {
     language = language || this.context.get().language
 
     let result: ItemStat
@@ -184,7 +196,7 @@ export class StatsService {
             option: stat.option,
             negated: stat.negated,
             predicateIndex: statDescIndex,
-            predicate: predicate,
+            predicate,
             type,
             tradeId,
             values: test.slice(1).map((x) => ({ text: x })),

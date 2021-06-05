@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core'
 import { Query } from '@data/poe'
-import { Item, ItemSearchFiltersService, Language, UltimatumRewardType } from '@shared/module/poe/type'
+import {
+  Item,
+  ItemSearchFiltersService,
+  Language,
+  UltimatumRewardType,
+} from '@shared/module/poe/type'
 import { ItemService } from '../item.service'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemSearchFiltersUltimatumService implements ItemSearchFiltersService {
-  constructor(private readonly itemNameService: ItemService) { }
+  constructor(private readonly itemNameService: ItemService) {}
 
   public add(item: Item, language: Language, query: Query): void {
     if (!item.properties || !item.properties.ultimatum) {
@@ -23,17 +28,17 @@ export class ItemSearchFiltersUltimatumService implements ItemSearchFiltersServi
 
     if (ultimatum.challengeType) {
       ultimatumFilters.ultimatum_challenge = {
-        option: ultimatum.challengeType
+        option: ultimatum.challengeType,
       }
     }
 
     if (ultimatum.rewardType) {
       ultimatumFilters.ultimatum_reward = {
-        option: ultimatum.rewardType
+        option: ultimatum.rewardType,
       }
       if (ultimatum.rewardType === UltimatumRewardType.UniqueItem && ultimatum.rewardUnique) {
         ultimatumFilters.ultimatum_output = {
-          option: this.itemNameService.getName(ultimatum.rewardUnique, language)
+          option: this.itemNameService.getName(ultimatum.rewardUnique, language),
         }
       }
 
@@ -45,7 +50,7 @@ export class ItemSearchFiltersUltimatumService implements ItemSearchFiltersServi
           requiredItem = this.itemNameService.getType(ultimatum.requiredItem, language)
         }
         ultimatumFilters.ultimatum_input = {
-          option: requiredItem
+          option: requiredItem,
         }
       }
     }

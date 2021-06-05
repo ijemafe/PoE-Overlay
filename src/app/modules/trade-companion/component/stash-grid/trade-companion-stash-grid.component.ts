@@ -1,10 +1,23 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { EnumValues } from '@app/class';
-import { ShortcutService } from '@app/service/input';
-import { Rectangle, VisibleFlag } from '@app/type';
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service';
-import { StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeCompanionStashGridOptions, TradeCompanionUserSettings } from '@shared/module/poe/type/trade-companion.type';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core'
+import { EnumValues } from '@app/class'
+import { ShortcutService } from '@app/service/input'
+import { Rectangle, VisibleFlag } from '@app/type'
+import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
+import {
+  StashGridType,
+  STASH_TAB_CELL_COUNT_MAP,
+  TradeCompanionStashGridOptions,
+  TradeCompanionUserSettings,
+} from '@shared/module/poe/type/trade-companion.type'
+import { BehaviorSubject, Subscription } from 'rxjs'
 
 const stashGridCompRef = 'stash-grid'
 
@@ -32,27 +45,34 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnCh
 
   constructor(
     private readonly stashGridService: TradeCompanionStashGridService,
-    private readonly shortcutService: ShortcutService,
-  ) {
-  }
+    private readonly shortcutService: ShortcutService
+  ) {}
 
-  ngOnInit(): void {
-    this.stashGridServiceSubscription = this.stashGridService.stashGridOptions$.subscribe((stashGridOptions) => {
-      if (stashGridOptions) {
-        this.visible = true
-        const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
-        this.cellArray = this.createArray(cellCount)
-        this.gridBounds = stashGridOptions.gridBounds ?? this.settings.stashGridBounds[stashGridOptions.gridType] ?? { x: 16, y: 134, width: 624, height: 624 }
-        this.enableShortcuts()
-      } else {
-        this.visible = false
-        this.disableShortcuts()
+  public ngOnInit(): void {
+    this.stashGridServiceSubscription = this.stashGridService.stashGridOptions$.subscribe(
+      (stashGridOptions) => {
+        if (stashGridOptions) {
+          this.visible = true
+          const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
+          this.cellArray = this.createArray(cellCount)
+          this.gridBounds = stashGridOptions.gridBounds ??
+            this.settings.stashGridBounds[stashGridOptions.gridType] ?? {
+              x: 16,
+              y: 134,
+              width: 624,
+              height: 624,
+            }
+          this.enableShortcuts()
+        } else {
+          this.visible = false
+          this.disableShortcuts()
+        }
+        this.stashGridOptions$.next(stashGridOptions)
       }
-      this.stashGridOptions$.next(stashGridOptions)
-    });
+    )
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(changes: SimpleChanges): void {
     if (this.visible) {
       this.enableShortcuts()
     } else {
@@ -60,7 +80,7 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnCh
     }
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.stashGridServiceSubscription) {
       this.stashGridServiceSubscription.unsubscribe()
     }
@@ -79,8 +99,12 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnCh
       const bounds = highlightLocation.bounds
       colIndex += 1
       rowIndex += 1
-      return colIndex >= bounds.x && colIndex < (bounds.x + bounds.width) &&
-        rowIndex >= bounds.y && rowIndex < (bounds.y + bounds.height)
+      return (
+        colIndex >= bounds.x &&
+        colIndex < bounds.x + bounds.width &&
+        rowIndex >= bounds.y &&
+        rowIndex < bounds.y + bounds.height
+      )
     }
     return false
   }
@@ -94,8 +118,8 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnCh
   }
 
   public toggleStashGrid(): void {
-    let stashGridOptions = this.stashGridOptions$.value
-    stashGridOptions.gridType = ((stashGridOptions.gridType + 1) % this.stashGridTypes.keys.length)
+    const stashGridOptions = this.stashGridOptions$.value
+    stashGridOptions.gridType = (stashGridOptions.gridType + 1) % this.stashGridTypes.keys.length
     stashGridOptions.gridBounds = null
     this.stashGridService.stashGridOptions$.next(stashGridOptions)
   }
@@ -108,12 +132,7 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnCh
       }
 
       this.escapeSubscription = this.shortcutService
-        .add(
-          'escape',
-          stashGridCompRef,
-          false,
-          VisibleFlag.Game, VisibleFlag.Overlay
-        )
+        .add('escape', stashGridCompRef, false, VisibleFlag.Game, VisibleFlag.Overlay)
         .subscribe(() => this.cancelChanges(), clearShortcut, clearShortcut)
     }
 

@@ -43,7 +43,7 @@ export class ItemParserService {
     itemSectionUltimatumParserService: ItemSectionUltimatumParserService,
     itemSectionRelicParserService: ItemSectionRelicParserService,
     itemSectionIncursionParserService: ItemSectionIncursionParserService,
-    itemSectionHeistParserService: ItemSectionHeistParserService,
+    itemSectionHeistParserService: ItemSectionHeistParserService
   ) {
     this.parsers = [
       itemSectionRarityParser,
