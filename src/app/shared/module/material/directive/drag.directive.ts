@@ -1,5 +1,6 @@
 import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core'
 import { Point } from '@app/type'
+import { DirectiveUtils } from './directive-utils.directive'
 
 @Directive({
   selector: '[appDrag]',
@@ -20,7 +21,7 @@ export class DragDirective implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     if (this.rootElementSelector) {
-      this.element = getClosestMatchingAncestor(
+      this.element = DirectiveUtils.getClosestMatchingAncestor(
         this.elementRef.nativeElement,
         this.rootElementSelector
       )
@@ -84,24 +85,4 @@ export class DragDirective implements OnInit, OnDestroy {
     this.element.style['margin-left'] = `${this.position.x + delta.x}px`
     this.element.style['margin-top'] = `${this.position.y + delta.y}px`
   }
-}
-
-/** Gets the closest ancestor of an element that matches a selector. */
-function getClosestMatchingAncestor(element: HTMLElement, selector: string): HTMLElement {
-  let currentElement = element.parentElement as HTMLElement | null
-
-  while (currentElement) {
-    // IE doesn't support `matches` so we have to fall back to `msMatchesSelector`.
-    if (
-      currentElement.matches
-        ? currentElement.matches(selector)
-        : (currentElement as any).msMatchesSelector(selector)
-    ) {
-      return currentElement
-    }
-
-    currentElement = currentElement.parentElement
-  }
-
-  return null
 }

@@ -1,5 +1,5 @@
-<div class="notifciation">
-  <div class="header">
+<div class="notifciation" [appAlphaColor]="['border-color']" [appAlphaColor.alpha]="settings.tradeCompanionOpacity">
+  <div class="header" [appAlphaColor]="['background-color']" [appAlphaColor.alpha]="settings.tradeCompanionOpacity">
     <mat-icon *ngIf="collapsed; else notCollapsed" class="collapse clickable" (click)="toggleCollapsed()" matTooltip="{{ 'trade-companion.trade-notification.expand' | translate }}">keyboard_arrow_right</mat-icon>
     <ng-template #notCollapsed>
       <mat-icon class="collapse clickable" (click)="toggleCollapsed()" matTooltip="{{ 'trade-companion.trade-notification.collapse' | translate }}">keyboard_arrow_down</mat-icon>
@@ -25,7 +25,7 @@
     <mat-icon class="whisperPlayer clickable" (click)="whisperPlayer()" matTooltip="{{ 'trade-companion.trade-notification.whisper-player' | translate }}">textsms</mat-icon>
     <mat-icon class="dismiss clickable" (click)="dismiss()" matTooltip="{{ 'trade-companion.trade-notification.dismiss' | translate }}">close</mat-icon>
   </div>
-  <div class="body" *ngIf="!collapsed">
+  <div class="body" *ngIf="!collapsed" [appAlphaColor]="['background-color']" [appAlphaColor.alpha]="settings.tradeCompanionOpacity">
     <div class="tradeItem">
       <ng-container *ngIf="notification.itemLocation; then itemNameTemplate; else currencyItemTemplate"></ng-container>
       <div class="itemOffer" matTooltip="{{ notification.offer }}">{{ notification.offer }}</div>

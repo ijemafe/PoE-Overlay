@@ -1,6 +1,7 @@
 import { Directive, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core'
 import { Point } from '@app/type'
 import { Rectangle } from 'electron';
+import { DirectiveUtils } from './directive-utils.directive';
 
 enum Status {
   OFF = 0,
@@ -113,7 +114,7 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
 
   public ngOnInit(): void {
     if (this.rootElementSelector) {
-      this.element = getClosestMatchingAncestor(
+      this.element = DirectiveUtils.getClosestMatchingAncestor(
         this.elementRef.nativeElement,
         this.rootElementSelector
       )
@@ -349,24 +350,4 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     }
     return false
   }
-}
-
-/** Gets the closest ancestor of an element that matches a selector. */
-function getClosestMatchingAncestor(element: HTMLElement, selector: string): HTMLElement {
-  let currentElement = element.parentElement as HTMLElement | null
-
-  while (currentElement) {
-    // IE doesn't support `matches` so we have to fall back to `msMatchesSelector`.
-    if (
-      currentElement.matches
-        ? currentElement.matches(selector)
-        : (currentElement as any).msMatchesSelector(selector)
-    ) {
-      return currentElement
-    }
-
-    currentElement = currentElement.parentElement
-  }
-
-  return null
 }

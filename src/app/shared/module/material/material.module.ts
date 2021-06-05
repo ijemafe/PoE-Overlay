@@ -20,6 +20,7 @@ import { TranslateModule } from '@ngx-translate/core'
 import { AcceleratorComponent } from './component/accelerator/accelerator.component'
 import { CardComponent } from './component/card/card.component'
 import { SelectListComponent } from './component/select-list/select-list.component'
+import { AlphaColorDirective } from './directive/alpha-color.directive'
 import { DragDirective } from './directive/drag.directive'
 import { ResizeDragDirective } from './directive/resize-drag.directive'
 
@@ -70,7 +71,8 @@ import { ResizeDragDirective } from './directive/resize-drag.directive'
     DragDirective,
     CardComponent,
     ResizeDragDirective,
+    AlphaColorDirective,
   ],
-  declarations: [AcceleratorComponent, SelectListComponent, DragDirective, CardComponent, ResizeDragDirective],
+  declarations: [AcceleratorComponent, SelectListComponent, DragDirective, CardComponent, ResizeDragDirective, AlphaColorDirective],
 })
 export class MaterialModule {}
