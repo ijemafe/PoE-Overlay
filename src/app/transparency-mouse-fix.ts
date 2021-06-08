@@ -1,5 +1,4 @@
 import { BrowserWindow, Remote } from 'electron'
-import { ElectronProvider } from '@app/provider'
 
 // This class makes it possible to make certain elements clickable and keeping others click-through.
 //
@@ -40,11 +39,11 @@ export class TransparencyMouseFix {
     this.tryStartPolling()
   }
 
-  public dispose() {
+  public dispose(): void {
     this.unregister(this.htmlWindow)
   }
 
-  private registerListeners() {
+  private registerListeners(): void {
     this.log && console.log('tmf-registerListeners')
 
     this.htmlWindow.addEventListener('mousemove', this.scopedOnMouseEvent)
@@ -55,7 +54,7 @@ export class TransparencyMouseFix {
     this.htmlWindow.document.head.appendChild(styleSheet)
   }
 
-  private unregister(htmlWindow: Window) {
+  private unregister(htmlWindow: Window): void {
     this.log && console.log('tmf-unregister')
 
     htmlWindow.document.getElementById(this.STYLE_ID)?.remove()
@@ -67,11 +66,11 @@ export class TransparencyMouseFix {
     this.electronWindow.setIgnoreMouseEvents(false)
   }
 
-  private shouldIgnoreMouseEvents(element) {
+  private shouldIgnoreMouseEvents(element): boolean {
     return element === this.htmlWindow.document.documentElement
   }
 
-  private onMouseEvent(event) {
+  private onMouseEvent(event): void {
     this.log && console.log('tmf.onMouseEvent')
 
     if (this.shouldIgnoreMouseEvents(event.target)) {
@@ -95,7 +94,7 @@ export class TransparencyMouseFix {
     }
   }
 
-  private tryStartPolling() {
+  private tryStartPolling(): void {
     this.fixPointerEvents = true
     switch (process.platform) {
       case 'win32':
@@ -121,7 +120,7 @@ export class TransparencyMouseFix {
    * @param {boolean} once Don't request a next animationFrame
    * @returns {boolean} True if a element is found besides sinkholes or the main <html> element
    */
-  private manualMousePoll(first = false) {
+  private manualMousePoll(first = false): boolean {
     // HINT: you can manually stop the loop by incrementing manualPollingInstanceCount
     if (first) {
       this.manualPollingInstanceCount++

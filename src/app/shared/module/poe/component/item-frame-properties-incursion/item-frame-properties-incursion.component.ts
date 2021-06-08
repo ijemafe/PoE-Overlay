@@ -22,7 +22,7 @@ export class ItemFramePropertiesIncursionComponent {
 
   public getLocalizedTier(room: ItemPropertiesIncursionRoom): string {
     const mod = room.stat.mod
-    if (!mod || mod.length == 0) {
+    if (!mod || mod.length === 0) {
       return ''
     }
     return ` ${this.clientString

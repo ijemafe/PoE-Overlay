@@ -21,7 +21,7 @@ export class RendererService {
     return callback
   }
 
-  public restore(route: string) {
+  public restore(route: string): void {
     this.ipcRenderer.send('open-route', route)
   }
 

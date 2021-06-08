@@ -124,7 +124,7 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
   }
 
   private addPseudoStatToAndGroup(query: Query, statID: string): void {
-    let andStatGroup = query.stats.find((stat) => stat.type == 'and')
+    let andStatGroup = query.stats.find((stat) => stat.type === 'and')
     if (!andStatGroup) {
       andStatGroup = {
         type: 'and',

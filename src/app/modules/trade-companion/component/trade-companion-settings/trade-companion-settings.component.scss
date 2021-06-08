@@ -1,6 +1,10 @@
+$dark-gray: #2a2a2a;
+$label-color: rgba(200, 200, 200, 0.54);
+$input-color: rgba(200, 200, 200, 0.87);
+
 app-card {
   .card, button {
-    background-color: #2a2a2a;
+    background-color: $dark-gray;
   }
 
   .card {
@@ -18,9 +22,55 @@ app-card {
     padding: 16px;
     width: 100%;
   }
+
+  .cp-input {
+    padding-right: 20px;
+  }
 }
 
-$label-color: rgba(200, 200, 200, 0.54);
+::ng-deep {
+  app-card {
+    .mat-form-field-prefix,
+    .mat-form-field-suffix {
+      align-self: flex-end;
+      position: absolute;
+      right: 4px;
+
+      .mat-icon {
+        font-size: 100%;
+        line-height: 1;
+      }
+    }
+
+    color-picker {
+      .color-picker {
+        background-color: $dark-gray;
+        color: $label-color;
+
+        .rgba-text .box div {
+          color: $label-color;
+        }
+
+        .type-policy {
+          display: none;
+        }
+
+        .cursor {
+          border-color: $input-color;
+        }
+
+        input {
+          background-color: $dark-gray;
+          color: $input-color;
+        }
+
+        button {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
 
 label {
   display: block;

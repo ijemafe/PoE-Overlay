@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core'
+import { Color, Colors, ColorUtils } from '@app/class'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
 import { TradeCompanionUserSettings } from '@shared/module/poe/type/trade-companion.type'
@@ -72,6 +73,13 @@ export class TradeCompanionModule implements FeatureModule {
         },
       ],
       stashGrids: new Map(),
+      stashGridColors: {
+        gridLine: ColorUtils.create(0, 0, 0, 0.65),
+        gridOutline: Colors.yellow,
+        gridBackground: Colors.transparent,
+        highlightLine: Colors.yellow,
+        highlightBackground: Colors.transparent,
+      },
       showStashGridOnInvite: true,
       reversedNotificationDirection: false,
     }

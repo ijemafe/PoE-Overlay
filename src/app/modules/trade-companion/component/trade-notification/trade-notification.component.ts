@@ -15,6 +15,7 @@ import { SnackBarService } from '@shared/module/material/service'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
 import {
   CurrencyAmount,
+  StashGridMode,
   StashGridType,
   STASH_TAB_CELL_COUNT_MAP,
   TradeCompanionOption,
@@ -119,7 +120,8 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
   }
 
   public leaveParty(): void {
-    // TODO: use `/kick [playerName]` where [playerName] is your own character name, which we should allow the user to input in their settings.
+    // TODO: use `/kick [playerName]` where [playerName] is your own character name,
+    //        which we should allow the user to input in their settings.
     this.snackbar.warning('[TradeCompanion] Missing Feature: Leave Party')
   }
 
@@ -179,7 +181,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
       const normalGridCellCount = STASH_TAB_CELL_COUNT_MAP[StashGridType.Normal]
       this.stashGridService
         .showStashGrid({
-          editMode: false,
+          gridMode: StashGridMode.Normal,
           gridType:
             bounds.x <= normalGridCellCount && bounds.y <= normalGridCellCount
               ? StashGridType.Normal
@@ -214,7 +216,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
   }
 
   // Floors the value to a meaningful amount of decimals
-  private floorMD(n: number, d: number) {
+  private floorMD(n: number, d: number): number {
     const log10 = n ? Math.floor(Math.log10(n)) : 0
     const div = log10 < 0 ? Math.pow(10, 1 - log10) : Math.pow(10, d)
     return Math.floor(n * div) / div

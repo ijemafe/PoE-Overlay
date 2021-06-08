@@ -34,7 +34,7 @@ export class BaseItemTypesService {
     return this.baseItemTypeProvider.provideBaseItemType(id)
   }
 
-  public search(name: string, language?: Language): { id: string, baseItemType: BaseItemType } {
+  public search(name: string, language?: Language): { id: string; baseItemType: BaseItemType } {
     const id = this.searchId(name, language)
     return { id, baseItemType: this.get(id) }
   }

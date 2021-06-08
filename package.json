@@ -91,6 +91,7 @@
     "iohook": "^0.6.5",
     "localforage": "^1.7.3",
     "moment": "^2.24.0",
+    "ngx-color-picker": "^9.1.0",
     "node-window-manager": "^2.2.2",
     "robotjs": "git+https://github.com/PoE-Overlay-Community/robotjs.git#a219829c83ff7f3a802c98a9c52a672ca798d80e",
     "rxjs": "^6.5.5",

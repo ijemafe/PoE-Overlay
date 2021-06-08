@@ -55,68 +55,87 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
   @Input('appResizeDrag')
   public rootElementSelector: string
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardDisabled')
   public disabled: boolean
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardInteractionsDisabled')
   public interactionsDisabled: boolean
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardAllowResize')
   public allowResize: boolean
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardExtendDragArea')
   public extendDragArea: boolean
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardBounds')
   public bounds: Rectangle
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardDragThreshold')
   public resizeDragThreshold = 5
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardResizeWidth')
   public resizeWidth = 8
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardAppliedBounds')
   public appliedBounds: AppliedBounds = { x: true, y: true, width: true, height: true }
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardAppliedBounds.x')
   public set appliedBoundsX(val: boolean) {
     this.appliedBounds.x = val
   }
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardAppliedBounds.y')
   public set appliedBoundsY(val: boolean) {
     this.appliedBounds.y = val
   }
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardAppliedBounds.width')
   public set appliedBoundsWidth(val: boolean) {
     this.appliedBounds.width = val
   }
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardAppliedBounds.height')
   public set appliedBoundsHeight(val: boolean) {
     this.appliedBounds.height = val
   }
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardReversePosition.x')
   public reversePositionX: boolean
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardReversePosition.y')
   public reversePositionY: boolean
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardOffset.x')
   public offsetPositionX = 0
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ardOffset.y')
   public offsetPositionY = 0
 
+  // tslint:disable-next-line:no-output-rename
   @Output('ardResizeDrag')
   public resizeDrag = new EventEmitter<Rectangle>()
 
+  // tslint:disable-next-line:no-output-rename
   @Output('ardResizeDragBegin')
   public resizeDragBegin = new EventEmitter<Rectangle>()
 
+  // tslint:disable-next-line:no-output-rename
   @Output('ardResizeDragEnd')
   public resizeDragEnd = new EventEmitter<Rectangle>()
 
@@ -152,7 +171,7 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     this.resizeAnchorBoth = null
   }
 
-  private onChanged() {
+  private onChanged(): void {
     if (!this.element) {
       return
     }
@@ -216,7 +235,7 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
     this.applyBounds()
   }
 
-  private applyBounds() {
+  private applyBounds(): void {
     if (this.disabled) {
       return
     }
@@ -335,9 +354,9 @@ export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
         this.bounds.y = this.mouseDownBounds.y + delta.y
         break
       case Status.RESIZING:
-        if ((this.resizeDir & ResizeDir.WIDTH) != 0)
+        if ((this.resizeDir & ResizeDir.WIDTH) !== 0)
           this.bounds.width = this.mouseDownBounds.width + delta.x
-        if ((this.resizeDir & ResizeDir.HEIGHT) != 0)
+        if ((this.resizeDir & ResizeDir.HEIGHT) !== 0)
           this.bounds.height = this.mouseDownBounds.height + delta.y
         break
     }

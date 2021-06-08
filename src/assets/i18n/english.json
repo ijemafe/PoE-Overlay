@@ -272,6 +272,10 @@
     "max-visible-notifications": "Max. visible Notifications",
     "name": "Trade Companion",
     "outgoing-trade-options": "Outgoing Trade Options",
+    "preview-stash-grid": {
+      "normal": "Preview Normal stash grid",
+      "quad": "Preview Quad stash grid"
+    },
     "reset": "Reset",
     "reversed-notification-direction": "Reversed Direction",
     "reversed-notification-direction-description": "Reverse the notification direction to be upwards.",
@@ -280,6 +284,13 @@
     "stash-grid": {
       "cancel": "Cancel",
       "close": "Close",
+      "disabled": "Disabled",
+      "grid-background-color": "Grid Background Color",
+      "grid-line-color": "Grid Line Color",
+      "grid-outline-color": "Grid Outline Color",
+      "highlight-background-color": "Highlight Background Color",
+      "highlight-line-color": "Highlight Line Color",
+      "ok": "Ok",
       "save": "Save",
       "tab": "Tab",
       "toggle": "Toggle"

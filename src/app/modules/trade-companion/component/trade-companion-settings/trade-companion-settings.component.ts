@@ -1,15 +1,16 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { EnumValues } from '@app/class'
-import { UserSettingsComponent } from 'src/app/layout/type'
+import { Color, ColorUtils, EnumValues } from '@app/class'
 import { WindowService } from '@app/service'
-import {
-  StashGridType,
-  TradeCompanionUserSettings,
-  TradeCompanionStashGridOptions,
-  ExampleNotificationType,
-} from '@shared/module/poe/type/trade-companion.type'
+import { UserSettingsComponent } from '@layout/type'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
-import { TradeNotificationsService } from '../../../../shared/module/poe/service/trade-companion/trade-notifications.service'
+import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service'
+import {
+  ExampleNotificationType,
+  StashGridMode,
+  StashGridType,
+  TradeCompanionStashGridOptions,
+  TradeCompanionUserSettings,
+} from '@shared/module/poe/type/trade-companion.type'
 
 @Component({
   selector: 'app-trade-companion-settings',
@@ -25,7 +26,9 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent {
   @Input()
   public settings: TradeCompanionUserSettings
 
-  private isEditingStashGrid = false
+  public ColorUtils = ColorUtils
+
+  private isShowingStashGrid = false
 
   constructor(
     private readonly window: WindowService,
@@ -33,7 +36,7 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent {
     private readonly tradeNotificationsService: TradeNotificationsService
   ) {
     this.window.on('show').subscribe(() => {
-      if (this.isEditingStashGrid) {
+      if (this.isShowingStashGrid) {
         this.stashGridDialogService.editStashGrid(null)
       }
     })
@@ -51,17 +54,42 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent {
 
   public onEditStashGridClick(gridType: StashGridType): void {
     const options: TradeCompanionStashGridOptions = {
-      editMode: true,
+      gridMode: StashGridMode.Edit,
       gridType,
       gridBounds: this.settings.stashGridBounds[gridType],
+      settings: this.settings,
     }
-    this.isEditingStashGrid = true
+    this.isShowingStashGrid = true
     this.window.hide()
     this.stashGridDialogService.editStashGrid(options).subscribe((stashGridBounds) => {
-      this.isEditingStashGrid = false
+      this.isShowingStashGrid = false
       if (stashGridBounds) {
         this.settings.stashGridBounds[gridType] = stashGridBounds
       }
+      this.window.show()
+    })
+  }
+
+  public onPreviewStashGridClick(gridType: StashGridType): void {
+    const options: TradeCompanionStashGridOptions = {
+      gridMode: StashGridMode.Preview,
+      gridType,
+      gridBounds: this.settings.stashGridBounds[gridType],
+      highlightLocation: {
+        tabName: '[Tab Name]',
+        bounds: {
+          x: 6,
+          y: 3,
+          width: 2,
+          height: 3,
+        },
+      },
+      settings: this.settings,
+    }
+    this.isShowingStashGrid = true
+    this.window.hide()
+    this.stashGridDialogService.showStashGrid(options).subscribe(() => {
+      this.isShowingStashGrid = false
       this.window.show()
     })
   }

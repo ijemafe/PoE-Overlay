@@ -33,11 +33,11 @@ export class WindowService {
     })
   }
 
-  public enableTransparencyMouseFix() {
+  public enableTransparencyMouseFix(): void {
     this.transparencyMouseFix = new TransparencyMouseFix(this.electronRemote)
   }
 
-  public disableTransparencyMouseFix(ignoreMouse = false) {
+  public disableTransparencyMouseFix(ignoreMouse = false): void {
     this.transparencyMouseFix?.dispose()
     this.transparencyMouseFix = null
 

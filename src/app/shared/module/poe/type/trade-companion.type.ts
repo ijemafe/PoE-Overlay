@@ -1,3 +1,4 @@
+import { Color } from '@app/class'
 import { Rectangle } from '@app/type'
 import { UserSettings } from 'src/app/layout/type'
 import { Currency } from './currency.type'
@@ -15,8 +16,17 @@ export interface TradeCompanionUserSettings extends UserSettings {
   outgoingTradeOptions: TradeCompanionOption[]
   stashGridBounds: Rectangle[]
   stashGrids: Map<string, StashGridType>
+  stashGridColors: TradeCompanionStashGridColors
   showStashGridOnInvite: boolean
   reversedNotificationDirection: boolean
+}
+
+export interface TradeCompanionStashGridColors {
+  gridLine: Color
+  gridOutline: Color
+  gridBackground: Color
+  highlightLine: Color
+  highlightBackground: Color
 }
 
 export interface TradeCompanionOption {
@@ -31,11 +41,18 @@ export enum StashGridType {
   Quad = 1,
 }
 
+export enum StashGridMode {
+  Normal = 0,
+  Edit = 1,
+  Preview = 2,
+}
+
 export interface TradeCompanionStashGridOptions {
+  gridMode: StashGridMode
   gridType: StashGridType
-  editMode: boolean
   gridBounds?: Rectangle
   highlightLocation?: TradeItemLocation
+  settings?: TradeCompanionUserSettings
 }
 
 export const MAX_STASH_SIZE = 24

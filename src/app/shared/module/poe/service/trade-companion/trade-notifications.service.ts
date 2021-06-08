@@ -1,11 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core'
+import { EnumValues, MathUtils } from '@app/class'
 import { ElectronProvider } from '@app/provider/electron.provider'
+import { GameLogService } from '@app/service/game-log.service'
 import { IpcMain, IpcMainEvent, IpcRenderer } from 'electron'
 import moment from 'moment'
 import { forkJoin } from 'rxjs'
-import { GameLogService } from '../../../../../core/service/game-log.service'
 import { TradeRegexesProvider } from '../../provider/trade-regexes.provider'
-import { Currency, ItemCategory, Language } from '../../type'
+import { ItemCategory, Language } from '../../type'
 import {
   ExampleNotificationType,
   MAX_STASH_SIZE,
@@ -15,28 +16,27 @@ import {
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ClientStringService } from '../client-string/client-string.service'
 import { CurrencyService } from '../currency/currency.service'
-import { WordService } from '../word/word.service'
 
-const logLineDateFormat = 'YYYY/MM/DD HH:mm:ss'
-const fromToPlaceholder = '{fromto}'
+const LOGLINE_DATE_FORMAT = 'YYYY/MM/DD HH:mm:ss'
+const FROM_TO_PLACEHOLDER = '{fromto}'
 
-const AddExampleTradeNotificationKey = 'trade-notification-add-example'
+const ADD_EXAMPLE_TRADE_NOTIFICATION_KEY = 'trade-notification-add-example'
 
-const MapGenerationId = 10
+const MAP_GENERATION_ID = 10
 
-const MapTierRegexes: LangRegExp[] = [
-  { language: Language.English, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
-  { language: Language.Portuguese, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
-  { language: Language.Russian, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
-  { language: Language.Thai, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
-  { language: Language.German, regex: new RegExp("\\(Lvl (?<tier>\\S+)\\)") },
-  { language: Language.French, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
-  { language: Language.Spanish, regex: new RegExp("\\(G(?<tier>\\S+)\\)") },
-  { language: Language.Korean, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
-  { language: Language.TraditionalChinese, regex: new RegExp("\\(T(?<tier>\\S+)\\)") },
+const MAP_TIER_REGEXES: LangRegExp[] = [
+  { language: Language.English, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
+  { language: Language.Portuguese, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
+  { language: Language.Russian, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
+  { language: Language.Thai, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
+  { language: Language.German, regex: new RegExp('\\(Lvl (?<tier>\\S+)\\)') },
+  { language: Language.French, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
+  { language: Language.Spanish, regex: new RegExp('\\(G(?<tier>\\S+)\\)') },
+  { language: Language.Korean, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
+  { language: Language.TraditionalChinese, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
 ]
 
-const TierlessMaps = ['MapWorldsChimera', 'MapWorldsHydra', 'MapWorldsMinotaur', 'MapWorldsPhoenix']
+const TIERLESS_MAPS = ['MapWorldsChimera', 'MapWorldsHydra', 'MapWorldsMinotaur', 'MapWorldsPhoenix']
 
 interface TradeRegexes {
   whisper: RegExp
@@ -59,6 +59,8 @@ export class TradeNotificationsService {
 
   private readonly tradeRegexes: TradeRegexes
 
+  private readonly languages = new EnumValues(Language)
+
   private ipcMain: IpcMain
   private ipcRenderer: IpcRenderer
 
@@ -72,7 +74,7 @@ export class TradeNotificationsService {
     private readonly gameLogService: GameLogService,
     private readonly currencyService: CurrencyService,
     private readonly baseItemTypesService: BaseItemTypesService,
-    private readonly clientString: ClientStringService,
+    private readonly clientString: ClientStringService
   ) {
     this.ipcMain = electronProvider.provideIpcMain()
     this.ipcRenderer = electronProvider.provideIpcRenderer()
@@ -90,28 +92,28 @@ export class TradeNotificationsService {
     for (const key in tradeRegexStrings.tradeItemPrice) {
       const regex = tradeRegexStrings.tradeItemPrice[key]
       this.tradeRegexes.itemTradeOffer.push({
-        language: Language[key],
+        language: this.languages.values[key],
         regex: new RegExp(regex, 'i'),
       })
     }
     for (const key in tradeRegexStrings.tradeBulk) {
       const regex = tradeRegexStrings.tradeBulk[key]
       this.tradeRegexes.currencyTradeOffer.push({
-        language: Language[key],
+        language: this.languages.values[key],
         regex: new RegExp(regex, 'i'),
       })
     }
     for (const key in tradeRegexStrings.joinedArea) {
       const regex = tradeRegexStrings.joinedArea[key]
       this.tradeRegexes.playerJoinedArea.push({
-        language: Language[key],
+        language: this.languages.values[key],
         regex: new RegExp(tradeRegexStrings.all + regex, 'i'),
       })
     }
     for (const key in tradeRegexStrings.leftArea) {
       const regex = tradeRegexStrings.leftArea[key]
       this.tradeRegexes.playerLeftArea.push({
-        language: Language[key],
+        language: this.languages.values[key],
         regex: new RegExp(tradeRegexStrings.all + regex, 'i'),
       })
     }
@@ -120,20 +122,20 @@ export class TradeNotificationsService {
   /**
    * Call this method only from the main window
    */
-  public registerEvents() {
+  public registerEvents(): void {
     if (!this.scopedAddExampleNotificationEvent) {
       this.scopedAddExampleNotificationEvent = (event, exampleNotificationType) =>
         this.onAddExampleNotification(event, exampleNotificationType)
-      this.ipcMain.on(AddExampleTradeNotificationKey, this.scopedAddExampleNotificationEvent)
+      this.ipcMain.on(ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, this.scopedAddExampleNotificationEvent)
     }
   }
 
   /**
    * Call this method only from the main window
    */
-  public unregisterEvents() {
+  public unregisterEvents(): void {
     this.ipcMain.removeListener(
-      AddExampleTradeNotificationKey,
+      ADD_EXAMPLE_TRADE_NOTIFICATION_KEY,
       this.scopedAddExampleNotificationEvent
     )
   }
@@ -142,14 +144,14 @@ export class TradeNotificationsService {
    * Call this method only from the settings window
    */
   public addExampleTradeNotification(exampleNotificationType: ExampleNotificationType): void {
-    this.ipcRenderer.send(AddExampleTradeNotificationKey, exampleNotificationType)
+    this.ipcRenderer.send(ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, exampleNotificationType)
   }
 
   public dismissNotification(notification: TradeNotification): void {
     this.notifications = this.notifications.filter((tn) => tn !== notification)
   }
 
-  private addNotification(notification: TradeNotification) {
+  private addNotification(notification: TradeNotification): void {
     this.notifications.push(notification)
     this.notificationAddedOrChanged.emit(notification)
   }
@@ -238,7 +240,7 @@ export class TradeNotificationsService {
     const currencyID = tradeGroups.name
     const offerItemID = tradeGroups.currency
     const fullWhisper = `@${playerName} ${whisperGroups.message}`
-    const whisperTime = moment(whisperGroups.timestamp, logLineDateFormat)
+    const whisperTime = moment(whisperGroups.timestamp, LOGLINE_DATE_FORMAT)
     const notificationType = whisperGroups.from
       ? TradeNotificationType.Incoming
       : TradeNotificationType.Outgoing
@@ -275,7 +277,7 @@ export class TradeNotificationsService {
         playerName,
         item: {
           amount: +tradeGroups.count,
-          currency: currency,
+          currency,
         },
         price: {
           amount: +tradeGroups.price,
@@ -297,7 +299,7 @@ export class TradeNotificationsService {
     const currencyID = tradeGroups.currency
     const playerName = whisperGroups.player
     const fullWhisper = `@${playerName} ${whisperGroups.message}`
-    const whisperTime = moment(whisperGroups.timestamp, logLineDateFormat)
+    const whisperTime = moment(whisperGroups.timestamp, LOGLINE_DATE_FORMAT)
     const notificationType = whisperGroups.from
       ? TradeNotificationType.Incoming
       : TradeNotificationType.Outgoing
@@ -327,13 +329,13 @@ export class TradeNotificationsService {
         item: itemName,
         price: {
           amount: +tradeGroups.price,
-          currency: currency,
+          currency,
         },
         itemLocation: {
           tabName: tradeGroups.stash,
           bounds: {
-            x: this.clamp(+tradeGroups.left, 1, MAX_STASH_SIZE),
-            y: this.clamp(+tradeGroups.top, 1, MAX_STASH_SIZE),
+            x: MathUtils.clamp(+tradeGroups.left, 1, MAX_STASH_SIZE),
+            y: MathUtils.clamp(+tradeGroups.top, 1, MAX_STASH_SIZE),
             width: baseItemType?.width ?? 1,
             height: baseItemType?.height ?? 1,
           },
@@ -342,10 +344,6 @@ export class TradeNotificationsService {
       }
       this.addNotification(notification)
     })
-  }
-
-  private clamp(value: number, min: number, max: number) {
-    return Math.min(Math.max(value, min), max)
   }
 
   private getImageUrl(item: string, language: Language): string {
@@ -365,10 +363,10 @@ export class TradeNotificationsService {
         }
 
         // Check for map tier
-        const tierRegex = MapTierRegexes.find((x) => x.language === language)?.regex
+        const tierRegex = MAP_TIER_REGEXES.find((x) => x.language === language)?.regex
         const tierMatch = tierRegex?.exec(item)
         let tier = tierMatch?.groups?.tier ?? 0
-        if (TierlessMaps.indexOf(result.id) !== -1) {
+        if (TIERLESS_MAPS.indexOf(result.id) !== -1) {
           tier = 0
         }
 
@@ -381,7 +379,7 @@ export class TradeNotificationsService {
           blighted = '&mb=1'
         }
 
-        return `/image/${baseItemType.artName}.png?w=1&h=1&scale=1&mn=${MapGenerationId}&mt=${tier}${blighted}`
+        return `/image/${baseItemType.artName}.png?w=1&h=1&scale=1&mn=${MAP_GENERATION_ID}&mt=${tier}${blighted}`
     }
     return null
   }
@@ -389,27 +387,27 @@ export class TradeNotificationsService {
   private onAddExampleNotification(
     event: IpcMainEvent,
     exampleNotificationType: ExampleNotificationType
-  ) {
+  ): void {
     let logLine: string
     switch (exampleNotificationType) {
       case ExampleNotificationType.Item:
         // 2021/04/16 17:04:56 26257593 bb3 [INFO Client 24612] @From FakePlayerName: Hi, I would like to buy your level 14 0% Steelskin listed for 1 alch in Standard (stash tab "~price 1 alch #2"; position: left 3, top 9) -- Offer 1c?
         logLine = `${moment().format(
-          logLineDateFormat
-        )}  12345678 bb3 [INFO Client 12345] @${fromToPlaceholder} FakePlayerName: Hi, I would like to buy your level 14 0% Steelskin listed for 1 alch in Standard (stash tab "~price 1 alch #2"; position: left 3, top 9) -- Offer 1c?`
+          LOGLINE_DATE_FORMAT
+        )}  12345678 bb3 [INFO Client 12345] @${FROM_TO_PLACEHOLDER} FakePlayerName: Hi, I would like to buy your level 14 0% Steelskin listed for 1 alch in Standard (stash tab "~price 1 alch #2"; position: left 3, top 9) -- Offer 1c?`
         break
 
       case ExampleNotificationType.Currency:
         // 2021/04/16 15:48:55 12345678 bb3 [INFO Client 12345] @From FakePlayerName: Hi, I'd like to buy your 1 Exalted Orb for my 100 Chaos Orb in Standard. -- Offer 95c?
         logLine = `${moment().format(
-          logLineDateFormat
-        )}  12345678 bb3 [INFO Client 12345] @${fromToPlaceholder} FakePlayerName: Hi, I'd like to buy your 1 Exalted Orb for my 100 Chaos Orb in Standard. -- Offer 95c?`
+          LOGLINE_DATE_FORMAT
+        )}  12345678 bb3 [INFO Client 12345] @${FROM_TO_PLACEHOLDER} FakePlayerName: Hi, I'd like to buy your 1 Exalted Orb for my 100 Chaos Orb in Standard. -- Offer 95c?`
         break
 
       default:
         return
     }
-    this.onLogLineAdded(logLine.replace(fromToPlaceholder, 'To'))
-    this.onLogLineAdded(logLine.replace(fromToPlaceholder, 'From'))
+    this.onLogLineAdded(logLine.replace(FROM_TO_PLACEHOLDER, 'To'))
+    this.onLogLineAdded(logLine.replace(FROM_TO_PLACEHOLDER, 'From'))
   }
 }
