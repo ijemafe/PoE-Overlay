@@ -26,6 +26,13 @@ build_script:
   - node_modules/.bin/tsc -p tsconfig.serve.json
   - node_modules/.bin/ng build -c production
   - node_modules/.bin/electron-builder build --windows --publish never
+  - ps: Compress-Archive -Path release -DestinationPath publish.zip
 artifacts:
   - path: 'release\*.*'
+  - path: 'publish.zip'
 test: off
+deploy:
+- provider: Webhook
+  url: https://app.signpath.io/API/v1/d55b7cc8-7e88-44a5-b2ba-5714c7454670/Integrations/AppVeyor?ProjectSlug=PoE-Overlay-Community-Fork&SigningPolicySlug=test-signing
+  authorization:
+    secure: RK6v3+1p1/SHMUeoEUevbNeO9NZ9pdwrZeH2kCvz35AmUxqp278eKGkcqYknAMYLog8Nd/2OzdFobuRo3d/GnA==
