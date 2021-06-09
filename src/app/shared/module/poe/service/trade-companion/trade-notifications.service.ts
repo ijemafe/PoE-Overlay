@@ -156,46 +156,45 @@ export class TradeNotificationsService {
     this.notificationAddedOrChanged.emit(notification)
   }
 
-  private onLogLineAdded(logLine: string): void {
-    if (this.tradeRegexes.whisper.test(logLine)) {
-      const whisperMatch = this.tradeRegexes.whisper.exec(logLine)
-      const whisperMessage = whisperMatch.groups.message
+  private async searchLangRegex(text: string, regexes: LangRegExp[]): Promise<LangRegExp> {
+    return new Promise<LangRegExp>((resolve, reject) => {
       for (const langRegex of this.tradeRegexes.itemTradeOffer) {
-        if (langRegex.regex.test(whisperMessage)) {
+        if (langRegex.regex.test(text)) {
+          resolve(langRegex)
+          return
+        }
+      }
+      reject()
+    })
+  }
+
+  private async onLogLineAdded(logLine: string): Promise<void> {
+    return new Promise((resolve) => {
+      if (this.tradeRegexes.whisper.test(logLine)) {
+        const whisperMatch = this.tradeRegexes.whisper.exec(logLine)
+        const whisperMessage = whisperMatch.groups.message
+
+        this.searchLangRegex(whisperMessage, this.tradeRegexes.itemTradeOffer).then(langRegex => {
           this.parseItemTradeWhisper(
             whisperMatch,
             langRegex.regex.exec(whisperMessage),
             langRegex.language
           )
-          return
-        }
+        }).catch(() => {
+          this.searchLangRegex(whisperMessage, this.tradeRegexes.currencyTradeOffer).then(langRegex => {
+            this.parseCurrencyTradeWhisper(
+              whisperMatch,
+              langRegex.regex.exec(whisperMessage),
+              langRegex.language
+            )
+          })
+        })
+      } else {
+        this.searchLangRegex(logLine, this.tradeRegexes.playerJoinedArea).then(langRegex => this.parsePlayerJoinedArea(langRegex.regex.exec(logLine)))
+        this.searchLangRegex(logLine, this.tradeRegexes.playerLeftArea).then(langRegex => this.parsePlayerLeftArea(langRegex.regex.exec(logLine)))
       }
-
-      for (const langRegex of this.tradeRegexes.currencyTradeOffer) {
-        if (langRegex.regex.test(whisperMessage)) {
-          this.parseCurrencyTradeWhisper(
-            whisperMatch,
-            langRegex.regex.exec(whisperMessage),
-            langRegex.language
-          )
-          return
-        }
-      }
-    } else {
-      for (const langRegex of this.tradeRegexes.playerJoinedArea) {
-        if (langRegex.regex.test(logLine)) {
-          this.parsePlayerJoinedArea(langRegex.regex.exec(logLine))
-          return
-        }
-      }
-
-      for (const langRegex of this.tradeRegexes.playerLeftArea) {
-        if (langRegex.regex.test(logLine)) {
-          this.parsePlayerLeftArea(langRegex.regex.exec(logLine))
-          return
-        }
-      }
-    }
+      resolve()
+    })
   }
 
   private parsePlayerJoinedArea(whisperMatch: RegExpMatchArray): void {
