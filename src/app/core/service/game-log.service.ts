@@ -5,7 +5,7 @@ import { ElectronProvider } from '@app/provider'
   providedIn: 'root',
 })
 export class GameLogService {
-  public readonly logLineAdded = new EventEmitter<string>()
+  public readonly logLineAdded = new EventEmitter<string>(true)
 
   constructor(electronProvider: ElectronProvider) {
     const ipcRenderer = electronProvider.provideIpcRenderer()

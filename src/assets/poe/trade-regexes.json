@@ -1,5 +1,5 @@
 {
-  "all": "(?<timestamp>.+) (.+) (.+) (.+) (.+) (.+) ",
+  "all": "(?<timestamp>[\\d \\/:]{19})(.+)",
   "joinedArea": {
     "English": ": (?<player>.*?) has joined the area",
     "Portuguese": ": (?<player>.*?) entrou na área",
