@@ -268,6 +268,8 @@
     "general": "General",
     "general-trade-options": "General Trade Options",
     "grid-overlay": "Stash Grid Overlay",
+    "hide-highlight-on-trade": "Hide Highlight on Trade",
+    "hide-highlight-on-trade-description": "Hide the stash grid item highlighting when clicking the trade button on an incoming trade notification",
     "incoming-trade-options": "Incoming Trade Options",
     "max-visible-notifications": "Max. visible Notifications",
     "name": "Trade Companion",

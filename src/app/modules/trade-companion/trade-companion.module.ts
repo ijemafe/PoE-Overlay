@@ -81,6 +81,7 @@ export class TradeCompanionModule implements FeatureModule {
         highlightBackground: Colors.transparent,
       },
       showStashGridOnInvite: true,
+      hideStashGridOnTrade: true,
       reversedNotificationDirection: false,
     }
     return {

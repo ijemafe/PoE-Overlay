@@ -18,6 +18,7 @@ export interface TradeCompanionUserSettings extends UserSettings {
   stashGrids: Map<string, StashGridType>
   stashGridColors: TradeCompanionStashGridColors
   showStashGridOnInvite: boolean
+  hideStashGridOnTrade: boolean
   reversedNotificationDirection: boolean
 }
 

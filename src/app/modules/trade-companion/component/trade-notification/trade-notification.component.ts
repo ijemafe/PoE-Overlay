@@ -143,6 +143,13 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
 
   public requestTrade(): void {
     this.commandService.command(`/tradewith ${this.notification.playerName}`)
+    if (
+      this.settings.hideStashGridOnTrade &&
+      this.showingStashGrid &&
+      this.notification.type === TradeNotificationType.Incoming
+    ) {
+      this.highlightItem()
+    }
   }
 
   public whois(): void {

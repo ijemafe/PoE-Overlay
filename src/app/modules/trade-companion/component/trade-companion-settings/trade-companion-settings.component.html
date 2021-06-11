@@ -102,6 +102,11 @@
         {{ 'trade-companion.show-and-highlight-item' | translate }}
       </mat-slide-toggle>
     </div>
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.hideStashGridOnTrade" (change)="settings.hideStashGridOnTrade = $event.checked" matTooltip="{{ 'trade-companion.hide-highlight-on-trade-description' | translate }}">
+        {{ 'trade-companion.hide-highlight-on-trade' | translate }}
+      </mat-slide-toggle>
+    </div>
   </div>
   <div class="row">
     <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
