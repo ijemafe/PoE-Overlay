@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { ExportedItem, Item, ItemSectionParserService, Section } from '../../../type'
+import { ExportedItem, Item, ItemSection, ItemSectionParserService, Section } from '../../../type'
 import { ItemSectionCorruptedParserService } from './item-section-corrupted-parser.service'
 import { ItemSectionFlaskParserService } from './item-section-flask-parser.service'
 import { ItemSectionGemExperienceParserService } from './item-section-gem-experience-parser.service'
@@ -99,6 +99,7 @@ export class ItemParserService {
       const sectionOrSections = parser.parse(exportedItem, target)
       if (!sectionOrSections) {
         if (!parser.optional) {
+          console.log(`[ItemParser] Failed to parse required section '${ItemSection[parser.section]}'`)
           return null
         } else {
           continue

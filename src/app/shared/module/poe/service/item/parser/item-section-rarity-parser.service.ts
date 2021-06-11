@@ -31,6 +31,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
 
     const raritySection = item.sections.find((x) => x.content.indexOf(phrase) === 0)
     if (!raritySection) {
+      console.warn('[ItemRarityParser] Failed to find Item Class.')
       return null
     }
 
@@ -42,6 +43,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
 
     const rarity = rarities.find((x) => x.key === rarityValue)
     if (!rarity) {
+      console.warn(`[ItemRarityParser] Failed to find Item Rarity for '${rarityValue}'.`)
       return null
     }
 
@@ -59,6 +61,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
         target.typeId = this.baseItemTypesService.searchId(target.type)
         break
       default:
+        console.warn(`[ItemRarityParser] Incorrect line count for this section. Expected 3~4, found ${lines.length}`)
         return null
     }
 
@@ -74,6 +77,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     }
 
     if (!target.typeId) {
+      console.warn(`[ItemRarityParser] Failed to find Base Item Type for '${target.type}'`)
       return null
     }
 
@@ -111,6 +115,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     }
 
     if (!target.category) {
+      console.warn(`[ItemRarityParser] Failed to find Item Category for '${target.type}' (${target.typeId})`)
       return null
     }
 
