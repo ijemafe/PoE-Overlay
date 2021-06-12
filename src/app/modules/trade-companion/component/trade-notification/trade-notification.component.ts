@@ -1,12 +1,12 @@
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    EventEmitter,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output
 } from '@angular/core'
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip'
 import { CommandService } from '@modules/command/service/command.service'
@@ -14,17 +14,17 @@ import { TranslateService } from '@ngx-translate/core'
 import { SnackBarService } from '@shared/module/material/service'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
 import {
-  CurrencyAmount,
-  StashGridMode,
-  StashGridType,
-  STASH_TAB_CELL_COUNT_MAP,
-  TradeCompanionOption,
-  TradeCompanionUserSettings,
-  TradeNotification,
-  TradeNotificationType,
+    CurrencyAmount,
+    StashGridMode,
+    StashGridType,
+    STASH_TAB_CELL_COUNT_MAP,
+    TradeCompanionOption,
+    TradeCompanionUserSettings,
+    TradeNotification,
+    TradeNotificationType
 } from '@shared/module/poe/type/trade-companion.type'
 import moment from 'moment'
-import { timer } from 'rxjs'
+import { Subscription, timer } from 'rxjs'
 
 const tooltipDefaultOptions: MatTooltipDefaultOptions = {
   showDelay: 1000,
@@ -56,7 +56,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
 
   public elapsedTime = '0s'
 
-  private showingStashGrid = false
+  private stashGridSubscription: Subscription
 
   constructor(
     private readonly stashGridService: TradeCompanionStashGridService,
@@ -105,7 +105,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
 
   public dismiss(): void {
     this.dismissNotification.emit(this.notification)
-    if (this.showingStashGrid) {
+    if (this.stashGridSubscription) {
       // Toggle item highlighting
       this.highlightItem()
     }
@@ -129,7 +129,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
     this.commandService.command(`/invite ${this.notification.playerName}`)
     if (
       this.settings.showStashGridOnInvite &&
-      !this.showingStashGrid &&
+      !this.stashGridSubscription &&
       this.notification.type === TradeNotificationType.Incoming
     ) {
       this.highlightItem()
@@ -145,7 +145,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
     this.commandService.command(`/tradewith ${this.notification.playerName}`)
     if (
       this.settings.hideStashGridOnTrade &&
-      this.showingStashGrid &&
+      this.stashGridSubscription &&
       this.notification.type === TradeNotificationType.Incoming
     ) {
       this.highlightItem()
@@ -179,14 +179,14 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
   }
 
   public highlightItem(): void {
-    if (this.showingStashGrid) {
-      this.showingStashGrid = false
+    if (this.stashGridSubscription) {
+      this.stashGridSubscription.unsubscribe()
+      this.stashGridSubscription = null
       this.stashGridService.hideStashGrid()
     } else {
-      this.showingStashGrid = true
       const bounds = this.notification.itemLocation.bounds
       const normalGridCellCount = STASH_TAB_CELL_COUNT_MAP[StashGridType.Normal]
-      this.stashGridService
+      this.stashGridSubscription = this.stashGridService
         .showStashGrid({
           gridMode: StashGridMode.Normal,
           gridType:
@@ -196,7 +196,8 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
           highlightLocation: this.notification.itemLocation,
         })
         .subscribe(() => {
-          this.showingStashGrid = false
+          this.stashGridSubscription.unsubscribe()
+          this.stashGridSubscription = null
         })
     }
   }
