@@ -41,7 +41,7 @@ export class SnackBarService {
             })
             const snackBarElements = document.querySelectorAll('.snack-bar-service')
             const gameOverlayElement = document.getElementById('game-overlay')
-            if (gameOverlayElement !== undefined) {
+            if (gameOverlayElement) {
               snackBarElements.forEach((snackBarElement) => {
                 gameOverlayElement.append(snackBarElement.parentNode.parentNode)
               })

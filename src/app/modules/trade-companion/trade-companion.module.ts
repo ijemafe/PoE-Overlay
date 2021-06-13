@@ -83,6 +83,14 @@ export class TradeCompanionModule implements FeatureModule {
       showStashGridOnInvite: true,
       hideStashGridOnTrade: true,
       reversedNotificationDirection: false,
+      buttonClickAudio: {
+        enabled: false,
+        volume: 1,
+      },
+      incomingTradeMessageAudio: {
+        enabled: false,
+        volume: 1,
+      }
     }
     return {
       name: 'trade-companion.name',

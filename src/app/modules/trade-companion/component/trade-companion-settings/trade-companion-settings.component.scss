@@ -1,4 +1,5 @@
 $dark-gray: #2a2a2a;
+$gray: #313131;
 $label-color: rgba(200, 200, 200, 0.54);
 $input-color: rgba(200, 200, 200, 0.87);
 
@@ -9,6 +10,10 @@ app-card {
 
   .card {
     position: relative;
+
+    button {
+      background-color: $gray;
+    }
 
     .remove {
       position: absolute;

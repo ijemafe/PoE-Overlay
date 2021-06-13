@@ -256,6 +256,17 @@
     "zoom": "Zoom"
   },
   "trade-companion": {
+    "audio": {
+      "button-click": "Button Click",
+      "enabled": "Enabled",
+      "incoming-trade": "Incoming Trade",
+      "invalid-source": "Invalid Audio Source",
+      "play": "Play",
+      "stop": "Stop",
+      "source": "Source (URL or Path):",
+      "volume": "Volume"
+    },
+    "audio-options": "Audio Options",
     "edit-stash-grid": {
       "normal": "Edit Normal stash grid",
       "quad": "Edit Quad stash grid"

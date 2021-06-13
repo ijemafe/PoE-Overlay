@@ -4,9 +4,11 @@ import {
     Component,
     EventEmitter,
     Input,
+    OnChanges,
     OnDestroy,
     OnInit,
-    Output
+    Output,
+    SimpleChanges
 } from '@angular/core'
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip'
 import { CommandService } from '@modules/command/service/command.service'
@@ -39,7 +41,7 @@ const tooltipDefaultOptions: MatTooltipDefaultOptions = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: tooltipDefaultOptions }],
 })
-export class TradeNotificationComponent implements OnInit, OnDestroy {
+export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public settings: TradeCompanionUserSettings
 
@@ -57,6 +59,8 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
   public elapsedTime = '0s'
 
   private stashGridSubscription: Subscription
+
+  private buttonClickAudioClip: HTMLAudioElement
 
   constructor(
     private readonly stashGridService: TradeCompanionStashGridService,
@@ -90,11 +94,42 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
           { seconds }
         )
       }
-      this.ref.markForCheck()
+      this.ref.detectChanges()
     }, 1000)
   }
 
-  public ngOnDestroy(): void {}
+  public ngOnDestroy(): void {
+    if (this.buttonClickAudioClip) {
+      if (!this.buttonClickAudioClip.ended) {
+        const scopedEndedHandler = () => {
+          this.buttonClickAudioClip.removeEventListener('ended', scopedEndedHandler)
+          this.buttonClickAudioClip.remove()
+        }
+        this.buttonClickAudioClip.addEventListener('ended', scopedEndedHandler)
+      } else {
+        this.buttonClickAudioClip.remove()
+      }
+    }
+    if (this.stashGridSubscription) {
+      this.toggleItemHighlight()
+    }
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes['settings']) {
+      const buttonClickAudio = this.settings.buttonClickAudio
+      if (buttonClickAudio.enabled) {
+        if (!this.buttonClickAudioClip) {
+          this.buttonClickAudioClip = new Audio()
+        }
+        this.buttonClickAudioClip.src = buttonClickAudio.src
+        this.buttonClickAudioClip.volume = buttonClickAudio.volume
+      } else if (this.buttonClickAudioClip) {
+        this.buttonClickAudioClip.remove()
+        this.buttonClickAudioClip = null
+      }
+    }
+  }
 
   public itemExchangeRatio(): number {
     return this.floorMD(
@@ -103,68 +138,72 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
     )
   }
 
-  public dismiss(): void {
-    this.dismissNotification.emit(this.notification)
-    if (this.stashGridSubscription) {
-      // Toggle item highlighting
-      this.highlightItem()
-    }
+  public dismissClick(): void {
+    this.buttonClickAudioClip?.play()
+    this.dismiss()
   }
 
-  public toggleCollapsed(): void {
+  public toggleCollapsedClick(): void {
+    this.buttonClickAudioClip?.play()
     this.collapsed = !this.collapsed
   }
 
-  public visitPlayerHideout(): void {
+  public visitPlayerHideoutClick(): void {
+    this.buttonClickAudioClip?.play()
     this.commandService.command(`/hideout ${this.notification.playerName}`)
   }
 
-  public leaveParty(): void {
-    // TODO: use `/kick [playerName]` where [playerName] is your own character name,
-    //        which we should allow the user to input in their settings.
-    this.snackbar.warning('[TradeCompanion] Missing Feature: Leave Party')
+  public leavePartyClick(): void {
+    this.buttonClickAudioClip?.play()
+    this.leaveParty()
   }
 
-  public inviteToParty(): void {
+  public inviteToPartyClick(): void {
+    this.buttonClickAudioClip?.play()
     this.commandService.command(`/invite ${this.notification.playerName}`)
     if (
       this.settings.showStashGridOnInvite &&
       !this.stashGridSubscription &&
       this.notification.type === TradeNotificationType.Incoming
     ) {
-      this.highlightItem()
+      this.toggleItemHighlight()
     }
   }
 
-  public kickFromParty(): void {
-    this.commandService.command(`/kick ${this.notification.playerName}`)
-    this.dismiss()
+  public kickFromPartyClick(): void {
+    this.buttonClickAudioClip?.play()
+    this.kickFromParty()
   }
 
-  public requestTrade(): void {
+  public requestTradeClick(): void {
+    this.buttonClickAudioClip?.play()
     this.commandService.command(`/tradewith ${this.notification.playerName}`)
     if (
       this.settings.hideStashGridOnTrade &&
       this.stashGridSubscription &&
       this.notification.type === TradeNotificationType.Incoming
     ) {
-      this.highlightItem()
+      this.toggleItemHighlight()
     }
   }
 
-  public whois(): void {
+  public whoisClick(): void {
+    this.buttonClickAudioClip?.play()
     this.commandService.command(`/whois ${this.notification.playerName}`)
   }
 
-  public whisperPlayer(): void {
+  public whisperPlayerClick(): void {
+    this.buttonClickAudioClip?.play()
     this.commandService.command(`@${this.notification.playerName} `, false)
   }
 
-  public repeatTradeWhisper(): void {
+  public repeatTradeWhisperClick(): void {
+    this.buttonClickAudioClip?.play()
     this.commandService.command(this.notification.text)
   }
 
-  public askStillInterested(): void {
+  public askStillInterestedClick(): void {
+    this.buttonClickAudioClip?.play()
     let item: string
     if (this.notification.itemLocation) {
       item = this.notification.item as string
@@ -178,31 +217,13 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
     )
   }
 
-  public highlightItem(): void {
-    if (this.stashGridSubscription) {
-      this.stashGridSubscription.unsubscribe()
-      this.stashGridSubscription = null
-      this.stashGridService.hideStashGrid()
-    } else {
-      const bounds = this.notification.itemLocation.bounds
-      const normalGridCellCount = STASH_TAB_CELL_COUNT_MAP[StashGridType.Normal]
-      this.stashGridSubscription = this.stashGridService
-        .showStashGrid({
-          gridMode: StashGridMode.Normal,
-          gridType:
-            bounds.x <= normalGridCellCount && bounds.y <= normalGridCellCount
-              ? StashGridType.Normal
-              : StashGridType.Quad,
-          highlightLocation: this.notification.itemLocation,
-        })
-        .subscribe(() => {
-          this.stashGridSubscription.unsubscribe()
-          this.stashGridSubscription = null
-        })
-    }
+  public toggleItemHighlightClick(): void {
+    this.buttonClickAudioClip?.play()
+    this.toggleItemHighlight()
   }
 
-  public executeTradeOption(tradeOption: TradeCompanionOption): void {
+  public tradeOptionClick(tradeOption: TradeCompanionOption): void {
+    this.buttonClickAudioClip?.play()
     this.commandService.command(`@${this.notification.playerName} ${tradeOption.whisperMessage}`)
     if (tradeOption.kickAfterWhisper) {
       timer(550).subscribe(() => {
@@ -228,5 +249,44 @@ export class TradeNotificationComponent implements OnInit, OnDestroy {
     const log10 = n ? Math.floor(Math.log10(n)) : 0
     const div = log10 < 0 ? Math.pow(10, 1 - log10) : Math.pow(10, d)
     return Math.floor(n * div) / div
+  }
+
+  private dismiss(): void {
+    this.dismissNotification.emit(this.notification)
+  }
+
+  private leaveParty(): void {
+    // TODO: use `/kick [playerName]` where [playerName] is your own character name,
+    //        which we should allow the user to input in their settings.
+    this.snackbar.warning('[TradeCompanion] Missing Feature: Leave Party')
+  }
+
+  private kickFromParty(): void {
+    this.commandService.command(`/kick ${this.notification.playerName}`)
+    this.dismiss()
+  }
+
+  private toggleItemHighlight(): void {
+    if (this.stashGridSubscription) {
+      this.stashGridSubscription.unsubscribe()
+      this.stashGridSubscription = null
+      this.stashGridService.hideStashGrid()
+    } else {
+      const bounds = this.notification.itemLocation.bounds
+      const normalGridCellCount = STASH_TAB_CELL_COUNT_MAP[StashGridType.Normal]
+      this.stashGridSubscription = this.stashGridService
+        .showStashGrid({
+          gridMode: StashGridMode.Normal,
+          gridType:
+            bounds.x <= normalGridCellCount && bounds.y <= normalGridCellCount
+              ? StashGridType.Normal
+              : StashGridType.Quad,
+          highlightLocation: this.notification.itemLocation,
+        })
+        .subscribe(() => {
+          this.stashGridSubscription.unsubscribe()
+          this.stashGridSubscription = null
+        })
+    }
   }
 }

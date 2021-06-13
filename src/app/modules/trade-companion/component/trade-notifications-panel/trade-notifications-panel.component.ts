@@ -5,15 +5,18 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  OnChanges,
   OnDestroy,
   OnInit,
   Output,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core'
 import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service'
 import {
   TradeCompanionUserSettings,
   TradeNotification,
+  TradeNotificationType,
 } from '@shared/module/poe/type/trade-companion.type'
 import { Rectangle } from 'electron'
 import { Subject, Subscription } from 'rxjs'
@@ -27,7 +30,7 @@ import { UserSettingsService } from '../../../../layout/service'
   styleUrls: ['./trade-notifications-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
+export class TradeNotificationPanelComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   public settings: TradeCompanionUserSettings
 
@@ -49,20 +52,26 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
   private boundsUpdate$ = new Subject<Rectangle>()
   private closeClick$ = new Subject()
 
+  private notificationAudioClip: HTMLAudioElement
+
   constructor(
     private readonly ref: ChangeDetectorRef,
     private readonly tradeNotificationsService: TradeNotificationsService,
     private readonly userSettingsService: UserSettingsService,
     private readonly windowService: WindowService
-  ) {}
+  ) {
+  }
 
   public ngOnInit(): void {
     this.logLineAddedSub = this.tradeNotificationsService.notificationAddedOrChanged.subscribe(
-      (notification) => {
+      (notification: TradeNotification) => {
         if (this.notifications.indexOf(notification) === -1) {
           this.notifications.push(notification)
+          if (notification.type === TradeNotificationType.Incoming) {
+            this.notificationAudioClip?.play()
+          }
         }
-        this.ref.markForCheck()
+        this.ref.detectChanges()
       }
     )
     this.boundsUpdate$
@@ -89,7 +98,7 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
             })
             .subscribe((settings) => {
               this.settings = settings
-              this.ref.markForCheck()
+              this.ref.detectChanges()
             })
         })
       )
@@ -98,6 +107,23 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.logLineAddedSub.unsubscribe()
+    this.notificationAudioClip?.remove()
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes['settings']) {
+      const incomingTradeMessageAudio = this.settings.incomingTradeMessageAudio
+      if (incomingTradeMessageAudio.enabled) {
+        if (!this.notificationAudioClip) {
+          this.notificationAudioClip = new Audio()
+        }
+        this.notificationAudioClip.src = incomingTradeMessageAudio.src
+        this.notificationAudioClip.volume = incomingTradeMessageAudio.volume
+      } else if (this.notificationAudioClip) {
+        this.notificationAudioClip.remove()
+        this.notificationAudioClip = null
+      }
+    }
   }
 
   public calcOffsetY(): number {
@@ -127,7 +153,7 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy {
   public onDismissNotification(notification: TradeNotification): void {
     this.notifications = this.notifications.filter((tn) => tn !== notification)
     this.tradeNotificationsService.dismissNotification(notification)
-    this.ref.markForCheck()
+    this.ref.detectChanges()
   }
 
   private intersects(a: Rectangle, b: Rectangle): boolean {
