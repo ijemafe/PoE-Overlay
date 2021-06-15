@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Observable, of, throwError } from 'rxjs'
 import { catchError, flatMap, map, shareReplay, tap } from 'rxjs/operators'
+import { ofType } from '../function'
 import { LoggerService } from './logger.service'
 import { StorageService } from './storage.service'
 
@@ -25,13 +26,14 @@ export class CacheService {
     key: string,
     valueFn: () => Observable<TValue>,
     expiry: number,
-    slidingExpiry: boolean = false
+    slidingExpiry: boolean = false,
   ): Observable<TValue> {
     return this.storage.get<CacheEntry<TValue>>(key).pipe(
       flatMap((entry) => {
         const now = Date.now()
         if (
           entry &&
+          ofType<TValue>(entry.value) &&
           ((entry.expiry === expiry && entry.expired > now) ||
             (entry.expiry !== expiry && entry.creation + expiry > now))
         ) {
