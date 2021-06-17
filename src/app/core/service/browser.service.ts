@@ -31,6 +31,36 @@ export class BrowserService {
     return subject
   }
 
+  public openAndWait(url: string, smallerWindow: boolean = false): Observable<void> {
+    const subject = new Subject<void>()
+    const BrowserWindow = this.electron.BrowserWindow
+    const parent = this.electron.getCurrentWindow()
+    const [width, height] = parent.getSize()
+    const win = new BrowserWindow({
+      center: true,
+      parent,
+      autoHideMenuBar: true,
+      width: smallerWindow ? Math.round(Math.min(height * 1.3, width * 0.7)) : width,
+      height: smallerWindow ? Math.round(height * 0.7) : height,
+      backgroundColor: '#0F0F0F',
+      show: false,
+    })
+
+    parent.setEnabled(false)
+    win.once('closed', () => {
+      parent.setEnabled(true)
+      parent.moveTop()
+      subject.next()
+      subject.complete()
+    })
+    win.once('ready-to-show', () => {
+      win.webContents.zoomFactor = parent.webContents.zoomFactor
+      win.show()
+    })
+    win.loadURL(url)
+    return subject
+  }
+
   public open(url: string, external: boolean = false): void {
     if (external) {
       this.electron.shell.openExternal(url)

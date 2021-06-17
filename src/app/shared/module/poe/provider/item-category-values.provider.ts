@@ -8,7 +8,7 @@ import {
 } from '@data/poe-ninja'
 import { forkJoin, Observable, of } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { ItemCategory, ItemRarity } from '../type'
+import { CacheExpirationType, ItemCategory, ItemRarity } from '@shared/module/poe/type'
 
 export interface ItemCategoryValue {
   name: string
@@ -30,8 +30,6 @@ export interface ItemCategoryValue {
 export interface ItemCategoryValues {
   values: ItemCategoryValue[]
 }
-
-const CACHE_EXPIRY = 1000 * 60 * 30
 
 @Injectable({
   providedIn: 'root',
@@ -231,7 +229,7 @@ export class ItemCategoryValuesProvider {
     key: string,
     fetch: () => Observable<ItemCategoryValues>
   ): Observable<ItemCategoryValues> {
-    return this.cache.proxy(`item_category_${key}`, fetch, CACHE_EXPIRY)
+    return this.cache.proxy(`item_category_${key}`, fetch, CacheExpirationType.HalfNormal)
   }
 
   private fetchCurrency(

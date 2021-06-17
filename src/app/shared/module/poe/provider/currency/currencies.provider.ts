@@ -1,29 +1,27 @@
 import { Injectable } from '@angular/core'
 import { CacheService } from '@app/service'
-import * as PoE from '@data/poe'
-import { Currency, Language } from '@shared/module/poe/type'
+import { PoEHttpService, TradeStaticResultId } from '@data/poe'
+import { CacheExpirationType, Currency, Language } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-
-const CACHE_EXPIRY = 1000 * 60 * 60
 
 @Injectable({
   providedIn: 'root',
 })
 export class CurrenciesProvider {
   constructor(
-    private readonly tradeHttpService: PoE.TradeHttpService,
+    private readonly poeHttpService: PoEHttpService,
     private readonly cache: CacheService
   ) {}
 
-  public provide(language: Language, groupId?: PoE.TradeStaticResultId): Observable<Currency[]> {
+  public provide(language: Language, groupId?: TradeStaticResultId): Observable<Currency[]> {
     const groupKey = groupId?.toLowerCase() || 'all'
     const key = `${groupKey}_${language}`
-    return this.cache.proxy(key, () => this.fetch(language, groupId), CACHE_EXPIRY)
+    return this.cache.proxy(key, () => this.fetch(language, groupId), CacheExpirationType.Normal)
   }
 
-  private fetch(language: Language, groupId?: PoE.TradeStaticResultId): Observable<Currency[]> {
-    return this.tradeHttpService.getStatic(language).pipe(
+  private fetch(language: Language, groupId?: TradeStaticResultId): Observable<Currency[]> {
+    return this.poeHttpService.getStatic(language).pipe(
       map((response) => {
         let result = response.result
         if (groupId) {

@@ -42,7 +42,6 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent, O
 
   constructor(
     private readonly ref: ChangeDetectorRef,
-    private readonly ngZone: NgZone,
     private readonly window: WindowService,
     private readonly stashGridDialogService: TradeCompanionStashGridService,
     private readonly tradeNotificationsService: TradeNotificationsService,

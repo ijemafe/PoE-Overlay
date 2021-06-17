@@ -48,7 +48,7 @@ export class EvaluateOptionsComponent implements OnInit {
   constructor(private readonly leagues: LeaguesService) {}
 
   public ngOnInit(): void {
-    this.leagues$ = this.leagues.get().pipe(
+    this.leagues$ = this.leagues.getLeagues().pipe(
       map((leagues) => {
         const result = {}
         leagues.forEach((league) => {

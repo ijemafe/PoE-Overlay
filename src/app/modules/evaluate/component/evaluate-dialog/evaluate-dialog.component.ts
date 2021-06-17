@@ -9,7 +9,7 @@ import {
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { EvaluateQueryItemProvider } from '@modules/evaluate/provider/evaluate-query-item.provider'
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type'
-import { StashPriceTagType } from '@shared/module/poe/service'
+import { LeaguesService, StashPriceTagType } from '@shared/module/poe/service'
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service'
 import { Currency, Item, ItemCategory, ItemRarity, Language } from '@shared/module/poe/type'
 import { BehaviorSubject, forkJoin, Observable, Subject } from 'rxjs'
@@ -44,6 +44,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
 
   public init$ = new BehaviorSubject<boolean>(false)
   public rate$ = new BehaviorSubject<boolean>(true)
+  public privateLeague$ = new BehaviorSubject<boolean>(true)
 
   public filterOptionsOpen = false
 
@@ -52,7 +53,8 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
     public data: EvaluateDialogData,
     private readonly ref: MatDialogRef<EvaluateDialogComponent>,
     private readonly evaluateQueryItemProvider: EvaluateQueryItemProvider,
-    private readonly currencyService: CurrencyService
+    private readonly currencyService: CurrencyService,
+    private readonly leagueService: LeaguesService,
   ) {}
 
   public ngOnInit(): void {
@@ -69,6 +71,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
     this.currencies$ = this.getCurrencies()
     this.registerResultChange()
     this.checkRate()
+    this.checkPrivateLeague()
   }
 
   public ngAfterViewInit(): void {
@@ -92,6 +95,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
     this.options = options
     this.optionsChange.next(this.options)
     this.onQueryItemChange(this.queryItem)
+    this.checkPrivateLeague()
   }
 
   public onReset(): void {
@@ -121,6 +125,10 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
       this.currencyService.searchById(id)
     )
     return forkJoin(currencies$).pipe(shareReplay(CURRENCIES_CACHE_SIZE))
+  }
+
+  private checkPrivateLeague(): void {
+    this.leagueService.get(this.options.leagueId, this.data.language).subscribe((league) => this.privateLeague$.next(league.privateLeague))
   }
 
   private checkRate(): void {

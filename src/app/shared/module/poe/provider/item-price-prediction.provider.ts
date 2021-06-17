@@ -4,6 +4,7 @@ import { CacheService } from '@app/service'
 import { ItemPricePredictionHttpService } from '@data/poe-prices'
 import { Observable } from 'rxjs'
 import { flatMap, map } from 'rxjs/operators'
+import { CacheExpirationType } from '@shared/module/poe/type'
 
 export interface ItemPricePrediction {
   min: number
@@ -14,7 +15,6 @@ export interface ItemPricePrediction {
 }
 
 const CACHE_PATH = 'item_price_'
-const CACHE_EXPIRY = 1000 * 60 * 15
 
 @Injectable({
   providedIn: 'root',
@@ -46,7 +46,7 @@ export class ItemPricePredictionProvider {
                 return result
               })
             ),
-          CACHE_EXPIRY,
+          CacheExpirationType.Short,
           true
         )
       )

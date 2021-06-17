@@ -6,7 +6,7 @@ import { ContextService } from '../context.service'
 import { ItemSearchService } from './item-search.service'
 import {
   TradeFetchResult,
-  TradeHttpService,
+  PoEHttpService,
   TradeOrExchangeSearchResponse,
   TradeResponse,
   TradeSearchType,
@@ -17,7 +17,7 @@ describe('ItemSearchService', () => {
   let sut: ItemSearchService
   let contextService: ContextService
   let baseItemTypesService: BaseItemTypesService
-  let tradeServiceSpy: jasmine.SpyObj<TradeHttpService>
+  let tradeServiceSpy: jasmine.SpyObj<PoEHttpService>
 
   const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
   const mockStatic: any = require('doc/poe/api_trade_data_static.json')
@@ -75,10 +75,10 @@ describe('ItemSearchService', () => {
 
     TestBed.configureTestingModule({
       imports: [SharedModule],
-      providers: [{ provide: TradeHttpService, useValue: tradeServiceSpyObj }],
+      providers: [{ provide: PoEHttpService, useValue: tradeServiceSpyObj }],
     }).compileComponents()
 
-    tradeServiceSpy = TestBed.inject(TradeHttpService) as jasmine.SpyObj<TradeHttpService>
+    tradeServiceSpy = TestBed.inject(PoEHttpService) as jasmine.SpyObj<PoEHttpService>
     tradeServiceSpy.getLeagues.and.returnValue(of(mockLeagues))
     sut = TestBed.inject<ItemSearchService>(ItemSearchService)
 

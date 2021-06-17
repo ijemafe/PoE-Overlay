@@ -21,28 +21,26 @@
         (toggleOpen)="onToggleOpen($event)"
       >
       </app-evaluate-options>
-      <ng-container *ngIf="rate$ | async; else prediction">
-        <app-evaluate-exchange-rate
-          [options]="options"
-          [optionsChange]="optionsChange"
-          [item]="data.item"
-          [settings]="data.settings"
-          [currencies]="currencies"
-          (evaluateResult)="onEvaluateResult($event)"
-        >
-        </app-evaluate-exchange-rate>
+      <ng-container *ngIf="!(privateLeague$ | async)">
+        <ng-container *ngIf="rate$ | async; else prediction">
+          <app-evaluate-exchange-rate [options]="options"
+                                      [optionsChange]="optionsChange"
+                                      [item]="data.item"
+                                      [settings]="data.settings"
+                                      [currencies]="currencies"
+                                      (evaluateResult)="onEvaluateResult($event)">
+          </app-evaluate-exchange-rate>
+        </ng-container>
+        <ng-template #prediction>
+          <app-evaluate-price-prediction [language]="data.settings.language"
+                                         [options]="options"
+                                         [optionsChange]="optionsChange"
+                                         [item]="data.item"
+                                         [currencies]="currencies">
+          </app-evaluate-price-prediction>
+        </ng-template>
+        <app-item-frame-separator [item]="data.item"> </app-item-frame-separator>
       </ng-container>
-      <ng-template #prediction>
-        <app-evaluate-price-prediction
-          [language]="data.settings.language"
-          [options]="options"
-          [optionsChange]="optionsChange"
-          [item]="data.item"
-          [currencies]="currencies"
-        >
-        </app-evaluate-price-prediction>
-      </ng-template>
-      <app-item-frame-separator [item]="data.item"> </app-item-frame-separator>
       <app-evaluate-search
         *ngIf="init$ | async; else loading"
         [options]="options"

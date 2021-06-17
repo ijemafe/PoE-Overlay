@@ -3,7 +3,7 @@ import { CacheService, LoggerService } from '@app/service'
 import {
   ExchangeSearchRequest,
   TradeFetchResult,
-  TradeHttpService,
+  PoEHttpService,
   TradeSearchRequest,
   TradeSearchType,
 } from '@data/poe'
@@ -48,7 +48,7 @@ export class ItemSearchService {
     private readonly currencyService: CurrencyService,
     private readonly baseItemTypesServices: BaseItemTypesService,
     private readonly requestService: ItemSearchQueryService,
-    private readonly tradeService: TradeHttpService,
+    private readonly poeHttpService: PoEHttpService,
     private readonly cache: CacheService,
     private readonly logger: LoggerService
   ) {}
@@ -116,7 +116,7 @@ export class ItemSearchService {
         }
 
         return from(hitsChunked).pipe(
-          flatMap((chunk) => this.tradeService.fetch(chunk, id, language)),
+          flatMap((chunk) => this.poeHttpService.fetch(chunk, id, language)),
           toArray(),
           flatMap((responses) => {
             const results: TradeFetchResult[] = responses
@@ -175,7 +175,7 @@ export class ItemSearchService {
     const { language, leagueId } = options
     this.requestService.map(requestedItem, language, request.query)
 
-    return this.tradeService.search(request, language, leagueId).pipe(
+    return this.poeHttpService.search(request, language, leagueId).pipe(
       map((response) => {
         const { id, url, total } = response
         const result: ItemSearchResult = {
@@ -222,7 +222,7 @@ export class ItemSearchService {
             },
           }
 
-          return this.tradeService.exchange(request, language, leagueId).pipe(
+          return this.poeHttpService.exchange(request, language, leagueId).pipe(
             map((response) => {
               const { id, url, total } = response
               const result: ItemSearchResult = {

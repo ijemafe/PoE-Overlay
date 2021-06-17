@@ -1,6 +1,13 @@
 @import './../../../../styles/variables';
 
+$dark-gray: #2a2a2a;
 $label-color: rgba(200, 200, 200, 0.54);
+
+app-card {
+  button {
+    background-color: $dark-gray;
+  }
+}
 
 label {
   display: block;

@@ -12,6 +12,7 @@ import { FeatureModule } from '@app/type'
 import { ContextService } from '@shared/module/poe/service'
 import { BehaviorSubject, Observable, of } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
+import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { UserSettingsFeatureContainerComponent } from '../../component'
 import { UserSettingsService } from '../../service'
 import { UserSettings, UserSettingsFeature } from '../../type'
@@ -37,7 +38,8 @@ export class UserSettingsComponent implements OnInit {
     private readonly settingsService: UserSettingsService,
     private readonly window: WindowService,
     private readonly context: ContextService,
-    private readonly translate: AppTranslateService
+    private readonly translate: AppTranslateService,
+    private readonly accountService: PoEAccountService,
   ) {}
 
   public ngOnInit(): void {
@@ -81,12 +83,14 @@ export class UserSettingsComponent implements OnInit {
 
       const { language, leagueId } = settings
       this.context.init({ language, leagueId }).subscribe(() => {
-        this.settings = settings
-        this.features = [...this.settingsService.features()].sort(
-          (a, b) => b.visualPriority - a.visualPriority
-        )
+        this.accountService.init().subscribe(() => {
+          this.settings = settings
+          this.features = [...this.settingsService.features()].sort(
+            (a, b) => b.visualPriority - a.visualPriority
+          )
 
-        this.init$.next(true)
+          this.init$.next(true)
+        })
       })
     })
   }

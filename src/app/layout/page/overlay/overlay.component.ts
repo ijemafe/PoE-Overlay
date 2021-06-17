@@ -15,8 +15,9 @@ import { SnackBarService } from '@shared/module/material/service'
 import { ContextService } from '@shared/module/poe/service'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
 import { Context } from '@shared/module/poe/type'
-import { BehaviorSubject, EMPTY, Observable, timer } from 'rxjs'
+import { BehaviorSubject, EMPTY, forkJoin, Observable, timer } from 'rxjs'
 import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
+import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
 import { UserSettingsService } from '../../service'
 import { UserSettings } from '../../type'
@@ -49,7 +50,8 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService,
     private readonly stashGridService: TradeCompanionStashGridService,
-    private readonly tradeNotificationsService: TradeNotificationsService
+    private readonly tradeNotificationsService: TradeNotificationsService,
+    private readonly accountService: PoEAccountService,
   ) {
     this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
     this.window.gameBounds.subscribe((_) => {
@@ -86,6 +88,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
           this.translate.use(settings.uiLanguage)
           this.window.setZoom(settings.zoom / 100)
           this.context.update(this.getContext(settings))
+          this.accountService.update(settings.language)
 
           this.app.updateAutoDownload(settings.autoDownload)
           this.register(settings)
@@ -105,22 +108,24 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.window.setZoom(settings.zoom / 100)
 
       this.context.init(this.getContext(settings)).subscribe(() => {
-        this.registerEvents(settings)
-        this.register(settings)
-        this.registerVisibleChange()
+        this.accountService.init().subscribe(() => {
+          this.registerEvents(settings)
+          this.register(settings)
+          this.registerVisibleChange()
 
-        this.renderer.on('show-user-settings').subscribe(() => {
-          this.openUserSettings()
-        })
-        this.renderer.on('reset-zoom').subscribe(() => {
-          this.userSettingsService
-            .update((x) => {
-              x.zoom = 100
-              return x
-            })
-            .subscribe((x) => {
-              this.window.setZoom(x.zoom / 100)
-            })
+          this.renderer.on('show-user-settings').subscribe(() => {
+            this.openUserSettings()
+          })
+          this.renderer.on('reset-zoom').subscribe(() => {
+            this.userSettingsService
+              .update((x) => {
+                x.zoom = 100
+                return x
+              })
+              .subscribe((x) => {
+                this.window.setZoom(x.zoom / 100)
+              })
+          })
         })
       })
     })

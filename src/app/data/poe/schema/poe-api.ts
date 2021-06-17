@@ -109,6 +109,32 @@ export interface TradeStatsResultResultEntry {
   type?: string
 }
 
+//{"error":{"code":8,"message":"Unauthorized"}}
+export interface ApiErrorResponse {
+  error?: {
+    code?: number
+    message?: string
+  }
+}
+
+//{"uuid":"[GUID]","name":"[ACC NAME]","realm":"pc","locale":"en_US","guild":{"name":"[GUILD NAME]"},"twitch":{"name":"[TWITCH ACC NAME]"}}
+export interface ApiProfileResponse extends ApiErrorResponse {
+  uuid?: string
+  name?: string
+  realm?: string
+  locale?: string
+  guild?: ApiGuildEntry
+  twitch?: ApiTwitchEntry
+}
+
+export interface ApiGuildEntry {
+  name?: string
+}
+
+export interface ApiTwitchEntry {
+  name?: string
+}
+
 export interface FilterValueOption {
   option?: string | number
   min?: number

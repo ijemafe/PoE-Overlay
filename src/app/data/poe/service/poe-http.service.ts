@@ -6,27 +6,28 @@ import { Language } from '@shared/module/poe/type'
 import { Observable, of, throwError } from 'rxjs'
 import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
 import {
-  ExchangeSearchRequest,
-  TradeFetchResult,
-  TradeItemsResult,
-  TradeLeaguesResult,
-  TradeResponse,
-  TradeSearchRequest,
-  TradeOrExchangeSearchResponse,
-  TradeStaticResult,
-  TradeStatsResult,
-  TradeSearchType,
-} from '../schema/trade'
+    ApiProfileResponse,
+    ExchangeSearchRequest,
+    TradeFetchResult,
+    TradeItemsResult,
+    TradeLeaguesResult,
+    TradeOrExchangeSearchResponse, TradeResponse,
+    TradeSearchRequest,
+    TradeSearchType, TradeStaticResult,
+    TradeStatsResult
+} from '../schema/poe-api'
 import { TradeRateLimitService } from './trade-rate-limit.service'
 
 const RETRY_COUNT = 3
 const RETRY_DELAY = 300
 const RETRY_LIMIT_COUNT = 1
 
+const LEAGUES_REGEX = new RegExp(/"leagues":(?<leagues>\[[a-z0-9":{}, \(\)]*\]),/i)
+
 @Injectable({
   providedIn: 'root',
 })
-export class TradeHttpService {
+export class PoEHttpService {
   constructor(
     private readonly http: HttpClient,
     private readonly browser: BrowserService,
@@ -34,23 +35,53 @@ export class TradeHttpService {
   ) {}
 
   public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
-    const url = this.getApiUrl('data/items', language)
-    return this.getAndTransform(url)
+    const url = this.getTradeApiUrl('data/items', language)
+    return this.getAndParse(url)
   }
 
+  // For some odd reason this doesn't include Private Leagues when the player is authenticated.
   public getLeagues(language: Language): Observable<TradeResponse<TradeLeaguesResult>> {
-    const url = this.getApiUrl('data/leagues', language)
-    return this.getAndTransform(url)
+    const url = this.getTradeApiUrl('data/leagues', language)
+    return this.getAndParse(url)
+  }
+
+  // To obtain a list of private leagues, simply load the normal trade search page and find them using a regex.
+  public getTradePageLeagues(language: Language): Observable<TradeResponse<TradeLeaguesResult>> {
+    const url = this.getPoEUrl('trade/search', language)
+    return this.getAndTransform(url).pipe(
+      map((result) => {
+        if (LEAGUES_REGEX.test(result)) {
+          const exec = LEAGUES_REGEX.exec(result)
+          return `{"result":${exec.groups.leagues}}`
+        }
+        console.log('[TradeHTTP] Cannot find Leagues list on the trade page.')
+        return ''
+      }),
+      map((result) => this.parseResponse(result))
+    )
+  }
+
+  public getAccountInfo(language: Language): Observable<ApiProfileResponse> {
+    const url = this.getApiUrl('profile', language)
+    return this.getAndParse(url)
+  }
+
+  public getLoginUrl(language: Language): string {
+    return this.getPoEUrl('login', language)
+  }
+
+  public getLogoutUrl(language: Language): string {
+    return this.getPoEUrl('logout', language)
   }
 
   public getStatic(language: Language): Observable<TradeResponse<TradeStaticResult>> {
-    const url = this.getApiUrl('data/static', language)
-    return this.getAndTransform(url)
+    const url = this.getTradeApiUrl('data/static', language)
+    return this.getAndParse(url)
   }
 
   public getStats(language: Language): Observable<TradeResponse<TradeStatsResult>> {
-    const url = this.getApiUrl('data/stats', language)
-    return this.getAndTransform(url)
+    const url = this.getTradeApiUrl('data/stats', language)
+    return this.getAndParse(url)
   }
 
   public search(
@@ -74,7 +105,7 @@ export class TradeHttpService {
     queryId: string,
     language: Language
   ): Observable<TradeResponse<TradeFetchResult>> {
-    const url = this.getApiUrl(`fetch/${itemIds.join(',')}`, language)
+    const url = this.getTradeApiUrl(`fetch/${itemIds.join(',')}`, language)
     return this.limit
       .throttle('fetch', () =>
         this.http.get<TradeResponse<TradeFetchResult>>(url, {
@@ -100,7 +131,7 @@ export class TradeHttpService {
     leagueId: string,
     searchType: TradeSearchType
   ): Observable<TradeOrExchangeSearchResponse> {
-    const url = this.getApiUrl(`${searchType}/${encodeURIComponent(leagueId)}`, language)
+    const url = this.getTradeApiUrl(`${searchType}/${encodeURIComponent(leagueId)}`, language)
     return this.limit
       .throttle(searchType, () =>
         this.http.post<TradeOrExchangeSearchResponse>(url, request, {
@@ -120,7 +151,7 @@ export class TradeHttpService {
       )
   }
 
-  private getAndTransform<TResponse>(url: string): Observable<TResponse> {
+  private get(url: string): Observable<HttpResponse<string>> {
     return this.http
       .get(url, {
         observe: 'response',
@@ -130,19 +161,37 @@ export class TradeHttpService {
       .pipe(
         retryWhen((errors) =>
           errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
-        ),
-        map((response) => this.transformResponse(response))
+        )
       )
   }
 
-  private transformResponse<TResponse>(response: HttpResponse<string>): TResponse {
-    const result = response.body.replace(/\\u[\dA-Fa-f]{4}/g, (match) =>
-      String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16))
-    )
+  private getAndTransform(url: string): Observable<string> {
+    return this.get(url).pipe(map((response) => this.transformResponse(response)))
+  }
+
+  private getAndParse<TResponse>(url: string): Observable<TResponse> {
+    return this.getAndTransform(url).pipe(map((result) => this.parseResponse(result)))
+  }
+
+  private parseResponse<TResponse>(result: string): TResponse {
     return JSON.parse(result) as TResponse
   }
 
+  private transformResponse(response: HttpResponse<string>): string {
+    return response.body.replace(/\\u[\dA-Fa-f]{4}/g, (match) =>
+      String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16))
+    )
+  }
+
   private getApiUrl(postfix: string, language: Language): string {
+    return this.getPoEUrl(`api/${postfix}`, language)
+  }
+
+  private getTradeApiUrl(postfix: string, language: Language): string {
+    return this.getApiUrl(`trade/${postfix}`, language)
+  }
+
+  private getPoEUrl(postfix: string, language: Language): string {
     let baseUrl = environment.poe.baseUrl
     switch (language) {
       case Language.English:
@@ -177,7 +226,7 @@ export class TradeHttpService {
       default:
         throw new Error(`Could not map baseUrl to language: '${language}'.`)
     }
-    return `${baseUrl}/trade/${postfix}`
+    return `${baseUrl}${postfix}`
   }
 
   private handleError(url: string, response: HttpErrorResponse, count: number): Observable<any> {

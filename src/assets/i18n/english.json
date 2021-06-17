@@ -218,6 +218,12 @@
     "wiki": "Wiki"
   },
   "settings": {
+    "account": {
+      "login": "Login",
+      "login-info": "To login a new window will be opened, once logged at the PoE website you should close the window.",
+      "logout": "Logout",
+      "name": "Account Name"
+    },
     "app": "App",
     "auto-download": "Download update automatically",
     "auto-launch": "Run on Boot",
@@ -233,6 +239,7 @@
     "exit-app": "Exit App",
     "focusable": "Focusable (Keyboard Support)",
     "focusable-description": "Allows keyboard navigation of the overlay (TAB / ARROW KEYS [←→↑↓])",
+    "force-refresh": "Force Refresh",
     "game-settings": "Game Settings",
     "general": "General",
     "languages": {
@@ -250,6 +257,8 @@
     },
     "league": "League",
     "open-settings": "Open Settings",
+    "poe-account": "PoE Account",
+    "private-league-info": "Private leagues become selectable when logged in",
     "relaunch-app": "Relaunch App",
     "save": "Save",
     "ui-language": "UI Language",

@@ -1,37 +1,39 @@
 import { Injectable } from '@angular/core'
 import { CacheService } from '@app/service'
-import * as PoE from '@data/poe'
-import { Language, League } from '@shared/module/poe/type'
-import { Observable } from 'rxjs'
+import { PoEHttpService } from '@data/poe'
+import { CacheExpirationType, Language, League } from '@shared/module/poe/type'
+import { forkJoin, Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-
-const CACHE_EXPIRY = 1000 * 60 * 60
 
 @Injectable({
   providedIn: 'root',
 })
 export class LeaguesProvider {
   constructor(
-    private readonly tradeHttpService: PoE.TradeHttpService,
+    private readonly poeHttpService: PoEHttpService,
     private readonly cache: CacheService
   ) {}
 
-  public provide(language: Language): Observable<League[]> {
+  public provide(language: Language, cacheExpiration: CacheExpirationType = CacheExpirationType.Normal): Observable<League[]> {
     const key = `leagues_${language}`
-    return this.cache.proxy(key, () => this.fetch(language), CACHE_EXPIRY)
+    return this.cache.proxy(key, () => this.fetch(language), cacheExpiration)
   }
 
   private fetch(language: Language): Observable<League[]> {
-    return this.tradeHttpService.getLeagues(language).pipe(
-      map((response) =>
-        response.result.map((league) => {
-          const result: League = {
-            id: league.id,
-            text: league.text,
-          }
-          return result
-        })
-      )
-    )
+    return forkJoin([
+      this.poeHttpService.getLeagues(language),
+      this.poeHttpService.getTradePageLeagues(language)
+    ]).pipe(map((responses) => {
+      const leagues = responses[0].result
+      const tradePageLeagues = responses[1].result
+      return tradePageLeagues.map((league) => {
+        const result: League = {
+          id: league.id,
+          text: league.text,
+          privateLeague: leagues.findIndex((l) => l.id === league.id) === -1
+        }
+        return result
+      })
+    }))
   }
 }
