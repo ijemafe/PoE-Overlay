@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   poe: {
-    baseUrl: 'https://www.pathofexile.com/api',
-    countryUrl: 'https://{country}.pathofexile.com/api',
-    koreanUrl: 'https://poe.game.daum.net/api',
-    simplifiedChineseUrl: 'https://poe.game.qq.com/api',
-    traditionalChineseUrl: 'https://web.poe.garena.tw/api',
+    baseUrl: 'https://www.pathofexile.com/',
+    countryUrl: 'https://{country}.pathofexile.com/',
+    koreanUrl: 'https://poe.game.daum.net/',
+    simplifiedChineseUrl: 'https://poe.game.qq.com/',
+    traditionalChineseUrl: 'https://web.poe.garena.tw/',
   },
   wiki: {
     baseUrl: 'https://pathofexile.gamepedia.com',

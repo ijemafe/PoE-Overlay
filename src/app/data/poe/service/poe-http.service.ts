@@ -189,12 +189,12 @@ export class PoEHttpService {
     )
   }
 
-  private getApiUrl(postfix: string, language: Language): string {
-    return this.getPoEUrl(`api/${postfix}`, language)
-  }
-
   private getTradeApiUrl(postfix: string, language: Language): string {
     return this.getApiUrl(`trade/${postfix}`, language)
+  }
+
+  private getApiUrl(postfix: string, language: Language): string {
+    return this.getPoEUrl(`api/${postfix}`, language)
   }
 
   private getPoEUrl(postfix: string, language: Language): string {
