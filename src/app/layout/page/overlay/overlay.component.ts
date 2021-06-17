@@ -12,7 +12,7 @@ import { ShortcutService } from '@app/service/input'
 import { FEATURE_MODULES } from '@app/token'
 import { AppUpdateState, FeatureModule, Rectangle, VisibleFlag } from '@app/type'
 import { SnackBarService } from '@shared/module/material/service'
-import { ContextService } from '@shared/module/poe/service'
+import { ContextService, StashService } from '@shared/module/poe/service'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
 import { Context } from '@shared/module/poe/type'
 import { BehaviorSubject, EMPTY, forkJoin, Observable, timer } from 'rxjs'
@@ -52,6 +52,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly stashGridService: TradeCompanionStashGridService,
     private readonly tradeNotificationsService: TradeNotificationsService,
     private readonly accountService: PoEAccountService,
+    private readonly stashService: StashService,
   ) {
     this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
     this.window.gameBounds.subscribe((_) => {
@@ -171,6 +172,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private reset(): void {
     this.dialogRef.reset()
+    this.stashService.unregister()
     this.shortcut.removeAllByRef(overlayCompRef)
   }
 
@@ -178,6 +180,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.registerFeatures(settings)
     this.registerSettings(settings)
     this.dialogRef.register()
+    this.stashService.register()
 
     this.userSettings$.next(settings)
   }

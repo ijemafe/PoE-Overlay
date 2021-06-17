@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core'
 import { CacheService } from '@app/service'
-import { ApiProfileResponse, PoEHttpService } from '@data/poe'
+import { PoEHttpService } from '@data/poe'
 import { CacheExpirationType, Language, PoEAccount } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { ofType } from '../../../../core/function'
 
 @Injectable({
   providedIn: 'root',

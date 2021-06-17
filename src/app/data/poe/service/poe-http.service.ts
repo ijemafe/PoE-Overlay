@@ -7,6 +7,7 @@ import { Observable, of, throwError } from 'rxjs'
 import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
 import {
     ApiProfileResponse,
+    ApiStashItems,
     ExchangeSearchRequest,
     TradeFetchResult,
     TradeItemsResult,
@@ -61,8 +62,13 @@ export class PoEHttpService {
     )
   }
 
-  public getAccountInfo(language: Language): Observable<ApiProfileResponse> {
-    const url = this.getApiUrl('profile', language)
+  public getStatic(language: Language): Observable<TradeResponse<TradeStaticResult>> {
+    const url = this.getTradeApiUrl('data/static', language)
+    return this.getAndParse(url)
+  }
+
+  public getStats(language: Language): Observable<TradeResponse<TradeStatsResult>> {
+    const url = this.getTradeApiUrl('data/stats', language)
     return this.getAndParse(url)
   }
 
@@ -74,13 +80,13 @@ export class PoEHttpService {
     return this.getPoEUrl('logout', language)
   }
 
-  public getStatic(language: Language): Observable<TradeResponse<TradeStaticResult>> {
-    const url = this.getTradeApiUrl('data/static', language)
+  public getAccountInfo(language: Language): Observable<ApiProfileResponse> {
+    const url = this.getApiUrl('profile', language)
     return this.getAndParse(url)
   }
 
-  public getStats(language: Language): Observable<TradeResponse<TradeStatsResult>> {
-    const url = this.getTradeApiUrl('data/stats', language)
+  public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashItems> {
+    const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&league=${encodeURIComponent(leagueId)}&realm=pc&accountName=${encodeURIComponent(accountName)}`, language)
     return this.getAndParse(url)
   }
 

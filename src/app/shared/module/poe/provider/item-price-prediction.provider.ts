@@ -46,7 +46,7 @@ export class ItemPricePredictionProvider {
                 return result
               })
             ),
-          CacheExpirationType.Short,
+          CacheExpirationType.Medium,
           true
         )
       )

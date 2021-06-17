@@ -18,8 +18,6 @@ import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade
 import {
     CurrencyAmount,
     StashGridMode,
-    StashGridType,
-    STASH_TAB_CELL_COUNT_MAP,
     TradeCompanionOption,
     TradeCompanionUserSettings,
     TradeNotification,
@@ -67,7 +65,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     private readonly snackbar: SnackBarService,
     private readonly commandService: CommandService,
     private readonly ref: ChangeDetectorRef,
-    private readonly translate: TranslateService
+    private readonly translate: TranslateService,
   ) {}
 
   public ngOnInit(): void {
@@ -272,21 +270,18 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
       this.stashGridSubscription = null
       this.stashGridService.hideStashGrid()
     } else {
-      const bounds = this.notification.itemLocation.bounds
-      const normalGridCellCount = STASH_TAB_CELL_COUNT_MAP[StashGridType.Normal]
-      this.stashGridSubscription = this.stashGridService
-        .showStashGrid({
-          gridMode: StashGridMode.Normal,
-          gridType:
-            bounds.x <= normalGridCellCount && bounds.y <= normalGridCellCount
-              ? StashGridType.Normal
-              : StashGridType.Quad,
-          highlightLocation: this.notification.itemLocation,
-        })
-        .subscribe(() => {
-          this.stashGridSubscription.unsubscribe()
-          this.stashGridSubscription = null
-        })
+      this.stashGridService.getStashGridType(this.notification.itemLocation).subscribe((gridType) => {
+        this.stashGridSubscription = this.stashGridService
+          .showStashGrid({
+            gridMode: StashGridMode.Normal,
+            gridType,
+            highlightLocation: this.notification.itemLocation,
+          })
+          .subscribe(() => {
+            this.stashGridSubscription.unsubscribe()
+            this.stashGridSubscription = null
+          })
+      })
     }
   }
 }

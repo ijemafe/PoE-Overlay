@@ -135,6 +135,42 @@ export interface ApiTwitchEntry {
   name?: string
 }
 
+export interface ApiStashItems extends ApiErrorResponse {
+  numTabs?: number
+  tabs?: ApiTabEntry[]
+}
+
+export enum ApiStashType {
+  CurrencyStash = 'CurrencyStash',
+  MapStash = 'MapStash',
+  FragmentStash = 'FragmentStash',
+  DivinationCardStash = 'DivinationCardStash',
+  EssenceStash = 'EssenceStash',
+  DelveStash = 'DelveStash',
+  BlightStash = 'BlightStash',
+  MetamorphStash = 'MetamorphStash',
+  DeliriumStash = 'DeliriumStash',
+  UniqueStash = 'UniqueStash',
+  QuadStash = 'QuadStash',
+  PremiumStash = 'PremiumStash',
+}
+
+export interface ApiTabEntry {
+  n?: string
+  i?: number
+  id?: string
+  type?: ApiStashType
+  selected?: boolean
+  colour?: {
+    r?: number
+    g?: number
+    b?: number
+  },
+  srcL?: string
+  srcC?: string
+  srcR?: string
+}
+
 export interface FilterValueOption {
   option?: string | number
   min?: number
