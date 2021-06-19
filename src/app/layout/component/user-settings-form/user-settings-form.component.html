@@ -13,6 +13,28 @@
             {{ 'settings.account.logout' | translate }}
           </button>
         </div>
+        <div class="col-md-2">
+           &nbsp;
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-9">
+              <mat-form-field floatLabel="always">
+                <mat-label>{{ 'settings.stash-update-interval' | translate }}</mat-label>
+                <mat-select [(value)]="settings.stashCacheExpiration" placeholder="{{ 'settings.update-intervals.default' | translate }}">
+                  <mat-option *ngFor="let intervals of stashIntervals" [value]="intervals.value">
+                    {{ 'settings.update-intervals.' + intervals.name | translate }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-3">
+              <button mat-raised-button (click)="onForceRefreshStashInfoClick()">
+                {{ 'settings.force-refresh' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </ng-container>
     <ng-template #login>

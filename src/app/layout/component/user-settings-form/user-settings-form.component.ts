@@ -2,12 +2,17 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy
 import { EnumValues } from '@app/class'
 import { AppService, AppTranslateService, WindowService } from '@app/service'
 import { UiLanguage } from '@app/type'
-import { LeaguesService } from '@shared/module/poe/service'
+import { LeaguesService, StashService } from '@shared/module/poe/service'
 import { CacheExpirationType, Language, League, PoEAccount } from '@shared/module/poe/type'
 import { BehaviorSubject, Observable, Subscription } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { UserSettings } from '../../type'
+
+interface UpdateInterval {
+  name: string
+  value: number
+}
 
 @Component({
   selector: 'app-user-settings-form',
@@ -18,6 +23,36 @@ import { UserSettings } from '../../type'
 export class UserSettingsFormComponent implements OnInit, OnDestroy {
   public languages = new EnumValues(Language)
   public uiLanguages = new EnumValues(UiLanguage)
+  public readonly stashIntervals: UpdateInterval[] = [
+    {
+      name: 'default',
+      value: null
+    },
+    {
+      name: 'five-min',
+      value: CacheExpirationType.Short
+    },
+    {
+      name: 'fifteen-min',
+      value: CacheExpirationType.Medium
+    },
+    {
+      name: 'half-hour',
+      value: CacheExpirationType.HalfNormal
+    },
+    {
+      name: 'one-hour',
+      value: CacheExpirationType.Normal
+    },
+    {
+      name: 'one-day',
+      value: CacheExpirationType.Long
+    },
+    {
+      name: 'never',
+      value: CacheExpirationType.Never
+    },
+  ]
 
   public leagues$ = new BehaviorSubject<League[]>([])
   public autoLaunchEnabled$: Observable<boolean>
@@ -41,6 +76,7 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
     private readonly translate: AppTranslateService,
     private readonly window: WindowService,
     private readonly accountService: PoEAccountService,
+    private readonly stashService: StashService,
   ) {
   }
 
@@ -94,6 +130,10 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
 
   public onLogoutClick(): void {
     this.accountService.logout(this.settings.language).subscribe((account) => this.onAccountChanged(account, true))
+  }
+
+  public onForceRefreshStashInfoClick(): void {
+    this.stashService.update(CacheExpirationType.VeryShort)
   }
 
   private updateLeagues(forceRefresh: boolean = false): void {

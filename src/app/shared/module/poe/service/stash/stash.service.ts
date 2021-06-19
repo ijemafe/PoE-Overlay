@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core'
-import { GameService, WindowService } from '@app/service'
+import { WindowService } from '@app/service'
 import {
-  ClipboardService,
-  KeyboardService,
-  KeyCode,
-  MouseService,
-  ShortcutService,
+    ClipboardService,
+    KeyboardService,
+    KeyCode,
+    MouseService,
+    ShortcutService
 } from '@app/service/input'
 import { Point } from '@app/type'
+import { UserSettings } from '@layout/type'
 import { Observable, of, Subscription } from 'rxjs'
 import { delay, map, tap } from 'rxjs/operators'
 import { StashProvider } from '../../provider/stash.provider'
-import { CacheExpirationType, Currency, League, PoEAccount } from '../../type'
+import { CacheExpirationType, Currency, PoEAccount } from '../../type'
 import { StashGridType } from '../../type/trade-companion.type'
 import { PoEAccountService } from '../account/account.service'
 import { ContextService } from '../context.service'
@@ -42,6 +43,8 @@ export class StashService {
   private accountSub: Subscription
   private stashInterval: NodeJS.Timeout
 
+  private settings: UserSettings
+
   constructor(
     private readonly keyboard: KeyboardService,
     private readonly shortcut: ShortcutService,
@@ -54,7 +57,9 @@ export class StashService {
   ) {
   }
 
-  public register(): void {
+  public register(settings: UserSettings): void {
+    this.settings = settings
+
     this.accountSub = this.accountService.subscribe((account) => this.onAccountChange(account))
 
     this.periodicStashUpdate()
@@ -66,6 +71,10 @@ export class StashService {
       this.accountSub.unsubscribe()
       this.accountSub = null
     }
+  }
+
+  public update(cacheExpiration?: CacheExpirationType): void {
+    this.periodicStashUpdate(cacheExpiration)
   }
 
   public getStashGridType(stashName: string): Observable<StashGridType> {
@@ -125,18 +134,18 @@ export class StashService {
     )
   }
 
-  private periodicStashUpdate() {
+  private periodicStashUpdate(cacheExpiration?: CacheExpirationType) {
     const account = this.accountService.get()
     if (account.loggedIn) {
       const context = this.context.get()
-      this.stashProvider.provide(account.name, context.leagueId, context.language)
+      this.stashProvider.provide(account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashCacheExpiration)
       this.tryStartPeriodicUpdate()
     }
   }
 
   private tryStartPeriodicUpdate(): void {
-    if (!this.stashInterval) {
-      this.stashInterval = setInterval(() => this.periodicStashUpdate(), CacheExpirationType.Short + 1000)
+    if (!this.stashInterval && this.settings?.stashCacheExpiration && this.settings.stashCacheExpiration !== CacheExpirationType.Never) {
+      this.stashInterval = setInterval(() => this.periodicStashUpdate(), this.settings.stashCacheExpiration + 10)
     }
   }
 

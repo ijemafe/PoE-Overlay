@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { CacheService } from '@app/service'
 import { ApiStashType, PoEHttpService } from '@data/poe'
-import { CacheExpirationType, Language } from '@shared/module/poe/type'
+import { CacheExpiration, CacheExpirationType, Language } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { isNullOrUndefined } from 'util'
@@ -23,9 +23,9 @@ export class StashProvider {
   ) {
   }
 
-  public provide(accountName: string, leagueId: string, language: Language, cacheExpiration: CacheExpirationType = CacheExpirationType.Short): Observable<PoEStashTab[]> {
+  public provide(accountName: string, leagueId: string, language: Language, cacheExpiration?: CacheExpirationType): Observable<PoEStashTab[]> {
     const key = `stashinfo_${language}_${leagueId}_${accountName}`
-    return this.cache.proxy(key, () => this.fetch(accountName, leagueId, language), cacheExpiration)
+    return this.cache.proxy(key, () => this.fetch(accountName, leagueId, language), CacheExpiration.getExpiration(cacheExpiration, CacheExpirationType.Short))
   }
 
   private fetch(accountName: string, leagueId: string, language: Language): Observable<PoEStashTab[]> {

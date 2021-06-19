@@ -261,7 +261,17 @@
     "private-league-info": "Private leagues become selectable when logged in",
     "relaunch-app": "Relaunch App",
     "save": "Save",
+    "stash-update-interval": "Stash Update Interval",
     "ui-language": "UI Language",
+    "update-intervals": {
+      "default": "Default",
+      "fifteen-min": "15 Min.",
+      "five-min": "5 Min.",
+      "half-hour": "30 Min.",
+      "never": "Never",
+      "one-day": "1 Day",
+      "one-hour": "1 Hour"
+    },
     "zoom": "Zoom"
   },
   "trade-companion": {

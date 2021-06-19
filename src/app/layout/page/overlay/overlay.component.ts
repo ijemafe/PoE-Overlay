@@ -180,7 +180,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.registerFeatures(settings)
     this.registerSettings(settings)
     this.dialogRef.register()
-    this.stashService.register()
+    this.stashService.register(settings)
 
     this.userSettings$.next(settings)
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { CacheService } from '@app/service'
 import { PoEHttpService } from '@data/poe'
-import { CacheExpirationType, Language, PoEAccount } from '@shared/module/poe/type'
+import { CacheExpiration, CacheExpirationType, Language, PoEAccount } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
@@ -14,9 +14,9 @@ export class PoEAccountProvider {
     private readonly cache: CacheService
   ) { }
 
-  public provide(language: Language, cacheExpiration: CacheExpirationType = CacheExpirationType.Normal): Observable<PoEAccount> {
+  public provide(language: Language, cacheExpiration?: CacheExpirationType): Observable<PoEAccount> {
     const key = `accountinfo_${language}`
-    return this.cache.proxy(key, () => this.fetch(language), cacheExpiration)
+    return this.cache.proxy(key, () => this.fetch(language), CacheExpiration.getExpiration(cacheExpiration, CacheExpirationType.Normal))
   }
 
   public update(account: PoEAccount, language: Language): Observable<PoEAccount> {

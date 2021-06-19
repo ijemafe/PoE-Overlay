@@ -1,5 +1,5 @@
 import { UiLanguage } from '@app/type'
-import { Language } from '@shared/module/poe/type'
+import { CacheExpirationType, Language } from '@shared/module/poe/type'
 
 export enum DialogSpawnPosition {
   Cursor = 1,
@@ -18,4 +18,5 @@ export interface UserSettings {
   displayVersion?: boolean
   autoDownload?: boolean
   focusable?: boolean
+  stashCacheExpiration?: number
 }
