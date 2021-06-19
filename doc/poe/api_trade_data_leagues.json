@@ -2,19 +2,23 @@
   "result": [
     {
       "id": "Delirium",
-      "text": "Delirium"
+      "text": "Delirium",
+	  "privateLeague": false
     },
     {
       "id": "Hardcore Delirium",
-      "text": "Hardcore Delirium"
+      "text": "Hardcore Delirium",
+	  "privateLeague": false
     },
     {
       "id": "Standard",
-      "text": "Standard"
+      "text": "Standard",
+	  "privateLeague": false
     },
     {
       "id": "Hardcore",
-      "text": "Hardcore"
+      "text": "Hardcore",
+	  "privateLeague": false
     }
   ]
 }

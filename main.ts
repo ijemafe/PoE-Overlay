@@ -2,7 +2,6 @@ import {
   app,
   BrowserWindow,
   dialog,
-  Display,
   ipcMain,
   Menu,
   MenuItem,
