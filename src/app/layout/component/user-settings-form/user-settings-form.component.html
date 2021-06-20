@@ -24,6 +24,23 @@
             <div class="row">
               <div class="col-9">
                 <mat-form-field floatLabel="always">
+                  <mat-label>{{ 'settings.character-update-interval' | translate }}</mat-label>
+                  <mat-select [(value)]="settings.charactersCacheExpiration" placeholder="{{ 'settings.update-intervals.default' | translate }}">
+                    <mat-option *ngFor="let intervals of stashIntervals" [value]="intervals.value">
+                      {{ 'settings.update-intervals.' + intervals.name | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-3">
+                <button mat-raised-button (click)="onForceRefreshCharactersClick()">
+                  {{ 'settings.refresh' | translate }}
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <mat-form-field floatLabel="always">
                   <mat-label>
                     {{ 'settings.active-character' | translate }}
                     <span *ngIf="!settings.activeCharacterName">
@@ -39,11 +56,6 @@
                     </mat-optgroup>
                   </mat-select>
                 </mat-form-field>
-              </div>
-              <div class="col-3">
-                <button mat-raised-button (click)="onForceRefreshCharactersClick()">
-                  {{ 'settings.refresh' | translate }}
-                </button>
               </div>
             </div>
             <div class="row warning" *ngIf="getActiveCharacter()?.leagueId !== settings.leagueId">
@@ -76,14 +88,14 @@
     </ng-container>
     <ng-template #login>
       <div class="row">
-        <div class="col">
+        <div class="col-12">
           <button mat-raised-button (click)="onLoginClick()">
             {{ 'settings.account.login' | translate }}
           </button>
         </div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col-12">
           <small>({{ 'settings.account.login-info' | translate }})</small>
         </div>
       </div>
@@ -120,7 +132,7 @@
           </div>
         </div>
         <div class="row" *ngIf="!account.loggedIn">
-          <div class="col">
+          <div class="col-12">
             <small>({{ 'settings.private-league-info' | translate }})</small>
           </div>
         </div>

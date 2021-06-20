@@ -89,11 +89,11 @@ export class OverlayComponent implements OnInit, OnDestroy {
           this.translate.use(settings.uiLanguage)
           this.window.setZoom(settings.zoom / 100)
           this.context.update(this.getContext(settings))
-          this.accountService.update(settings.language)
-
-          this.app.updateAutoDownload(settings.autoDownload)
-          this.register(settings)
-          this.app.triggerVisibleChange()
+          this.accountService.register(settings).subscribe(() => {
+            this.app.updateAutoDownload(settings.autoDownload)
+            this.register(settings)
+            this.app.triggerVisibleChange()
+          })
         },
         () => (this.userSettingsOpen = null)
       )
@@ -109,7 +109,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.window.setZoom(settings.zoom / 100)
 
       this.context.init(this.getContext(settings)).subscribe(() => {
-        this.accountService.init().subscribe(() => {
+        this.accountService.register(settings).subscribe(() => {
           this.registerEvents(settings)
           this.register(settings)
           this.registerVisibleChange()
@@ -172,6 +172,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   private reset(): void {
     this.dialogRef.reset()
+    this.accountService.unregister()
     this.stashService.unregister()
     this.shortcut.removeAllByRef(overlayCompRef)
   }

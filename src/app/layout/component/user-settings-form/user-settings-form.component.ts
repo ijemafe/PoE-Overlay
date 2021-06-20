@@ -137,11 +137,11 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   }
 
   public onForceRefreshCharactersClick(): void {
-    this.accountService.updateCharacters(this.settings.language)
+    this.accountService.forceUpdateCharacters(this.settings.language)
   }
 
   public onForceRefreshStashInfoClick(): void {
-    this.stashService.update(CacheExpirationType.VeryShort)
+    this.stashService.forceUpdate()
   }
 
   public getActiveCharacter(): PoECharacter {

@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core'
 import { PoEHttpService } from '@data/poe'
-import { BehaviorSubject, Observable, of, Subscription } from 'rxjs'
+import { BehaviorSubject, Observable, of, Subscription, TimeInterval } from 'rxjs'
 import { flatMap, map, tap } from 'rxjs/operators'
 import { BrowserService } from '@app/service'
 import { PoEAccountProvider } from '../../provider/account.provider'
 import { CacheExpirationType, Language, PoEAccount, PoECharacter } from '../../type'
 import { ContextService } from '../context.service'
 import { PoECharacterProvider } from '../../provider/character.provider'
+import { UserSettings } from '../../../../../layout/type'
 
 @Injectable({
   providedIn: 'root',
 })
 export class PoEAccountService {
   private readonly accountSubject = new BehaviorSubject<PoEAccount>(undefined)
+
+  private settings: UserSettings
+
+  private characterInterval: NodeJS.Timeout
 
   constructor(
     private readonly context: ContextService,
@@ -22,8 +27,14 @@ export class PoEAccountService {
     private readonly characterProvider: PoECharacterProvider,
   ) { }
 
-  public init(): Observable<PoEAccount> {
+  public register(settings: UserSettings): Observable<PoEAccount> {
+    this.settings = settings
+
     return this.getAsync()
+  }
+
+  public unregister(): void {
+    this.tryStopPeriodicUpdate()
   }
 
   public subscribe(next: (value: PoEAccount) => void): Subscription {
@@ -43,18 +54,15 @@ export class PoEAccountService {
     return this.accountProvider.provide(language).pipe(flatMap((account) => {
       return this.getCharacters(account, language).pipe(map(() => {
         this.accountSubject.next(account)
+        this.tryStartPeriodicUpdate()
         return account
       }))
     }))
   }
 
-  public update(language?: Language): void {
-    this.getAsync(language)
-  }
-
-  public updateCharacters(language?: Language, forceRefresh: boolean = false): void {
+  public forceUpdateCharacters(language?: Language): void {
     language = language || this.context.get().language
-    this.getCharacters(this.get(), language, forceRefresh)
+    this.getCharacters(this.get(), language, CacheExpirationType.VeryShort)
   }
 
   public login(language?: Language): Observable<PoEAccount> {
@@ -65,6 +73,7 @@ export class PoEAccountService {
           return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
             account.characters = characters
             this.accountSubject.next(account)
+            this.tryStartPeriodicUpdate()
             return account
           }))
         } else {
@@ -76,20 +85,46 @@ export class PoEAccountService {
 
   public logout(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
-    return this.browser.retrieve(this.poeHttpService.getLogoutUrl(language)).pipe(flatMap(() =>
-      this.accountProvider.update({
-        loggedIn: false,
-      }, language)
-    ))
+    return this.browser.retrieve(this.poeHttpService.getLogoutUrl(language)).pipe(
+      flatMap(() => 
+        this.accountProvider.update({
+          loggedIn: false,
+        }, language)
+      ),
+      tap(() => this.tryStopPeriodicUpdate())
+    )
   }
 
-  private getCharacters(account: PoEAccount, language?: Language, forceRefresh: boolean = false): Observable<PoECharacter[]> {
+  private getCharacters(account: PoEAccount, language?: Language, cacheExpiration?: CacheExpirationType): Observable<PoECharacter[]> {
     if (account.loggedIn) {
       language = language || this.context.get().language
-      return this.characterProvider.provide(account.name, language, forceRefresh ? CacheExpirationType.VeryShort : undefined).pipe(tap((characters) => {
+      return this.characterProvider.provide(account.name, language, cacheExpiration).pipe(tap((characters) => {
         account.characters = characters
       }))
     }
     return of([])
+  }
+
+  private tryStartPeriodicUpdate(): void {
+    if (!this.characterInterval && this.settings && (!this.settings.charactersCacheExpiration || this.settings.charactersCacheExpiration !== CacheExpirationType.Never)) {
+      this.characterInterval = setInterval(() => this.periodicCharacterUpdate(), (this.settings.charactersCacheExpiration || CacheExpirationType.Short) + 10)
+    }
+  }
+
+  private tryStopPeriodicUpdate(): void {
+    if (this.characterInterval) {
+      clearInterval(this.characterInterval)
+      this.characterInterval = null
+    }
+  }
+
+  private periodicCharacterUpdate() {
+    const account = this.get()
+    if (account.loggedIn) {
+      this.getCharacters(this.get(), undefined, this.settings?.charactersCacheExpiration).subscribe(() => {
+        this.accountSubject.next(account)
+      })
+      this.tryStartPeriodicUpdate()
+    }
   }
 }

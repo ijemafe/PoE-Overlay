@@ -73,8 +73,8 @@ export class StashService {
     }
   }
 
-  public update(cacheExpiration?: CacheExpirationType): void {
-    this.periodicStashUpdate(cacheExpiration)
+  public forceUpdate(): void {
+    this.periodicStashUpdate(CacheExpirationType.VeryShort)
   }
 
   public getStashGridType(stashName: string): Observable<StashGridType> {
@@ -144,8 +144,8 @@ export class StashService {
   }
 
   private tryStartPeriodicUpdate(): void {
-    if (!this.stashInterval && this.settings?.stashCacheExpiration && this.settings.stashCacheExpiration !== CacheExpirationType.Never) {
-      this.stashInterval = setInterval(() => this.periodicStashUpdate(), this.settings.stashCacheExpiration + 10)
+    if (!this.stashInterval && this.settings && (!this.settings.stashCacheExpiration || this.settings.stashCacheExpiration !== CacheExpirationType.Never)) {
+      this.stashInterval = setInterval(() => this.periodicStashUpdate(), (this.settings.stashCacheExpiration || CacheExpirationType.Short) + 10)
     }
   }
 

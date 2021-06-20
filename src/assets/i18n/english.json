@@ -234,6 +234,7 @@
     "auto-launch": "Run on Boot",
     "cancel": "Cancel",
     "character-league-mismatch": "Selected character is not in the select league!",
+    "character-update-interval": "Character Update Interval",
     "dialog": "Dialog",
     "dialog-opacity": "Dialog Opacity",
     "dialog-spawn-position": {
