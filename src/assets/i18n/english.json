@@ -297,6 +297,7 @@
       "quad": "Edit Quad stash grid"
     },
     "enabled": "Use Trade Companion",
+    "error-select-active-character": "No active character selected in settings",
     "example-trade-notification": {
       "item": "Add Example Item Trade",
       "currency": "Add Example Currency Trade"

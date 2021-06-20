@@ -14,6 +14,7 @@ import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/
 import { AppTranslateService } from '@app/service'
 import { CommandService } from '@modules/command/service/command.service'
 import { SnackBarService } from '@shared/module/material/service'
+import { PoEAccountService } from '@shared/module/poe/service/account/account.service'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
 import {
     CurrencyAmount,
@@ -66,6 +67,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     private readonly commandService: CommandService,
     private readonly ref: ChangeDetectorRef,
     private readonly translate: AppTranslateService,
+    private readonly accountService: PoEAccountService,
   ) {}
 
   public ngOnInit(): void {
@@ -254,9 +256,16 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
   }
 
   private leaveParty(): void {
-    // TODO: use `/kick [playerName]` where [playerName] is your own character name,
-    //        which we should allow the user to input in their settings.
-    this.snackbar.warning('[TradeCompanion] Missing Feature: Leave Party')
+    let activeCharacterName = this.settings.activeCharacterName
+    if (!activeCharacterName) {
+      activeCharacterName = this.accountService.getActiveCharacter()?.name
+    }
+    if (activeCharacterName) {
+      // Leaving a party is done by kicking yourself from said party
+      this.commandService.command(`/kick ${activeCharacterName}`)
+    } else {
+      this.snackbar.warning('settings.trade-companion.error-select-active-character')
+    }
   }
 
   private kickFromParty(): void {

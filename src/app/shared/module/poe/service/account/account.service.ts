@@ -34,6 +34,10 @@ export class PoEAccountService {
     return this.accountSubject.getValue()
   }
 
+  public getActiveCharacter(): PoECharacter {
+    return this.get().characters.find(x => x.lastActive)
+  }
+
   public getAsync(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
     return this.accountProvider.provide(language).pipe(flatMap((account) => {
