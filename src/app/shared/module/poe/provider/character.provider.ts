@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators'
   providedIn: 'root',
 })
 export class PoECharacterProvider {
+  public readonly defaultCacheExpiration = CacheExpirationType.Short
+
   constructor(
     private readonly poeHttpService: PoEHttpService,
     private readonly cache: CacheService
@@ -16,7 +18,7 @@ export class PoECharacterProvider {
 
   public provide(accountName: string, language: Language, cacheExpiration?: CacheExpirationType): Observable<PoECharacter[]> {
     const key = `characters_${language}_${accountName}`
-    return this.cache.proxy(key, () => this.fetch(accountName, language), CacheExpiration.getExpiration(cacheExpiration, CacheExpirationType.Normal))
+    return this.cache.proxy(key, () => this.fetch(accountName, language), CacheExpiration.getExpiration(cacheExpiration, this.defaultCacheExpiration))
   }
 
   private fetch(accountName: string, language: Language): Observable<PoECharacter[]> {

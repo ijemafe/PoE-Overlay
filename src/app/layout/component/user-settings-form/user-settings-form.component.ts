@@ -137,7 +137,7 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   }
 
   public onForceRefreshCharactersClick(): void {
-    this.accountService.forceUpdateCharacters(this.settings.language)
+    this.accountService.forceUpdateCharacters()
   }
 
   public onForceRefreshStashInfoClick(): void {

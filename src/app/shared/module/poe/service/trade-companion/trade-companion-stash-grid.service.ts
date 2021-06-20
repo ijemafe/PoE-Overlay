@@ -108,8 +108,8 @@ export class TradeCompanionStashGridService {
   public getStashGridType(itemLocation: TradeItemLocation): Observable<StashGridType> {
     const normalGridCellCount = STASH_TAB_CELL_COUNT_MAP[StashGridType.Normal]
     const bounds = itemLocation.bounds
-    const maxX = bounds.x + bounds.width
-    const maxY = bounds.y + bounds.height
+    const maxX = bounds.x + bounds.width - 1
+    const maxY = bounds.y + bounds.height - 1
     const gridType = maxX <= normalGridCellCount && maxY <= normalGridCellCount ? StashGridType.Normal : StashGridType.Quad
     if (gridType === StashGridType.Normal) {
       return this.stashService.getStashGridType(itemLocation.tabName)

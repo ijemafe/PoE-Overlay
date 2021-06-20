@@ -17,6 +17,8 @@ const STASH_TYPE_MAPPING = {
   providedIn: 'root',
 })
 export class StashProvider {
+  public readonly defaultCacheExpiration = CacheExpirationType.Short
+
   constructor(
     private readonly poeHttpService: PoEHttpService,
     private readonly cache: CacheService
@@ -25,7 +27,7 @@ export class StashProvider {
 
   public provide(accountName: string, leagueId: string, language: Language, cacheExpiration?: CacheExpirationType): Observable<PoEStashTab[]> {
     const key = `stashinfo_${language}_${leagueId}_${accountName}`
-    return this.cache.proxy(key, () => this.fetch(accountName, leagueId, language), CacheExpiration.getExpiration(cacheExpiration, CacheExpirationType.Short))
+    return this.cache.proxy(key, () => this.fetch(accountName, leagueId, language), CacheExpiration.getExpiration(cacheExpiration, this.defaultCacheExpiration))
   }
 
   private fetch(accountName: string, leagueId: string, language: Language): Observable<PoEStashTab[]> {

@@ -165,6 +165,9 @@ export class PoEHttpService {
   }
 
   private get(url: string): Observable<HttpResponse<string>> {
+    if (!environment.production) {
+      console.log(`[PoEHttp] Contacting ${url}`)
+    }
     return this.http
       .get(url, {
         observe: 'response',

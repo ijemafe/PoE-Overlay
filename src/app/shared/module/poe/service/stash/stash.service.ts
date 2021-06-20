@@ -138,14 +138,14 @@ export class StashService {
     const account = this.accountService.get()
     if (account.loggedIn) {
       const context = this.context.get()
-      this.stashProvider.provide(account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashCacheExpiration)
+      this.stashProvider.provide(account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashCacheExpiration).subscribe()
       this.tryStartPeriodicUpdate()
     }
   }
 
   private tryStartPeriodicUpdate(): void {
     if (!this.stashInterval && this.settings && (!this.settings.stashCacheExpiration || this.settings.stashCacheExpiration !== CacheExpirationType.Never)) {
-      this.stashInterval = setInterval(() => this.periodicStashUpdate(), (this.settings.stashCacheExpiration || CacheExpirationType.Short) + 10)
+      this.stashInterval = setInterval(() => this.periodicStashUpdate(), (this.settings.stashCacheExpiration || this.stashProvider.defaultCacheExpiration) + 10)
     }
   }
 
@@ -159,7 +159,7 @@ export class StashService {
   private onAccountChange(account: PoEAccount) {
     if (account.loggedIn) {
       const context = this.context.get()
-      this.stashProvider.provide(account.name, context.leagueId, context.language, CacheExpirationType.Instant)
+      this.stashProvider.provide(account.name, context.leagueId, context.language, CacheExpirationType.Instant).subscribe()
       this.tryStartPeriodicUpdate()
     } else {
       this.tryStopPeriodicUpdate()

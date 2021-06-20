@@ -60,9 +60,8 @@ export class PoEAccountService {
     }))
   }
 
-  public forceUpdateCharacters(language?: Language): void {
-    language = language || this.context.get().language
-    this.getCharacters(this.get(), language, CacheExpirationType.VeryShort)
+  public forceUpdateCharacters(): void {
+    this.periodicCharacterUpdate(CacheExpirationType.VeryShort)
   }
 
   public login(language?: Language): Observable<PoEAccount> {
@@ -91,7 +90,10 @@ export class PoEAccountService {
           loggedIn: false,
         }, language)
       ),
-      tap(() => this.tryStopPeriodicUpdate())
+      tap((account) => {
+        this.tryStopPeriodicUpdate()
+        this.accountSubject.next(account)
+      })
     )
   }
 
@@ -107,7 +109,7 @@ export class PoEAccountService {
 
   private tryStartPeriodicUpdate(): void {
     if (!this.characterInterval && this.settings && (!this.settings.charactersCacheExpiration || this.settings.charactersCacheExpiration !== CacheExpirationType.Never)) {
-      this.characterInterval = setInterval(() => this.periodicCharacterUpdate(), (this.settings.charactersCacheExpiration || CacheExpirationType.Short) + 10)
+      this.characterInterval = setInterval(() => this.periodicCharacterUpdate(), (this.settings.charactersCacheExpiration || this.characterProvider.defaultCacheExpiration) + 10)
     }
   }
 
@@ -118,10 +120,10 @@ export class PoEAccountService {
     }
   }
 
-  private periodicCharacterUpdate() {
+  private periodicCharacterUpdate(cacheExpiration?: CacheExpirationType) {
     const account = this.get()
     if (account.loggedIn) {
-      this.getCharacters(this.get(), undefined, this.settings?.charactersCacheExpiration).subscribe(() => {
+      this.getCharacters(this.get(), undefined, cacheExpiration || this.settings?.charactersCacheExpiration).subscribe(() => {
         this.accountSubject.next(account)
       })
       this.tryStartPeriodicUpdate()
