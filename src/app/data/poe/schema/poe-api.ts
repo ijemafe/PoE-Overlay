@@ -118,7 +118,7 @@ export interface ApiErrorResponse {
 }
 
 //{"uuid":"[GUID]","name":"[ACC NAME]","realm":"pc","locale":"en_US","guild":{"name":"[GUILD NAME]"},"twitch":{"name":"[TWITCH ACC NAME]"}}
-export interface ApiProfileResponse extends ApiErrorResponse {
+export interface ApiProfileResponse {
   uuid?: string
   name?: string
   realm?: string
@@ -133,6 +133,17 @@ export interface ApiGuildEntry {
 
 export interface ApiTwitchEntry {
   name?: string
+}
+
+export interface ApiCharacterResponse {
+  name?: string
+  league?: string
+  classId?: number
+  ascendancyClass?: number
+  class?: string
+  level?: number
+  experience?: number
+  lastActive?: boolean
 }
 
 export interface ApiStashItems extends ApiErrorResponse {

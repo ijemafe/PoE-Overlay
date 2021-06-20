@@ -218,16 +218,22 @@
     "wiki": "Wiki"
   },
   "settings": {
+    "abbr-level": "Lv",
     "account": {
       "login": "Login",
       "login-info": "To login a new window will be opened, once logged at the PoE website you should close the window.",
       "logout": "Logout",
       "name": "Account Name"
     },
+    "active-character": "Active Character",
+    "auto": "Auto",
+    "auto-select": "Auto Select",
+    "auto-selected-desc": "The active character is auto-selected based on the last active character according to the PoE API.",
     "app": "App",
     "auto-download": "Download update automatically",
     "auto-launch": "Run on Boot",
     "cancel": "Cancel",
+    "character-league-mismatch": "Selected character is not in the select league!",
     "dialog": "Dialog",
     "dialog-opacity": "Dialog Opacity",
     "dialog-spawn-position": {
@@ -239,7 +245,6 @@
     "exit-app": "Exit App",
     "focusable": "Focusable (Keyboard Support)",
     "focusable-description": "Allows keyboard navigation of the overlay (TAB / ARROW KEYS [←→↑↓])",
-    "force-refresh": "Force Refresh",
     "game-settings": "Game Settings",
     "general": "General",
     "languages": {
@@ -259,6 +264,7 @@
     "open-settings": "Open Settings",
     "poe-account": "PoE Account",
     "private-league-info": "Private leagues become selectable when logged in",
+    "refresh": "Refresh",
     "relaunch-app": "Relaunch App",
     "save": "Save",
     "stash-update-interval": "Stash Update Interval",

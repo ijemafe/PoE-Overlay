@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy
 import { EnumValues } from '@app/class'
 import { AppService, AppTranslateService, WindowService } from '@app/service'
 import { UiLanguage } from '@app/type'
+import { UserSettings } from '@layout/type'
 import { LeaguesService, StashService } from '@shared/module/poe/service'
-import { CacheExpirationType, Language, League, PoEAccount } from '@shared/module/poe/type'
+import { PoEAccountService } from '@shared/module/poe/service/account/account.service'
+import { CacheExpirationType, Language, League, PoEAccount, PoECharacter } from '@shared/module/poe/type'
 import { BehaviorSubject, Observable, Subscription } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
-import { UserSettings } from '../../type'
 
 interface UpdateInterval {
   name: string
@@ -61,6 +61,10 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   public account$ = new BehaviorSubject<PoEAccount>({
     loggedIn: false,
   })
+  public activeCharacter$ = new BehaviorSubject<PoECharacter>({
+    name: 'N/A'
+  })
+  public characterLeagues$ = new BehaviorSubject<string[]>([])
 
   @Input()
   public settings: UserSettings
@@ -132,19 +136,39 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
     this.accountService.logout(this.settings.language).subscribe((account) => this.onAccountChanged(account, true))
   }
 
+  public onForceRefreshCharactersClick(): void {
+    this.accountService.updateCharacters(this.settings.language)
+  }
+
   public onForceRefreshStashInfoClick(): void {
     this.stashService.update(CacheExpirationType.VeryShort)
+  }
+
+  public getActiveCharacter(): PoECharacter {
+    const activeCharacterName = this.settings.activeCharacterName
+    if (activeCharacterName) {
+      return this.account$.value?.characters?.find((x) => x.name === activeCharacterName)
+    }
+    return this.activeCharacter$.value
+  }
+
+  public getCharacterInLeague(characters: PoECharacter[], leagueId: string): PoECharacter[] {
+    return characters.filter((x) => x.leagueId === leagueId)
+  }
+
+  public getCharacterSelectLabel(character: PoECharacter): string {
+    return `${character.name} (${this.translate.get('settings.abbr-level')}: ${character.level})`
   }
 
   private updateLeagues(forceRefresh: boolean = false): void {
     this.leagues.getLeagues(this.settings.language, forceRefresh ? CacheExpirationType.VeryShort : CacheExpirationType.Normal).subscribe((leagues) => this.onLeaguesChanged(leagues))
   }
 
-  private updateAccount(forceRefresh: boolean = false): void {
+  private updateAccount(): void {
     if (!this.accountSub) {
       this.accountSub = this.accountService.subscribe((account) => this.onAccountChanged(account))
     }
-    this.accountService.getAsync(this.settings.language, forceRefresh).subscribe((account) => this.onAccountChanged(account))
+    this.accountService.getAsync(this.settings.language).subscribe((account) => this.onAccountChanged(account))
   }
 
   private onLeaguesChanged(leagues: League[]) {
@@ -156,11 +180,21 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   }
 
   private onAccountChanged(account: PoEAccount, forceRefreshLeagues: boolean = false) {
+    const current = this.account$.value
     this.account$.next(account)
-    if (forceRefreshLeagues) {
-      this.leagues.getLeagues(this.settings.language, CacheExpirationType.Instant).subscribe((leagues) => this.onLeaguesChanged(leagues))
-    } else {
-      this.updateLeagues()
+    if (current.name !== account.name) {
+      if (forceRefreshLeagues) {
+        this.leagues.getLeagues(this.settings.language, CacheExpirationType.Instant).subscribe((leagues) => this.onLeaguesChanged(leagues))
+      } else {
+        this.updateLeagues()
+      }
+    }
+    if (account.characters) {
+      const activeCharacter = account.characters.find(x => x.lastActive)
+      if (activeCharacter) {
+        this.activeCharacter$.next(activeCharacter)
+      }
+      this.characterLeagues$.next([...new Set(account.characters.map((x) => x.leagueId))])
     }
     this.ref.detectChanges()
   }

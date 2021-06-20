@@ -6,6 +6,8 @@ import { Language } from '@shared/module/poe/type'
 import { Observable, of, throwError } from 'rxjs'
 import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
 import {
+    ApiCharacterResponse,
+    ApiErrorResponse,
     ApiProfileResponse,
     ApiStashItems,
     ExchangeSearchRequest,
@@ -80,13 +82,18 @@ export class PoEHttpService {
     return this.getPoEUrl('logout', language)
   }
 
-  public getAccountInfo(language: Language): Observable<ApiProfileResponse> {
+  public getAccountInfo(language: Language): Observable<ApiProfileResponse | ApiErrorResponse> {
     const url = this.getApiUrl('profile', language)
     return this.getAndParse(url)
   }
 
+  public getCharacters(accountName: string, language: Language): Observable<ApiCharacterResponse[] | ApiErrorResponse> {
+    const url = this.getPoEUrl(`character-window/get-characters?accountName=${encodeURIComponent(accountName)}`, language)
+    return this.getAndParse(url)
+  }
+
   public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashItems> {
-    const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&league=${encodeURIComponent(leagueId)}&realm=pc&accountName=${encodeURIComponent(accountName)}`, language)
+    const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}`, language)
     return this.getAndParse(url)
   }
 

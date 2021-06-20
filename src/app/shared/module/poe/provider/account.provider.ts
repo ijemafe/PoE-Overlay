@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { CacheService } from '@app/service'
-import { PoEHttpService } from '@data/poe'
+import { ApiErrorResponse, ApiProfileResponse, PoEHttpService } from '@data/poe'
 import { CacheExpiration, CacheExpirationType, Language, PoEAccount } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
@@ -26,15 +26,17 @@ export class PoEAccountProvider {
 
   private fetch(language: Language): Observable<PoEAccount> {
     return this.poeHttpService.getAccountInfo(language).pipe(map((response) => {
-      if (!response.error) {
+      const apiError = response as ApiErrorResponse
+      if (apiError && apiError.error) {
         const poeAccount: PoEAccount = {
-          loggedIn: true,
-          name: response.name
+          loggedIn: false
         }
         return poeAccount
       } else {
+        const account = response as ApiProfileResponse
         const poeAccount: PoEAccount = {
-          loggedIn: false
+          loggedIn: true,
+          name: account.name
         }
         return poeAccount
       }

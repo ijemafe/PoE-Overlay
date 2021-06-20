@@ -11,8 +11,8 @@ import {
     SimpleChanges
 } from '@angular/core'
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip'
+import { AppTranslateService } from '@app/service'
 import { CommandService } from '@modules/command/service/command.service'
-import { TranslateService } from '@ngx-translate/core'
 import { SnackBarService } from '@shared/module/material/service'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
 import {
@@ -65,7 +65,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     private readonly snackbar: SnackBarService,
     private readonly commandService: CommandService,
     private readonly ref: ChangeDetectorRef,
-    private readonly translate: TranslateService,
+    private readonly translate: AppTranslateService,
   ) {}
 
   public ngOnInit(): void {
@@ -75,19 +75,19 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
       if (minutes > 0) {
         const hours = Math.floor(diff.hours())
         if (hours > 0) {
-          this.elapsedTime = this.translate.instant(
+          this.elapsedTime = this.translate.get(
             'trade-companion.trade-notification.elapsed-minutes',
             { hours, minutes }
           )
         } else {
-          this.elapsedTime = this.translate.instant(
+          this.elapsedTime = this.translate.get(
             'trade-companion.trade-notification.elapsed-minutes',
             { minutes }
           )
         }
       } else {
         const seconds = Math.floor(diff.seconds())
-        this.elapsedTime = this.translate.instant(
+        this.elapsedTime = this.translate.get(
           'trade-companion.trade-notification.elapsed-seconds',
           { seconds }
         )

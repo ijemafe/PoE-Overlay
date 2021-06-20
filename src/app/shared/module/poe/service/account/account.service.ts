@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core'
 import { PoEHttpService } from '@data/poe'
-import { BehaviorSubject, Observable, Subscription } from 'rxjs'
-import { flatMap, tap } from 'rxjs/operators'
+import { BehaviorSubject, Observable, of, Subscription } from 'rxjs'
+import { flatMap, map, tap } from 'rxjs/operators'
 import { BrowserService } from '@app/service'
 import { PoEAccountProvider } from '../../provider/account.provider'
-import { CacheExpirationType, Language, PoEAccount } from '../../type'
+import { CacheExpirationType, Language, PoEAccount, PoECharacter } from '../../type'
 import { ContextService } from '../context.service'
+import { PoECharacterProvider } from '../../provider/character.provider'
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,7 @@ export class PoEAccountService {
     private readonly accountProvider: PoEAccountProvider,
     private readonly browser: BrowserService,
     private readonly poeHttpService: PoEHttpService,
+    private readonly characterProvider: PoECharacterProvider,
   ) { }
 
   public init(): Observable<PoEAccount> {
@@ -32,25 +34,38 @@ export class PoEAccountService {
     return this.accountSubject.getValue()
   }
 
-  public getAsync(language?: Language, forceRefresh: boolean = false): Observable<PoEAccount> {
+  public getAsync(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
-    return this.accountProvider.provide(language, forceRefresh ? CacheExpirationType.VeryShort : CacheExpirationType.Normal).pipe(tap((account) => {
-      this.accountSubject.next(account)
+    return this.accountProvider.provide(language).pipe(flatMap((account) => {
+      return this.getCharacters(account, language).pipe(map(() => {
+        this.accountSubject.next(account)
+        return account
+      }))
     }))
   }
 
   public update(language?: Language): void {
+    this.getAsync(language)
+  }
+
+  public updateCharacters(language?: Language, forceRefresh: boolean = false): void {
     language = language || this.context.get().language
-    this.accountProvider.provide(language).subscribe((account) => {
-      this.accountSubject.next(account)
-    })
+    this.getCharacters(this.get(), language, forceRefresh)
   }
 
   public login(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
     return this.browser.openAndWait(this.poeHttpService.getLoginUrl(language)).pipe(flatMap(() => {
-      return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(tap((account) => {
-        this.accountSubject.next({ ...account })
+      return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(flatMap((account) => {
+        if (account.loggedIn) {
+          return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
+            account.characters = characters
+            this.accountSubject.next(account)
+            return account
+          }))
+        } else {
+          return of(account)
+        }
       }))
     }))
   }
@@ -62,5 +77,15 @@ export class PoEAccountService {
         loggedIn: false,
       }, language)
     ))
+  }
+
+  private getCharacters(account: PoEAccount, language?: Language, forceRefresh: boolean = false): Observable<PoECharacter[]> {
+    if (account.loggedIn) {
+      language = language || this.context.get().language
+      return this.characterProvider.provide(account.name, language, forceRefresh ? CacheExpirationType.VeryShort : undefined).pipe(tap((characters) => {
+        account.characters = characters
+      }))
+    }
+    return of([])
   }
 }

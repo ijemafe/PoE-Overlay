@@ -19,4 +19,5 @@ export interface UserSettings {
   autoDownload?: boolean
   focusable?: boolean
   stashCacheExpiration?: number
+  activeCharacterName?: string
 }
