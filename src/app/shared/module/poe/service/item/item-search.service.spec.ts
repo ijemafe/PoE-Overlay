@@ -63,7 +63,7 @@ describe('ItemSearchService', () => {
   }
 
   beforeEach((done) => {
-    const tradeServiceSpyObj = jasmine.createSpyObj('TradeHttpService', [
+    const tradeServiceSpyObj = jasmine.createSpyObj('PoEHttpService', [
       'search',
       'exchange',
       'fetch',
