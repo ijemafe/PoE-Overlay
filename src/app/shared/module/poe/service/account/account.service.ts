@@ -15,6 +15,10 @@ import { UserSettings } from '../../../../../layout/type'
 export class PoEAccountService {
   private readonly accountSubject = new BehaviorSubject<PoEAccount>(undefined)
 
+  public get defaultCharacterCacheExpiration(): CacheExpirationType {
+    return this.characterProvider.defaultCacheExpiration
+  }
+
   private settings: UserSettings
 
   private characterInterval: NodeJS.Timeout
@@ -61,7 +65,7 @@ export class PoEAccountService {
   }
 
   public forceUpdateCharacters(): void {
-    this.periodicCharacterUpdate(CacheExpirationType.VeryShort)
+    this.periodicCharacterUpdate(CacheExpirationType.OneMin)
   }
 
   public login(language?: Language): Observable<PoEAccount> {

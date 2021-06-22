@@ -16,7 +16,7 @@ export class CurrencyChaosEquivalentsProvider {
 
   public provide(leagueId: string): Observable<CurrencyChaosEquivalents> {
     const key = `currency_chaos_equivalents_${leagueId}`
-    return this.cache.proxy(key, () => this.fetch(leagueId), CacheExpirationType.HalfNormal)
+    return this.cache.proxy(key, () => this.fetch(leagueId), CacheExpirationType.HalfHour)
   }
 
   private fetch(leagueId: string): Observable<CurrencyChaosEquivalents> {

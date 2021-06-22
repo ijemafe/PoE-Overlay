@@ -272,12 +272,17 @@
     "ui-language": "UI Language",
     "update-intervals": {
       "default": "Default",
-      "fifteen-min": "15 Min.",
-      "five-min": "5 Min.",
-      "half-hour": "30 Min.",
+      "fifteen-min": "15 Min",
+      "five-min": "5 Min",
+      "four-min":  "4 Min",
+      "half-hour": "30 Min",
       "never": "Never",
       "one-day": "1 Day",
-      "one-hour": "1 Hour"
+      "one-hour": "1 Hour",
+      "one-min": "1 Min",
+      "ten-min": "10 Min",
+      "three-min": "3 Min",
+      "two-min": "2 Min"
     },
     "zoom": "Zoom"
   },

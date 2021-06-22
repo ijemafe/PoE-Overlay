@@ -16,7 +16,7 @@ export class LeaguesProvider {
 
   public provide(language: Language, cacheExpiration?: CacheExpirationType): Observable<League[]> {
     const key = `leagues_${language}`
-    return this.cache.proxy(key, () => this.fetch(language), CacheExpiration.getExpiration(cacheExpiration, CacheExpirationType.Normal))
+    return this.cache.proxy(key, () => this.fetch(language), CacheExpiration.getExpiration(cacheExpiration, CacheExpirationType.OneHour))
   }
 
   private fetch(language: Language): Observable<League[]> {

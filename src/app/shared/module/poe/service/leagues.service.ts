@@ -14,7 +14,7 @@ export class LeaguesService {
     private readonly leaguesProvider: LeaguesProvider
   ) {}
 
-  public getLeagues(language?: Language, cacheExpiration: CacheExpirationType = CacheExpirationType.Normal): Observable<League[]> {
+  public getLeagues(language?: Language, cacheExpiration: CacheExpirationType = CacheExpirationType.OneHour): Observable<League[]> {
     language = language || this.context.get().language
     return this.leaguesProvider.provide(language, cacheExpiration)
   }

@@ -17,7 +17,7 @@ const STASH_TYPE_MAPPING = {
   providedIn: 'root',
 })
 export class StashProvider {
-  public readonly defaultCacheExpiration = CacheExpirationType.Short
+  public readonly defaultCacheExpiration = CacheExpirationType.FiveMin
 
   constructor(
     private readonly poeHttpService: PoEHttpService,

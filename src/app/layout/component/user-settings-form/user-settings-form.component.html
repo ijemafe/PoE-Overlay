@@ -25,8 +25,9 @@
               <div class="col-9">
                 <mat-form-field floatLabel="always">
                   <mat-label>{{ 'settings.character-update-interval' | translate }}</mat-label>
-                  <mat-select [(value)]="settings.charactersCacheExpiration" placeholder="{{ 'settings.update-intervals.default' | translate }}">
-                    <mat-option *ngFor="let intervals of stashIntervals" [value]="intervals.value">
+                  <mat-select [(value)]="settings.charactersCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultCharacterUpdateInterval) }}">
+                    <mat-option>{{ getDefaultIntervalLabel(defaultCharacterUpdateInterval) }}</mat-option>
+                    <mat-option *ngFor="let intervals of updateIntervals" [value]="intervals.value">
                       {{ 'settings.update-intervals.' + intervals.name | translate }}
                     </mat-option>
                   </mat-select>
@@ -69,8 +70,9 @@
               <div class="col-9">
                 <mat-form-field floatLabel="always">
                   <mat-label>{{ 'settings.stash-update-interval' | translate }}</mat-label>
-                  <mat-select [(value)]="settings.stashCacheExpiration" placeholder="{{ 'settings.update-intervals.default' | translate }}">
-                    <mat-option *ngFor="let intervals of stashIntervals" [value]="intervals.value">
+                  <mat-select [(value)]="settings.stashCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultStashUpdateInterval) }}">
+                    <mat-option>{{ getDefaultIntervalLabel(defaultStashUpdateInterval) }}</mat-option>
+                    <mat-option *ngFor="let intervals of updateIntervals" [value]="intervals.value">
                       {{ 'settings.update-intervals.' + intervals.name | translate }}
                     </mat-option>
                   </mat-select>

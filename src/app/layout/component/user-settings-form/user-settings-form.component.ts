@@ -23,30 +23,46 @@ interface UpdateInterval {
 export class UserSettingsFormComponent implements OnInit, OnDestroy {
   public languages = new EnumValues(Language)
   public uiLanguages = new EnumValues(UiLanguage)
-  public readonly stashIntervals: UpdateInterval[] = [
+  public readonly updateIntervals: UpdateInterval[] = [
     {
-      name: 'default',
-      value: null
+      name: 'one-min',
+      value: CacheExpirationType.OneMin
+    },
+    {
+      name: 'two-min',
+      value: CacheExpirationType.TwoMin
+    },
+    {
+      name: 'three-min',
+      value: CacheExpirationType.ThreeMin
+    },
+    {
+      name: 'four-min',
+      value: CacheExpirationType.FourMin
     },
     {
       name: 'five-min',
-      value: CacheExpirationType.Short
+      value: CacheExpirationType.FiveMin
+    },
+    {
+      name: 'ten-min',
+      value: CacheExpirationType.TenMin
     },
     {
       name: 'fifteen-min',
-      value: CacheExpirationType.Medium
+      value: CacheExpirationType.FifteenMin
     },
     {
       name: 'half-hour',
-      value: CacheExpirationType.HalfNormal
+      value: CacheExpirationType.HalfHour
     },
     {
       name: 'one-hour',
-      value: CacheExpirationType.Normal
+      value: CacheExpirationType.OneHour
     },
     {
       name: 'one-day',
-      value: CacheExpirationType.Long
+      value: CacheExpirationType.OneDay
     },
     {
       name: 'never',
@@ -66,6 +82,9 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   })
   public characterLeagues$ = new BehaviorSubject<string[]>([])
 
+  public defaultCharacterUpdateInterval: UpdateInterval
+  public defaultStashUpdateInterval: UpdateInterval
+
   @Input()
   public settings: UserSettings
 
@@ -82,6 +101,8 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
     private readonly accountService: PoEAccountService,
     private readonly stashService: StashService,
   ) {
+    this.defaultCharacterUpdateInterval = this.updateIntervals.find((x) => x.value === this.accountService.defaultCharacterCacheExpiration)
+    this.defaultStashUpdateInterval = this.updateIntervals.find((x) => x.value === this.stashService.defaultStashCacheExpiration)
   }
 
   public ngOnInit(): void {
@@ -160,8 +181,12 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
     return `${character.name} (${this.translate.get('settings.abbr-level')}: ${character.level})`
   }
 
+  public getDefaultIntervalLabel(interval: UpdateInterval): string {
+    return `${this.translate.get('settings.update-intervals.default')} (${this.translate.get(`settings.update-intervals.${interval.name}`)})`
+  }
+
   private updateLeagues(forceRefresh: boolean = false): void {
-    this.leagues.getLeagues(this.settings.language, forceRefresh ? CacheExpirationType.VeryShort : CacheExpirationType.Normal).subscribe((leagues) => this.onLeaguesChanged(leagues))
+    this.leagues.getLeagues(this.settings.language, forceRefresh ? CacheExpirationType.OneMin : CacheExpirationType.OneHour).subscribe((leagues) => this.onLeaguesChanged(leagues))
   }
 
   private updateAccount(): void {

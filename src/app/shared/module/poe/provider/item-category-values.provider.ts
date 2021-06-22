@@ -229,7 +229,7 @@ export class ItemCategoryValuesProvider {
     key: string,
     fetch: () => Observable<ItemCategoryValues>
   ): Observable<ItemCategoryValues> {
-    return this.cache.proxy(`item_category_${key}`, fetch, CacheExpirationType.HalfNormal)
+    return this.cache.proxy(`item_category_${key}`, fetch, CacheExpirationType.HalfHour)
   }
 
   private fetchCurrency(

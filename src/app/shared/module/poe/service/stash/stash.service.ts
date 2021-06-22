@@ -40,6 +40,10 @@ export interface StashPriceTag {
   providedIn: 'root',
 })
 export class StashService {
+  public get defaultStashCacheExpiration(): CacheExpirationType {
+    return this.stashProvider.defaultCacheExpiration
+  }
+
   private accountSub: Subscription
   private stashInterval: NodeJS.Timeout
 
@@ -74,7 +78,7 @@ export class StashService {
   }
 
   public forceUpdate(): void {
-    this.periodicStashUpdate(CacheExpirationType.VeryShort)
+    this.periodicStashUpdate(CacheExpirationType.OneMin)
   }
 
   public getStashGridType(stashName: string): Observable<StashGridType> {

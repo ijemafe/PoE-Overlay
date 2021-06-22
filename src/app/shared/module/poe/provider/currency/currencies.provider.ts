@@ -17,7 +17,7 @@ export class CurrenciesProvider {
   public provide(language: Language, groupId?: TradeStaticResultId): Observable<Currency[]> {
     const groupKey = groupId?.toLowerCase() || 'all'
     const key = `${groupKey}_${language}`
-    return this.cache.proxy(key, () => this.fetch(language, groupId), CacheExpirationType.Normal)
+    return this.cache.proxy(key, () => this.fetch(language, groupId), CacheExpirationType.OneHour)
   }
 
   private fetch(language: Language, groupId?: TradeStaticResultId): Observable<Currency[]> {

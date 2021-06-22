@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators'
   providedIn: 'root',
 })
 export class PoECharacterProvider {
-  public readonly defaultCacheExpiration = CacheExpirationType.Short
+  public readonly defaultCacheExpiration = CacheExpirationType.FiveMin
 
   constructor(
     private readonly poeHttpService: PoEHttpService,
