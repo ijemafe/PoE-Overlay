@@ -11,6 +11,7 @@ export interface UserSettings {
   language?: Language
   uiLanguage?: UiLanguage
   openUserSettingsKeybinding?: string
+  relaunchAppUserSettingsKeybinding?: string
   exitAppKeybinding?: string
   zoom?: number
   dialogSpawnPosition?: DialogSpawnPosition
