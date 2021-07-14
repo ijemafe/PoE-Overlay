@@ -145,6 +145,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [poe.ninja](https://poe.ninja/) currency values
 - [libggpk](https://github.com/MuxaJIbI4/libggpk) parsing content.ggpk
 - [Mercury Trade](https://github.com/Exslims/MercuryTrade) inspiration for the Trade Companion
+- [SignPath.io](https://signpath.io/) for the free code signing  
+<a href="https://signpath.io/" target="_blank"><img src="./img/signpath_logo.png"></a>
 
 ## Disclosures
 
