@@ -13,7 +13,8 @@
     "add": "Add Bookmark",
     "external": "External",
     "name": "Bookmark",
-    "url": "Url"
+    "url": "Url",
+    "add-file": "Add File"
   },
   "clipboard": {
     "empty": "Clipboard was empty. You may need to start PoE Overlay with privileged rights.",
