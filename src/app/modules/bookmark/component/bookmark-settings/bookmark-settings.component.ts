@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core'
+import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core'
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
 
 export interface BookmarkUserSettings extends UserSettings {

@@ -11,10 +11,10 @@
   },
   "bookmark": {
     "add": "Add Bookmark",
+    "add-file": "Add File",
     "external": "External",
     "name": "Bookmark",
-    "url": "Url",
-    "add-file": "Add File"
+    "url": "Url"
   },
   "clipboard": {
     "empty": "Clipboard was empty. You may need to start PoE Overlay with privileged rights.",
